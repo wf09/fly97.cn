@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fly97.cn/"/>
-  <updated>2020-08-09T11:58:52.845Z</updated>
+  <updated>2020-08-09T06:24:28.216Z</updated>
   <id>http://fly97.cn/</id>
   
   <author>
@@ -15,27 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>深度学习常见损失函数 - 副本</title>
-    <link href="http://fly97.cn/2020/08/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B8%B8%E8%A7%81%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%20-%20%E5%89%AF%E6%9C%AC/"/>
-    <id>http://fly97.cn/2020/08/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B8%B8%E8%A7%81%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%20-%20%E5%89%AF%E6%9C%AC/</id>
-    <published>2020-08-09T12:00:00.000Z</published>
-    <updated>2020-08-09T11:58:52.845Z</updated>
-    
-    <content type="html"><![CDATA[<p>我们所说的优化，即优化网络权值使得损失函数值变小。但是，损失函数值变小是否能代表模型的分类/回归精度变高呢？那么多种损失函数，应该如何选择呢？</p><a id="more"></a><h4 id="L1范数损失-L1Loss"><a href="#L1范数损失-L1Loss" class="headerlink" title="L1范数损失  L1Loss"></a>L1范数损失  L1Loss</h4><p>功能： 计算 output 和 target 之差的绝对值，可选返回同维度的tensor或者是一个标量。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.L1Loss(reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure><p>参数：</p><blockquote><p>reduction-三个值，none: 不使用约简；mean:返回loss和的平均值；sum:返回loss的和。默认：mean。</p></blockquote><h4 id="均方损失误差-MESLoss"><a href="#均方损失误差-MESLoss" class="headerlink" title="均方损失误差 MESLoss"></a>均方损失误差 MESLoss</h4><p>功能： 计算 output 和 target 之差的平方，可选返回同维度的tensor或者是一个标量。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.MSELoss(reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure><p>参数：</p><blockquote><p>reduction-三个值，none: 不使用约简；mean:返回loss和的平均值；sum:返回loss的和。默认：mean。</p></blockquote><h4 id="交叉熵损失-CrossEntropyLoss"><a href="#交叉熵损失-CrossEntropyLoss" class="headerlink" title="交叉熵损失 CrossEntropyLoss"></a>交叉熵损失 CrossEntropyLoss</h4><p>功能： 将输入经过 softmax 激活函数之后，再计算其与 target 的交叉熵损失。即该方法将 nn.LogSoftmax() 和 nn.NLLLoss() 进行了结合。严格意义上的交叉熵损失函数应该是 nn.NLLLoss()。</p><p>当训练有 C 个类别的分类问题时很有效，可选参数<code>weight</code>必须是一个1维<code>Tensor</code>，权重将被分配给各个类别。对于不平衡的训练集非常有效。</p><p>在多分类任务中，经常采用 softmax 激活函数+交叉熵损失函数。因为交叉熵描述了两个<strong>概率分布</strong>的差异，然而神经网络输出的是向量，并不是概率分布的形式。所以需要 softmax 激活函数将一个向量进行“归一化”成概率分布的形式，再采用交叉熵损失函数计算 loss.<br>$$<br>loss(x,class)=weight[class]\left(-x[class]+log \left(\sum_{j}^{}exp(x[    j])\right)\right)<br>$$</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.CrossEntropyLoss(weight=<span class="literal">None</span>,ignore_index=<span class="number">-100</span>, reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure><p>参数：</p><blockquote><p>weight (Tensor, optional) – 自定义的每个类别的权重. 必须是一个长度为 C 的 Tensor</p><p>ignore_index (int, optional) – 设置一个目标值, 该目标值会被忽略, 从而不会影响到 输入的梯度。</p><p>reduction-三个值，none: 不使用约简；mean:返回loss和的平均值；sum:返回loss的和。默认：mean。</p></blockquote><h4 id="KL散度损失-KLDivLoss"><a href="#KL散度损失-KLDivLoss" class="headerlink" title="KL散度损失 KLDivLoss"></a>KL散度损失 KLDivLoss</h4><p>功能：计算 input 和 target 之间的 KL 散度。KL散度可用于衡量不同的连续分布之间的距离，在连续的输出分布的空间上(离散采样)上进行直接回归时<strong>很有效</strong>。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.KLDivLoss(reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure><p>参数：</p><blockquote><p>reduction-三个值，none: 不使用约简；mean:返回loss和的平均值；sum:返回loss的和。默认：mean。</p></blockquote><blockquote><p>补充：KL散度 KL散度( Kullback–Leibler divergence) 又称为相对熵(Relative Entropy)，用于描述两个概率分布之间的差异。计算公式(离散时)：</p><p>其中p表示真实分布，q表示p的拟合分布， D(P||Q)表示当用概率分布q来拟合真实分布p时，产生的信息损耗。这里的信息损耗，可以理解为损失，损失越低，拟合分布q越接近真实分布p。同时也可以从另外一个角度上观察这个公式，即计算的是 p 与 q 之间的对数差在 p 上的期望值。 特别注意，D(p||q) ≠ D(q||p)， 其不具有对称性，因此不能称为K-L距离。</p><p><strong>信息熵 = 交叉熵 - 相对熵</strong> 从信息论角度观察三者，其关系为信息熵 = 交叉熵 - 相对熵。在机器学习中，当训练数据固定，最小化相对熵 D(p||q) 等价于最小化交叉熵 H(p,q) 。</p></blockquote><p>使用注意事项： 要想获得真正的KL散度，需要如下操作：</p><ol><li><p>reduce = True ；size_average=False</p></li><li><p>计算得到的 loss 要对 batch 进行求平均</p></li></ol><h4 id="二进制交叉熵损失-BCELoss"><a href="#二进制交叉熵损失-BCELoss" class="headerlink" title="二进制交叉熵损失 BCELoss"></a>二进制交叉熵损失 BCELoss</h4><p>功能： 二分类任务时的交叉熵计算函数。此函数可以认为是nn.CrossEntropyLoss函数的特例。其分类限定为二分类，y必须是{0,1}。还需要注意的是，input应该为概率分布的形式，这样才符合交叉熵的应用。所以在BCELoss之前，input一般为sigmoid激活层的输出。该损失函数在自编码器中常用。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.BCELoss(weight=<span class="literal">None</span>, reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure><p>参数：</p><blockquote><p>weight (Tensor, optional) – 自定义的每个 batch 元素的 loss 的权重. 必须是一个长度为 “nbatch” 的 的 Tensor</p></blockquote><h4 id="BCEWithLogitsLoss"><a href="#BCEWithLogitsLoss" class="headerlink" title="BCEWithLogitsLoss"></a>BCEWithLogitsLoss</h4><p>功能： 将Sigmoid与BCELoss结合，类似于CrossEntropyLoss(将nn.LogSoftmax()和 nn.NLLLoss()进行结合）。即input会经过Sigmoid激活函数，将input变成概率分布的形式。 计算公式：    </p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.BCEWithLogitsLoss(weight=<span class="literal">None</span>, reduction=<span class="string">&#x27;mean&#x27;</span>, pos_weight=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure><p>参数：</p><blockquote><p>weight (Tensor, optional) – 自定义的每个 batch 元素的 loss 的权重. 必须是一个长度 为 “nbatch” 的 Tensor</p></blockquote><h4 id="MarginRankingLoss"><a href="#MarginRankingLoss" class="headerlink" title="MarginRankingLoss"></a>MarginRankingLoss</h4><p>功能： 计算两个向量之间的相似度，当两个向量之间的距离大于margin，则loss为正，小于margin，loss为0。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.MarginRankingLoss(margin=<span class="number">0.0</span>, reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure><p>对于 mini-batch (小批量) 中每个实例的损失函数如下：<br>$$<br>loss(x,y)=max(0,-y*(x1-x2)+margin)<br>$$<br>参数：</p><blockquote><p>margin：默认值是0</p></blockquote><h4 id="HingeEmbeddingLoss"><a href="#HingeEmbeddingLoss" class="headerlink" title="HingeEmbeddingLoss"></a>HingeEmbeddingLoss</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.HingeEmbeddingLoss(margin=<span class="number">1.0</span>,  reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure><p>功能： 未知。主要用于衡量两个输入是否相似。 used for learning nonlinear embeddings or semi-supervised 。</p><p>转载自：<a href="https://zhuanlan.zhihu.com/p/61379965">https://zhuanlan.zhihu.com/p/61379965</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;我们所说的优化，即优化网络权值使得损失函数值变小。但是，损失函数值变小是否能代表模型的分类/回归精度变高呢？那么多种损失函数，应该如何选择呢？&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="机器学习" scheme="http://fly97.cn/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
   
   <entry>
     <title>深度学习常见损失函数</title>
@@ -464,6 +443,27 @@
       <category term="Python" scheme="http://fly97.cn/tags/Python/"/>
     
       <category term="pip" scheme="http://fly97.cn/tags/pip/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Office Tool Plus使用教程</title>
+    <link href="http://fly97.cn/2020/05/11/office%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B/"/>
+    <id>http://fly97.cn/2020/05/11/office%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B/</id>
+    <published>2020-05-11T04:52:00.000Z</published>
+    <updated>2020-05-30T12:51:09.933Z</updated>
+    
+    <content type="html"><![CDATA[<p>Office Tool Plus 使用教程</p><a id="more"></a><p>软件介绍：<a href="https://otp.landian.vip/zh-cn/">https://otp.landian.vip/zh-cn/</a></p><p>软件下载地址：<a href="https://download.coolhub.top/">https://download.coolhub.top/</a></p><p>备份地址：<a href="https://ftp.fly97.cn/windows/app/Office%20Tool%20v7.5.zip">https://ftp.fly97.cn/windows/app/Office%20Tool%20v7.5.zip</a></p><h4 id="1-选择安装产品"><a href="#1-选择安装产品" class="headerlink" title="1.选择安装产品"></a>1.选择安装产品</h4><p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200517194431639.png" alt="image-20200517194431639"></p><p>注意：由于国内到微软的网络不稳定，建议<strong>部署模式</strong>选择<strong>下载后安装</strong>。耐心等待安装完毕即可。</p><h4 id="2-激活office"><a href="#2-激活office" class="headerlink" title="2.激活office"></a>2.激活office</h4><p>首先，根据选择的类型选择对应的许可证。</p><p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200517194323507.png" alt="image-20200517194323507"></p><p><del>然后，选择<strong>零售版</strong>安装的同学<strong>可能需要安装</strong>Office2019专业版特定的密钥：</del></p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP</span><br></pre></td></tr></table></figure><p>最后，选择对应的KMS服务器。</p><p>推荐使用：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kms.moeclub.org</span><br></pre></td></tr></table></figure><p>完。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Office Tool Plus 使用教程&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="office" scheme="http://fly97.cn/tags/office/"/>
     
   </entry>
   
