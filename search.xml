@@ -968,27 +968,6 @@
       </tags>
   </entry>
   <entry>
-    <title>使用jsdelivrCDN加速github文件</title>
-    <url>/2020/06/20/%E4%BD%BF%E7%94%A8jsdelivrCDN%E5%8A%A0%E9%80%9Fgithub%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<p>jsDelivr 是国外的一家优秀的公共 CDN 服务提供商，也是首个「打通中国大陆（网宿公司运营）与海外的免费 CDN 服务」。</p>
-<a id="more"></a>
-
-<h3 id="jsDelivr-配置"><a href="#jsDelivr-配置" class="headerlink" title="jsDelivr 配置"></a>jsDelivr 配置</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;wf09&#x2F;upload@master&#x2F;1.png</span><br></pre></td></tr></table></figure>
-
-<p>其中：</p>
-<ul>
-<li><code>gh</code> 表示来自 Github 的仓库</li>
-<li><code>wf09/upload</code> 指的是用户名/仓库名</li>
-<li><code>master</code> 仓库的分支</li>
-<li><code>1.png</code>仓库下的具体文件</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>jsdelivrCDN</tag>
-        <tag>github</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用pip离线安装PyTorch-gpu</title>
     <url>/2020/02/17/%E4%BD%BF%E7%94%A8pip%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85PyTorch-gpu/</url>
     <content><![CDATA[<p>废话不多说，上教程。</p>
@@ -1051,6 +1030,27 @@
 ]]></content>
       <tags>
         <tag>PyTorch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用jsdelivrCDN加速github文件</title>
+    <url>/2020/06/20/%E4%BD%BF%E7%94%A8jsdelivrCDN%E5%8A%A0%E9%80%9Fgithub%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<p>jsDelivr 是国外的一家优秀的公共 CDN 服务提供商，也是首个「打通中国大陆（网宿公司运营）与海外的免费 CDN 服务」。</p>
+<a id="more"></a>
+
+<h3 id="jsDelivr-配置"><a href="#jsDelivr-配置" class="headerlink" title="jsDelivr 配置"></a>jsDelivr 配置</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;wf09&#x2F;upload@master&#x2F;1.png</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ul>
+<li><code>gh</code> 表示来自 Github 的仓库</li>
+<li><code>wf09/upload</code> 指的是用户名/仓库名</li>
+<li><code>master</code> 仓库的分支</li>
+<li><code>1.png</code>仓库下的具体文件</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>jsdelivrCDN</tag>
+        <tag>github</tag>
       </tags>
   </entry>
   <entry>
@@ -1714,88 +1714,6 @@
 <p>对“根蒂”还是对“敲声”更重视，看起来和属性选择，亦称为“特征选择”(feature selection)有关，但需注意的是，机器学习中的特征选择仍是基于对训练样本的模型的分析进行的，而在此处我们并非基于特征选择做出对根蒂的重视；这里对“根蒂”的信赖可视为基于某种领域的知识而产生的归纳偏好关于特征选择方面的内容可以参加后续的更新。</p>
 </blockquote>
 <p>任何一个有效的机器学习算法未必有其归纳偏好，否则它将被假设空间中看似在训练集上“等效”的假设所迷惑，而无法产生确定的学习结果。可以想象，如果没有偏好，我们的西瓜学习算法产生的模型每次在进行预测时随机抽选训练集上的等效假设，那么对这个新瓜————–学得模型时而告诉我们他是好的，时而告诉我们他是不好的，这样的学习结果显然没有意义。</p>
-]]></content>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>深度学习常见损失函数</title>
-    <url>/2020/08/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B8%B8%E8%A7%81%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%20-%20%E5%89%AF%E6%9C%AC/</url>
-    <content><![CDATA[<p>我们所说的优化，即优化网络权值使得损失函数值变小。但是，损失函数值变小是否能代表模型的分类/回归精度变高呢？那么多种损失函数，应该如何选择呢？</p>
-<a id="more"></a>
-
-
-
-<h4 id="L1范数损失-L1Loss"><a href="#L1范数损失-L1Loss" class="headerlink" title="L1范数损失  L1Loss"></a>L1范数损失  L1Loss</h4><p>功能： 计算 output 和 target 之差的绝对值，可选返回同维度的tensor或者是一个标量。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">torch.nn.L1Loss(reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>参数：</p>
-<blockquote>
-<p>reduction-三个值，none: 不使用约简；mean:返回loss和的平均值；sum:返回loss的和。默认：mean。</p>
-</blockquote>
-<h4 id="均方损失误差-MESLoss"><a href="#均方损失误差-MESLoss" class="headerlink" title="均方损失误差 MESLoss"></a>均方损失误差 MESLoss</h4><p>功能： 计算 output 和 target 之差的平方，可选返回同维度的tensor或者是一个标量。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">torch.nn.MSELoss(reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>参数：</p>
-<blockquote>
-<p>reduction-三个值，none: 不使用约简；mean:返回loss和的平均值；sum:返回loss的和。默认：mean。</p>
-</blockquote>
-<h4 id="交叉熵损失-CrossEntropyLoss"><a href="#交叉熵损失-CrossEntropyLoss" class="headerlink" title="交叉熵损失 CrossEntropyLoss"></a>交叉熵损失 CrossEntropyLoss</h4><p>功能： 将输入经过 softmax 激活函数之后，再计算其与 target 的交叉熵损失。即该方法将 nn.LogSoftmax() 和 nn.NLLLoss() 进行了结合。严格意义上的交叉熵损失函数应该是 nn.NLLLoss()。</p>
-<p>当训练有 C 个类别的分类问题时很有效，可选参数<code>weight</code>必须是一个1维<code>Tensor</code>，权重将被分配给各个类别。对于不平衡的训练集非常有效。</p>
-<p>在多分类任务中，经常采用 softmax 激活函数+交叉熵损失函数。因为交叉熵描述了两个<strong>概率分布</strong>的差异，然而神经网络输出的是向量，并不是概率分布的形式。所以需要 softmax 激活函数将一个向量进行“归一化”成概率分布的形式，再采用交叉熵损失函数计算 loss.<br>$$<br>loss(x,class)=weight[class]\left(-x[class]+log \left(\sum_{j}^{}exp(x[    j])\right)\right)<br>$$</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">torch.nn.CrossEntropyLoss(weight=<span class="literal">None</span>,ignore_index=<span class="number">-100</span>, reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>参数：</p>
-<blockquote>
-<p>weight (Tensor, optional) – 自定义的每个类别的权重. 必须是一个长度为 C 的 Tensor</p>
-<p>ignore_index (int, optional) – 设置一个目标值, 该目标值会被忽略, 从而不会影响到 输入的梯度。</p>
-<p>reduction-三个值，none: 不使用约简；mean:返回loss和的平均值；sum:返回loss的和。默认：mean。</p>
-</blockquote>
-<h4 id="KL散度损失-KLDivLoss"><a href="#KL散度损失-KLDivLoss" class="headerlink" title="KL散度损失 KLDivLoss"></a>KL散度损失 KLDivLoss</h4><p>功能：计算 input 和 target 之间的 KL 散度。KL散度可用于衡量不同的连续分布之间的距离，在连续的输出分布的空间上(离散采样)上进行直接回归时<strong>很有效</strong>。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">torch.nn.KLDivLoss(reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>参数：</p>
-<blockquote>
-<p>reduction-三个值，none: 不使用约简；mean:返回loss和的平均值；sum:返回loss的和。默认：mean。</p>
-</blockquote>
-<blockquote>
-<p>补充：KL散度 KL散度( Kullback–Leibler divergence) 又称为相对熵(Relative Entropy)，用于描述两个概率分布之间的差异。计算公式(离散时)：</p>
-<p>其中p表示真实分布，q表示p的拟合分布， D(P||Q)表示当用概率分布q来拟合真实分布p时，产生的信息损耗。这里的信息损耗，可以理解为损失，损失越低，拟合分布q越接近真实分布p。同时也可以从另外一个角度上观察这个公式，即计算的是 p 与 q 之间的对数差在 p 上的期望值。 特别注意，D(p||q) ≠ D(q||p)， 其不具有对称性，因此不能称为K-L距离。</p>
-<p><strong>信息熵 = 交叉熵 - 相对熵</strong> 从信息论角度观察三者，其关系为信息熵 = 交叉熵 - 相对熵。在机器学习中，当训练数据固定，最小化相对熵 D(p||q) 等价于最小化交叉熵 H(p,q) 。</p>
-</blockquote>
-<p>使用注意事项： 要想获得真正的KL散度，需要如下操作：</p>
-<ol>
-<li><p>reduce = True ；size_average=False</p>
-</li>
-<li><p>计算得到的 loss 要对 batch 进行求平均</p>
-</li>
-</ol>
-<h4 id="二进制交叉熵损失-BCELoss"><a href="#二进制交叉熵损失-BCELoss" class="headerlink" title="二进制交叉熵损失 BCELoss"></a>二进制交叉熵损失 BCELoss</h4><p>功能： 二分类任务时的交叉熵计算函数。此函数可以认为是nn.CrossEntropyLoss函数的特例。其分类限定为二分类，y必须是{0,1}。还需要注意的是，input应该为概率分布的形式，这样才符合交叉熵的应用。所以在BCELoss之前，input一般为sigmoid激活层的输出。该损失函数在自编码器中常用。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">torch.nn.BCELoss(weight=<span class="literal">None</span>, reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>参数：</p>
-<blockquote>
-<p>weight (Tensor, optional) – 自定义的每个 batch 元素的 loss 的权重. 必须是一个长度为 “nbatch” 的 的 Tensor</p>
-</blockquote>
-<h4 id="BCEWithLogitsLoss"><a href="#BCEWithLogitsLoss" class="headerlink" title="BCEWithLogitsLoss"></a>BCEWithLogitsLoss</h4><p>功能： 将Sigmoid与BCELoss结合，类似于CrossEntropyLoss(将nn.LogSoftmax()和 nn.NLLLoss()进行结合）。即input会经过Sigmoid激活函数，将input变成概率分布的形式。 计算公式：    </p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">torch.nn.BCEWithLogitsLoss(weight=<span class="literal">None</span>, reduction=<span class="string">&#x27;mean&#x27;</span>, pos_weight=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
-
-<p>参数：</p>
-<blockquote>
-<p>weight (Tensor, optional) – 自定义的每个 batch 元素的 loss 的权重. 必须是一个长度 为 “nbatch” 的 Tensor</p>
-</blockquote>
-<h4 id="MarginRankingLoss"><a href="#MarginRankingLoss" class="headerlink" title="MarginRankingLoss"></a>MarginRankingLoss</h4><p>功能： 计算两个向量之间的相似度，当两个向量之间的距离大于margin，则loss为正，小于margin，loss为0。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">torch.nn.MarginRankingLoss(margin=<span class="number">0.0</span>, reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>对于 mini-batch (小批量) 中每个实例的损失函数如下：<br>$$<br>loss(x,y)=max(0,-y*(x1-x2)+margin)<br>$$<br>参数：</p>
-<blockquote>
-<p>margin：默认值是0</p>
-</blockquote>
-<h4 id="HingeEmbeddingLoss"><a href="#HingeEmbeddingLoss" class="headerlink" title="HingeEmbeddingLoss"></a>HingeEmbeddingLoss</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">torch.nn.HingeEmbeddingLoss(margin=<span class="number">1.0</span>,  reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>功能： 未知。主要用于衡量两个输入是否相似。 used for learning nonlinear embeddings or semi-supervised 。</p>
-<p>转载自：<a href="https://zhuanlan.zhihu.com/p/61379965">https://zhuanlan.zhihu.com/p/61379965</a></p>
 ]]></content>
       <tags>
         <tag>机器学习</tag>
