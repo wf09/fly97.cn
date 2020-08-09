@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://fly97.cn/2020/08/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B8%B8%E8%A7%81%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%20-%20%E5%89%AF%E6%9C%AC/</loc>
+    
+    <lastmod>2020-08-09</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://fly97.cn/2020/08/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B8%B8%E8%A7%81%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/</loc>
     
     <lastmod>2020-08-09</lastmod>
@@ -226,14 +233,14 @@
   </url>
   
   <url>
-    <loc>http://fly97.cn/tags/index.html</loc>
+    <loc>http://fly97.cn/categories/index.html</loc>
     
     <lastmod>2020-03-27</lastmod>
     
   </url>
   
   <url>
-    <loc>http://fly97.cn/categories/index.html</loc>
+    <loc>http://fly97.cn/tags/index.html</loc>
     
     <lastmod>2020-03-27</lastmod>
     
@@ -291,14 +298,14 @@
   </url>
   
   <url>
-    <loc>http://fly97.cn/tags/git/</loc>
+    <loc>http://fly97.cn/tags/docker/</loc>
     <lastmod>2020-08-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://fly97.cn/tags/docker/</loc>
+    <loc>http://fly97.cn/tags/git/</loc>
     <lastmod>2020-08-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -445,6 +452,13 @@
   </url>
   
   <url>
+    <loc>http://fly97.cn/tags/%E8%AF%81%E4%B9%A6/</loc>
+    <lastmod>2020-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://fly97.cn/tags/jsdelivrCDN/</loc>
     <lastmod>2020-08-09</lastmod>
     <changefreq>daily</changefreq>
@@ -453,13 +467,6 @@
   
   <url>
     <loc>http://fly97.cn/tags/github/</loc>
-    <lastmod>2020-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://fly97.cn/tags/%E8%AF%81%E4%B9%A6/</loc>
     <lastmod>2020-08-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
