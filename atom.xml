@@ -145,6 +145,27 @@
   </entry>
   
   <entry>
+    <title>PyTorch学习(二)</title>
+    <link href="http://fly97.cn/2020/08/03/PyTorch%E5%AD%A6%E4%B9%A0(%E4%BA%8C)/"/>
+    <id>http://fly97.cn/2020/08/03/PyTorch%E5%AD%A6%E4%B9%A0(%E4%BA%8C)/</id>
+    <published>2020-08-03T12:54:00.000Z</published>
+    <updated>2020-08-05T14:29:11.315Z</updated>
+    
+    <content type="html"><![CDATA[<p>下面继续介绍PyTorch的主要模块。</p><a id="more"></a><h4 id="torch-distributed模块"><a href="#torch-distributed模块" class="headerlink" title="torch.distributed模块"></a>torch.distributed模块</h4><p>torch.distributed是PyTorch的分布式计算模块，主要功能是提供PyTorch并行运行环境，其主要支持的后端有MPI、Gloo和NCCL三种。PyTorch的分布式计算工作原理主要是启动多个并行的进程，每个进程独立地做反向传播，最后对所有进程权重张量地梯度做归约（Reduce）。用到后端地部分主要是广播（Broadcast）和数据地收集（Gather）,其中，前者是把数据从一个节点（进程）传播到另一个节点（进程）传播到另一个节点（进程），比如归约后梯度张量地传播，后者则是把数据从其他节点（进程）转移到当前节点（进程），比如把梯度张量从其他节点转移到某个特定地节点，然后对所有地张量求平均。</p><p>PyTorch地分布式计算模块不但提供了后端地一个包装，还提供了一些启动方式来启动多个进程。可以通过网络、通过环境变量、通过共享文件等。</p><h4 id="torch-distributions模块"><a href="#torch-distributions模块" class="headerlink" title="torch.distributions模块"></a>torch.distributions模块</h4><p>torch.distributions模块提供了一系列类，使得PyTorch能够对不同的分布进行采样，而且生成概率采样过程地计算图。</p><p>在强化学习（Reinforcement Learning）应用中，经常会使用一个深度学习模型来模拟在不同环境条件下采取地策略（Policy）,其最后地输出是不同动作地概率。当深度学习模型输出概率之后，需要根据概率对策略进行采样来模拟当前地概率分布，最后用梯度下降方法来让最优策略地概率最大（这个算法称为策略梯度算法，Policy Gradient）。实际上，因为采样输出地结果是离散的，无法直接求导，所以不能使用反向传播的方法来优化网络。</p><p>此模块的存在就是为了解决这个问题。可以结合torch.distributions.Categorical进行采样，然后使用对数求导技巧来规避这个问题。当然，除了服从多项式分布的torch.distributions.Categorical类，PyTorch还支持其他的分布（包括连续分布和离散分布），比如torch.distributions,Normal类支持连续的正态分布的采样，可以用于连续的强化学习策略。</p><h4 id="torch-hub模块"><a href="#torch-hub模块" class="headerlink" title="torch.hub模块"></a>torch.hub模块</h4><p>torch.hub提供了一系列预训练的模型供用户使用。</p><p>比如，可以通过torch.hub.list函数来获取某个模型镜像站点的模型信息。通过torch.hub.load来载入预训练的模型，载入后的模型可以保存到本地，并可以看的这些模型对应类支持的方法。</p><h4 id="torch-jit模块"><a href="#torch-jit模块" class="headerlink" title="torch.jit模块"></a>torch.jit模块</h4><p>torch.jit 是PyTorch的即时编译器（Just-In-Time Compiler ，JIT）模块，这个模块存在的意义是把PyTorch的动态图转换成可以优化和序列化的静态图，其主要工作原理是通过输入预先定义好的张量，追踪整个动态图的构建过程，得到最终构建出来的动态图，然后转换为静态图（通过中间表示，即Intermediate Representation，来描述最后的到的图）。通过JIT得到的经他图可以被保存，并且被PyTorch其他的前端（如C++语言的前端）支持。</p><p>JIT也可以用来生成其他格式的神经网络描述文件，如前文叙述的ONNX。</p><p>torch.jit支持两种方式，即脚本模式（ScriptModule）和追踪模式（Tracing）。前者和后者都能构建静态图，区别在于前者支持控制流，后者不支持，但是前者支持的升级网络模块比后者少，比如脚本模式不支持torch.nn.GRU（详细的描述可以参考PyTorch官方提供的JIT相关的文档）。</p><h4 id="torch-multprocessing模块"><a href="#torch-multprocessing模块" class="headerlink" title="torch.multprocessing模块"></a>torch.multprocessing模块</h4><p>torch.multiprocessing定义了PyTorch中的多进程API。</p><p>这个模块可以启动不同的进程，每个进程运行不同的深度学习模型，并且能够在进程间共享张量（通过共享内存的方式）。共享的张量可以在CPU上，也可以在GPU上，多进程API还提供了与Python原生的多进程API（即multiprocessing库）相同的一系列函数，包括锁（Lock）和队列（Queue）等。</p><h4 id="torch-random模块"><a href="#torch-random模块" class="headerlink" title="torch.random模块"></a>torch.random模块</h4><p>torch.random提供了一系列的方法来保存和设置随机数生成器的状态。</p><p>使用<strong>get_rng_state函数</strong>获取当前随机数生成器状态，<strong>set_rng_state函数</strong>设置当前随机数生成器状态，并且可以使用<strong>manual_seed函数</strong>来设置随机种子，也可使用initial_seed函数来得到程序初始的随机种子。</p><p>神经网络的训练是一个随机的过程，包括数据的输入，权重的初始化都具有一定的随机性。设置一个统一的随机数种子可以有效地帮助我们测试不同结构地神经网络地表现，有助于调试升级神经网络地结构。</p><h4 id="torch-onnx模块"><a href="#torch-onnx模块" class="headerlink" title="torch.onnx模块"></a>torch.onnx模块</h4><p>torch.onnx定义了PyTorch导出和载入ONNX格式地深度学习模型描述文件。</p><p>ONNX格式地存在是为了方便不同深度学习框架之间交换模型。引入这个模块可以很方便从PyTorch导出模型给其他深度学习框架使用，或者让PyTorch可以载入其他深度学习框架构建的深度学习模型。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;下面继续介绍PyTorch的主要模块。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="PyTorch" scheme="http://fly97.cn/tags/PyTorch/"/>
+    
+  </entry>
+  
+  <entry>
     <title>PyTorch学习(三)</title>
     <link href="http://fly97.cn/2020/08/03/PyTorch%E5%AD%A6%E4%B9%A0(%E4%B8%89)/"/>
     <id>http://fly97.cn/2020/08/03/PyTorch%E5%AD%A6%E4%B9%A0(%E4%B8%89)/</id>
@@ -157,27 +178,6 @@
     
       &lt;p&gt;下面介绍PyTorch的辅助工具模块。&lt;/p&gt;
 &lt;p&gt;torch.utils提供了一系列的工具来帮助神经网络的训练、测试和结构优化。这个模块主要包含以下6个子模块。&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="PyTorch" scheme="http://fly97.cn/tags/PyTorch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PyTorch学习(二)</title>
-    <link href="http://fly97.cn/2020/08/03/PyTorch%E5%AD%A6%E4%B9%A0(%E4%BA%8C)/"/>
-    <id>http://fly97.cn/2020/08/03/PyTorch%E5%AD%A6%E4%B9%A0(%E4%BA%8C)/</id>
-    <published>2020-08-03T12:54:00.000Z</published>
-    <updated>2020-08-05T14:29:11.315Z</updated>
-    
-    <content type="html"><![CDATA[<p>下面继续介绍PyTorch的主要模块。</p><a id="more"></a><h4 id="torch-distributed模块"><a href="#torch-distributed模块" class="headerlink" title="torch.distributed模块"></a>torch.distributed模块</h4><p>torch.distributed是PyTorch的分布式计算模块，主要功能是提供PyTorch并行运行环境，其主要支持的后端有MPI、Gloo和NCCL三种。PyTorch的分布式计算工作原理主要是启动多个并行的进程，每个进程独立地做反向传播，最后对所有进程权重张量地梯度做归约（Reduce）。用到后端地部分主要是广播（Broadcast）和数据地收集（Gather）,其中，前者是把数据从一个节点（进程）传播到另一个节点（进程）传播到另一个节点（进程），比如归约后梯度张量地传播，后者则是把数据从其他节点（进程）转移到当前节点（进程），比如把梯度张量从其他节点转移到某个特定地节点，然后对所有地张量求平均。</p><p>PyTorch地分布式计算模块不但提供了后端地一个包装，还提供了一些启动方式来启动多个进程。可以通过网络、通过环境变量、通过共享文件等。</p><h4 id="torch-distributions模块"><a href="#torch-distributions模块" class="headerlink" title="torch.distributions模块"></a>torch.distributions模块</h4><p>torch.distributions模块提供了一系列类，使得PyTorch能够对不同的分布进行采样，而且生成概率采样过程地计算图。</p><p>在强化学习（Reinforcement Learning）应用中，经常会使用一个深度学习模型来模拟在不同环境条件下采取地策略（Policy）,其最后地输出是不同动作地概率。当深度学习模型输出概率之后，需要根据概率对策略进行采样来模拟当前地概率分布，最后用梯度下降方法来让最优策略地概率最大（这个算法称为策略梯度算法，Policy Gradient）。实际上，因为采样输出地结果是离散的，无法直接求导，所以不能使用反向传播的方法来优化网络。</p><p>此模块的存在就是为了解决这个问题。可以结合torch.distributions.Categorical进行采样，然后使用对数求导技巧来规避这个问题。当然，除了服从多项式分布的torch.distributions.Categorical类，PyTorch还支持其他的分布（包括连续分布和离散分布），比如torch.distributions,Normal类支持连续的正态分布的采样，可以用于连续的强化学习策略。</p><h4 id="torch-hub模块"><a href="#torch-hub模块" class="headerlink" title="torch.hub模块"></a>torch.hub模块</h4><p>torch.hub提供了一系列预训练的模型供用户使用。</p><p>比如，可以通过torch.hub.list函数来获取某个模型镜像站点的模型信息。通过torch.hub.load来载入预训练的模型，载入后的模型可以保存到本地，并可以看的这些模型对应类支持的方法。</p><h4 id="torch-jit模块"><a href="#torch-jit模块" class="headerlink" title="torch.jit模块"></a>torch.jit模块</h4><p>torch.jit 是PyTorch的即时编译器（Just-In-Time Compiler ，JIT）模块，这个模块存在的意义是把PyTorch的动态图转换成可以优化和序列化的静态图，其主要工作原理是通过输入预先定义好的张量，追踪整个动态图的构建过程，得到最终构建出来的动态图，然后转换为静态图（通过中间表示，即Intermediate Representation，来描述最后的到的图）。通过JIT得到的经他图可以被保存，并且被PyTorch其他的前端（如C++语言的前端）支持。</p><p>JIT也可以用来生成其他格式的神经网络描述文件，如前文叙述的ONNX。</p><p>torch.jit支持两种方式，即脚本模式（ScriptModule）和追踪模式（Tracing）。前者和后者都能构建静态图，区别在于前者支持控制流，后者不支持，但是前者支持的升级网络模块比后者少，比如脚本模式不支持torch.nn.GRU（详细的描述可以参考PyTorch官方提供的JIT相关的文档）。</p><h4 id="torch-multprocessing模块"><a href="#torch-multprocessing模块" class="headerlink" title="torch.multprocessing模块"></a>torch.multprocessing模块</h4><p>torch.multiprocessing定义了PyTorch中的多进程API。</p><p>这个模块可以启动不同的进程，每个进程运行不同的深度学习模型，并且能够在进程间共享张量（通过共享内存的方式）。共享的张量可以在CPU上，也可以在GPU上，多进程API还提供了与Python原生的多进程API（即multiprocessing库）相同的一系列函数，包括锁（Lock）和队列（Queue）等。</p><h4 id="torch-random模块"><a href="#torch-random模块" class="headerlink" title="torch.random模块"></a>torch.random模块</h4><p>torch.random提供了一系列的方法来保存和设置随机数生成器的状态。</p><p>使用<strong>get_rng_state函数</strong>获取当前随机数生成器状态，<strong>set_rng_state函数</strong>设置当前随机数生成器状态，并且可以使用<strong>manual_seed函数</strong>来设置随机种子，也可使用initial_seed函数来得到程序初始的随机种子。</p><p>神经网络的训练是一个随机的过程，包括数据的输入，权重的初始化都具有一定的随机性。设置一个统一的随机数种子可以有效地帮助我们测试不同结构地神经网络地表现，有助于调试升级神经网络地结构。</p><h4 id="torch-onnx模块"><a href="#torch-onnx模块" class="headerlink" title="torch.onnx模块"></a>torch.onnx模块</h4><p>torch.onnx定义了PyTorch导出和载入ONNX格式地深度学习模型描述文件。</p><p>ONNX格式地存在是为了方便不同深度学习框架之间交换模型。引入这个模块可以很方便从PyTorch导出模型给其他深度学习框架使用，或者让PyTorch可以载入其他深度学习框架构建的深度学习模型。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;下面继续介绍PyTorch的主要模块。&lt;/p&gt;
     
     </summary>
     
