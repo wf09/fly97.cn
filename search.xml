@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Git常见操作</title>
-    <url>/2020/03/07/Git%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<p>不说废话，上教程。</p>
-<a id="more"></a>
-
-<h4 id="在本地目录下关联远程repository-："><a href="#在本地目录下关联远程repository-：" class="headerlink" title="在本地目录下关联远程repository ："></a>在本地目录下关联远程repository ：</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin git@github.com:git_username/repository_name.git</span><br></pre></td></tr></table></figure>
-
-<h4 id="取消本地目录下关联的远程库："><a href="#取消本地目录下关联的远程库：" class="headerlink" title="取消本地目录下关联的远程库："></a>取消本地目录下关联的远程库：</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote remove origin</span><br></pre></td></tr></table></figure>
-
-<h4 id="查看git-commit-历史"><a href="#查看git-commit-历史" class="headerlink" title="查看git commit 历史"></a>查看git commit 历史</h4><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="回退到某个commit版本"><a href="#回退到某个commit版本" class="headerlink" title="回退到某个commit版本"></a>回退到某个commit版本</h4><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git reset --hard &lt;COMMIT_ID&gt;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>安装Anaconda3(一)</title>
     <url>/2020/07/23/Anacoda3%E6%95%99%E7%A8%8B(%E4%B8%80)/</url>
     <content><![CDATA[<p>Python是一种面向对象的解释型计算机程序设计语言，其使用，具有跨平台的特点，可以在Linux、macOS以及Windows系统中搭建环境并使用，其编写的代码在不同平台上运行时，几乎不需要做较大的改动，使用者无不受益于它的便捷性。</p>
@@ -137,6 +118,25 @@
 ]]></content>
       <tags>
         <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git常见操作</title>
+    <url>/2020/03/07/Git%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<p>不说废话，上教程。</p>
+<a id="more"></a>
+
+<h4 id="在本地目录下关联远程repository-："><a href="#在本地目录下关联远程repository-：" class="headerlink" title="在本地目录下关联远程repository ："></a>在本地目录下关联远程repository ：</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin git@github.com:git_username/repository_name.git</span><br></pre></td></tr></table></figure>
+
+<h4 id="取消本地目录下关联的远程库："><a href="#取消本地目录下关联的远程库：" class="headerlink" title="取消本地目录下关联的远程库："></a>取消本地目录下关联的远程库：</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote remove origin</span><br></pre></td></tr></table></figure>
+
+<h4 id="查看git-commit-历史"><a href="#查看git-commit-历史" class="headerlink" title="查看git commit 历史"></a>查看git commit 历史</h4><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="回退到某个commit版本"><a href="#回退到某个commit版本" class="headerlink" title="回退到某个commit版本"></a>回退到某个commit版本</h4><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git reset --hard &lt;COMMIT_ID&gt;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -286,6 +286,51 @@
       </tags>
   </entry>
   <entry>
+    <title>Python中_getattr__等的用法</title>
+    <url>/2020/03/16/Python%E4%B8%AD_getattr__%E7%AD%89%E7%9A%84%E7%94%A8%E6%B3%95/</url>
+    <content><![CDATA[<p>在使用Python的过程中可能遇到以下几个函数：</p>
+<ul>
+<li><code>getattr</code></li>
+<li><code>__getattr__</code></li>
+<li><code>__getattribute__</code></li>
+<li><code>__get__</code></li>
+</ul>
+<p>如何区别他们，如何在编程中正确使用他们呢？</p>
+<a id="more"></a>
+
+<h3 id="getattr"><a href="#getattr" class="headerlink" title="getattr"></a>getattr</h3><p><code>getattr (object, name[, default])</code>是Python的内置函数之一，它的作用是获取对象的属性。</p>
+<ul>
+<li>object 对象</li>
+<li>name 属性名</li>
+<li>default 当属性不存在时，返回的默认值</li>
+</ul>
+<p><strong>示例</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Foo</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, x</span>):</span></span><br><span class="line"><span class="meta">... </span>        self.x = x</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = Foo(<span class="number">10</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>getattr(f, <span class="string">&#x27;x&#x27;</span>)</span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.x</span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>getattr(f, <span class="string">&#x27;y&#x27;</span>, <span class="string">&#x27;bar&#x27;</span>)</span><br><span class="line"><span class="string">&#x27;bar&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="getattr-1"><a href="#getattr-1" class="headerlink" title="_ __getattr _ __"></a>_ __getattr _ __</h3><p><code>object. __getattr__(self, name)</code>是一个对象方法，如果找不到对象的属性时会调用这个方法。</p>
+<p>这个方法应该返回属性值或者抛出<code>AttributeError</code>异常。</p>
+<p>注意，如果通过正常机制能找到对象属性的话，不会调用<code>__getattr__</code>方法。</p>
+<p><strong>示例</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Frob</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, bamf</span>):</span></span><br><span class="line"><span class="meta">... </span>        self.bamf = bamf</span><br><span class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__getattr__</span>(<span class="params">self, name</span>):</span></span><br><span class="line"><span class="meta">... </span>        <span class="keyword">return</span> <span class="string">&#x27;Frob does not have `&#123;&#125;` attribute.&#x27;</span>.format(str(name))</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = Frob(<span class="string">&quot;bamf&quot;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.bar</span><br><span class="line"><span class="string">&#x27;Frob does not have `bar` attribute.&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.bamf</span><br><span class="line"><span class="string">&#x27;bamf&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="getattribute"><a href="#getattribute" class="headerlink" title="____  getattribute __ __"></a>____  getattribute __ __</h3><p>当访问 某个对象的属性时，会无条件的调用这个方法。这个方法只适用于新式类。<br> 新式类就是集成自object或者type的类。</p>
+<p>如果类还同时定义了<code>__getattr__()</code>方法，则不会调用<code>__getattr__()</code>方法，除非在<code>__getattribute__()</code>方法中显示调用<code>__getattr__()</code>或者抛出了<code>AttributeError</code>。</p>
+<p>该方法应该返回属性值或者抛出<code>AttributeError</code>异常。</p>
+<p>为了避免在方法中出现无限递归的情况，应该总是使用基类的方法来获取属性：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>object.__getattribute__(self, name).</span><br></pre></td></tr></table></figure>
+
+<p>语法：<code>object. __getattribute__(self, name)</code></p>
+<p><strong>示例</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Frob</span>(<span class="params">object</span>):</span></span><br><span class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__getattribute__</span>(<span class="params">self, name</span>):</span></span><br><span class="line"><span class="meta">... </span>        <span class="keyword">print</span> <span class="string">&quot;getting `&#123;&#125;`&quot;</span>.format(str(name))</span><br><span class="line"><span class="meta">... </span>        <span class="keyword">return</span> object.__getattribute__(self, name)</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = Frob()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.bamf = <span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.bamf</span><br><span class="line">getting `bamf`</span><br><span class="line"><span class="number">10</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="get"><a href="#get" class="headerlink" title="____ __ get __"></a>____ __ get __</h3><p><code>__get__()</code>方法是描述符方法之一。描述符用于将访问对象属性转变成调用描述符方法。</p>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Descriptor</span>(<span class="params">object</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__get__</span>(<span class="params">self, obj, objtype</span>):</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">&quot;get value=%s&quot;</span> % self.val </span><br><span class="line">        <span class="keyword">return</span> self.val</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__set__</span>(<span class="params">self, obj, val</span>):</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">&quot;set value=%s&quot;</span> % val</span><br><span class="line">        self.val = val</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stu</span>(<span class="params">object</span>):</span></span><br><span class="line">    age = Descriptor()</span><br><span class="line"></span><br><span class="line">stu = Stu()</span><br><span class="line">stu.age = <span class="number">12</span>    <span class="comment"># set value=12</span></span><br><span class="line"><span class="keyword">print</span> stu.age   <span class="comment"># get value=12</span></span><br><span class="line">                <span class="comment"># 12</span></span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python中pickle模块的使用</title>
     <url>/2020/03/04/Python%E4%B8%ADpickle%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<p>废话不多说，直接上代码。</p>
@@ -360,62 +405,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Python中_getattr__等的用法</title>
-    <url>/2020/03/16/Python%E4%B8%AD_getattr__%E7%AD%89%E7%9A%84%E7%94%A8%E6%B3%95/</url>
-    <content><![CDATA[<p>在使用Python的过程中可能遇到以下几个函数：</p>
-<ul>
-<li><code>getattr</code></li>
-<li><code>__getattr__</code></li>
-<li><code>__getattribute__</code></li>
-<li><code>__get__</code></li>
-</ul>
-<p>如何区别他们，如何在编程中正确使用他们呢？</p>
-<a id="more"></a>
-
-<h3 id="getattr"><a href="#getattr" class="headerlink" title="getattr"></a>getattr</h3><p><code>getattr (object, name[, default])</code>是Python的内置函数之一，它的作用是获取对象的属性。</p>
-<ul>
-<li>object 对象</li>
-<li>name 属性名</li>
-<li>default 当属性不存在时，返回的默认值</li>
-</ul>
-<p><strong>示例</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Foo</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, x</span>):</span></span><br><span class="line"><span class="meta">... </span>        self.x = x</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = Foo(<span class="number">10</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>getattr(f, <span class="string">&#x27;x&#x27;</span>)</span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.x</span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>getattr(f, <span class="string">&#x27;y&#x27;</span>, <span class="string">&#x27;bar&#x27;</span>)</span><br><span class="line"><span class="string">&#x27;bar&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="getattr-1"><a href="#getattr-1" class="headerlink" title="_ __getattr _ __"></a>_ __getattr _ __</h3><p><code>object. __getattr__(self, name)</code>是一个对象方法，如果找不到对象的属性时会调用这个方法。</p>
-<p>这个方法应该返回属性值或者抛出<code>AttributeError</code>异常。</p>
-<p>注意，如果通过正常机制能找到对象属性的话，不会调用<code>__getattr__</code>方法。</p>
-<p><strong>示例</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Frob</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, bamf</span>):</span></span><br><span class="line"><span class="meta">... </span>        self.bamf = bamf</span><br><span class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__getattr__</span>(<span class="params">self, name</span>):</span></span><br><span class="line"><span class="meta">... </span>        <span class="keyword">return</span> <span class="string">&#x27;Frob does not have `&#123;&#125;` attribute.&#x27;</span>.format(str(name))</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = Frob(<span class="string">&quot;bamf&quot;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.bar</span><br><span class="line"><span class="string">&#x27;Frob does not have `bar` attribute.&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.bamf</span><br><span class="line"><span class="string">&#x27;bamf&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="getattribute"><a href="#getattribute" class="headerlink" title="____  getattribute __ __"></a>____  getattribute __ __</h3><p>当访问 某个对象的属性时，会无条件的调用这个方法。这个方法只适用于新式类。<br> 新式类就是集成自object或者type的类。</p>
-<p>如果类还同时定义了<code>__getattr__()</code>方法，则不会调用<code>__getattr__()</code>方法，除非在<code>__getattribute__()</code>方法中显示调用<code>__getattr__()</code>或者抛出了<code>AttributeError</code>。</p>
-<p>该方法应该返回属性值或者抛出<code>AttributeError</code>异常。</p>
-<p>为了避免在方法中出现无限递归的情况，应该总是使用基类的方法来获取属性：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>object.__getattribute__(self, name).</span><br></pre></td></tr></table></figure>
-
-<p>语法：<code>object. __getattribute__(self, name)</code></p>
-<p><strong>示例</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Frob</span>(<span class="params">object</span>):</span></span><br><span class="line"><span class="meta">... </span>    <span class="function"><span class="keyword">def</span> <span class="title">__getattribute__</span>(<span class="params">self, name</span>):</span></span><br><span class="line"><span class="meta">... </span>        <span class="keyword">print</span> <span class="string">&quot;getting `&#123;&#125;`&quot;</span>.format(str(name))</span><br><span class="line"><span class="meta">... </span>        <span class="keyword">return</span> object.__getattribute__(self, name)</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = Frob()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.bamf = <span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.bamf</span><br><span class="line">getting `bamf`</span><br><span class="line"><span class="number">10</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="get"><a href="#get" class="headerlink" title="____ __ get __"></a>____ __ get __</h3><p><code>__get__()</code>方法是描述符方法之一。描述符用于将访问对象属性转变成调用描述符方法。</p>
-<p>示例：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Descriptor</span>(<span class="params">object</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__get__</span>(<span class="params">self, obj, objtype</span>):</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">&quot;get value=%s&quot;</span> % self.val </span><br><span class="line">        <span class="keyword">return</span> self.val</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__set__</span>(<span class="params">self, obj, val</span>):</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">&quot;set value=%s&quot;</span> % val</span><br><span class="line">        self.val = val</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stu</span>(<span class="params">object</span>):</span></span><br><span class="line">    age = Descriptor()</span><br><span class="line"></span><br><span class="line">stu = Stu()</span><br><span class="line">stu.age = <span class="number">12</span>    <span class="comment"># set value=12</span></span><br><span class="line"><span class="keyword">print</span> stu.age   <span class="comment"># get value=12</span></span><br><span class="line">                <span class="comment"># 12</span></span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python升级pip</title>
-    <url>/2020/05/27/Python%E5%8D%87%E7%BA%A7pip/</url>
-    <content><![CDATA[<p>安装pip：<code>apt install python3-pip</code></p>
-<p>升级pip：<code>python -m pip install --upgrade pip</code></p>
-]]></content>
-      <tags>
-        <tag>Python</tag>
-        <tag>pip</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python中下划线命名模式</title>
     <url>/2020/03/16/Python%E4%B8%AD%E4%B8%8B%E5%88%92%E7%BA%BF%E5%91%BD%E5%90%8D%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<p>直接上表格。</p>
@@ -459,15 +448,14 @@
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu安装php指南</title>
-    <url>/2019/01/07/Ubuntu%E5%AE%89%E8%A3%85php%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<h4 id="Ubuntu安装php指南"><a href="#Ubuntu安装php指南" class="headerlink" title="Ubuntu安装php指南"></a>Ubuntu安装php指南</h4><p>由于自带的apt源中不包含php，所以在安装php之前需要给apt添加第三方源</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install software-properties-common</span><br><span class="line">sudo add-apt-repository ppa:ondrej/php</span><br><span class="line"><span class="comment">#sudo add-apt-repository -r ppa:ondrej/php              #删除</span></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y php7.3</span><br></pre></td></tr></table></figure>
-
+    <title>Python升级pip</title>
+    <url>/2020/05/27/Python%E5%8D%87%E7%BA%A7pip/</url>
+    <content><![CDATA[<p>安装pip：<code>apt install python3-pip</code></p>
+<p>升级pip：<code>python -m pip install --upgrade pip</code></p>
 ]]></content>
       <tags>
-        <tag>Linux运维</tag>
-        <tag>PHP</tag>
+        <tag>Python</tag>
+        <tag>pip</tag>
       </tags>
   </entry>
   <entry>
@@ -483,6 +471,50 @@
       <tags>
         <tag>Ubuntu18.04</tag>
         <tag>镜像源</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu安装nodejs并更改npm镜像源</title>
+    <url>/2019/01/06/Ubuntu%E5%AE%89%E8%A3%85nodejs/</url>
+    <content><![CDATA[<h4 id="Ubuntu安装nodejs并更改npm镜像源"><a href="#Ubuntu安装nodejs并更改npm镜像源" class="headerlink" title="Ubuntu安装nodejs并更改npm镜像源"></a>Ubuntu安装nodejs并更改npm镜像源</h4><p>由于众所周知的原因，在国内使用原有的源安装<code>nodejs</code>速度非常缓慢，故可以采用清华大学的源</p>
+<h5 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -sL https://deb.nodesource.com/setup_12.x | sudo bash</span><br></pre></td></tr></table></figure>
+
+<h5 id="编辑-etc-apt-sources-list-d-nodesource-list"><a href="#编辑-etc-apt-sources-list-d-nodesource-list" class="headerlink" title="编辑 /etc/apt/sources.list.d/nodesource.list"></a>编辑 /etc/apt/sources.list.d/nodesource.list</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deb https://deb.nodesource.com/node_12.x xenial main</span><br><span class="line">deb-src https://deb.nodesource.com/node_12.x xenial main</span><br></pre></td></tr></table></figure>
+
+<h5 id="更改为："><a href="#更改为：" class="headerlink" title="更改为："></a>更改为：</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/nodesource/deb_12.x xenial main</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/nodesource/deb_12.x xenial main</span><br></pre></td></tr></table></figure>
+
+<h5 id="更新源"><a href="#更新源" class="headerlink" title="更新源"></a>更新源</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get clean</span><br><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
+
+<h5 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install nodejs</span><br></pre></td></tr></table></figure>
+
+<h5 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nodejs -v</span><br><span class="line"></span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+
+<h5 id="更换npm源"><a href="#更换npm源" class="headerlink" title="更换npm源"></a>更换npm源</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<h5 id="验证是否成功"><a href="#验证是否成功" class="headerlink" title="验证是否成功"></a>验证是否成功</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
+
+<h5 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+<h5 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a>初始化Hexo</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+
+<h5 id="生成静态网页"><a href="#生成静态网页" class="headerlink" title="生成静态网页"></a>生成静态网页</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>Linux运维</tag>
+        <tag>nodejs</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu安装php指南</title>
+    <url>/2019/01/07/Ubuntu%E5%AE%89%E8%A3%85php%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<h4 id="Ubuntu安装php指南"><a href="#Ubuntu安装php指南" class="headerlink" title="Ubuntu安装php指南"></a>Ubuntu安装php指南</h4><p>由于自带的apt源中不包含php，所以在安装php之前需要给apt添加第三方源</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install software-properties-common</span><br><span class="line">sudo add-apt-repository ppa:ondrej/php</span><br><span class="line"><span class="comment">#sudo add-apt-repository -r ppa:ondrej/php              #删除</span></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y php7.3</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>Linux运维</tag>
+        <tag>PHP</tag>
       </tags>
   </entry>
   <entry>
@@ -745,38 +777,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu安装nodejs并更改npm镜像源</title>
-    <url>/2019/01/06/Ubuntu%E5%AE%89%E8%A3%85nodejs/</url>
-    <content><![CDATA[<h4 id="Ubuntu安装nodejs并更改npm镜像源"><a href="#Ubuntu安装nodejs并更改npm镜像源" class="headerlink" title="Ubuntu安装nodejs并更改npm镜像源"></a>Ubuntu安装nodejs并更改npm镜像源</h4><p>由于众所周知的原因，在国内使用原有的源安装<code>nodejs</code>速度非常缓慢，故可以采用清华大学的源</p>
-<h5 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -sL https://deb.nodesource.com/setup_12.x | sudo bash</span><br></pre></td></tr></table></figure>
-
-<h5 id="编辑-etc-apt-sources-list-d-nodesource-list"><a href="#编辑-etc-apt-sources-list-d-nodesource-list" class="headerlink" title="编辑 /etc/apt/sources.list.d/nodesource.list"></a>编辑 /etc/apt/sources.list.d/nodesource.list</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deb https://deb.nodesource.com/node_12.x xenial main</span><br><span class="line">deb-src https://deb.nodesource.com/node_12.x xenial main</span><br></pre></td></tr></table></figure>
-
-<h5 id="更改为："><a href="#更改为：" class="headerlink" title="更改为："></a>更改为：</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/nodesource/deb_12.x xenial main</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/nodesource/deb_12.x xenial main</span><br></pre></td></tr></table></figure>
-
-<h5 id="更新源"><a href="#更新源" class="headerlink" title="更新源"></a>更新源</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get clean</span><br><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
-
-<h5 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install nodejs</span><br></pre></td></tr></table></figure>
-
-<h5 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nodejs -v</span><br><span class="line"></span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
-
-<h5 id="更换npm源"><a href="#更换npm源" class="headerlink" title="更换npm源"></a>更换npm源</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-
-<h5 id="验证是否成功"><a href="#验证是否成功" class="headerlink" title="验证是否成功"></a>验证是否成功</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
-
-<h5 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-
-<h5 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a>初始化Hexo</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-
-<h5 id="生成静态网页"><a href="#生成静态网页" class="headerlink" title="生成静态网页"></a>生成静态网页</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>Linux运维</tag>
-        <tag>nodejs</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用PyTorch进行MNIST识别</title>
     <url>/2020/05/29/%E4%BD%BF%E7%94%A8PyTorch%E8%BF%9B%E8%A1%8CMNIST%E8%AF%86%E5%88%AB/</url>
     <content><![CDATA[<p>使用PyTorch进行MNIST识别</p>
@@ -968,6 +968,27 @@
       </tags>
   </entry>
   <entry>
+    <title>使用jsdelivrCDN加速github文件</title>
+    <url>/2020/06/20/%E4%BD%BF%E7%94%A8jsdelivrCDN%E5%8A%A0%E9%80%9Fgithub%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<p>jsDelivr 是国外的一家优秀的公共 CDN 服务提供商，也是首个「打通中国大陆（网宿公司运营）与海外的免费 CDN 服务」。</p>
+<a id="more"></a>
+
+<h3 id="jsDelivr-配置"><a href="#jsDelivr-配置" class="headerlink" title="jsDelivr 配置"></a>jsDelivr 配置</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;wf09&#x2F;upload@master&#x2F;1.png</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ul>
+<li><code>gh</code> 表示来自 Github 的仓库</li>
+<li><code>wf09/upload</code> 指的是用户名/仓库名</li>
+<li><code>master</code> 仓库的分支</li>
+<li><code>1.png</code>仓库下的具体文件</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>jsdelivrCDN</tag>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用pip离线安装PyTorch-gpu</title>
     <url>/2020/02/17/%E4%BD%BF%E7%94%A8pip%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85PyTorch-gpu/</url>
     <content><![CDATA[<p>废话不多说，上教程。</p>
@@ -1053,24 +1074,183 @@
       </tags>
   </entry>
   <entry>
-    <title>使用jsdelivrCDN加速github文件</title>
-    <url>/2020/06/20/%E4%BD%BF%E7%94%A8jsdelivrCDN%E5%8A%A0%E9%80%9Fgithub%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<p>jsDelivr 是国外的一家优秀的公共 CDN 服务提供商，也是首个「打通中国大陆（网宿公司运营）与海外的免费 CDN 服务」。</p>
+    <title>初探Tkinter(一)</title>
+    <url>/2020/06/30/%E5%88%9D%E6%8E%A2Tkinter01/</url>
+    <content><![CDATA[<p>基于 Python 的 Tkinter 常用于UI界面开发。</p>
+<p>以下是Tkinter为验证函数提供的一些额外选项。</p>
 <a id="more"></a>
 
-<h3 id="jsDelivr-配置"><a href="#jsDelivr-配置" class="headerlink" title="jsDelivr 配置"></a>jsDelivr 配置</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;wf09&#x2F;upload@master&#x2F;1.png</span><br></pre></td></tr></table></figure>
-
-<p>其中：</p>
-<ul>
-<li><code>gh</code> 表示来自 Github 的仓库</li>
-<li><code>wf09/upload</code> 指的是用户名/仓库名</li>
-<li><code>master</code> 仓库的分支</li>
-<li><code>1.png</code>仓库下的具体文件</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>‘%d’</td>
+<td>操作代码：0表示删除操作；1表示插入操作；2表示获得、失去焦点或者<code>textvariable</code>变量的值被修改</td>
+</tr>
+<tr>
+<td>‘%i’</td>
+<td>当用户尝试插入或者删除操作时，该选项表示插入或者删除的位置(索引号)，如果是由于获得、失去焦点或<code>textvarible</code>变量的值被修改而调用验证函数，那么该值是-1</td>
+</tr>
+<tr>
+<td>‘%P’</td>
+<td>当输入框的值允许改变的时候，该值有效。该值作为输入框的最新文本内容。</td>
+</tr>
+<tr>
+<td>‘%s’</td>
+<td>该值为调用验证函数前输入框的文本内容</td>
+</tr>
+<tr>
+<td>‘%S’</td>
+<td>当插入或者删除操作触发验证函数时，该值有效。该选项表示文本被插入和删除的内容</td>
+</tr>
+<tr>
+<td>‘%v’</td>
+<td>该组件当前validate选项的值</td>
+</tr>
+<tr>
+<td>‘%V’</td>
+<td>调用该验证函数的原因。该值是’focusin’、’focusout’、’key’或’forced’（textvariable选项指定的变量值被修改）中的一个</td>
+</tr>
+<tr>
+<td>‘%W’</td>
+<td>该组件的名字</td>
+</tr>
+</tbody></table>
+<p>启用验证的开关是validate选项，该选项可以设置的值如下表所示</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>‘focus’</td>
+<td>当Entry组件获得或者失去焦点时候验证</td>
+</tr>
+<tr>
+<td>‘focusin’</td>
+<td>当Entry组件获得焦点的时候验证</td>
+</tr>
+<tr>
+<td>‘focusont’</td>
+<td>当Entry组件失去焦点的时候验证</td>
+</tr>
+<tr>
+<td>‘key’</td>
+<td>当输入框被编辑的时候验证</td>
+</tr>
+<tr>
+<td>‘all’</td>
+<td>当出现上面任何一种情况时验证</td>
+</tr>
+<tr>
+<td>‘none’</td>
+<td>关闭验证功能，默认设置。注意是字符串的<code>&#39;none&#39;</code>，而非<code>None</code></td>
+</tr>
+</tbody></table>
 ]]></content>
       <tags>
-        <tag>jsdelivrCDN</tag>
-        <tag>github</tag>
+        <tag>Python</tag>
+        <tag>Tkinter</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初探Tkinter(二)</title>
+    <url>/2020/07/25/%E5%88%9D%E6%8E%A2Tkinter02/</url>
+    <content><![CDATA[<p>基于 Python 的 Tkinter 常用于UI界面开发。</p>
+<p>下表列出了Tkinter 框架的常用组件和用法，供查找。</p>
+<a id="more"></a>
+
+
+<table>
+<thead>
+<tr>
+<th>组件名称</th>
+<th>组件用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Label组件</td>
+<td>是用于在界面上输出描述的标签</td>
+</tr>
+<tr>
+<td>Button组件</td>
+<td>用于实现一个按钮，它的绝大多数选项与Label组件是一样的。<strong>command选项可以接收用户的信息。</strong></td>
+</tr>
+<tr>
+<td>Checkbutton组件</td>
+<td>实现多选按钮</td>
+</tr>
+<tr>
+<td>Radiobutton组件</td>
+<td>与Checkbutton组件的用法基本一致。唯一不同的是Radiobutton实现的是<strong>“单选”</strong>的效果</td>
+</tr>
+<tr>
+<td>LabelFrame组件</td>
+<td>LabelFrame组件是<strong>Frame</strong>框架的进化版。也就是添加了Label的Frame。</td>
+</tr>
+<tr>
+<td>Entry组件</td>
+<td>用于实现平时所说的输入框。</td>
+</tr>
+<tr>
+<td>Listbox组件</td>
+<td>用于实现列表输入框</td>
+</tr>
+<tr>
+<td>Scrollbar组件</td>
+<td>用于实现垂直滚动条</td>
+</tr>
+<tr>
+<td>Scale组件</td>
+<td>与Scrollbar相似。Scale组件主要通过滑块来表示某个范围内的一个数字，可以通过修改选项设置范围以及分辨率（精度）</td>
+</tr>
+<tr>
+<td><strong>Text组件</strong></td>
+<td>用于显示和处理多行文本。主要任务是显示多行文本，但它常常也被作为<strong>简单的文本编辑器</strong>和<strong>网页浏览器</strong>使用。</td>
+</tr>
+<tr>
+<td>Canvas组件</td>
+<td><strong>通用组件</strong>，通常用于显示和编辑图形，可以用它来绘制直线、圆形、多边形，甚至是绘制其他组件。</td>
+</tr>
+<tr>
+<td>Menu组件</td>
+<td>用于实现顶级菜单、下拉菜单和弹出菜单。由于该组件是<strong>底层代码实现和优化</strong>，所以<strong>不建议自行</strong>通过按钮和其他组件来实现菜单功能。</td>
+</tr>
+<tr>
+<td>Menubutton组件</td>
+<td>用于实现一个与<strong>Menu组件</strong>相关联的按钮，它可以放在窗口中的任意位置，并且在被按下时弹出下拉菜单。</td>
+</tr>
+<tr>
+<td>OptionMenu组件</td>
+<td>该组件是下拉菜单的改版，用于实现下拉列表框。</td>
+</tr>
+<tr>
+<td>Message组件</td>
+<td>Entry组件的变体，用于显示多行文本消息。</td>
+</tr>
+<tr>
+<td>Spinbox组件</td>
+<td>Entry组件的变体，用于从一些固定的值中选取一个。</td>
+</tr>
+<tr>
+<td>PanedWindow组件</td>
+<td>类似于Frame组件，都是为组件提供一个框架。PanedWindow允许让用户调整应用程序的空间划分。</td>
+</tr>
+<tr>
+<td>Toplevel组件</td>
+<td>类似于Frame组件，但Toplevel组件是一个独立的顶级窗口，这种窗口通常拥有标题栏、边框等部件。</td>
+</tr>
+</tbody></table>
+]]></content>
+      <tags>
+        <tag>Python</tag>
+        <tag>Tkinter</tag>
       </tags>
   </entry>
   <entry>
@@ -1297,92 +1477,6 @@
       </tags>
   </entry>
   <entry>
-    <title>初探Tkinter(一)</title>
-    <url>/2020/06/30/%E5%88%9D%E6%8E%A2Tkinter01/</url>
-    <content><![CDATA[<p>基于 Python 的 Tkinter 常用于UI界面开发。</p>
-<p>以下是Tkinter为验证函数提供的一些额外选项。</p>
-<a id="more"></a>
-
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>‘%d’</td>
-<td>操作代码：0表示删除操作；1表示插入操作；2表示获得、失去焦点或者<code>textvariable</code>变量的值被修改</td>
-</tr>
-<tr>
-<td>‘%i’</td>
-<td>当用户尝试插入或者删除操作时，该选项表示插入或者删除的位置(索引号)，如果是由于获得、失去焦点或<code>textvarible</code>变量的值被修改而调用验证函数，那么该值是-1</td>
-</tr>
-<tr>
-<td>‘%P’</td>
-<td>当输入框的值允许改变的时候，该值有效。该值作为输入框的最新文本内容。</td>
-</tr>
-<tr>
-<td>‘%s’</td>
-<td>该值为调用验证函数前输入框的文本内容</td>
-</tr>
-<tr>
-<td>‘%S’</td>
-<td>当插入或者删除操作触发验证函数时，该值有效。该选项表示文本被插入和删除的内容</td>
-</tr>
-<tr>
-<td>‘%v’</td>
-<td>该组件当前validate选项的值</td>
-</tr>
-<tr>
-<td>‘%V’</td>
-<td>调用该验证函数的原因。该值是’focusin’、’focusout’、’key’或’forced’（textvariable选项指定的变量值被修改）中的一个</td>
-</tr>
-<tr>
-<td>‘%W’</td>
-<td>该组件的名字</td>
-</tr>
-</tbody></table>
-<p>启用验证的开关是validate选项，该选项可以设置的值如下表所示</p>
-<table>
-<thead>
-<tr>
-<th>值</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>‘focus’</td>
-<td>当Entry组件获得或者失去焦点时候验证</td>
-</tr>
-<tr>
-<td>‘focusin’</td>
-<td>当Entry组件获得焦点的时候验证</td>
-</tr>
-<tr>
-<td>‘focusont’</td>
-<td>当Entry组件失去焦点的时候验证</td>
-</tr>
-<tr>
-<td>‘key’</td>
-<td>当输入框被编辑的时候验证</td>
-</tr>
-<tr>
-<td>‘all’</td>
-<td>当出现上面任何一种情况时验证</td>
-</tr>
-<tr>
-<td>‘none’</td>
-<td>关闭验证功能，默认设置。注意是字符串的<code>&#39;none&#39;</code>，而非<code>None</code></td>
-</tr>
-</tbody></table>
-]]></content>
-      <tags>
-        <tag>Python</tag>
-        <tag>Tkinter</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>奥卡姆剃刀和没有免费的午餐定理</title>
     <url>/2020/08/06/%E5%A5%A5%E5%8D%A1%E5%A7%86%E5%89%83%E5%88%80%E5%92%8C%E6%B2%A1%E6%9C%89%E5%85%8D%E8%B4%B9%E7%9A%84%E5%8D%88%E9%A4%90%E5%AE%9A%E7%90%86/</url>
     <content><![CDATA[<p>本文原载于<a href="https://imlogm.github.io/">https://imlogm.github.io</a>，转载请注明出处！</p>
@@ -1464,100 +1558,6 @@
       </tags>
   </entry>
   <entry>
-    <title>初探Tkinter(二)</title>
-    <url>/2020/07/25/%E5%88%9D%E6%8E%A2Tkinter02/</url>
-    <content><![CDATA[<p>基于 Python 的 Tkinter 常用于UI界面开发。</p>
-<p>下表列出了Tkinter 框架的常用组件和用法，供查找。</p>
-<a id="more"></a>
-
-
-<table>
-<thead>
-<tr>
-<th>组件名称</th>
-<th>组件用法</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Label组件</td>
-<td>是用于在界面上输出描述的标签</td>
-</tr>
-<tr>
-<td>Button组件</td>
-<td>用于实现一个按钮，它的绝大多数选项与Label组件是一样的。<strong>command选项可以接收用户的信息。</strong></td>
-</tr>
-<tr>
-<td>Checkbutton组件</td>
-<td>实现多选按钮</td>
-</tr>
-<tr>
-<td>Radiobutton组件</td>
-<td>与Checkbutton组件的用法基本一致。唯一不同的是Radiobutton实现的是<strong>“单选”</strong>的效果</td>
-</tr>
-<tr>
-<td>LabelFrame组件</td>
-<td>LabelFrame组件是<strong>Frame</strong>框架的进化版。也就是添加了Label的Frame。</td>
-</tr>
-<tr>
-<td>Entry组件</td>
-<td>用于实现平时所说的输入框。</td>
-</tr>
-<tr>
-<td>Listbox组件</td>
-<td>用于实现列表输入框</td>
-</tr>
-<tr>
-<td>Scrollbar组件</td>
-<td>用于实现垂直滚动条</td>
-</tr>
-<tr>
-<td>Scale组件</td>
-<td>与Scrollbar相似。Scale组件主要通过滑块来表示某个范围内的一个数字，可以通过修改选项设置范围以及分辨率（精度）</td>
-</tr>
-<tr>
-<td><strong>Text组件</strong></td>
-<td>用于显示和处理多行文本。主要任务是显示多行文本，但它常常也被作为<strong>简单的文本编辑器</strong>和<strong>网页浏览器</strong>使用。</td>
-</tr>
-<tr>
-<td>Canvas组件</td>
-<td><strong>通用组件</strong>，通常用于显示和编辑图形，可以用它来绘制直线、圆形、多边形，甚至是绘制其他组件。</td>
-</tr>
-<tr>
-<td>Menu组件</td>
-<td>用于实现顶级菜单、下拉菜单和弹出菜单。由于该组件是<strong>底层代码实现和优化</strong>，所以<strong>不建议自行</strong>通过按钮和其他组件来实现菜单功能。</td>
-</tr>
-<tr>
-<td>Menubutton组件</td>
-<td>用于实现一个与<strong>Menu组件</strong>相关联的按钮，它可以放在窗口中的任意位置，并且在被按下时弹出下拉菜单。</td>
-</tr>
-<tr>
-<td>OptionMenu组件</td>
-<td>该组件是下拉菜单的改版，用于实现下拉列表框。</td>
-</tr>
-<tr>
-<td>Message组件</td>
-<td>Entry组件的变体，用于显示多行文本消息。</td>
-</tr>
-<tr>
-<td>Spinbox组件</td>
-<td>Entry组件的变体，用于从一些固定的值中选取一个。</td>
-</tr>
-<tr>
-<td>PanedWindow组件</td>
-<td>类似于Frame组件，都是为组件提供一个框架。PanedWindow允许让用户调整应用程序的空间划分。</td>
-</tr>
-<tr>
-<td>Toplevel组件</td>
-<td>类似于Frame组件，但Toplevel组件是一个独立的顶级窗口，这种窗口通常拥有标题栏、边框等部件。</td>
-</tr>
-</tbody></table>
-]]></content>
-      <tags>
-        <tag>Python</tag>
-        <tag>Tkinter</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>本地搭建hexo并推送到GitHub Pages</title>
     <url>/2020/01/03/%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BAhexo%E5%B9%B6%E6%8E%A8%E9%80%81%E5%88%B0GitHub%20Pages/</url>
     <content><![CDATA[<p>之前因为重装系统丢掉了已经搭建好的Hexo博客配置文件。经过这件事以后我深刻地记住了备份的重要性。趁着刚刚搭建完博客，于是写一篇文章水一下！</p>
@@ -1635,18 +1635,39 @@
       </tags>
   </entry>
   <entry>
-    <title>机器学习基本概念03</title>
-    <url>/2020/08/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B503/</url>
-    <content><![CDATA[<p>机器学习中的归纳偏好。</p>
+    <title>机器学习基本概念01</title>
+    <url>/2020/08/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B501/</url>
+    <content><![CDATA[<p>为了理解深度学习，先了解一下机器学习的基本术语。</p>
 <a id="more"></a>
 
-<h4 id="归纳偏好"><a href="#归纳偏好" class="headerlink" title="归纳偏好"></a>归纳偏好</h4><p>通过学习得到的模型对应了假设空间的一个假设，于是，上文中的西瓜版本空间给我们带来了一个麻烦：现在有三个与训练集一致的假设，但与他们对应的模型在面临新样本的时候，却会产生不同的输出。例如，对色泽=青绿；根蒂=蜷缩；敲声=沉闷这个新收来的瓜，如果我们采用的是“好瓜《=》（色泽=<em>）^（敲声=\</em>)”。那么会把新瓜判断为好瓜，而如果采用了另外两个假设，则判断的结果将不是好瓜，那么，应该采用哪一个模型（或假设）呢？</p>
-<p>​    若仅有上表中训练样本，则无法断定上述三个假设哪一个“更好”。然而，对于一个具体的学习算法而言，他必须要产生一个模型。这时，学习算法本身的“偏好”就会起到关键的作用。例如，若我们的算法喜欢尽可能特殊的模型，则他会选择“好瓜《=》（色泽=*）^（根蒂=蜷缩）^(敲声=浊响)”；但若我们的算法喜欢“尽可能一般”的模型，并且由于某种原因它更相信“根蒂”，则它会选择“好瓜《=》（色泽=<em>）^（根蒂=蜷缩）^(敲声=\</em>)”，机器学习算法在学习过程中对某种类型假设的偏好，称为“归纳偏好”(inductive bias)，或称为“偏好”。</p>
+
+<h4 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h4><p>机器学习的经典定义：<strong>利用经验改善系统自身的性能。</strong></p>
+<p>机器学习所研究的主要内容，是关于在计算机上从数据中产生的模型的算法，即学习算法。有了学习算法，我们把经验数据提供给它，它就能基于这些数据产生模型。在面对新的情况时，模型会给我们相应的判断。</p>
 <blockquote>
-<p>尽可能特殊即“适用情况尽可能少”；尽可能一般即“使用情况尽可能多”。</p>
-<p>对“根蒂”还是对“敲声”更重视，看起来和属性选择，亦称为“特征选择”(feature selection)有关，但需注意的是，机器学习中的特征选择仍是基于对训练样本的模型的分析进行的，而在此处我们并非基于特征选择做出对根蒂的重视；这里对“根蒂”的信赖可视为基于某种领域的知识而产生的归纳偏好关于特征选择方面的内容可以参加后续的更新。</p>
+<p>【Mitchell,1997】给出了一个更形式化的定义：假设用<em>P</em>来评估计算机程序在某任务类<em>T</em>上的性能，若一个程序通过利用经验<em>E</em>在<em>T</em>中任务上获得了性能改善，则我们就说关于<em>T</em>和<em>P</em>，该程序对<em>E</em>进行了学习。</p>
 </blockquote>
-<p>任何一个有效的机器学习算法未必有其归纳偏好，否则它将被假设空间中看似在训练集上“等效”的假设所迷惑，而无法产生确定的学习结果。可以想象，如果没有偏好，我们的西瓜学习算法产生的模型每次在进行预测时随机抽选训练集上的等效假设，那么对这个新瓜————–学得模型时而告诉我们他是好的，时而告诉我们他是不好的，这样的学习结果显然没有意义。</p>
+<p>模型：泛指从数据中学到的结果。有文献用”模型”指全局性结果(例如一颗决策树)，而用”模式”指局部性结果(例如一条规则).</p>
+<h4 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h4><p>要进行机器学习，首先要有数据。假定收集了一批关于西瓜的数据，例如（色泽=青绿；根蒂=蜷缩；敲声=浊响），（色泽=乌黑；根蒂=稍蜷；敲声=沉闷），（色泽=浅白；根蒂=硬挺；敲声=清脆），······，每对括号内是一条记录，”=”的意思是”取值为”.</p>
+<p>记录数据的集合称为一个<strong>“数据集”(data set)</strong>，其中每条记录是关于一个事件和对象的叙述，称为一个<strong>“示例”（instance)或”样本”（sample）</strong>。</p>
+<p>反应事件或对象在某方面的表现或者性质的事项，例如”色泽”，”根蒂”，”敲声”，称为<strong>“属性”（attribute)或”特征”（feature）</strong>。</p>
+<p>属性上的取值，例如”青绿”，”乌黑”，称为<strong>“属性值”（attribute value）</strong>。属性张成的空间称为<strong>“属性空间”（attribute space）、”样本空间”（sample space）或”输入空间”</strong>。</p>
+<p>例如，我们把”色泽”、”根蒂”和”敲声”作为三个坐标轴，则他们张成的一个用于描述西瓜的三维空间，每个西瓜都可在这个空间找到他们自己的坐标位置。由于空间中的每个点对应一个坐标向量，因此也把一个示例称为一个<strong>“特征向量”（feature vector）</strong>。</p>
+<p>​    一般地，令$ \small D=\{x_1,x_2,…,x_m\} $表示包含$m$个实例的数据集，每个实例由$d$个属性描述(例如上面的西瓜数据使用了3个属性)，则每个实例$x_i=\{x_{i1},x_{i2},…,x_{id}\}$是$d$维样本空间 $\chi$ 中一个向量，$x_i \in \chi$，其中$x_{ij}$是第$j$个属性上的取值(例如上述第3个西瓜在第二个属性上的属性是”硬挺”)，$d$称为样本$x_i$的<strong>“维数”(dimensionality)</strong>.</p>
+<p>​    从数据中学得模型的过程称为<strong>“学习”（learning）</strong>或者<strong>“训练”（training）</strong>，这个过程通过执行某个学习算法来完成。训练过程使用的数据称为<strong>“训练数据”（training data）</strong>，其中每个样本称为一个<strong>“训练样本”（training sample)</strong>，训练样本组成的集合称为<strong>“训练集”（training set）</strong>。学得模型对应了关于数据的某种潜在的规律，因此亦称<strong>“假设”（hypothesis）</strong>；这种潜在规律本身，则称为<strong>“真相”或”真实”(ground-truth)</strong>，学习过程就是为了找出或逼近真相。</p>
+<blockquote>
+<p>训练样本亦称为”训练示例”（training instance）或者”训练例”。</p>
+<p>学习算法通常由参数需要设置，使用不同的参数值和(或)训练数据，将产生不同的结果。</p>
+<p>有时将模型称为”学习器”（learner)，可看作学习算法在给定数据和参数空间上的实例化。</p>
+</blockquote>
+<p>​    如果希望学得一个能够判断没剖开的是不是”好瓜”的模型，仅有前面的示例数据显然是不够的，要建立这样的关于<strong>“预测”（prediction）</strong>的模型，需要获得训练样本的”结果”信息，例如”((色泽=青绿；根蒂=蜷缩；敲声=浊响)，好瓜)”。这里关于实例结果的信息，例如”好瓜”，称为<strong>“标记”（label）</strong>；拥有了标记信息的示例，则成为<strong>“样例”（example)</strong>。一般地，用$(x_i,y_i)$表示第$i$个样例，其中$y_i \in Y$是示例$x_i$的标记，$Y$ 是所有标记的集合，亦称为<strong>“标记空间”(label space)或”输出空间”</strong>。</p>
+<p>​    若我们欲预测的是离散值，例如”好瓜”、”坏瓜”，此类任务被称为<strong>“分类”(classification)</strong>；若欲预测的是连续值，例如西瓜成熟度0.95，0.37，此类学习任务称为<strong>“回归”(regression)</strong>。对涉及两个类别的<strong>“二分类”(binary classification)</strong>任务，通常称其中一个类为<strong>“正类”(positive class)</strong>，另一个类称为<strong>“反类”(negative class)</strong>;涉及多个类别时，则成为<strong>“多分类”(multi-class classification)</strong>任务。一般地，预测任务是希望通过对训练集${(x_1,y_1),(x_2,y_2),…,(x_m,y_m)}$进行学习，建立一个从输入空间$X$到输出空间$Y$的映射$f : X \to Y$。对于二分类任务，通常令$Y=\{-1,+1\}$或$\{0,1\}$；对多分类任务，$|Y|&gt;2$；对于回归任务，$Y=R$，$R$为实数集。</p>
+<p>​    学得模型后，使用其进行预测的过程称为<strong>“测试”(testing)</strong>，被预测的样本称为<strong>“测试样本”(testing sample)</strong>。例如在学得$f$后，对测试例$x$可得到其预测标记$y=f(x)$。</p>
+<p>​    还可以对西瓜做<strong>“聚类”(clustering)</strong>，即将训练集中的西瓜分成若干组，每组称为一个<strong>“簇”（cluster）</strong>；这些自动形成得簇可能对应一些潜在得概念划分，例如”浅色瓜”、”深色瓜”，甚至”本地瓜”、”外地瓜”。这样的学习过程有助于哦我们了解数据内在得规律，能为更深入地分析数据建立基础。需说明的是，在聚类分析中，”浅色瓜，本地瓜”这样得概念我们实现是不知道的，而且学习过程中使用的训练样本通常不拥有标记信息。</p>
+<p>​    根据训练数据是否拥有标记信息，学习任务可大致分为两大类：<strong>“监督学习”(supervised learning)</strong>和<strong>“无监督学习”(unsupervised learning)</strong>。分类和回归是监督学习的代表，而聚类是无监督学习的代表。</p>
+<p>​    需要注意的是，机器学习的目标是使学得的模型能很好地适用于”新样本”，而不是仅仅在训练样本上工作得很好；即便对聚类这样得无监督学习任务，我们也希望学得簇划分能适用于没在训练集中出现的样本。学得模型适用于新样本的能力，称为<strong>“泛化”(generalization)能力</strong>。具有强泛化能力的模型能够很好的适用于整个样本空间。尽管训练集通常只是样本空间的一个很小的采样，我们仍希望它能很好的反映出样本空间的特性，否则就很难再期望在训练集上学得的模型能在整个样本空间上都工作得很好。</p>
+<blockquote>
+<p>通常假设样本空间中全体样本服从一个未知<strong>“分布”(distribution)</strong>$\small D$，我们获得的每个样本都是<strong>“独立同分布”(independent and identically distributed，简称$i.i.d$)</strong>。一般而言，训练样本越多，我们得到得关于$D$的信息越多，这样就越有可能通过学习获得具有强泛化能力的模型。</p>
+</blockquote>
 ]]></content>
       <tags>
         <tag>机器学习</tag>
@@ -1681,39 +1702,18 @@
       </tags>
   </entry>
   <entry>
-    <title>机器学习基本概念01</title>
-    <url>/2020/08/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B501/</url>
-    <content><![CDATA[<p>为了理解深度学习，先了解一下机器学习的基本术语。</p>
+    <title>机器学习基本概念03</title>
+    <url>/2020/08/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B503/</url>
+    <content><![CDATA[<p>机器学习中的归纳偏好。</p>
 <a id="more"></a>
 
-
-<h4 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h4><p>机器学习的经典定义：<strong>利用经验改善系统自身的性能。</strong></p>
-<p>机器学习所研究的主要内容，是关于在计算机上从数据中产生的模型的算法，即学习算法。有了学习算法，我们把经验数据提供给它，它就能基于这些数据产生模型。在面对新的情况时，模型会给我们相应的判断。</p>
+<h4 id="归纳偏好"><a href="#归纳偏好" class="headerlink" title="归纳偏好"></a>归纳偏好</h4><p>通过学习得到的模型对应了假设空间的一个假设，于是，上文中的西瓜版本空间给我们带来了一个麻烦：现在有三个与训练集一致的假设，但与他们对应的模型在面临新样本的时候，却会产生不同的输出。例如，对色泽=青绿；根蒂=蜷缩；敲声=沉闷这个新收来的瓜，如果我们采用的是“好瓜《=》（色泽=<em>）^（敲声=\</em>)”。那么会把新瓜判断为好瓜，而如果采用了另外两个假设，则判断的结果将不是好瓜，那么，应该采用哪一个模型（或假设）呢？</p>
+<p>​    若仅有上表中训练样本，则无法断定上述三个假设哪一个“更好”。然而，对于一个具体的学习算法而言，他必须要产生一个模型。这时，学习算法本身的“偏好”就会起到关键的作用。例如，若我们的算法喜欢尽可能特殊的模型，则他会选择“好瓜《=》（色泽=*）^（根蒂=蜷缩）^(敲声=浊响)”；但若我们的算法喜欢“尽可能一般”的模型，并且由于某种原因它更相信“根蒂”，则它会选择“好瓜《=》（色泽=<em>）^（根蒂=蜷缩）^(敲声=\</em>)”，机器学习算法在学习过程中对某种类型假设的偏好，称为“归纳偏好”(inductive bias)，或称为“偏好”。</p>
 <blockquote>
-<p>【Mitchell,1997】给出了一个更形式化的定义：假设用<em>P</em>来评估计算机程序在某任务类<em>T</em>上的性能，若一个程序通过利用经验<em>E</em>在<em>T</em>中任务上获得了性能改善，则我们就说关于<em>T</em>和<em>P</em>，该程序对<em>E</em>进行了学习。</p>
+<p>尽可能特殊即“适用情况尽可能少”；尽可能一般即“使用情况尽可能多”。</p>
+<p>对“根蒂”还是对“敲声”更重视，看起来和属性选择，亦称为“特征选择”(feature selection)有关，但需注意的是，机器学习中的特征选择仍是基于对训练样本的模型的分析进行的，而在此处我们并非基于特征选择做出对根蒂的重视；这里对“根蒂”的信赖可视为基于某种领域的知识而产生的归纳偏好关于特征选择方面的内容可以参加后续的更新。</p>
 </blockquote>
-<p>模型：泛指从数据中学到的结果。有文献用”模型”指全局性结果(例如一颗决策树)，而用”模式”指局部性结果(例如一条规则).</p>
-<h4 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h4><p>要进行机器学习，首先要有数据。假定收集了一批关于西瓜的数据，例如（色泽=青绿；根蒂=蜷缩；敲声=浊响），（色泽=乌黑；根蒂=稍蜷；敲声=沉闷），（色泽=浅白；根蒂=硬挺；敲声=清脆），······，每对括号内是一条记录，”=”的意思是”取值为”.</p>
-<p>记录数据的集合称为一个<strong>“数据集”(data set)</strong>，其中每条记录是关于一个事件和对象的叙述，称为一个<strong>“示例”（instance)或”样本”（sample）</strong>。</p>
-<p>反应事件或对象在某方面的表现或者性质的事项，例如”色泽”，”根蒂”，”敲声”，称为<strong>“属性”（attribute)或”特征”（feature）</strong>。</p>
-<p>属性上的取值，例如”青绿”，”乌黑”，称为<strong>“属性值”（attribute value）</strong>。属性张成的空间称为<strong>“属性空间”（attribute space）、”样本空间”（sample space）或”输入空间”</strong>。</p>
-<p>例如，我们把”色泽”、”根蒂”和”敲声”作为三个坐标轴，则他们张成的一个用于描述西瓜的三维空间，每个西瓜都可在这个空间找到他们自己的坐标位置。由于空间中的每个点对应一个坐标向量，因此也把一个示例称为一个<strong>“特征向量”（feature vector）</strong>。</p>
-<p>​    一般地，令$ \small D=\{x_1,x_2,…,x_m\} $表示包含$m$个实例的数据集，每个实例由$d$个属性描述(例如上面的西瓜数据使用了3个属性)，则每个实例$x_i=\{x_{i1},x_{i2},…,x_{id}\}$是$d$维样本空间 $\chi$ 中一个向量，$x_i \in \chi$，其中$x_{ij}$是第$j$个属性上的取值(例如上述第3个西瓜在第二个属性上的属性是”硬挺”)，$d$称为样本$x_i$的<strong>“维数”(dimensionality)</strong>.</p>
-<p>​    从数据中学得模型的过程称为<strong>“学习”（learning）</strong>或者<strong>“训练”（training）</strong>，这个过程通过执行某个学习算法来完成。训练过程使用的数据称为<strong>“训练数据”（training data）</strong>，其中每个样本称为一个<strong>“训练样本”（training sample)</strong>，训练样本组成的集合称为<strong>“训练集”（training set）</strong>。学得模型对应了关于数据的某种潜在的规律，因此亦称<strong>“假设”（hypothesis）</strong>；这种潜在规律本身，则称为<strong>“真相”或”真实”(ground-truth)</strong>，学习过程就是为了找出或逼近真相。</p>
-<blockquote>
-<p>训练样本亦称为”训练示例”（training instance）或者”训练例”。</p>
-<p>学习算法通常由参数需要设置，使用不同的参数值和(或)训练数据，将产生不同的结果。</p>
-<p>有时将模型称为”学习器”（learner)，可看作学习算法在给定数据和参数空间上的实例化。</p>
-</blockquote>
-<p>​    如果希望学得一个能够判断没剖开的是不是”好瓜”的模型，仅有前面的示例数据显然是不够的，要建立这样的关于<strong>“预测”（prediction）</strong>的模型，需要获得训练样本的”结果”信息，例如”((色泽=青绿；根蒂=蜷缩；敲声=浊响)，好瓜)”。这里关于实例结果的信息，例如”好瓜”，称为<strong>“标记”（label）</strong>；拥有了标记信息的示例，则成为<strong>“样例”（example)</strong>。一般地，用$(x_i,y_i)$表示第$i$个样例，其中$y_i \in Y$是示例$x_i$的标记，$Y$ 是所有标记的集合，亦称为<strong>“标记空间”(label space)或”输出空间”</strong>。</p>
-<p>​    若我们欲预测的是离散值，例如”好瓜”、”坏瓜”，此类任务被称为<strong>“分类”(classification)</strong>；若欲预测的是连续值，例如西瓜成熟度0.95，0.37，此类学习任务称为<strong>“回归”(regression)</strong>。对涉及两个类别的<strong>“二分类”(binary classification)</strong>任务，通常称其中一个类为<strong>“正类”(positive class)</strong>，另一个类称为<strong>“反类”(negative class)</strong>;涉及多个类别时，则成为<strong>“多分类”(multi-class classification)</strong>任务。一般地，预测任务是希望通过对训练集${(x_1,y_1),(x_2,y_2),…,(x_m,y_m)}$进行学习，建立一个从输入空间$X$到输出空间$Y$的映射$f : X \to Y$。对于二分类任务，通常令$Y=\{-1,+1\}$或$\{0,1\}$；对多分类任务，$|Y|&gt;2$；对于回归任务，$Y=R$，$R$为实数集。</p>
-<p>​    学得模型后，使用其进行预测的过程称为<strong>“测试”(testing)</strong>，被预测的样本称为<strong>“测试样本”(testing sample)</strong>。例如在学得$f$后，对测试例$x$可得到其预测标记$y=f(x)$。</p>
-<p>​    还可以对西瓜做<strong>“聚类”(clustering)</strong>，即将训练集中的西瓜分成若干组，每组称为一个<strong>“簇”（cluster）</strong>；这些自动形成得簇可能对应一些潜在得概念划分，例如”浅色瓜”、”深色瓜”，甚至”本地瓜”、”外地瓜”。这样的学习过程有助于哦我们了解数据内在得规律，能为更深入地分析数据建立基础。需说明的是，在聚类分析中，”浅色瓜，本地瓜”这样得概念我们实现是不知道的，而且学习过程中使用的训练样本通常不拥有标记信息。</p>
-<p>​    根据训练数据是否拥有标记信息，学习任务可大致分为两大类：<strong>“监督学习”(supervised learning)</strong>和<strong>“无监督学习”(unsupervised learning)</strong>。分类和回归是监督学习的代表，而聚类是无监督学习的代表。</p>
-<p>​    需要注意的是，机器学习的目标是使学得的模型能很好地适用于”新样本”，而不是仅仅在训练样本上工作得很好；即便对聚类这样得无监督学习任务，我们也希望学得簇划分能适用于没在训练集中出现的样本。学得模型适用于新样本的能力，称为<strong>“泛化”(generalization)能力</strong>。具有强泛化能力的模型能够很好的适用于整个样本空间。尽管训练集通常只是样本空间的一个很小的采样，我们仍希望它能很好的反映出样本空间的特性，否则就很难再期望在训练集上学得的模型能在整个样本空间上都工作得很好。</p>
-<blockquote>
-<p>通常假设样本空间中全体样本服从一个未知<strong>“分布”(distribution)</strong>$\small D$，我们获得的每个样本都是<strong>“独立同分布”(independent and identically distributed，简称$i.i.d$)</strong>。一般而言，训练样本越多，我们得到得关于$D$的信息越多，这样就越有可能通过学习获得具有强泛化能力的模型。</p>
-</blockquote>
+<p>任何一个有效的机器学习算法未必有其归纳偏好，否则它将被假设空间中看似在训练集上“等效”的假设所迷惑，而无法产生确定的学习结果。可以想象，如果没有偏好，我们的西瓜学习算法产生的模型每次在进行预测时随机抽选训练集上的等效假设，那么对这个新瓜————–学得模型时而告诉我们他是好的，时而告诉我们他是不好的，这样的学习结果显然没有意义。</p>
 ]]></content>
       <tags>
         <tag>机器学习</tag>
@@ -2555,60 +2555,6 @@
       <tags>
         <tag>Python</tag>
         <tag>正则表达式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Anacoda3 安装Pytorch小记录</title>
-    <url>/2019/12/30/Anacoda3%20%E5%AE%89%E8%A3%85Pytorch%E5%B0%8F%E8%AE%B0%E5%BD%95%20-%20%E5%89%AF%E6%9C%AC/</url>
-    <content><![CDATA[<p>话不多说，先上教程。</p>
-<a id="more"></a>
-
-<h4 id="1-下载Anadoda3安装包"><a href="#1-下载Anadoda3安装包" class="headerlink" title="1.下载Anadoda3安装包"></a>1.下载Anadoda3安装包</h4><ul>
-<li><p>可以选择清华镜像源</p>
-<p><a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2019.10-Windows-x86_64.exe">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2019.10-Windows-x86_64.exe</a></p>
-</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228165427982.png" alt=""></p>
-<ul>
-<li><p>有条件的可以选择官网下载</p>
-<p><a href="https://repo.anaconda.com/archive/Anaconda3-2019.10-Windows-x86_64.exe">https://repo.anaconda.com/archive/Anaconda3-2019.10-Windows-x86_64.exe</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228170139071.png" alt="image-20191228170139071"></p>
-</li>
-</ul>
-<h4 id="2-双击安装"><a href="#2-双击安装" class="headerlink" title="2.双击安装"></a>2.双击安装</h4><p><em>注意：安装时可以选择将Anaconda注册为默认的Python环境</em></p>
-<p>​    <img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228170508433.png" alt="image-20191228170508433" style="zoom:67%;" /></p>
-<p>然后一路next就可以了</p>
-<p>安装完成！</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228170821162.png" alt="image-20191228170821162"></p>
-<p>接下来到了很重要的环节————</p>
-<h4 id="3-创建conda虚拟环境"><a href="#3-创建conda虚拟环境" class="headerlink" title="3.创建conda虚拟环境"></a>3.创建conda虚拟环境</h4><p>为什么要创建虚拟环境呢？</p>
-<p>Anaconda主要是对python中的各个包进行管理与部署，从而方便用户的使用体验。</p>
-<p>在从github上面下载别人的代码之后，不同的代码往往需要特定的运行环境。比如说有些代码需要在python3.6的环境下运行，有些代码需要在python2.7的环境下运行。</p>
-<p>这个时候，就需要conda出马了</p>
-<h5 id="选择Anaconda-Prompt-Anaconda3-以管理员身份运行"><a href="#选择Anaconda-Prompt-Anaconda3-以管理员身份运行" class="headerlink" title="选择Anaconda Prompt (Anaconda3)以管理员身份运行"></a>选择Anaconda Prompt (Anaconda3)以管理员身份运行</h5><p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228171544280.png" alt="image-20191228171544280"></p>
-<h5 id="输入命令："><a href="#输入命令：" class="headerlink" title="输入命令："></a>输入命令：</h5><p><code>conda create -n environment_name python=3 numpy  pytorch torchvision cpuonly -c pytorch</code></p>
-<p>注意：以上命令是安装CPU版本的Pytorch</p>
-<h5 id="如需安装GPU版本的Pytorch可以去官网查看对应命令"><a href="#如需安装GPU版本的Pytorch可以去官网查看对应命令" class="headerlink" title="如需安装GPU版本的Pytorch可以去官网查看对应命令"></a>如需安装GPU版本的Pytorch可以去官网查看对应命令</h5><p><a href="https://pytorch.org/get-started/locally/">https://pytorch.org/get-started/locally/</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228172220826.png" alt="image-20191228172220826"></p>
-<h5 id="然后一路敲y直到安装完成"><a href="#然后一路敲y直到安装完成" class="headerlink" title="然后一路敲y直到安装完成"></a>然后一路敲y直到安装完成</h5><p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228172356834.png" alt="image-20191228172356834"></p>
-<p>接下来需要切换到刚刚创建好的虚拟环境</p>
-<h5 id="输入命令：-1"><a href="#输入命令：-1" class="headerlink" title="输入命令："></a>输入命令：</h5><p><code>conda activate pytorch</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228172503786.png" alt="image-20191228172503786"></p>
-<h5 id="安装-librosa-音频处理库"><a href="#安装-librosa-音频处理库" class="headerlink" title="安装 librosa 音频处理库"></a>安装 librosa 音频处理库</h5><p><code>conda install -c conda-forge librosa</code></p>
-<h4 id="4-最后一步：安装Spyder-IDE"><a href="#4-最后一步：安装Spyder-IDE" class="headerlink" title="4.最后一步：安装Spyder IDE"></a>4.最后一步：安装Spyder IDE</h4><h5 id="输入命令：-2"><a href="#输入命令：-2" class="headerlink" title="输入命令："></a>输入命令：</h5><p><code>conda install spyder</code></p>
-<h5 id="没有问题的话输入命令："><a href="#没有问题的话输入命令：" class="headerlink" title="没有问题的话输入命令："></a>没有问题的话输入命令：</h5><p><code>spyder</code></p>
-<p>会自动打开spyder4窗口</p>
-<h5 id="如果出现"><a href="#如果出现" class="headerlink" title="如果出现"></a>如果出现</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">(pytorch) C:\Windows\system32&gt;spyder</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;C:\ProgramData\Anaconda3\envs\pytorch\lib\site-packages\qtpy\__init__.py&quot;</span>, line <span class="number">204</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="keyword">from</span> PySide <span class="keyword">import</span> __version__ <span class="keyword">as</span> PYSIDE_VERSION  <span class="comment"># analysis:ignore</span></span><br><span class="line">ModuleNotFoundError: No module named <span class="string">&#x27;PySide&#x27;</span></span><br><span class="line"></span><br><span class="line">During handling of the above exception, another exception occurred:</span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;C:\ProgramData\Anaconda3\envs\pytorch\Scripts\spyder-script.py&quot;</span>, line <span class="number">10</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    sys.exit(main())</span><br><span class="line">  File <span class="string">&quot;C:\ProgramData\Anaconda3\envs\pytorch\lib\site-packages\spyder\app\start.py&quot;</span>, line <span class="number">201</span>, <span class="keyword">in</span> main</span><br><span class="line">    <span class="keyword">from</span> spyder.app <span class="keyword">import</span> mainwindow</span><br><span class="line">  File <span class="string">&quot;C:\ProgramData\Anaconda3\envs\pytorch\lib\site-packages\spyder\app\mainwindow.py&quot;</span>, line <span class="number">52</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    requirements.check_qt()</span><br><span class="line">  File <span class="string">&quot;C:\ProgramData\Anaconda3\envs\pytorch\lib\site-packages\spyder\requirements.py&quot;</span>, line <span class="number">41</span>, <span class="keyword">in</span> check_qt</span><br><span class="line">    <span class="keyword">import</span> qtpy</span><br><span class="line">  File <span class="string">&quot;C:\ProgramData\Anaconda3\envs\pytorch\lib\site-packages\qtpy\__init__.py&quot;</span>, line <span class="number">210</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="keyword">raise</span> PythonQtError(<span class="string">&#x27;No Qt bindings could be found&#x27;</span>)</span><br><span class="line">qtpy.PythonQtError: No Qt bindings could be found</span><br></pre></td></tr></table></figure>
-
-<p>说明没有安装 pyqt</p>
-<p>输入命令</p>
-<p><code>conda install pyqt</code>   </p>
-<p>即可</p>
-<h5 id="至此，pytorch安装完成，你又可以愉快的机器学习了"><a href="#至此，pytorch安装完成，你又可以愉快的机器学习了" class="headerlink" title="至此，pytorch安装完成，你又可以愉快的机器学习了"></a>至此，pytorch安装完成，你又可以愉快的机器学习了</h5><p>安装完成后，你会发现开始栏多了一个Spyder，从此，可以直接从这里打开你刚刚创建的虚拟环境对应的Spyder~</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228174316358.png" alt="image-20191228174316358"></p>
-]]></content>
-      <tags>
-        <tag>Anacoda3</tag>
       </tags>
   </entry>
 </search>
