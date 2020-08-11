@@ -92,8 +92,9 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</noscript>
 
+<link rel="alternate" href="/atom.xml" title="个人随想" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -339,7 +340,7 @@
 <h4 id="torch-utils-cpp-extension"><a href="#torch-utils-cpp-extension" class="headerlink" title="torch.utils.cpp_extension"></a><del>torch.utils.cpp_extension</del></h4><p><strong>torch.utils.cpp_extension</strong>定义了PyTorch的C++拓展，其主要包含两个类：</p>
 <p><strong>CppExtension</strong>定义了使用C++来编写的拓展模块的源代码相关信息。</p>
 <p><strong>CUDAExtension</strong>则定义了C++/CUDA编写的拓展模块的源代码相关信息。</p>
-<p>在某些情况下，用户可能需要使用C++实现某些张量运算和神经网络结构（比如PyTorch没有类似功能的模块或者PyTorch类似功能的模块性能比较低），PyTorch的<strong>C++</strong>拓展模块就提供一个方法能够让Python来调用使用<strong>C++/CUDA</strong>编写的深度学习拓展模块。在底层上，这个拓展模块使用了<strong>pybind11</strong>，保持了接口的轻量性并使得PyTorch易于被拓展。</p>
+<p>在某些情况下，用户可能需要使用C++实现某些张量运算和神经网络结构（比如PyTorch没有类似功能的模块或者PyTorch类似功能的模块性能比较低），PyTorch的<strong>C++**拓展模块就提供一个方法能够让Python来调用使用</strong>C++/CUDA<strong>编写的深度学习拓展模块。在底层上，这个拓展模块使用了</strong>pybind11**，保持了接口的轻量性并使得PyTorch易于被拓展。</p>
 <h4 id="torch-utils-data"><a href="#torch-utils-data" class="headerlink" title="torch.utils.data"></a>torch.utils.data</h4><p>torch.utils.data引入了数据集（Dataset）和数据载入器（DataLoader）的概念。</p>
 <p>Dataset代表了包含了所有数据的数据集，通过索引能够得到某一条特定的数据。</p>
 <p>DataLoader通过对数据集的包装，可以通过对数据集的包装，可以对数据集进行随机排列（Shuffle）和采样（Sample），得到一系列打乱数据顺序的迷你批次。</p>
@@ -384,13 +385,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/08/01/Docker%E7%9A%84%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F/" rel="prev" title="Docker的网络模式">
-                  <i class="fa fa-chevron-left"></i> Docker的网络模式
+                <a href="/2020/08/03/PyTorch%E5%AD%A6%E4%B9%A0(%E4%BA%8C)/" rel="prev" title="PyTorch学习(二)">
+                  <i class="fa fa-chevron-left"></i> PyTorch学习(二)
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/08/03/PyTorch%E5%AD%A6%E4%B9%A0(%E4%BA%8C)/" rel="next" title="PyTorch学习(二)">
-                  PyTorch学习(二) <i class="fa fa-chevron-right"></i>
+                <a href="/2020/08/03/PyTorch%E5%AD%A6%E4%B9%A0(%E4%B8%80)/" rel="next" title="PyTorch学习(一)">
+                  PyTorch学习(一) <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

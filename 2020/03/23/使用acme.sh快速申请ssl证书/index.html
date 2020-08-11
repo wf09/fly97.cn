@@ -92,8 +92,9 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</noscript>
 
+<link rel="alternate" href="/atom.xml" title="个人随想" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -329,7 +330,7 @@
     
     <div class="post-body" itemprop="articleBody">
         <p><strong>acme.sh</strong> 实现了 <code>acme</code> 协议, 可以从 letsencrypt 生成免费的证书.</p>
-<p><strong>转载自：<a target="_blank" rel="noopener" href="https://github.com/acmesh-official/acme.sh/wiki/说明">https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E</a></strong></p>
+<p><strong>转载自：<a target="_blank" rel="noopener" href="https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E">https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E</a></strong></p>
 <a id="more"></a>
 
 <p>主要步骤:</p>
@@ -346,7 +347,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl  https:&#x2F;&#x2F;get.acme.sh | sh</span><br></pre></td></tr></table></figure>
 
 <p>普通用户和 root 用户都可以安装使用.<br>安装过程进行了以下几步:</p>
-<p>1) 把 acme.sh 安装到你的 <strong>home</strong> 目录下:</p>
+<ol>
+<li>把 acme.sh 安装到你的 <strong>home</strong> 目录下:</li>
+</ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;.acme.sh&#x2F;</span><br></pre></td></tr></table></figure>
 <p>并创建 一个 bash 的 alias, 方便你的使用:  <code>alias acme.sh=~/.acme.sh/acme.sh</code></p>
 <p>2). 自动为你创建 cronjob,  每天 0:00 点自动检测所有的证书, 如果快过期了, 需要更新, 则会自动更新证书.</p>

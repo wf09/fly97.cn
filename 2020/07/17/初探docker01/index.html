@@ -94,8 +94,9 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</noscript>
 
+<link rel="alternate" href="/atom.xml" title="个人随想" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -362,7 +363,7 @@
 <h4 id="Windows-10"><a href="#Windows-10" class="headerlink" title="Windows 10"></a>Windows 10</h4><p>对于使用 <code>Windows 10</code> 的用户，在任务栏托盘 Docker 图标内右键菜单选择 <code>Settings</code>，打开配置窗口后在左侧导航菜单选择 <code>Docker Engine</code>，在右侧像下边一样编辑 json 文件，之后点击 <code>Apply &amp; Restart</code> 保存后 Docker 就会重启并应用配置的镜像地址了。</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;registry-mirrors&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;https://28wgvhgl.mirror.aliyuncs.com&quot;</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">&quot;insecure-registries&quot;</span>: [],</span><br><span class="line">  <span class="attr">&quot;debug&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">&quot;experimental&quot;</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200718170304988.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200718170304988.png"></p>
 <h3 id="常见docker命令"><a href="#常见docker命令" class="headerlink" title="常见docker命令"></a>常见docker命令</h3><h4 id="取回容器"><a href="#取回容器" class="headerlink" title="取回容器"></a>取回容器</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull fly97/v2fly</span><br></pre></td></tr></table></figure>
 
 <h4 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name v2fly -v /etc/caddy:/etc/caddy  -p 443:443 fly97/v2fly</span><br></pre></td></tr></table></figure>

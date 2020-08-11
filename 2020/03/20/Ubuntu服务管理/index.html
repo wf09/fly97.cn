@@ -94,8 +94,9 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</noscript>
 
+<link rel="alternate" href="/atom.xml" title="个人随想" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -351,7 +352,7 @@
 <p>新建一个<code>kms.service</code>文件，保存在 <code>/etc/systemd/system/kms.service</code>.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=kms-service</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=/usr/<span class="built_in">local</span>/bin/kms</span><br><span class="line">ExecStop=/bin/<span class="built_in">kill</span> -9 <span class="variable">$MAINPID</span></span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
 
-<p>可以看到service文件一般由：<strong>[Unit]</strong>、<strong>[Service]</strong>和<strong>[Install]</strong> 三部分组成</p>
+<p>可以看到service文件一般由：**[Unit]<strong>、</strong>[Service]<strong>和</strong>[Install]** 三部分组成</p>
 <ol>
 <li>[Unit]<br>主要是对这个服务的说明，内容， 文档介绍以及对一些依赖服务定义</li>
 <li>[Service]<br>服务的主体定义，主要定义服务的一些运行参数，及操作动作</li>
@@ -460,7 +461,7 @@
 <td>表示给服务分配独立的临时空间</td>
 </tr>
 </tbody></table>
-<p>注意：<strong>[Service]</strong>部分的启动、重启、停止命令必须使用绝对路径，使用相对路径则会报错</p>
+<p>注意：**[Service]**部分的启动、重启、停止命令必须使用绝对路径，使用相对路径则会报错</p>
 <p><strong>[Install]</strong></p>
 <table>
 <thead>

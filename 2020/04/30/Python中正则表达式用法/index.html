@@ -93,8 +93,9 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</noscript>
 
+<link rel="alternate" href="/atom.xml" title="个人随想" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -376,11 +377,11 @@
 </tr>
 <tr>
 <td><strong>?</strong></td>
-<td>当该字符紧跟在任何一个其他限制符（<em>,+,?，{*n</em>}，{<em>n</em>,}，{<em>n</em>,<em>m</em>}）后面时，匹配模式是非贪婪的。非贪婪模式尽可能少的匹配所搜索的字符串，而默认的贪婪模式则尽可能多的匹配所搜索的字符串。例如，对于字符串“<code>oooo</code>”，“<code>o+?</code>”将匹配单个“<code>o</code>”，而“<code>o+</code>”将匹配所有“<code>o</code>”。</td>
+<td>当该字符紧跟在任何一个其他限制符（*,+,?，{<em>n</em>}，{<em>n</em>,}，{<em>n</em>,<em>m</em>}）后面时，匹配模式是非贪婪的。非贪婪模式尽可能少的匹配所搜索的字符串，而默认的贪婪模式则尽可能多的匹配所搜索的字符串。例如，对于字符串“<code>oooo</code>”，“<code>o+?</code>”将匹配单个“<code>o</code>”，而“<code>o+</code>”将匹配所有“<code>o</code>”。</td>
 </tr>
 <tr>
 <td><strong>.</strong></td>
-<td>匹配除“<code>\</code><em><code>n</code></em>”之外的任何单个字符。要匹配包括“<code>\</code><em><code>n</code></em>”在内的任何字符，请使用像“`(.</td>
+<td>匹配除“<code>\</code>*<code>n</code><em>”之外的任何单个字符。要匹配包括“<code>\</code></em><code>n</code>*”在内的任何字符，请使用像“`(.</td>
 </tr>
 <tr>
 <td><strong>(pattern)</strong></td>
@@ -524,15 +525,15 @@
 </tr>
 <tr>
 <td align="right"><strong>电子邮箱</strong></td>
-<td>/^([a-z0-9_.-]+)@([\da-z.-]+).([a-z.]{2,6})$/<br/>/^[a-z\d]+(.[a-z\d]+)*@(<a href="-[\da-z]">\da-z</a>?)+(.{1,2}[a-z]+)+$/</td>
+<td>/^([a-z0-9_.-]+)@([\da-z.-]+).([a-z.]{2,6})$/<br/>/^[a-z\d]+(.[a-z\d]+)*@(<a href="-%5B%5Cda-z%5D">\da-z</a>?)+(.{1,2}[a-z]+)+$/</td>
 </tr>
 <tr>
 <td align="right"><strong>URL</strong></td>
-<td>/^(https?://)?([\da-z.-]+).([a-z.]{2,6})([/\w .-]<em>)</em>/?$/</td>
+<td>/^(https?://)?([\da-z.-]+).([a-z.]{2,6})([/\w .-]*)*/?$/</td>
 </tr>
 <tr>
 <td align="right"><strong>HTML 标签</strong></td>
-<td>/^&lt;([a-z]+)([^&lt;]+)<em>(?:&gt;(.</em>)&lt;/\1&gt;</td>
+<td>/^&lt;([a-z]+)([^&lt;]+)*(?:&gt;(.*)&lt;/\1&gt;</td>
 </tr>
 <tr>
 <td align="right"><strong>删除代码\注释</strong></td>
@@ -826,7 +827,7 @@
 <p>多数字母和数字前加一个反斜杠时会拥有不同的含义。</p>
 <p>标点符号只有被转义时才匹配自身，否则它们表示特殊的含义。</p>
 <p>反斜杠本身需要使用反斜杠转义。</p>
-<p>由于正则表达式通常都包含反斜杠，所以你最好使用原始字符串来表示它们。模式元素(如 <strong>r’\t’</strong>，等价于 <strong>\t</strong> )匹配相应的特殊字符。</p>
+<p>由于正则表达式通常都包含反斜杠，所以你最好使用原始字符串来表示它们。模式元素(如 <strong>r’\t’**，等价于 **\t</strong> )匹配相应的特殊字符。</p>
 <p>下表列出了正则表达式模式语法中的特殊元素。如果你使用模式的同时提供了可选的标志参数，某些模式元素的含义会改变。</p>
 <table>
 <thead>
