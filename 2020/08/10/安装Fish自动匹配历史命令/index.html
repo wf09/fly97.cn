@@ -24,21 +24,26 @@
     var CONFIG = {"hostname":"fly97.cn","root":"/","scheme":"Mist","version":"8.0.0-rc.5","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="机器学习中的归纳偏好。">
+  <meta name="description" content="本文介绍了Fish的使用，使用Fish可以根据输入自动匹配历史命令。 摘要：Fish的官网宣传语是 Finally, a command line shell for the 90s。 翻译过来就是 Fish shell 是一个为90后准备的 shell。有人说：“二逼青年用bash，普通青年用zsh，文艺青年用fish。”其次由于zsh 的速度实在是太慢，所以决定换用fish，fish速度快，智">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习基本概念03">
-<meta property="og:url" content="http://fly97.cn/2020/08/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B503/index.html">
+<meta property="og:title" content="安装Fish自动匹配历史命令">
+<meta property="og:url" content="http://fly97.cn/2020/08/10/%E5%AE%89%E8%A3%85Fish%E8%87%AA%E5%8A%A8%E5%8C%B9%E9%85%8D%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="个人随想">
-<meta property="og:description" content="机器学习中的归纳偏好。">
+<meta property="og:description" content="本文介绍了Fish的使用，使用Fish可以根据输入自动匹配历史命令。 摘要：Fish的官网宣传语是 Finally, a command line shell for the 90s。 翻译过来就是 Fish shell 是一个为90后准备的 shell。有人说：“二逼青年用bash，普通青年用zsh，文艺青年用fish。”其次由于zsh 的速度实在是太慢，所以决定换用fish，fish速度快，智">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-08-07T13:50:00.000Z">
-<meta property="article:modified_time" content="2020-08-09T06:12:42.400Z">
+<meta property="og:image" content="c:%5CUsers%5Cwf09%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C20200811_144927.gif">
+<meta property="og:image" content="c:%5CUsers%5Cwf09%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C2027280-11b7a5729b03227b.webp">
+<meta property="og:image" content="c:%5CUsers%5Cwf09%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C2027280-3f8729b449ea454d.webp">
+<meta property="og:image" content="c:%5CUsers%5Cwf09%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C2027280-2c1a98068158e5fd.webp">
+<meta property="article:published_time" content="2020-08-10T13:50:00.000Z">
+<meta property="article:modified_time" content="2020-08-11T07:07:43.106Z">
 <meta property="article:author" content="个人随想">
-<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:%5CUsers%5Cwf09%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C20200811_144927.gif">
 
 
-<link rel="canonical" href="http://fly97.cn/2020/08/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B503/">
+<link rel="canonical" href="http://fly97.cn/2020/08/10/%E5%AE%89%E8%A3%85Fish%E8%87%AA%E5%8A%A8%E5%8C%B9%E9%85%8D%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4/">
 
 
 <script class="page-configurations">
@@ -51,7 +56,7 @@
   };
 </script>
 
-  <title>机器学习基本概念03 | 个人随想</title>
+  <title>安装Fish自动匹配历史命令 | 个人随想</title>
   
 
 
@@ -202,7 +207,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BD%92%E7%BA%B3%E5%81%8F%E5%A5%BD"><span class="nav-number">1.</span> <span class="nav-text">归纳偏好</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Fish%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">Fish入门使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Ubuntu%E5%AE%89%E8%A3%85Fish"><span class="nav-number">1.1.</span> <span class="nav-text">Ubuntu安装Fish</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BD%91%E9%A1%B5%E9%85%8D%E7%BD%AEFish"><span class="nav-number">1.2.</span> <span class="nav-text">网页配置Fish</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%BC%E5%AE%B9Bash"><span class="nav-number">2.</span> <span class="nav-text">兼容Bash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%90%E8%97%8F%E6%AC%A2%E8%BF%8E%E8%AF%AD"><span class="nav-number">3.</span> <span class="nav-text">隐藏欢迎语</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">其他配置</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -279,7 +284,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fly97.cn/2020/08/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B503/">
+    <link itemprop="mainEntityOfPage" href="http://fly97.cn/2020/08/10/%E5%AE%89%E8%A3%85Fish%E8%87%AA%E5%8A%A8%E5%8C%B9%E9%85%8D%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -295,7 +300,7 @@
     
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          机器学习基本概念03
+          安装Fish自动匹配历史命令
         </h1>
 
         <div class="post-meta">
@@ -305,14 +310,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-08-07 21:50:00" itemprop="dateCreated datePublished" datetime="2020-08-07T21:50:00+08:00">2020-08-07</time>
+              <time title="创建时间：2020-08-10 21:50:00" itemprop="dateCreated datePublished" datetime="2020-08-10T21:50:00+08:00">2020-08-10</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-09 14:12:42" itemprop="dateModified" datetime="2020-08-09T14:12:42+08:00">2020-08-09</time>
+                <time title="修改时间：2020-08-11 15:07:43" itemprop="dateModified" datetime="2020-08-11T15:07:43+08:00">2020-08-11</time>
               </span>
 
           
@@ -324,16 +329,57 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>机器学习中的归纳偏好。</p>
+        <p>本文介绍了Fish的使用，使用Fish可以根据输入自动匹配历史命令。</p>
+<p><strong>摘要</strong>：Fish的官网宣传语是 Finally, a command line shell for the 90s。 翻译过来就是 Fish shell 是一个为90后准备的 shell。有人说：“二逼青年用bash，普通青年用zsh，文艺青年用fish。”<br>其次由于zsh 的速度实在是太慢，所以决定换用fish，fish速度快，智能提示强大。</p>
+<p><strong>关键字</strong>：Fish</p>
 <a id="more"></a>
 
-<h4 id="归纳偏好"><a href="#归纳偏好" class="headerlink" title="归纳偏好"></a>归纳偏好</h4><p>通过学习得到的模型对应了假设空间的一个假设，于是，上文中的西瓜版本空间给我们带来了一个麻烦：现在有三个与训练集一致的假设，但与他们对应的模型在面临新样本的时候，却会产生不同的输出。例如，对色泽=青绿；根蒂=蜷缩；敲声=沉闷这个新收来的瓜，如果我们采用的是“好瓜《=》（色泽=<em>）^（敲声=\</em>)”。那么会把新瓜判断为好瓜，而如果采用了另外两个假设，则判断的结果将不是好瓜，那么，应该采用哪一个模型（或假设）呢？</p>
-<p>​    若仅有上表中训练样本，则无法断定上述三个假设哪一个“更好”。然而，对于一个具体的学习算法而言，他必须要产生一个模型。这时，学习算法本身的“偏好”就会起到关键的作用。例如，若我们的算法喜欢尽可能特殊的模型，则他会选择“好瓜《=》（色泽=*）^（根蒂=蜷缩）^(敲声=浊响)”；但若我们的算法喜欢“尽可能一般”的模型，并且由于某种原因它更相信“根蒂”，则它会选择“好瓜《=》（色泽=<em>）^（根蒂=蜷缩）^(敲声=\</em>)”，机器学习算法在学习过程中对某种类型假设的偏好，称为“归纳偏好”(inductive bias)，或称为“偏好”。</p>
-<blockquote>
-<p>尽可能特殊即“适用情况尽可能少”；尽可能一般即“使用情况尽可能多”。</p>
-<p>对“根蒂”还是对“敲声”更重视，看起来和属性选择，亦称为“特征选择”(feature selection)有关，但需注意的是，机器学习中的特征选择仍是基于对训练样本的模型的分析进行的，而在此处我们并非基于特征选择做出对根蒂的重视；这里对“根蒂”的信赖可视为基于某种领域的知识而产生的归纳偏好关于特征选择方面的内容可以参加后续的更新。</p>
-</blockquote>
-<p>任何一个有效的机器学习算法未必有其归纳偏好，否则它将被假设空间中看似在训练集上“等效”的假设所迷惑，而无法产生确定的学习结果。可以想象，如果没有偏好，我们的西瓜学习算法产生的模型每次在进行预测时随机抽选训练集上的等效假设，那么对这个新瓜————–学得模型时而告诉我们他是好的，时而告诉我们他是不好的，这样的学习结果显然没有意义。</p>
+<h4 id="Fish入门使用"><a href="#Fish入门使用" class="headerlink" title="Fish入门使用"></a>Fish入门使用</h4><h5 id="Ubuntu安装Fish"><a href="#Ubuntu安装Fish" class="headerlink" title="Ubuntu安装Fish"></a>Ubuntu安装Fish</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">apt-get install software-properties-common</span><br><span class="line">sudo apt-add-repository ppa:fish-shell/release-2</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install fish</span><br><span class="line"><span class="comment">#切换到fish</span></span><br><span class="line"><span class="built_in">echo</span> /usr/bin/fish | sudo tee -a /etc/shells</span><br><span class="line">sudo chsh -s /usr/bin/fish &amp;&amp; fish</span><br></pre></td></tr></table></figure>
+
+<p>fish的鲜明特征在于安装时已经默认集成了很多需要的功能。<br>比如：</p>
+<ul>
+<li>命令行语法高亮，错误会显示红色</li>
+<li>智能提示</li>
+<li>可以使用web网页的进行终端配置</li>
+</ul>
+<p>fish 有智能提示，一个命令一旦输入过一次，会自动显示上一次的全部命令，细心一点会发现会有一层灰色的字体表示上一次的命令，按<code>Ctrl+F</code>或者 右方向键<code>→</code>， 即可自动补全。</p>
+<p><img src="C:%5CUsers%5Cwf09%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C20200811_144927.gif" alt=""></p>
+<h5 id="网页配置Fish"><a href="#网页配置Fish" class="headerlink" title="网页配置Fish"></a>网页配置Fish</h5><p><code>fish_config</code> 可以直接跳出网页版本配置fish的界面。</p>
+<p>web版本可以设置主题， 推荐其中的”Tomorrow Night”主题颜色。</p>
+<p><img src="C:%5CUsers%5Cwf09%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C2027280-11b7a5729b03227b.webp" alt="img"></p>
+<p>选择想要的主题，然后点击set theme即可设置主题。<br>在命令里按enter 即可退出web版本的界面。</p>
+<p>在prompt里面可以自己选择fish终端的主题。</p>
+<p><img src="C:%5CUsers%5Cwf09%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C2027280-3f8729b449ea454d.webp" alt="img"></p>
+<h4 id="兼容Bash"><a href="#兼容Bash" class="headerlink" title="兼容Bash"></a>兼容Bash</h4><p>由于fish 很多<strong>不兼容</strong>bash的功能导致了很多脚本无法运行，这一点是很多人吐槽fish的地方，我们需要一种方式来运行bash脚本。</p>
+<p>比如</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arc land --onto `git rev-parse --abbrev-ref HEAD` </span><br></pre></td></tr></table></figure>
+
+<p>只需要在前面添加一个bash -c 命令即可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash -c <span class="string">&quot;arc land --onto `git rev-parse --abbrev-ref HEAD`&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>顺手加个alias就更方便了，可以直接在命令行里使用命令<code>arcl</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> arcl bash -c <span class="string">&quot;arc land --onto `git rev-parse --abbrev-ref HEAD`&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>对于脚本文件，比如我将需要执行的命令或文件放到<code>repomerge.sh</code></p>
+<p>在~/.config/fish/config.fish添加</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> up <span class="string">&quot;bash -c /usr/bin/repomerge.sh&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后就可以自由的使用up命令了</p>
+<p>其中function fish_prompt 函数用于定义fish终端的显示样式。</p>
+<p>我们只需要写一个fish_prompt函数即可。集成了git的分支名称以及当前的变化。</p>
+<p>显示的样式如下：</p>
+<p><img src="C:%5CUsers%5Cwf09%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C2027280-2c1a98068158e5fd.webp" alt="img"></p>
+<p><strong>说明:<br> ✔代表当前git项目是干净的。<br> %1 表示有一个文件未追踪<br> +1 表示一个文件已暂存</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 终端显示样式的配置</span></span><br><span class="line"><span class="keyword">function</span> fish_prompt --description <span class="string">&#x27;Write out the prompt&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> not <span class="built_in">set</span> -q __fish_prompt_normal</span><br><span class="line">        <span class="built_in">set</span> -g __fish_prompt_normal (set_color normal)</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    __fish_git_prompt &gt;/dev/null 2&gt;&amp;1</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> git_is_repo</span><br><span class="line">        <span class="keyword">if</span> not <span class="built_in">set</span> -q __git_cb</span><br><span class="line">            <span class="built_in">set</span> __git_cb (set_color blue)<span class="string">&quot; (&quot;</span>(set_color brred)(git branch | grep \* | sed <span class="string">&#x27;s/* //&#x27;</span>) (set_color -o bryellow)(__fish_git_prompt_informative_status)(set_color blue)<span class="string">&quot;)&quot;</span></span><br><span class="line">        end</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> not <span class="built_in">set</span> -q __fish_prompt_cwd</span><br><span class="line">        <span class="built_in">set</span> -g __fish_prompt_cwd (set_color <span class="variable">$fish_color_cwd</span>)</span><br><span class="line">    end</span><br><span class="line">    <span class="built_in">printf</span> <span class="string">&#x27;%s%s%s%s &#x27;</span> <span class="string">&quot;<span class="variable">$__fish_prompt_cwd</span>&quot;</span> (prompt_pwd) <span class="string">&quot;<span class="variable">$__fish_prompt_normal</span>&quot;</span> <span class="variable">$__git_cb</span></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<h4 id="隐藏欢迎语"><a href="#隐藏欢迎语" class="headerlink" title="隐藏欢迎语"></a>隐藏欢迎语</h4><p>在confin.sh文件里添加如下函数即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> fish_greeting</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<h4 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> l <span class="string">&quot;ll&quot;</span></span><br><span class="line"><span class="built_in">alias</span> dir <span class="string">&quot;dde-file-manager . &amp;&quot;</span></span><br><span class="line"><span class="built_in">alias</span> docker <span class="string">&quot;sudo docker&quot;</span></span><br><span class="line"><span class="built_in">alias</span> apt <span class="string">&quot;sudo apt&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>作者：iceqing<br>链接：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/bf03bce60987">https://www.jianshu.com/p/bf03bce60987</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 
     </div>
 
@@ -343,20 +389,20 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag"># 机器学习</a>
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/08/06/%E5%A5%A5%E5%8D%A1%E5%A7%86%E5%89%83%E5%88%80%E5%92%8C%E6%B2%A1%E6%9C%89%E5%85%8D%E8%B4%B9%E7%9A%84%E5%8D%88%E9%A4%90%E5%AE%9A%E7%90%86/" rel="prev" title="奥卡姆剃刀和没有免费的午餐定理">
-                  <i class="fa fa-chevron-left"></i> 奥卡姆剃刀和没有免费的午餐定理
+                <a href="/2020/08/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B8%B8%E8%A7%81%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/" rel="prev" title="深度学习常见损失函数">
+                  <i class="fa fa-chevron-left"></i> 深度学习常见损失函数
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/08/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B8%B8%E8%A7%81%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/" rel="next" title="深度学习常见损失函数">
-                  深度学习常见损失函数 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/08/10/%E5%AE%89%E8%A3%85autojump%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E7%9B%AE%E5%BD%95/" rel="next" title="安装autojump自动切换目录">
+                  安装autojump自动切换目录 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

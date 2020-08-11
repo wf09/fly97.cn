@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fly97.cn/"/>
-  <updated>2020-08-09T06:24:28.216Z</updated>
+  <updated>2020-08-11T06:30:04.003Z</updated>
   <id>http://fly97.cn/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>安装autojump自动切换目录</title>
+    <link href="http://fly97.cn/2020/08/10/%E5%AE%89%E8%A3%85autojump%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E7%9B%AE%E5%BD%95/"/>
+    <id>http://fly97.cn/2020/08/10/%E5%AE%89%E8%A3%85autojump%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E7%9B%AE%E5%BD%95/</id>
+    <published>2020-08-10T13:50:00.000Z</published>
+    <updated>2020-08-11T06:30:04.003Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文介绍了autojump的使用，使用autojump可以很方便地切换目录。</p><p><strong>摘要</strong>：熟悉Linux 的小伙伴们都知道，在终端下需要使用命令<code>cd</code>切换目录。对于多层目录，还需要不停的用使用<code>cd</code>命令或者 Tab 键补齐，如果目录下文件夹过多，还需要使用<code>ls</code>查看当前目录下的文件。<a href="https://github.com/wting/autojump">autojump </a>是浏览文件系统的一种更快的方法。它通过维护命令行中最常用的目录的数据库来工作。autojump 是通过记录进入过的目录到数据库来实现的，所以必须是曾经进入过的目录才能跳转。</p><p><strong>关键字</strong>：autojump</p><a id="more"></a><h4 id="Linux下安装"><a href="#Linux下安装" class="headerlink" title="Linux下安装"></a>Linux下安装</h4><h5 id="源码安装"><a href="#源码安装" class="headerlink" title="源码安装"></a>源码安装</h5><p>克隆以下仓库</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/wting/autojump.git</span><br></pre></td></tr></table></figure><p>coding分流</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://e.coding.net/fly97/github-projects/autojump.git</span><br></pre></td></tr></table></figure><p>执行安装</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> autojump</span><br><span class="line">chmod +x install.py</span><br><span class="line">./install.py</span><br></pre></td></tr></table></figure><h5 id="fish-shell的设置"><a href="#fish-shell的设置" class="headerlink" title="fish shell的设置"></a>fish shell的设置</h5><p>执行以下命令以创建fish shell的配置文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;if test -f /root/.autojump/share/autojump/autojump.fish; . /root/.autojump/share/autojump/autojump.fish; end&quot;</span> &gt;&gt; ~/.config/fish/config.fish</span><br></pre></td></tr></table></figure><h5 id="修改环境变量"><a href="#修改环境变量" class="headerlink" title="修改环境变量"></a>修改环境变量</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;export PATH=&quot;</span><span class="variable">$PATH</span>:/root/.autojump/bin<span class="string">&quot; &gt; /etc/profile</span></span><br></pre></td></tr></table></figure><h5 id="执行以下命令检查是否正常运行"><a href="#执行以下命令检查是否正常运行" class="headerlink" title="执行以下命令检查是否正常运行"></a>执行以下命令检查是否正常运行</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">j --<span class="built_in">help</span></span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200811140853462.png" alt="image-20200811140853462"></p><h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><h5 id="查看-autojump-存储的目录的状态"><a href="#查看-autojump-存储的目录的状态" class="headerlink" title="查看 autojump 存储的目录的状态"></a>查看 <code>autojump</code> 存储的目录的状态</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">j -s</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200811142040440.png" alt="image-20200811142040440"></p><h5 id="查看使用帮助"><a href="#查看使用帮助" class="headerlink" title="查看使用帮助"></a>查看使用帮助</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">j -h</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200811142133380.png" alt="image-20200811142133380"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文介绍了autojump的使用，使用autojump可以很方便地切换目录。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;摘要&lt;/strong&gt;：熟悉Linux 的小伙伴们都知道，在终端下需要使用命令&lt;code&gt;cd&lt;/code&gt;切换目录。对于多层目录，还需要不停的用使用&lt;code&gt;cd&lt;/code&gt;命令或者 Tab 键补齐，如果目录下文件夹过多，还需要使用&lt;code&gt;ls&lt;/code&gt;查看当前目录下的文件。&lt;a href=&quot;https://github.com/wting/autojump&quot;&gt;autojump &lt;/a&gt;是浏览文件系统的一种更快的方法。它通过维护命令行中最常用的目录的数据库来工作。autojump 是通过记录进入过的目录到数据库来实现的，所以必须是曾经进入过的目录才能跳转。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;关键字&lt;/strong&gt;：autojump&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Linux" scheme="http://fly97.cn/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>安装Fish自动匹配历史命令</title>
+    <link href="http://fly97.cn/2020/08/10/%E5%AE%89%E8%A3%85Fish%E8%87%AA%E5%8A%A8%E5%8C%B9%E9%85%8D%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4/"/>
+    <id>http://fly97.cn/2020/08/10/%E5%AE%89%E8%A3%85Fish%E8%87%AA%E5%8A%A8%E5%8C%B9%E9%85%8D%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4/</id>
+    <published>2020-08-10T13:50:00.000Z</published>
+    <updated>2020-08-11T07:07:43.106Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文介绍了Fish的使用，使用Fish可以根据输入自动匹配历史命令。</p><p><strong>摘要</strong>：Fish的官网宣传语是 Finally, a command line shell for the 90s。 翻译过来就是 Fish shell 是一个为90后准备的 shell。有人说：“二逼青年用bash，普通青年用zsh，文艺青年用fish。”<br>其次由于zsh 的速度实在是太慢，所以决定换用fish，fish速度快，智能提示强大。</p><p><strong>关键字</strong>：Fish</p><a id="more"></a><h4 id="Fish入门使用"><a href="#Fish入门使用" class="headerlink" title="Fish入门使用"></a>Fish入门使用</h4><h5 id="Ubuntu安装Fish"><a href="#Ubuntu安装Fish" class="headerlink" title="Ubuntu安装Fish"></a>Ubuntu安装Fish</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">apt-get install software-properties-common</span><br><span class="line">sudo apt-add-repository ppa:fish-shell/release-2</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install fish</span><br><span class="line"><span class="comment">#切换到fish</span></span><br><span class="line"><span class="built_in">echo</span> /usr/bin/fish | sudo tee -a /etc/shells</span><br><span class="line">sudo chsh -s /usr/bin/fish &amp;&amp; fish</span><br></pre></td></tr></table></figure><p>fish的鲜明特征在于安装时已经默认集成了很多需要的功能。<br>比如：</p><ul><li>命令行语法高亮，错误会显示红色</li><li>智能提示</li><li>可以使用web网页的进行终端配置</li></ul><p>fish 有智能提示，一个命令一旦输入过一次，会自动显示上一次的全部命令，细心一点会发现会有一层灰色的字体表示上一次的命令，按<code>Ctrl+F</code>或者 右方向键<code>→</code>， 即可自动补全。</p><p><img src="C:%5CUsers%5Cwf09%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C20200811_144927.gif" alt=""></p><h5 id="网页配置Fish"><a href="#网页配置Fish" class="headerlink" title="网页配置Fish"></a>网页配置Fish</h5><p><code>fish_config</code> 可以直接跳出网页版本配置fish的界面。</p><p>web版本可以设置主题， 推荐其中的”Tomorrow Night”主题颜色。</p><p><img src="C:%5CUsers%5Cwf09%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C2027280-11b7a5729b03227b.webp" alt="img"></p><p>选择想要的主题，然后点击set theme即可设置主题。<br>在命令里按enter 即可退出web版本的界面。</p><p>在prompt里面可以自己选择fish终端的主题。</p><p><img src="C:%5CUsers%5Cwf09%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C2027280-3f8729b449ea454d.webp" alt="img"></p><h4 id="兼容Bash"><a href="#兼容Bash" class="headerlink" title="兼容Bash"></a>兼容Bash</h4><p>由于fish 很多<strong>不兼容</strong>bash的功能导致了很多脚本无法运行，这一点是很多人吐槽fish的地方，我们需要一种方式来运行bash脚本。</p><p>比如</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arc land --onto `git rev-parse --abbrev-ref HEAD` </span><br></pre></td></tr></table></figure><p>只需要在前面添加一个bash -c 命令即可。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash -c <span class="string">&quot;arc land --onto `git rev-parse --abbrev-ref HEAD`&quot;</span></span><br></pre></td></tr></table></figure><p>顺手加个alias就更方便了，可以直接在命令行里使用命令<code>arcl</code>。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> arcl bash -c <span class="string">&quot;arc land --onto `git rev-parse --abbrev-ref HEAD`&quot;</span></span><br></pre></td></tr></table></figure><p>对于脚本文件，比如我将需要执行的命令或文件放到<code>repomerge.sh</code></p><p>在~/.config/fish/config.fish添加</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> up <span class="string">&quot;bash -c /usr/bin/repomerge.sh&quot;</span></span><br></pre></td></tr></table></figure><p>然后就可以自由的使用up命令了</p><p>其中function fish_prompt 函数用于定义fish终端的显示样式。</p><p>我们只需要写一个fish_prompt函数即可。集成了git的分支名称以及当前的变化。</p><p>显示的样式如下：</p><p><img src="C:%5CUsers%5Cwf09%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C2027280-2c1a98068158e5fd.webp" alt="img"></p><p><strong>说明:<br> ✔代表当前git项目是干净的。<br> %1 表示有一个文件未追踪<br> +1 表示一个文件已暂存</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 终端显示样式的配置</span></span><br><span class="line"><span class="keyword">function</span> fish_prompt --description <span class="string">&#x27;Write out the prompt&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> not <span class="built_in">set</span> -q __fish_prompt_normal</span><br><span class="line">        <span class="built_in">set</span> -g __fish_prompt_normal (set_color normal)</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    __fish_git_prompt &gt;/dev/null 2&gt;&amp;1</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> git_is_repo</span><br><span class="line">        <span class="keyword">if</span> not <span class="built_in">set</span> -q __git_cb</span><br><span class="line">            <span class="built_in">set</span> __git_cb (set_color blue)<span class="string">&quot; (&quot;</span>(set_color brred)(git branch | grep \* | sed <span class="string">&#x27;s/* //&#x27;</span>) (set_color -o bryellow)(__fish_git_prompt_informative_status)(set_color blue)<span class="string">&quot;)&quot;</span></span><br><span class="line">        end</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> not <span class="built_in">set</span> -q __fish_prompt_cwd</span><br><span class="line">        <span class="built_in">set</span> -g __fish_prompt_cwd (set_color <span class="variable">$fish_color_cwd</span>)</span><br><span class="line">    end</span><br><span class="line">    <span class="built_in">printf</span> <span class="string">&#x27;%s%s%s%s &#x27;</span> <span class="string">&quot;<span class="variable">$__fish_prompt_cwd</span>&quot;</span> (prompt_pwd) <span class="string">&quot;<span class="variable">$__fish_prompt_normal</span>&quot;</span> <span class="variable">$__git_cb</span></span><br><span class="line">end</span><br></pre></td></tr></table></figure><h4 id="隐藏欢迎语"><a href="#隐藏欢迎语" class="headerlink" title="隐藏欢迎语"></a>隐藏欢迎语</h4><p>在confin.sh文件里添加如下函数即可</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> fish_greeting</span><br><span class="line">end</span><br></pre></td></tr></table></figure><h4 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> l <span class="string">&quot;ll&quot;</span></span><br><span class="line"><span class="built_in">alias</span> dir <span class="string">&quot;dde-file-manager . &amp;&quot;</span></span><br><span class="line"><span class="built_in">alias</span> docker <span class="string">&quot;sudo docker&quot;</span></span><br><span class="line"><span class="built_in">alias</span> apt <span class="string">&quot;sudo apt&quot;</span></span><br></pre></td></tr></table></figure><p>作者：iceqing<br>链接：<a href="https://www.jianshu.com/p/bf03bce60987">https://www.jianshu.com/p/bf03bce60987</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文介绍了Fish的使用，使用Fish可以根据输入自动匹配历史命令。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;摘要&lt;/strong&gt;：Fish的官网宣传语是 Finally, a command line shell for the 90s。 翻译过来就是 Fish shell 是一个为90后准备的 shell。有人说：“二逼青年用bash，普通青年用zsh，文艺青年用fish。”&lt;br&gt;其次由于zsh 的速度实在是太慢，所以决定换用fish，fish速度快，智能提示强大。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;关键字&lt;/strong&gt;：Fish&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Linux" scheme="http://fly97.cn/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>深度学习常见损失函数</title>
@@ -415,55 +461,6 @@
       <category term="CNN" scheme="http://fly97.cn/tags/CNN/"/>
     
       <category term="MNIST" scheme="http://fly97.cn/tags/MNIST/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python升级pip</title>
-    <link href="http://fly97.cn/2020/05/27/Python%E5%8D%87%E7%BA%A7pip/"/>
-    <id>http://fly97.cn/2020/05/27/Python%E5%8D%87%E7%BA%A7pip/</id>
-    <published>2020-05-27T07:00:00.000Z</published>
-    <updated>2020-08-05T14:46:39.062Z</updated>
-    
-    <content type="html"><![CDATA[<p>安装pip：<code>apt install python3-pip</code></p><p>升级pip：<code>python -m pip install --upgrade pip</code></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;安装pip：&lt;code&gt;apt install python3-pip&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;升级pip：&lt;code&gt;python -m pip install --upgrade pip&lt;/code&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Python" scheme="http://fly97.cn/tags/Python/"/>
-    
-      <category term="pip" scheme="http://fly97.cn/tags/pip/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Office Tool Plus使用教程</title>
-    <link href="http://fly97.cn/2020/05/11/office%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B/"/>
-    <id>http://fly97.cn/2020/05/11/office%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B/</id>
-    <published>2020-05-11T04:52:00.000Z</published>
-    <updated>2020-05-30T12:51:09.933Z</updated>
-    
-    <content type="html"><![CDATA[<p>Office Tool Plus 使用教程</p><a id="more"></a><p>软件介绍：<a href="https://otp.landian.vip/zh-cn/">https://otp.landian.vip/zh-cn/</a></p><p>软件下载地址：<a href="https://download.coolhub.top/">https://download.coolhub.top/</a></p><p>备份地址：<a href="https://ftp.fly97.cn/windows/app/Office%20Tool%20v7.5.zip">https://ftp.fly97.cn/windows/app/Office%20Tool%20v7.5.zip</a></p><h4 id="1-选择安装产品"><a href="#1-选择安装产品" class="headerlink" title="1.选择安装产品"></a>1.选择安装产品</h4><p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200517194431639.png" alt="image-20200517194431639"></p><p>注意：由于国内到微软的网络不稳定，建议<strong>部署模式</strong>选择<strong>下载后安装</strong>。耐心等待安装完毕即可。</p><h4 id="2-激活office"><a href="#2-激活office" class="headerlink" title="2.激活office"></a>2.激活office</h4><p>首先，根据选择的类型选择对应的许可证。</p><p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200517194323507.png" alt="image-20200517194323507"></p><p><del>然后，选择<strong>零售版</strong>安装的同学<strong>可能需要安装</strong>Office2019专业版特定的密钥：</del></p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP</span><br></pre></td></tr></table></figure><p>最后，选择对应的KMS服务器。</p><p>推荐使用：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kms.moeclub.org</span><br></pre></td></tr></table></figure><p>完。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Office Tool Plus 使用教程&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="office" scheme="http://fly97.cn/tags/office/"/>
     
   </entry>
   
