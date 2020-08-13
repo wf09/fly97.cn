@@ -20,6 +20,7 @@ jobs:
         npm i -g @cloudbase/cli
         cloudbase -v
         rm -r .git .github
+        chmod 777 ./*
     - name: Deploy to CloudBase 
       env:
         apiKeyId: ${{ secrets.APIKEYID }}
