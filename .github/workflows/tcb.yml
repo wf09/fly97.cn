@@ -1,0 +1,32 @@
+name: Tencent Cloud Base
+
+on:
+  push:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js lts
+      uses: actions/setup-node@v2-beta
+      with:
+        node-version: '12.x'
+        
+        
+    - name: Install Dependencies
+      run: |
+        npm i -g @cloudbase/cli
+        cloudbase -v
+        rm -r ./git ./github
+    - name: Deploy to CloudBase 
+      env:
+        apiKeyId: ${{ secrets.apiKeyId }}
+        apiKey: ${{ secrets.apiKey }}
+        envId: ${{ secrets.envId }}
+      run: |
+        cloudbase login --apiKeyId $apiKeyId --apiKey $apiKey
+        cloudbase hosting:deploy public -e $envId
+        
+        
