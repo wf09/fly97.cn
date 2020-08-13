@@ -19,6 +19,7 @@ jobs:
       run: |
         npm i -g @cloudbase/cli
         cloudbase -v
+        ls 
         rm -r ./git ./github
     - name: Deploy to CloudBase 
       env:
