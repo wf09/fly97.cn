@@ -22,9 +22,9 @@ jobs:
         rm -r .git .github
     - name: Deploy to CloudBase 
       env:
-        apiKeyId: ${{ secrets.apiKeyId }}
-        apiKey: ${{ secrets.apiKey }}
-        envId: ${{ secrets.envId }}
+        apiKeyId: ${{ secrets.APIKEYID }}
+        apiKey: ${{ secrets.APIKEY }}
+        envId: ${{ secrets.ENVID }}
       run: |
         cloudbase login --apiKeyId $apiKeyId --apiKey $apiKey
         cloudbase hosting:deploy public -e $envId
