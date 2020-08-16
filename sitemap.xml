@@ -16,6 +16,153 @@
   </url>
   
   <url>
+    <loc>http://fly97.cn/2020/07/23/Anacoda3%E6%95%99%E7%A8%8B(%E4%B8%80)/</loc>
+    
+    <lastmod>2020-08-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fly97.cn/2020/08/01/Docker%E7%9A%84%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F/</loc>
+    
+    <lastmod>2020-08-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fly97.cn/2020/04/24/Linux%E4%B9%8Bcrontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</loc>
+    
+    <lastmod>2020-08-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fly97.cn/2020/08/03/PyTorch%E5%AD%A6%E4%B9%A0(%E4%B8%80)/</loc>
+    
+    <lastmod>2020-08-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fly97.cn/2020/08/03/PyTorch%E5%AD%A6%E4%B9%A0(%E4%B8%89)/</loc>
+    
+    <lastmod>2020-08-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fly97.cn/2020/08/03/PyTorch%E5%AD%A6%E4%B9%A0(%E4%BA%8C)/</loc>
+    
+    <lastmod>2020-08-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fly97.cn/2020/03/16/Python%E4%B8%AD_getattr__%E7%AD%89%E7%9A%84%E7%94%A8%E6%B3%95/</loc>
+    
+    <lastmod>2020-08-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fly97.cn/2020/03/04/Python%E4%B8%ADpickle%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
+    
+    <lastmod>2020-08-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fly97.cn/2020/03/16/Python%E4%B8%AD%E4%B8%8B%E5%88%92%E7%BA%BF%E5%91%BD%E5%90%8D%E6%A8%A1%E5%BC%8F/</loc>
+    
+    <lastmod>2020-08-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fly97.cn/2020/05/27/Python%E5%8D%87%E7%BA%A7pip/</loc>
+    
+    <lastmod>2020-08-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fly97.cn/2020/08/13/Python%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/</loc>
+    
+    <lastmod>2020-08-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fly97.cn/2020/06/20/caddy%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</loc>
+    
+    <lastmod>2020-08-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fly97.cn/2020/03/20/Ubuntu%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/</loc>
+    
+    <lastmod>2020-08-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fly97.cn/2020/05/11/office%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B/</loc>
+    
+    <lastmod>2020-08-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fly97.cn/2020/05/29/%E4%BD%BF%E7%94%A8PyTorch%E8%BF%9B%E8%A1%8CMNIST%E8%AF%86%E5%88%AB/</loc>
+    
+    <lastmod>2020-08-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fly97.cn/2020/05/31/%E4%BD%BF%E7%94%A8WSL%E9%93%BE%E6%8E%A5Github%E4%BB%93%E5%BA%93/</loc>
+    
+    <lastmod>2020-08-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fly97.cn/2020/03/23/%E4%BD%BF%E7%94%A8acme.sh%E5%BF%AB%E9%80%9F%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A6/</loc>
+    
+    <lastmod>2020-08-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fly97.cn/2020/06/20/%E4%BD%BF%E7%94%A8jsdelivrCDN%E5%8A%A0%E9%80%9Fgithub%E6%96%87%E4%BB%B6/</loc>
+    
+    <lastmod>2020-08-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fly97.cn/2020/02/17/%E4%BD%BF%E7%94%A8pip%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85PyTorch-gpu/</loc>
+    
+    <lastmod>2020-08-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fly97.cn/2020/05/11/%E4%BF%AE%E6%94%B9pip%E9%95%9C%E5%83%8F%E6%BA%90/</loc>
+    
+    <lastmod>2020-08-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fly97.cn/2020/06/30/%E5%88%9D%E6%8E%A2Tkinter01/</loc>
+    
+    <lastmod>2020-08-16</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://fly97.cn/2020/07/25/%E5%88%9D%E6%8E%A2Tkinter02/</loc>
     
     <lastmod>2020-08-16</lastmod>
@@ -100,160 +247,6 @@
   </url>
   
   <url>
-    <loc>http://fly97.cn/book/index.html</loc>
-    
-    <lastmod>2020-08-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fly97.cn/2020/07/23/Anacoda3%E6%95%99%E7%A8%8B(%E4%B8%80)/</loc>
-    
-    <lastmod>2020-08-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fly97.cn/2020/08/01/Docker%E7%9A%84%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F/</loc>
-    
-    <lastmod>2020-08-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fly97.cn/2020/04/24/Linux%E4%B9%8Bcrontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</loc>
-    
-    <lastmod>2020-08-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fly97.cn/2020/08/03/PyTorch%E5%AD%A6%E4%B9%A0(%E4%B8%80)/</loc>
-    
-    <lastmod>2020-08-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fly97.cn/2020/08/03/PyTorch%E5%AD%A6%E4%B9%A0(%E4%B8%89)/</loc>
-    
-    <lastmod>2020-08-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fly97.cn/2020/08/03/PyTorch%E5%AD%A6%E4%B9%A0(%E4%BA%8C)/</loc>
-    
-    <lastmod>2020-08-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fly97.cn/2020/03/16/Python%E4%B8%AD_getattr__%E7%AD%89%E7%9A%84%E7%94%A8%E6%B3%95/</loc>
-    
-    <lastmod>2020-08-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fly97.cn/2020/03/04/Python%E4%B8%ADpickle%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
-    
-    <lastmod>2020-08-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fly97.cn/2020/03/16/Python%E4%B8%AD%E4%B8%8B%E5%88%92%E7%BA%BF%E5%91%BD%E5%90%8D%E6%A8%A1%E5%BC%8F/</loc>
-    
-    <lastmod>2020-08-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fly97.cn/2020/05/27/Python%E5%8D%87%E7%BA%A7pip/</loc>
-    
-    <lastmod>2020-08-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fly97.cn/2020/08/13/Python%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/</loc>
-    
-    <lastmod>2020-08-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fly97.cn/2020/03/20/Ubuntu%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/</loc>
-    
-    <lastmod>2020-08-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fly97.cn/2020/06/20/caddy%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</loc>
-    
-    <lastmod>2020-08-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fly97.cn/2020/05/11/office%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B/</loc>
-    
-    <lastmod>2020-08-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fly97.cn/2020/05/29/%E4%BD%BF%E7%94%A8PyTorch%E8%BF%9B%E8%A1%8CMNIST%E8%AF%86%E5%88%AB/</loc>
-    
-    <lastmod>2020-08-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fly97.cn/2020/05/31/%E4%BD%BF%E7%94%A8WSL%E9%93%BE%E6%8E%A5Github%E4%BB%93%E5%BA%93/</loc>
-    
-    <lastmod>2020-08-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fly97.cn/2020/03/23/%E4%BD%BF%E7%94%A8acme.sh%E5%BF%AB%E9%80%9F%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A6/</loc>
-    
-    <lastmod>2020-08-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fly97.cn/2020/06/20/%E4%BD%BF%E7%94%A8jsdelivrCDN%E5%8A%A0%E9%80%9Fgithub%E6%96%87%E4%BB%B6/</loc>
-    
-    <lastmod>2020-08-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fly97.cn/2020/02/17/%E4%BD%BF%E7%94%A8pip%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85PyTorch-gpu/</loc>
-    
-    <lastmod>2020-08-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fly97.cn/2020/05/11/%E4%BF%AE%E6%94%B9pip%E9%95%9C%E5%83%8F%E6%BA%90/</loc>
-    
-    <lastmod>2020-08-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fly97.cn/2020/06/30/%E5%88%9D%E6%8E%A2Tkinter01/</loc>
-    
-    <lastmod>2020-08-16</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://fly97.cn/2020/04/30/Python%E4%B8%AD%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%94%A8%E6%B3%95/</loc>
     
     <lastmod>2020-08-16</lastmod>
@@ -262,6 +255,13 @@
   
   <url>
     <loc>http://fly97.cn/2020/08/12/nginx.conf%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/</loc>
+    
+    <lastmod>2020-08-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fly97.cn/book/index.html</loc>
     
     <lastmod>2020-08-16</lastmod>
     
@@ -424,6 +424,13 @@
   </url>
   
   <url>
+    <loc>http://fly97.cn/tags/caddy/</loc>
+    <lastmod>2020-08-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://fly97.cn/tags/ubuntu/</loc>
     <lastmod>2020-08-16</lastmod>
     <changefreq>daily</changefreq>
@@ -439,13 +446,6 @@
   
   <url>
     <loc>http://fly97.cn/tags/systemctl/</loc>
-    <lastmod>2020-08-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://fly97.cn/tags/caddy/</loc>
     <lastmod>2020-08-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
