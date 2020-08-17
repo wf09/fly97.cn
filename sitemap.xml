@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://fly97.cn/2020/07/23/Anacoda3%E6%95%99%E7%A8%8B(%E4%B8%80)/</loc>
+    
+    <lastmod>2020-08-17</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fly97.cn/2020/08/01/Docker%E7%9A%84%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F/</loc>
+    
+    <lastmod>2020-08-17</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fly97.cn/2020/04/24/Linux%E4%B9%8Bcrontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</loc>
+    
+    <lastmod>2020-08-17</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fly97.cn/2020/08/03/PyTorch%E5%AD%A6%E4%B9%A0(%E4%B8%80)/</loc>
+    
+    <lastmod>2020-08-17</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fly97.cn/2020/08/03/PyTorch%E5%AD%A6%E4%B9%A0(%E4%B8%89)/</loc>
+    
+    <lastmod>2020-08-17</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://fly97.cn/2020/08/03/PyTorch%E5%AD%A6%E4%B9%A0(%E4%BA%8C)/</loc>
     
     <lastmod>2020-08-17</lastmod>
@@ -227,41 +262,6 @@
   
   <url>
     <loc>http://fly97.cn/tags/index.html</loc>
-    
-    <lastmod>2020-08-17</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fly97.cn/2020/07/23/Anacoda3%E6%95%99%E7%A8%8B(%E4%B8%80)/</loc>
-    
-    <lastmod>2020-08-17</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fly97.cn/2020/08/01/Docker%E7%9A%84%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F/</loc>
-    
-    <lastmod>2020-08-17</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fly97.cn/2020/04/24/Linux%E4%B9%8Bcrontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</loc>
-    
-    <lastmod>2020-08-17</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fly97.cn/2020/08/03/PyTorch%E5%AD%A6%E4%B9%A0(%E4%B8%80)/</loc>
-    
-    <lastmod>2020-08-17</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fly97.cn/2020/08/03/PyTorch%E5%AD%A6%E4%B9%A0(%E4%B8%89)/</loc>
     
     <lastmod>2020-08-17</lastmod>
     
