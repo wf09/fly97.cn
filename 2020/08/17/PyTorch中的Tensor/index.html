@@ -25,21 +25,21 @@
     var CONFIG = {"hostname":"fly97.cn","root":"/","scheme":"Mist","version":"8.0.0-rc.5","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="不说废话，上教程。">
+  <meta name="description" content="通过以下几个例子来了解以下PyTorch中的Tensor。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git常见操作">
-<meta property="og:url" content="http://fly97.cn/2020/03/07/Git%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:title" content="PyTorch中的Tensor">
+<meta property="og:url" content="http://fly97.cn/2020/08/17/PyTorch%E4%B8%AD%E7%9A%84Tensor/index.html">
 <meta property="og:site_name" content="个人随想">
-<meta property="og:description" content="不说废话，上教程。">
+<meta property="og:description" content="通过以下几个例子来了解以下PyTorch中的Tensor。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-07T05:29:00.000Z">
-<meta property="article:modified_time" content="2020-08-01T05:29:00.000Z">
+<meta property="article:published_time" content="2020-08-17T05:27:00.000Z">
+<meta property="article:modified_time" content="2020-08-19T12:33:42.998Z">
 <meta property="article:author" content="个人随想">
-<meta property="article:tag" content="git">
+<meta property="article:tag" content="PyTorch">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://fly97.cn/2020/03/07/Git%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/">
+<link rel="canonical" href="http://fly97.cn/2020/08/17/PyTorch%E4%B8%AD%E7%9A%84Tensor/">
 
 
 <script class="page-configurations">
@@ -52,7 +52,7 @@
   };
 </script>
 
-  <title>Git常见操作 | 个人随想</title>
+  <title>PyTorch中的Tensor | 个人随想</title>
   
 
 
@@ -210,7 +210,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -222,7 +222,6 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8%E6%9C%AC%E5%9C%B0%E7%9B%AE%E5%BD%95%E4%B8%8B%E5%85%B3%E8%81%94%E8%BF%9C%E7%A8%8Brepository-%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">在本地目录下关联远程repository ：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%96%E6%B6%88%E6%9C%AC%E5%9C%B0%E7%9B%AE%E5%BD%95%E4%B8%8B%E5%85%B3%E8%81%94%E7%9A%84%E8%BF%9C%E7%A8%8B%E5%BA%93%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">取消本地目录下关联的远程库：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8Bgit-commit-%E5%8E%86%E5%8F%B2"><span class="nav-number">3.</span> <span class="nav-text">查看git commit 历史</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9E%E9%80%80%E5%88%B0%E6%9F%90%E4%B8%AAcommit%E7%89%88%E6%9C%AC"><span class="nav-number">4.</span> <span class="nav-text">回退到某个commit版本</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -299,7 +298,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fly97.cn/2020/03/07/Git%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/">
+    <link itemprop="mainEntityOfPage" href="http://fly97.cn/2020/08/17/PyTorch%E4%B8%AD%E7%9A%84Tensor/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -315,7 +314,7 @@
     
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Git常见操作
+          PyTorch中的Tensor
         </h1>
 
         <div class="post-meta">
@@ -325,14 +324,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-03-07 13:29:00" itemprop="dateCreated datePublished" datetime="2020-03-07T13:29:00+08:00">2020-03-07</time>
+              <time title="创建时间：2020-08-17 13:27:00" itemprop="dateCreated datePublished" datetime="2020-08-17T13:27:00+08:00">2020-08-17</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-01 13:29:00" itemprop="dateModified" datetime="2020-08-01T13:29:00+08:00">2020-08-01</time>
+                <time title="修改时间：2020-08-19 20:33:42" itemprop="dateModified" datetime="2020-08-19T20:33:42+08:00">2020-08-19</time>
               </span>
 
           
@@ -344,17 +343,31 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>不说废话，上教程。</p>
+        <p>通过以下几个例子来了解以下PyTorch中的Tensor。</p>
 <a id="more"></a>
 
-<h4 id="在本地目录下关联远程repository-："><a href="#在本地目录下关联远程repository-：" class="headerlink" title="在本地目录下关联远程repository ："></a>在本地目录下关联远程repository ：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:git_username/repository_name.git</span><br></pre></td></tr></table></figure>
+<p>Tensor 是 PyTorch 中重要的数据结构，可认为是一个高维数组。它可以是一个数字（标量）、一维数组（向量）、二维数组（矩阵）或更高维的数组。Tensor 和 numpy 的中的 ndrrays 类似，但是 Tensor 可以使用GPU加速。Tensor 的使用和 numpy 以及MATLAB的接口十分类似。下面通过几个实例来了解一下Tensor的基本使用方法。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensor <span class="keyword">as</span> t</span><br><span class="line"><span class="comment"># 构建 5*3 矩阵，只是分配了空间，未初始化</span></span><br><span class="line">x = t.Tensor(<span class="number">5</span>, <span class="number">3</span>)</span><br><span class="line">print(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用[0, 1]均匀分布随机初始化二维数组</span></span><br><span class="line">x = t.rand(<span class="number">5</span>, <span class="number">3</span>)</span><br><span class="line">print(x)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(x.size()) <span class="comment">#查看形状</span></span><br><span class="line">x.size()[<span class="number">0</span>], x.size(<span class="number">1</span>) <span class="comment">#查看列的个数，两种写法等价</span></span><br><span class="line"></span><br><span class="line">print(t.Size([<span class="number">5</span>, <span class="number">3</span>]))</span><br><span class="line"><span class="comment"># (5L, 3)</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="取消本地目录下关联的远程库："><a href="#取消本地目录下关联的远程库：" class="headerlink" title="取消本地目录下关联的远程库："></a>取消本地目录下关联的远程库：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote remove origin</span><br></pre></td></tr></table></figure>
+<p>touch.Size 是tuple对象的子类，因此它支持 tuple 的所有操作，如 x.size()[0]。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">y = t.rand(<span class="number">5</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment"># 加法</span></span><br><span class="line">print(x + y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加法2</span></span><br><span class="line">t.add(x, y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加法3</span></span><br><span class="line">result  = t.Tensor(<span class="number">5</span>, <span class="number">3</span>) <span class="comment"># 预先分配空间 </span></span><br><span class="line">t.add(x, y, out=result)  <span class="comment"># 输入到result</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">&#x27;最初y&#x27;</span>)</span><br><span class="line">print(y)</span><br><span class="line"></span><br><span class="line">print(<span class="string">&#x27;第一种加法, y的结果&#x27;</span>)</span><br><span class="line">y.add(x) <span class="comment"># 普通加法, 不改变y的内容</span></span><br><span class="line">print(y)</span><br><span class="line"></span><br><span class="line">print(<span class="string">&#x27;第二种加法, y的结果&#x27;</span>)</span><br><span class="line">y.add_(x) <span class="comment"># inplace加法, 执行完后y的值被更新</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="查看git-commit-历史"><a href="#查看git-commit-历史" class="headerlink" title="查看git commit 历史"></a>查看git commit 历史</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong>函数名后面带下划线的函数会修改 Tensor 本身。例如，<code>x.add(y)</code> 和 <code>x.t_()</code>会返回一个新的 Tensor，而<code>x</code>不变。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Tensor的选取操作与numpy类似</span></span><br><span class="line">x[:, <span class="number">1</span>]</span><br></pre></td></tr></table></figure>
 
-<h4 id="回退到某个commit版本"><a href="#回退到某个commit版本" class="headerlink" title="回退到某个commit版本"></a>回退到某个commit版本</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard &lt;COMMIT_ID&gt;</span><br></pre></td></tr></table></figure>
+<p>Tensor 还支持很多操作，包括<strong>数学运算、线性代数、选择、切片</strong>等，其接口涉及与 numpy 极为相似。</p>
+<p>Tensor 和 numpy 的数组间的互操作非常容易且快速。Tensor不支持的操作，可以先转为 numpy 数组处理，之后再转回 Tensor .</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = t.ones(<span class="number">5</span>) <span class="comment"># 新建一个全是1的Tensor</span></span><br><span class="line">print(a)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">b = a.numpy() <span class="comment"># Tensor -&gt; Numpy</span></span><br><span class="line">print(b)</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = np.ones(<span class="number">5</span>)</span><br><span class="line">b = t.from_numpy(a) <span class="comment"># Numpy -&gt; Tensor</span></span><br><span class="line">print(a)</span><br><span class="line">print(b)</span><br></pre></td></tr></table></figure>
+
+<p>Tensor 和 Numpy 对象<strong>共享内存</strong>，所以他们之间的转换会很快，而且几乎不会消耗资源。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">b.add_(<span class="number">1</span>) <span class="comment"># 以_结尾的函数会修改自身</span></span><br><span class="line">print(a) </span><br><span class="line">print(b) <span class="comment"># Tensor和Numpy共享内存</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Tensor可通过<code>.cuda</code>方法转换为GPU的Tensor，从而享受GPU带来的加速运算.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在不支持CUDA的机器下，下一步不会运行</span></span><br><span class="line"><span class="keyword">if</span> t.cuda.is_available():</span><br><span class="line">    x = x.cuda()</span><br><span class="line">    y = y.cuda()</span><br><span class="line">    x + y</span><br></pre></td></tr></table></figure>
+
+<p>此处可能会发现GPU的运算速度并未提升太多，这是因为 x 和y 太小且运算也比较简单，而且将数据从内存种转移到显存上还需要花费额外的开销。GPU的优势需要在大规模数据和复杂运算上才能体现出来。</p>
 
     </div>
 
@@ -383,20 +396,20 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/git/" rel="tag"># git</a>
+              <a href="/tags/PyTorch/" rel="tag"># PyTorch</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/03/05/PyTorch%E4%B8%ADtorch.Tensor%E5%92%8Ctorch.tensor%E7%9A%84%E5%8C%BA%E5%88%AB/" rel="prev" title="PyTorch中torch.Tensor和torch.tensor的区别">
-                  <i class="fa fa-chevron-left"></i> PyTorch中torch.Tensor和torch.tensor的区别
+                <a href="/2020/08/13/Python%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/" rel="prev" title="Python时间处理">
+                  <i class="fa fa-chevron-left"></i> Python时间处理
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/03/16/Python%E4%B8%AD%E4%B8%8B%E5%88%92%E7%BA%BF%E5%91%BD%E5%90%8D%E6%A8%A1%E5%BC%8F/" rel="next" title="Python中下划线命名模式">
-                  Python中下划线命名模式 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/08/18/PyTorch%E4%B8%AD%E7%9A%84%E8%87%AA%E5%8A%A8%E6%B1%82%E5%AF%BC%E6%9C%BA%E5%88%B6/" rel="next" title="PyTorch中的自动求导机制">
+                  PyTorch中的自动求导机制 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -503,14 +516,65 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
     element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
   }
 });
+</script>
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      const script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
 </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-
-
-
-  
-
-  
+    
 
   
 

@@ -25,21 +25,21 @@
     var CONFIG = {"hostname":"fly97.cn","root":"/","scheme":"Mist","version":"8.0.0-rc.5","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="PyTorch（1.3.0）主要包括以下16个模块。">
+  <meta name="description" content="下面继续介绍PyTorch的主要模块。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PyTorch学习(一)">
-<meta property="og:url" content="http://fly97.cn/2020/08/03/PyTorch%E5%AD%A6%E4%B9%A0(%E4%B8%80)/index.html">
+<meta property="og:title" content="PyTorch模块学习(二)">
+<meta property="og:url" content="http://fly97.cn/2020/08/03/PyTorch%E6%A8%A1%E5%9D%97%E5%AD%A6%E4%B9%A0(%E4%BA%8C)/index.html">
 <meta property="og:site_name" content="个人随想">
-<meta property="og:description" content="PyTorch（1.3.0）主要包括以下16个模块。">
+<meta property="og:description" content="下面继续介绍PyTorch的主要模块。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-03T12:54:00.000Z">
-<meta property="article:modified_time" content="2020-08-17T12:54:17.785Z">
+<meta property="article:modified_time" content="2020-08-19T12:33:42.998Z">
 <meta property="article:author" content="个人随想">
 <meta property="article:tag" content="PyTorch">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://fly97.cn/2020/08/03/PyTorch%E5%AD%A6%E4%B9%A0(%E4%B8%80)/">
+<link rel="canonical" href="http://fly97.cn/2020/08/03/PyTorch%E6%A8%A1%E5%9D%97%E5%AD%A6%E4%B9%A0(%E4%BA%8C)/">
 
 
 <script class="page-configurations">
@@ -52,7 +52,7 @@
   };
 </script>
 
-  <title>PyTorch学习(一) | 个人随想</title>
+  <title>PyTorch模块学习(二) | 个人随想</title>
   
 
 
@@ -222,7 +222,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#torch%E6%A8%A1%E5%9D%97"><span class="nav-number">1.</span> <span class="nav-text">torch模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#torch-Tensor%E6%A8%A1%E5%9D%97"><span class="nav-number">2.</span> <span class="nav-text">torch.Tensor模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#torch-sparse%E6%A8%A1%E5%9D%97"><span class="nav-number">3.</span> <span class="nav-text">torch.sparse模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#torch-cuda%E6%A8%A1%E5%9D%97"><span class="nav-number">4.</span> <span class="nav-text">torch.cuda模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#torch-nn%E6%A8%A1%E5%9D%97"><span class="nav-number">5.</span> <span class="nav-text">torch.nn模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#torch-nn-functional%E5%87%BD%E6%95%B0%E6%A8%A1%E5%9D%97"><span class="nav-number">6.</span> <span class="nav-text">torch.nn.functional函数模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#torch-nn-init%E6%A8%A1%E5%9D%97"><span class="nav-number">7.</span> <span class="nav-text">torch.nn.init模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#torch-optim%E6%A8%A1%E5%9D%97"><span class="nav-number">8.</span> <span class="nav-text">torch.optim模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#torch-autograd%E6%A8%A1%E5%9D%97"><span class="nav-number">9.</span> <span class="nav-text">torch.autograd模块</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#torch-distributed%E6%A8%A1%E5%9D%97"><span class="nav-number">1.</span> <span class="nav-text">torch.distributed模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#torch-distributions%E6%A8%A1%E5%9D%97"><span class="nav-number">2.</span> <span class="nav-text">torch.distributions模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#torch-hub%E6%A8%A1%E5%9D%97"><span class="nav-number">3.</span> <span class="nav-text">torch.hub模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#torch-jit%E6%A8%A1%E5%9D%97"><span class="nav-number">4.</span> <span class="nav-text">torch.jit模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#torch-multprocessing%E6%A8%A1%E5%9D%97"><span class="nav-number">5.</span> <span class="nav-text">torch.multprocessing模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#torch-random%E6%A8%A1%E5%9D%97"><span class="nav-number">6.</span> <span class="nav-text">torch.random模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#torch-onnx%E6%A8%A1%E5%9D%97"><span class="nav-number">7.</span> <span class="nav-text">torch.onnx模块</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -236,7 +236,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -299,7 +299,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fly97.cn/2020/08/03/PyTorch%E5%AD%A6%E4%B9%A0(%E4%B8%80)/">
+    <link itemprop="mainEntityOfPage" href="http://fly97.cn/2020/08/03/PyTorch%E6%A8%A1%E5%9D%97%E5%AD%A6%E4%B9%A0(%E4%BA%8C)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -315,7 +315,7 @@
     
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          PyTorch学习(一)
+          PyTorch模块学习(二)
         </h1>
 
         <div class="post-meta">
@@ -332,7 +332,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-17 20:54:17" itemprop="dateModified" datetime="2020-08-17T20:54:17+08:00">2020-08-17</time>
+                <time title="修改时间：2020-08-19 20:33:42" itemprop="dateModified" datetime="2020-08-19T20:33:42+08:00">2020-08-19</time>
               </span>
 
           
@@ -344,33 +344,26 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>PyTorch（1.3.0）主要包括以下16个模块。</p>
+        <p>下面继续介绍PyTorch的主要模块。</p>
 <a id="more"></a>
 
-<h4 id="torch模块"><a href="#torch模块" class="headerlink" title="torch模块"></a>torch模块</h4><p>torch 模块本身包含了PyTorch经常使用的一些激活函数。</p>
-<p>例如<strong>Sigmoid (torch.sigmoid)**、</strong>ReLU(torch.relu)<strong>和</strong>Tanh（torch.tanh)<strong>，以及PyTorch张量的一些操作，比如</strong>矩阵的乘法(torch.mm)<strong>、</strong>张量元素的选择(torch.select)<strong>。需要注意的是，这些操作的对象大多数都是张量，因此传入的参数需要是PyTorch的张量。否则会抛出</strong>类型错误（TypeError)**的异常。</p>
-<p>此外，还有一类函数能够产生一定形状的张量，比如<strong>torch.zeros产生元素全为0的张量</strong>。<strong>torch.randn产生元素服从标准正态分布的张量</strong>等等。</p>
-<h4 id="torch-Tensor模块"><a href="#torch-Tensor模块" class="headerlink" title="torch.Tensor模块"></a>torch.Tensor模块</h4><p>torch.Tensor模块定义了torch中的张量类型，其中的张量有不同的数值类型，例如单精度、双精度浮点型、整数类型等，而且张量有一定的维度和形状。同时，张量的类中也包含一系列的方法，返回新的张量或者更改当前的张量。torch.Storage负责torch.Tensor底层的数据存储，即前面提到的为一个张量分配连续的一维内存地址（用于存储相同类型的一系列元素，数目则为张量的总元素数目）。</p>
-<p><strong>如果张量的某个类方法会返回张量，按照PyTorch的命名规则，如果张量方法后缀带下划线，则该方法会修改张量本身的数据，反之则会返回新的张量。</strong></p>
-<blockquote>
-<p>例如：Tensor.add方法会让当前张量和输入参数张量做加法，返回新的张量。而Tensor.add_方法会改变当前张量的值，新的值为旧的值和输入参数之和。</p>
-</blockquote>
-<h4 id="torch-sparse模块"><a href="#torch-sparse模块" class="headerlink" title="torch.sparse模块"></a>torch.sparse模块</h4><p>torch.sparse模块定义了稀疏张量，其中构造的稀疏张量采用的是COO格式（Coordinate），主要方法是用一个长整型定义非零元素的位置，用浮点数张量定义非零元素的值。稀疏张量之间可以做元素加、减、乘、除运算和矩阵乘法。</p>
-<h4 id="torch-cuda模块"><a href="#torch-cuda模块" class="headerlink" title="torch.cuda模块"></a>torch.cuda模块</h4><p>torch.cuda模块定义了CUDA运算一系列函数，包括但不限于检查系统的CUDA是否可用，当前进程对应的GPU序号，清除GPU上面的缓存，设置GPU的计算流（Stream），同步GPU上执行的所以核函数（Kernel）等。</p>
-<h4 id="torch-nn模块"><a href="#torch-nn模块" class="headerlink" title="torch.nn模块"></a>torch.nn模块</h4><p>torch.nn是一个非常重要的模块，是PyTorch神经网络模块化的核心，这个模块定义了一系列模块，包括<strong>卷积层(nn.ConvNd(N=1，2，3))**和</strong>线性层(nn.Linear)**等。</p>
-<p>当构建深度学习模型的时候，可以通过继承<strong>torch.nn.Module类</strong>重写forward方法来实现一个新的神经网络(后续会提到如何通过组合神经网络模块来构建深度学习模型)。</p>
-<p>另外，torch.nn中也定义了一系列的损失函数，包括<strong>平方损失函数(torch.nn.MSEloss)**、</strong>交叉熵损失函数(torch.nn.CrossEntropyLoss)**等。</p>
-<p>torch.nn里定义的神经网络模块都含有参数，可以对这些参数使用优化器进行训练。</p>
-<h4 id="torch-nn-functional函数模块"><a href="#torch-nn-functional函数模块" class="headerlink" title="torch.nn.functional函数模块"></a>torch.nn.functional函数模块</h4><p><strong>torch.nn.funtional</strong>是PyTorch的函数模块，定义了一些核神经网络相关的函数，包括卷积函数和池化函数等，这些函数也是深度学习模型构建的基础。</p>
-<p>torch.nn中定义的模块一般会调用torch.nn.functional里的函数。例如，nn.ConvNd模块(N=1,2,3)会调用torch.nn.functional.convNd函数(N=1,2,3)。</p>
-<p>torch.nn.functional里面还定义了一些不常用的激活函数，包括<strong>torch.nn.functional.relu6和torch.nn.functional.elu</strong>等。</p>
-<h4 id="torch-nn-init模块"><a href="#torch-nn-init模块" class="headerlink" title="torch.nn.init模块"></a>torch.nn.init模块</h4><p>torch.nn.init模块定义了神经网络权重初始化。</p>
-<p>如果初始化的神经网络取值不合适，就会导致后续的优化过程收敛很慢，甚至不收敛。</p>
-<p>这个模块包含很多初始化方法，包括<strong>均匀初始化torch.nn.init.uniform_</strong>和<strong>正态分布归一化torch.nn.init.normal_</strong>等。这个方法会直接改变传入张量的值，同时会改变返回后的张量。</p>
-<h4 id="torch-optim模块"><a href="#torch-optim模块" class="headerlink" title="torch.optim模块"></a>torch.optim模块</h4><p>torch.optim模块定义了一系列的优化器，如t<strong>orch.optim.SGD(随机梯度下降法)**、</strong>torch.optim.Adagrad(AdaGrad算法)<strong>、</strong>torch.optim.RMSprop(RMSprop算法)<strong>和</strong>torch.optim.Adam(Adam算法)**等。</p>
-<p>这个模块还包含学习率衰减的算法的子模块，即<strong>torch.optim.lr_scheduler</strong>。这个子模块中包含了<strong>torch.optim.lr_scheduker.StepLR(学习率阶梯下降算法)**和</strong>torch.optim.lr_scheduler.CosineAnnealingLR(余弦退火算法)**等学习率衰减算法。</p>
-<h4 id="torch-autograd模块"><a href="#torch-autograd模块" class="headerlink" title="torch.autograd模块"></a>torch.autograd模块</h4><p>torch.autograd模块是PyTorch的自动微分模块，定义了一系列的自动微分函数。<strong>torch.autograd.backward</strong>函数，主要用于在求得损失函数之后进行反向梯度传播。<strong>torch.autograd.grad</strong>函数用于一个标量张量(即只有一个分量的张量)对另一个张量求导，以及在代码中设置不参与求导的部分。</p>
-<p>这个模块还内置了<strong>数值梯度功能</strong>和<strong>检查自动微分引擎是否输出正确结果</strong>的功能。</p>
+<h4 id="torch-distributed模块"><a href="#torch-distributed模块" class="headerlink" title="torch.distributed模块"></a>torch.distributed模块</h4><p>torch.distributed是PyTorch的分布式计算模块，主要功能是提供PyTorch并行运行环境，其主要支持的后端有MPI、Gloo和NCCL三种。PyTorch的分布式计算工作原理主要是启动多个并行的进程，每个进程独立地做反向传播，最后对所有进程权重张量地梯度做归约（Reduce）。用到后端地部分主要是广播（Broadcast）和数据地收集（Gather）,其中，前者是把数据从一个节点（进程）传播到另一个节点（进程）传播到另一个节点（进程），比如归约后梯度张量地传播，后者则是把数据从其他节点（进程）转移到当前节点（进程），比如把梯度张量从其他节点转移到某个特定地节点，然后对所有地张量求平均。</p>
+<p>PyTorch地分布式计算模块不但提供了后端地一个包装，还提供了一些启动方式来启动多个进程。可以通过网络、通过环境变量、通过共享文件等。</p>
+<h4 id="torch-distributions模块"><a href="#torch-distributions模块" class="headerlink" title="torch.distributions模块"></a>torch.distributions模块</h4><p>torch.distributions模块提供了一系列类，使得PyTorch能够对不同的分布进行采样，而且生成概率采样过程地计算图。</p>
+<p>在强化学习（Reinforcement Learning）应用中，经常会使用一个深度学习模型来模拟在不同环境条件下采取地策略（Policy）,其最后地输出是不同动作地概率。当深度学习模型输出概率之后，需要根据概率对策略进行采样来模拟当前地概率分布，最后用梯度下降方法来让最优策略地概率最大（这个算法称为策略梯度算法，Policy Gradient）。实际上，因为采样输出地结果是离散的，无法直接求导，所以不能使用反向传播的方法来优化网络。</p>
+<p>此模块的存在就是为了解决这个问题。可以结合torch.distributions.Categorical进行采样，然后使用对数求导技巧来规避这个问题。当然，除了服从多项式分布的torch.distributions.Categorical类，PyTorch还支持其他的分布（包括连续分布和离散分布），比如torch.distributions,Normal类支持连续的正态分布的采样，可以用于连续的强化学习策略。</p>
+<h4 id="torch-hub模块"><a href="#torch-hub模块" class="headerlink" title="torch.hub模块"></a>torch.hub模块</h4><p>torch.hub提供了一系列预训练的模型供用户使用。</p>
+<p>比如，可以通过torch.hub.list函数来获取某个模型镜像站点的模型信息。通过torch.hub.load来载入预训练的模型，载入后的模型可以保存到本地，并可以看的这些模型对应类支持的方法。</p>
+<h4 id="torch-jit模块"><a href="#torch-jit模块" class="headerlink" title="torch.jit模块"></a>torch.jit模块</h4><p>torch.jit 是PyTorch的即时编译器（Just-In-Time Compiler ，JIT）模块，这个模块存在的意义是把PyTorch的动态图转换成可以优化和序列化的静态图，其主要工作原理是通过输入预先定义好的张量，追踪整个动态图的构建过程，得到最终构建出来的动态图，然后转换为静态图（通过中间表示，即Intermediate Representation，来描述最后的到的图）。通过JIT得到的经他图可以被保存，并且被PyTorch其他的前端（如C++语言的前端）支持。</p>
+<p>JIT也可以用来生成其他格式的神经网络描述文件，如前文叙述的ONNX。</p>
+<p>torch.jit支持两种方式，即脚本模式（ScriptModule）和追踪模式（Tracing）。前者和后者都能构建静态图，区别在于前者支持控制流，后者不支持，但是前者支持的升级网络模块比后者少，比如脚本模式不支持torch.nn.GRU（详细的描述可以参考PyTorch官方提供的JIT相关的文档）。</p>
+<h4 id="torch-multprocessing模块"><a href="#torch-multprocessing模块" class="headerlink" title="torch.multprocessing模块"></a>torch.multprocessing模块</h4><p>torch.multiprocessing定义了PyTorch中的多进程API。</p>
+<p>这个模块可以启动不同的进程，每个进程运行不同的深度学习模型，并且能够在进程间共享张量（通过共享内存的方式）。共享的张量可以在CPU上，也可以在GPU上，多进程API还提供了与Python原生的多进程API（即multiprocessing库）相同的一系列函数，包括锁（Lock）和队列（Queue）等。</p>
+<h4 id="torch-random模块"><a href="#torch-random模块" class="headerlink" title="torch.random模块"></a>torch.random模块</h4><p>torch.random提供了一系列的方法来保存和设置随机数生成器的状态。</p>
+<p>使用<strong>get_rng_state函数</strong>获取当前随机数生成器状态，<strong>set_rng_state函数</strong>设置当前随机数生成器状态，并且可以使用<strong>manual_seed函数</strong>来设置随机种子，也可使用initial_seed函数来得到程序初始的随机种子。</p>
+<p>神经网络的训练是一个随机的过程，包括数据的输入，权重的初始化都具有一定的随机性。设置一个统一的随机数种子可以有效地帮助我们测试不同结构地神经网络地表现，有助于调试升级神经网络地结构。</p>
+<h4 id="torch-onnx模块"><a href="#torch-onnx模块" class="headerlink" title="torch.onnx模块"></a>torch.onnx模块</h4><p>torch.onnx定义了PyTorch导出和载入ONNX格式地深度学习模型描述文件。</p>
+<p>ONNX格式地存在是为了方便不同深度学习框架之间交换模型。引入这个模块可以很方便从PyTorch导出模型给其他深度学习框架使用，或者让PyTorch可以载入其他深度学习框架构建的深度学习模型。</p>
 
     </div>
 
@@ -406,13 +399,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/08/03/PyTorch%E5%AD%A6%E4%B9%A0(%E4%B8%89)/" rel="prev" title="PyTorch学习(三)">
-                  <i class="fa fa-chevron-left"></i> PyTorch学习(三)
+                <a href="/2020/08/01/Docker%E7%9A%84%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F/" rel="prev" title="Docker的网络模式">
+                  <i class="fa fa-chevron-left"></i> Docker的网络模式
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/08/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B501/" rel="next" title="机器学习基本概念01">
-                  机器学习基本概念01 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/08/03/PyTorch%E6%A8%A1%E5%9D%97%E5%AD%A6%E4%B9%A0(%E4%B8%89)/" rel="next" title="PyTorch模块学习(三)">
+                  PyTorch模块学习(三) <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
