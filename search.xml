@@ -227,11 +227,29 @@
       </tags>
   </entry>
   <entry>
-    <title>PyTorch中的自动求导机制</title>
-    <url>/2020/08/18/PyTorch%E4%B8%AD%E7%9A%84%E8%87%AA%E5%8A%A8%E6%B1%82%E5%AF%BC%E6%9C%BA%E5%88%B6/</url>
-    <content><![CDATA[<p>本文介绍了 PyTorch 的自动求导机制。</p>
+    <title>PyTorch中的损失函数和优化器</title>
+    <url>/2020/08/20/PyTorch%E4%B8%AD%E7%9A%84%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E5%92%8C%E4%BC%98%E5%8C%96%E5%99%A8/</url>
+    <content><![CDATA[<p>本文介绍了 PyTorch 的损失函数和优化器。</p>
+<p><strong>关键字</strong>：PyTorch，损失函数，优化器</p>
+<a id="more"></a>
+
+<h2 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h2><p>一般来说，PyTorch的损失函数有两种形式：函数形式和模块形式。前者调用的是torch.nn.funtional库中的函数，通过传入神经网络预测值和目标值来计算损失函数，后者是torch.nn库里的模块，通过新建一个模块的实例，然后通过调用模块的方法来计算最终的损失函数。</p>
+<p>由于训练数据一般以<strong>迷你批次</strong>的形式输入神经网络，最后预测的只也是以迷你批次的形式输出的，而损失函数最后的输出结果应该是一个标量张量，因此，对于迷你批次的化简一般有两种方法，一般是对迷你批次的损失函数求和，第二种是对迷你批次的损失函数u求平均。一般来说，也是默认和最常见的情形，最后输出的损失函数是迷你批次损失函数的平均。</p>
+<p>神经网络处理的预测问题主要分为<strong>回归问题和分类问题</strong>。对于回归问题，一般情况下使用的是<code>torch.nn.MSELoss</code>模块，即平方损失函数。通过创建这个模块的实例（一般使用默认参数，即在类的构造函数中不传入任何参数，这样会输出迷你批次的平均；如果要输出迷你批次的每个损失函数，可以指定参数<code>reduction=&#39;none&#39;</code>；如果要输出迷你批次的损失函数，可以指定参数<code>reduction=&#39;sum&#39;</code>.在实例中传入神经网络预测的值和目标值，能够计算得到最终的损失函数。具体的代码可以参考：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">mse = t.nn.MSELoss()  <span class="comment">#初始化平方损失模块</span></span><br><span class="line">t1 = t.randn(<span class="number">5</span>, requires_grad=<span class="literal">True</span>) <span class="comment"># 随机生成张量t1</span></span><br><span class="line">t2 = t.randn(<span class="number">5</span>, requires_grad=<span class="literal">True</span>) <span class="comment"># 随机生成张量t2</span></span><br><span class="line">mse(t1, t2) <span class="comment"># 计算张量t1和t2之间的平方损失函数</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor(0.9193, grad_fn=&lt;MeanBackward0&gt;)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">bse = t.nn.BCELoss() <span class="comment"># 初始化二分类交叉损失函数</span></span><br><span class="line">t1 = t.randn(<span class="number">5</span>, requires_grad=<span class="literal">True</span>) <span class="comment">#随机生成张量t1</span></span><br><span class="line">t1s = t.sigmoid(t1) <span class="comment"># 对张量求sigmoid函数, 转换为(0, 1)之间的概率</span></span><br><span class="line">t2 = t.randint(<span class="number">0</span>, <span class="number">2</span>, (<span class="number">5</span>,)).float() <span class="comment">#随机生成0, 1整数序列, 并转换为浮点数</span></span><br><span class="line">bse(t1s, t2) <span class="comment">#计算二分类的交叉熵</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor(0.8674, grad_fn=&lt;BinaryCrossEntropyBackward&gt;)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">bce_logits = t.nn.BCEWithLogitsLoss() <span class="comment">#初始化交叉熵对数损失函数</span></span><br><span class="line">bce_logits(t1, t2) <span class="comment">#计算二分类的交叉熵 (和前面结果一样)</span></span><br><span class="line"><span class="comment"># 这是因为, BCEWithLogitsLoss会先让输入经过sigmoid函数, 变成概率分布的形式, 再计算二分类交叉熵.</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor(0.8674, grad_fn=&lt;BinaryCrossEntropyWithLogitsBackward&gt;)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">N = <span class="number">10</span> <span class="comment"># 定义分类数目</span></span><br><span class="line">t1 = t.randn(<span class="number">5</span>, N, requires_grad=<span class="literal">True</span>) <span class="comment">#随机产生预测张量</span></span><br><span class="line">t2 = t.randint(<span class="number">0</span>, N, (<span class="number">5</span>, ))            <span class="comment">#随机产生目标张量</span></span><br><span class="line">t1s = t.nn.functional.log_softmax(t1, <span class="number">-1</span>) <span class="comment"># 计算预测张量的LogSoftmax</span></span><br><span class="line">nll = t.nn.NLLLoss() <span class="comment">#定义NLL损失函数</span></span><br><span class="line">nll(t1s, t2) <span class="comment">#计算损失函数</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor(2.3238, grad_fn=&lt;NllLossBackward&gt;)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">ce = t.nn.CrossEntropyLoss() <span class="comment">#定义交叉熵损失函数</span></span><br><span class="line">ce(t1, t2) <span class="comment"># 和前面计算结果相同</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor(2.3238, grad_fn=&lt;NllLossBackward&gt;)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span> </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>PyTorch</tag>
+        <tag>计算图</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PyTorch中的自动求导机制和计算图</title>
+    <url>/2020/08/18/PyTorch%E4%B8%AD%E7%9A%84%E8%87%AA%E5%8A%A8%E6%B1%82%E5%AF%BC%E6%9C%BA%E5%88%B6%E5%92%8C%E8%AE%A1%E7%AE%97%E5%9B%BE/</url>
+    <content><![CDATA[<p>本文介绍了 PyTorch 的自动求导机制和计算图。</p>
 <p><strong>摘要</strong>：深度学习的算法本质是通过反向传播求导数，PyTorch 的 <code>Autograd</code>模块实现了此功能。在 Tensor 上的所有操作，<code>Autograd</code>都能为他们自动提供微分，避免手动求导的复杂过程。</p>
-<p><strong>关键字</strong>：PyTorch，自动求导</p>
+<p><strong>关键字</strong>：PyTorch，自动求导，计算图</p>
 <a id="more"></a>
 
 <p>PyTorch会根据计算过程来自动生成动态图，然后根据动态图的创建过程进行反向传播，计算得到每个节点的梯度值。为了能够记录张量的梯度，首先需要在创建张量的时候设置一个参数<code>requires_grad=True</code>，意味着这个张量将会加入到计算图中，作为计算图的叶子节点参与计算通过一系列的计算最后输出结果张量，也就是根节点。几乎所有的张量创建方式都可以指定这个参数，一旦指定了这个参数，在后续的计算中得到的中间结果的张量都会被设置成<code>requires_grad=True</code>。对于PyTorch 来说，每一个张量都有一个<code>grad_fn</code>方法，这个方法包含创建该张量的运算的导数信息。在反向传播过程中，通过传入后一层的神经网络的梯度，该函数会计算出参与运算的所有张量的梯度，<code>grad_fn</code>本身也携带着计算图的信息，该方法本身有一个<code>next_functions</code>属性，包含连接该张量的其他张量的<code>grad_fn</code>。通过不断反向传播回溯中间张量的计算节点，可以得到所有张量的梯度。一个张量的梯度张量的信息保存在该张量的grad属性中。</p>
@@ -294,62 +312,17 @@
 <p>给出下列函数表达式：<br>$$<br>y=x^2e^x<br>$$<br>他的导函数是：<br>$$<br>\frac{\partial y}{\partial x}=2xe^x+x^2e^x<br>$$</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch <span class="keyword">as</span> t</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;计算y&quot;&quot;&quot;</span></span><br><span class="line">    y = x**<span class="number">2</span> * t.exp(x)</span><br><span class="line">    <span class="keyword">return</span> y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gradf</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;手动求导函数&quot;&quot;&quot;</span></span><br><span class="line">    dx = <span class="number">2</span>*x*t.exp(x) + x**<span class="number">2</span>*t.exp(x)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> dx</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置随机数种子, 使结果可以复现</span></span><br><span class="line">t.manual_seed(<span class="number">0</span>)</span><br><span class="line">np.random.seed(<span class="number">0</span>)</span><br><span class="line">x = t.randn(<span class="number">3</span>, <span class="number">4</span>, requires_grad = <span class="literal">True</span>)</span><br><span class="line">y = f(x)</span><br><span class="line">y</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[11.0879,  0.0642,  0.5373,  0.5705],</span></span><br><span class="line"><span class="string">        [ 0.3976,  0.4830,  0.2435,  1.6235],</span></span><br><span class="line"><span class="string">        [ 0.2520,  0.1087,  0.1960,  0.0398]], grad_fn=&lt;MulBackward0&gt;)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">y.backward(t.ones(y.size())) <span class="comment"># 和grad_tensor形状一致</span></span><br><span class="line">x.grad</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[25.4785, -0.3734,  0.0441,  2.5776],</span></span><br><span class="line"><span class="string">        [-0.3356, -0.2077,  1.4510,  5.4982],</span></span><br><span class="line"><span class="string">        [-0.4487, -0.4302, -0.4611,  0.4765]])</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">y.sum().backward()</span><br><span class="line">x.grad</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[25.4785, -0.3734,  0.0441,  2.5776],</span></span><br><span class="line"><span class="string">        [-0.3356, -0.2077,  1.4510,  5.4982],</span></span><br><span class="line"><span class="string">        [-0.4487, -0.4302, -0.4611,  0.4765]])</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># autograd的计算结果与利用公式手动计算的结果一致</span></span><br><span class="line">gradf(x)</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[25.4785, -0.3734,  0.0441,  2.5776],</span></span><br><span class="line"><span class="string">        [-0.3356, -0.2077,  1.4510,  5.4982],</span></span><br><span class="line"><span class="string">        [-0.4487, -0.4302, -0.4611,  0.4765]], grad_fn=&lt;AddBackward0&gt;)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<h3 id="计算图"><a href="#计算图" class="headerlink" title="计算图"></a>计算图</h3><p>PyTorch 中的 autograd 的底层采用了计算图，计算图是一种<strong>特殊的有向无环图(DAG)</strong>.用于记录算子和变量之间的关系。一般用矩形表示算子，椭圆形表示变量。如表达式$z=wx+b$可以分解为$y=wx$和$z=y+b$，其计算图如下图所示，图中的<code>MUL</code>和<code>ADD</code>都是算子，$w、x、b$为变量。</p>
+<img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200820171041627.png" alt="image-20200820171041627" style="zoom:50%;" />
 
+<p>如上有向无环图中，$X$和$b$是叶子节点(leaf node)，这些节点通常由用户自己创建，不依赖其他变量。$z$称为根节点，是计算图的最终目标。利用链式法则很容易求得各个叶子节点的梯度。<br>$$<br>\frac{\partial z}{\partial b}=1\quad\frac{\partial z}{\partial y}=1<br>$$</p>
+<p>$$<br>\frac{\partial y}{\partial w}=x\quad\frac{\partial y}{\partial x}=w<br>$$</p>
+<p>$$<br>\frac{\partial z}{\partial x}=\frac{\partial z}{\partial y} \times\frac{\partial y}{\partial x}=1\times w<br>$$</p>
+<p>$$<br>\frac{\partial z}{\partial w}=\frac{\partial z}{\partial y} \times\frac{\partial y}{\partial w}=1\times x<br>$$</p>
+<p>而有了计算图，上述链式求导即可利用计算图的反向传播自动完成，其传播过程如下图所示。</p>
+<img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200820172727826.png" alt="image-20200820172727826" style="zoom:50%;" />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<p>在 PyTorch 实现中，<code>autograd</code>会随着用户的操作，记录生成当前 <strong>Tensor</strong> 的所有操作，并由此建立一个有向无环图。用户没进行一个操作，相应的计算图就会发生改变。更底层的实现中，图中记录了操作<code>Function</code>，每个变量在图中的位置可通过其<code>grad_fn</code>属性在图中的位置可以推测得到。在反向传播过程中，<code>autograd</code>沿着这个图从当前变量(根节点$z$)溯源，可以利用链式求导法则计算所有叶子节点的梯度。每一个前向传播操作的函数都有与之对应的反向传播函数用来计算输入的各个Tensor的梯度，这些函数的函数名通常以<code>Backward</code>结尾。</p>
 <p>部分转载自：<a href="https://zhuanlan.zhihu.com/p/83172023">https://zhuanlan.zhihu.com/p/83172023</a></p>
 ]]></content>
       <tags>
@@ -938,6 +911,26 @@
       </tags>
   </entry>
   <entry>
+    <title>使用Github Action定时重启IBM cloud foundry</title>
+    <url>/2020/08/27/ibm-cloud-auto-restart/</url>
+    <content><![CDATA[<p>本文简单介绍了Github Action的用法，并使用Gihub Action定时重启IBM cloud foundry容器。</p>
+<p><strong>摘要：</strong>GitHub Actions是GitHub自家的持续集成及自动化工作流服务，它使用起来非常简单，只要在你的仓库根目录建立<code>.github/workflows</code>文件夹，将你的工作流配置(YML文件)放到这个目录下，就能启用GitHub Actions服务。</p>
+<p><strong>关键字</strong>：Github Action，IBM cloud foundry</p>
+<a id="more"></a>
+
+<h3 id="yml配置文件"><a href="#yml配置文件" class="headerlink" title="yml配置文件"></a>yml配置文件</h3><figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">IBM</span> <span class="string">Cloud</span> <span class="string">Auto</span> <span class="string">Restart</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span> [ <span class="string">master</span> ]</span><br><span class="line">  <span class="attr">pull_request:</span></span><br><span class="line">    <span class="attr">branches:</span> [ <span class="string">master</span> ]</span><br><span class="line">  <span class="attr">schedule:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">cron:</span> <span class="string">&#x27;0 0 * * *&#x27;</span>      <span class="comment"># 根据自己的需要设置何时重启</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">ibm-cloud-restart:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Init</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">        <span class="string">wget</span> <span class="string">-q</span> <span class="string">-O</span> <span class="bullet">-</span> <span class="string">https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key</span> <span class="string">|</span> <span class="string">sudo</span> <span class="string">apt-key</span> <span class="string">add</span> <span class="bullet">-</span></span><br><span class="line">        <span class="string">echo</span> <span class="string">&quot;deb https://packages.cloudfoundry.org/debian stable main&quot;</span> <span class="string">|</span> <span class="string">sudo</span> <span class="string">tee</span> <span class="string">/etc/apt/sources.list.d/cloudfoundry-cli.list</span></span><br><span class="line">        <span class="string">sudo</span> <span class="string">apt-get</span> <span class="string">update</span></span><br><span class="line">        <span class="string">sudo</span> <span class="string">apt-get</span> <span class="string">install</span> <span class="string">cf-cli</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Login</span> <span class="string">IBM</span> <span class="string">Cloud</span></span><br><span class="line">      <span class="attr">env:</span></span><br><span class="line">        <span class="attr">IBM_ACCOUNT:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.IBM_ACCOUNT</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">IBM_PASSWORD:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.IBM_PASSWORD</span> <span class="string">&#125;&#125;</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">        <span class="string">cf</span> <span class="string">login</span> <span class="string">-a</span> <span class="string">https://api.us-south.cf.cloud.ibm.com</span> <span class="string">-u</span> <span class="string">$IBM_ACCOUNT</span> <span class="string">&lt;&lt;</span> <span class="string">EOF</span></span><br><span class="line">        <span class="string">$IBM_PASSWORD</span></span><br><span class="line">        <span class="string">EOF</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Get</span> <span class="string">IBM</span> <span class="string">Cloud</span> <span class="string">Apps</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">        <span class="string">cf</span> <span class="string">a</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Restart</span> <span class="string">IBM</span> <span class="string">Cloud</span></span><br><span class="line">      <span class="attr">env:</span></span><br><span class="line">        <span class="attr">IBM_APP_NAME:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.IBM_APP_NAME</span> <span class="string">&#125;&#125;</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">        <span class="string">cf</span> <span class="string">restart</span> <span class="string">$IBM_APP_NAME</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><h4 id="fork仓库：https-github-com-wf09-IBMWorkflow"><a href="#fork仓库：https-github-com-wf09-IBMWorkflow" class="headerlink" title="fork仓库：https://github.com/wf09/IBMWorkflow"></a>fork仓库：<a href="https://github.com/wf09/IBMWorkflow">https://github.com/wf09/IBMWorkflow</a></h4><h4 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">IBM_ACCOUNT：账户邮箱</span><br><span class="line"></span><br><span class="line">IBM_APP_NAME：app的名字</span><br><span class="line"></span><br><span class="line">IBM_PASSWORD：密码</span><br></pre></td></tr></table></figure>
+
+<p>设置完环境变量以后记得commit一下yml文件触发Action。</p>
+<h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h4><p><img src="https://ftp.fly97.cn/image/image-20200827193322808.png"></p>
+<p>PS：达拉斯的容器测试通过，其他的地区可能需要将<code>https://api.us-south.cf.cloud.ibm.com</code>修改成你所在的地区。</p>
+]]></content>
+      <tags>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Office Tool Plus使用教程</title>
     <url>/2020/05/11/office%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<p>Office Tool Plus 使用教程</p>
@@ -1016,7 +1009,7 @@
 <h5 id="创建ssh-key："><a href="#创建ssh-key：" class="headerlink" title="创建ssh key："></a>创建ssh key：</h5><p>为了让github能够识别是我们自己上传文件，需要创建ssh key</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</span><br></pre></td></tr></table></figure>
 
-<p>这里的<strong><a href="mailto:&#121;&#x6f;&#x75;&#x72;&#x5f;&#101;&#109;&#x61;&#105;&#108;&#x40;&#x79;&#111;&#117;&#114;&#x65;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#111;&#x6d;">&#121;&#x6f;&#x75;&#x72;&#x5f;&#101;&#109;&#x61;&#105;&#108;&#x40;&#x79;&#111;&#117;&#114;&#x65;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#111;&#x6d;</a></strong>是你的<strong>邮箱地址</strong>，在输入后会询问你是否保存创建的ssh key，点回车就好，然后要求输入你要设置的密码，如果直接回车表示不设密码。然后会提示你ssh key已经创建好。</p>
+<p>这里的<strong><a href="mailto:&#121;&#x6f;&#x75;&#114;&#95;&#x65;&#109;&#x61;&#x69;&#x6c;&#x40;&#121;&#111;&#117;&#x72;&#101;&#109;&#x61;&#x69;&#x6c;&#46;&#x63;&#x6f;&#109;">&#121;&#x6f;&#x75;&#114;&#95;&#x65;&#109;&#x61;&#x69;&#x6c;&#x40;&#121;&#111;&#117;&#x72;&#101;&#109;&#x61;&#x69;&#x6c;&#46;&#x63;&#x6f;&#109;</a></strong>是你的<strong>邮箱地址</strong>，在输入后会询问你是否保存创建的ssh key，点回车就好，然后要求输入你要设置的密码，如果直接回车表示不设密码。然后会提示你ssh key已经创建好。</p>
 <h5 id="把密码导入GitHub："><a href="#把密码导入GitHub：" class="headerlink" title="把密码导入GitHub："></a>把密码导入GitHub：</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat ~&#x2F;.ssh&#x2F;id_rsa.pub</span><br></pre></td></tr></table></figure>
 
 <p>此时在终端会显示出刚刚创建好的ssh key，复制出来，在github在点击头像，然后点击setting，在找到SSH and GPG keys，创建一个new ssh key，然后将刚刚复制的ssh key填入即可。</p>
@@ -1173,8 +1166,8 @@
 </ul>
 ]]></content>
       <tags>
-        <tag>jsdelivrCDN</tag>
         <tag>github</tag>
+        <tag>jsdelivrCDN</tag>
       </tags>
   </entry>
   <entry>
