@@ -11,32 +11,32 @@
 <p><a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2019.10-Windows-x86_64.exe">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2019.10-Windows-x86_64.exe</a></p>
 </li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228165427982.png"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20191228165427982.png"></p>
 <ul>
 <li><p>有条件的可以选择官网下载</p>
 <p><a href="https://repo.anaconda.com/archive/Anaconda3-2019.10-Windows-x86_64.exe">https://repo.anaconda.com/archive/Anaconda3-2019.10-Windows-x86_64.exe</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228170139071.png" alt="image-20191228170139071"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20191228170139071.png" alt="image-20191228170139071"></p>
 </li>
 </ul>
 <h4 id="2-双击安装"><a href="#2-双击安装" class="headerlink" title="2.双击安装"></a>2.双击安装</h4><p><em>注意：安装时可以选择将Anaconda注册为默认的Python环境</em></p>
-<p>​    <img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228170508433.png" alt="image-20191228170508433" style="zoom:67%;" /></p>
+<p>​    <img src="https://ftp.fly97.cn/image/image-20191228170508433.png" alt="image-20191228170508433" style="zoom:67%;" /></p>
 <p>然后一路next就可以了</p>
 <p>安装完成！</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228170821162.png" alt="image-20191228170821162"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20191228170821162.png" alt="image-20191228170821162"></p>
 <p>接下来到了很重要的环节————</p>
 <h4 id="3-创建conda虚拟环境"><a href="#3-创建conda虚拟环境" class="headerlink" title="3.创建conda虚拟环境"></a>3.创建conda虚拟环境</h4><p>为什么要创建虚拟环境呢？</p>
 <p>Anaconda主要是对python中的各个包进行管理与部署，从而方便用户的使用体验。</p>
 <p>在从github上面下载别人的代码之后，不同的代码往往需要特定的运行环境。比如说有些代码需要在python3.6的环境下运行，有些代码需要在python2.7的环境下运行。</p>
 <p>这个时候，就需要conda出马了</p>
-<h5 id="选择Anaconda-Prompt-Anaconda3-以管理员身份运行"><a href="#选择Anaconda-Prompt-Anaconda3-以管理员身份运行" class="headerlink" title="选择Anaconda Prompt (Anaconda3)以管理员身份运行"></a>选择Anaconda Prompt (Anaconda3)以管理员身份运行</h5><p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228171544280.png" alt="image-20191228171544280"></p>
+<h5 id="选择Anaconda-Prompt-Anaconda3-以管理员身份运行"><a href="#选择Anaconda-Prompt-Anaconda3-以管理员身份运行" class="headerlink" title="选择Anaconda Prompt (Anaconda3)以管理员身份运行"></a>选择Anaconda Prompt (Anaconda3)以管理员身份运行</h5><p><img src="https://ftp.fly97.cn/image/image-20191228171544280.png" alt="image-20191228171544280"></p>
 <h5 id="输入命令："><a href="#输入命令：" class="headerlink" title="输入命令："></a>输入命令：</h5><p><code>conda create -n environment_name python=3 numpy  pytorch torchvision cpuonly -c pytorch</code></p>
 <p>注意：以上命令是安装CPU版本的Pytorch</p>
 <h5 id="如需安装GPU版本的Pytorch可以去官网查看对应命令"><a href="#如需安装GPU版本的Pytorch可以去官网查看对应命令" class="headerlink" title="如需安装GPU版本的Pytorch可以去官网查看对应命令"></a>如需安装GPU版本的Pytorch可以去官网查看对应命令</h5><p><a href="https://pytorch.org/get-started/locally/">https://pytorch.org/get-started/locally/</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228172220826.png" alt="image-20191228172220826"></p>
-<h5 id="然后一路敲y直到安装完成"><a href="#然后一路敲y直到安装完成" class="headerlink" title="然后一路敲y直到安装完成"></a>然后一路敲y直到安装完成</h5><p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228172356834.png" alt="image-20191228172356834"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20191228172220826.png" alt="image-20191228172220826"></p>
+<h5 id="然后一路敲y直到安装完成"><a href="#然后一路敲y直到安装完成" class="headerlink" title="然后一路敲y直到安装完成"></a>然后一路敲y直到安装完成</h5><p><img src="https://ftp.fly97.cn/image/image-20191228172356834.png" alt="image-20191228172356834"></p>
 <p>接下来需要切换到刚刚创建好的虚拟环境</p>
 <h5 id="输入命令：-1"><a href="#输入命令：-1" class="headerlink" title="输入命令："></a>输入命令：</h5><p><code>conda activate pytorch</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228172503786.png" alt="image-20191228172503786"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20191228172503786.png" alt="image-20191228172503786"></p>
 <h5 id="安装-librosa-音频处理库"><a href="#安装-librosa-音频处理库" class="headerlink" title="安装 librosa 音频处理库"></a>安装 librosa 音频处理库</h5><p><code>conda install -c conda-forge librosa</code></p>
 <h4 id="4-最后一步：安装Spyder-IDE"><a href="#4-最后一步：安装Spyder-IDE" class="headerlink" title="4.最后一步：安装Spyder IDE"></a>4.最后一步：安装Spyder IDE</h4><h5 id="输入命令：-2"><a href="#输入命令：-2" class="headerlink" title="输入命令："></a>输入命令：</h5><p><code>conda install spyder</code></p>
 <h5 id="没有问题的话输入命令："><a href="#没有问题的话输入命令：" class="headerlink" title="没有问题的话输入命令："></a>没有问题的话输入命令：</h5><p><code>spyder</code></p>
@@ -48,7 +48,7 @@
 <p><code>conda install pyqt</code>   </p>
 <p>即可</p>
 <h5 id="至此，pytorch安装完成，你又可以愉快的机器学习了"><a href="#至此，pytorch安装完成，你又可以愉快的机器学习了" class="headerlink" title="至此，pytorch安装完成，你又可以愉快的机器学习了"></a>至此，pytorch安装完成，你又可以愉快的机器学习了</h5><p>安装完成后，你会发现开始栏多了一个Spyder，从此，可以直接从这里打开你刚刚创建的虚拟环境对应的Spyder~</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228174316358.png" alt="image-20191228174316358"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20191228174316358.png" alt="image-20191228174316358"></p>
 ]]></content>
       <tags>
         <tag>Anacoda3</tag>
@@ -67,31 +67,31 @@
 <p><a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2019.10-Windows-x86_64.exe">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2019.10-Windows-x86_64.exe</a></p>
 </li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228165427982.png"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20191228165427982.png"></p>
 <ul>
 <li><p><del>官网下载(网速特别慢)</del></p>
 <p><a href="https://repo.anaconda.com/archive/Anaconda3-2019.10-Windows-x86_64.exe">https://repo.anaconda.com/archive/Anaconda3-2019.10-Windows-x86_64.exe</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228170139071.png" alt="image-20191228170139071"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20191228170139071.png" alt="image-20191228170139071"></p>
 </li>
 </ul>
 <h3 id="双击安装"><a href="#双击安装" class="headerlink" title="双击安装"></a>双击安装</h3><p><em>注意：安装时可以选择将Anaconda注册为默认的Python环境</em></p>
-<p>​    <img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228170508433.png" alt="image-20191228170508433" style="zoom:67%;" /></p>
+<p>​    <img src="https://ftp.fly97.cn/image/image-20191228170508433.png" alt="image-20191228170508433" style="zoom:67%;" /></p>
 <p><strong>注意：官方不推荐第一个选项。勾选第二个选项即可。</strong></p>
 <p>等待安装完成。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228170821162.png" alt="image-20191228170821162"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20191228170821162.png" alt="image-20191228170821162"></p>
 <h3 id="验证安装完成"><a href="#验证安装完成" class="headerlink" title="验证安装完成"></a>验证安装完成</h3><p>点击开始 -&gt; Anaconda3 </p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200723190040460.png" alt="image-20200723190040460"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20200723190040460.png" alt="image-20200723190040460"></p>
 <p>找到<strong>Anaconda Prompt (Anaconda3)</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200723190154019.png" alt="image-20200723190154019"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20200723190154019.png" alt="image-20200723190154019"></p>
 <p>点击并输入Python，敲回车以后出现以下提示说明安装完成。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200723190228823.png" alt="image-20200723190228823"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20200723190228823.png" alt="image-20200723190228823"></p>
 <h3 id="程序编写"><a href="#程序编写" class="headerlink" title="程序编写"></a>程序编写</h3><p>点击<strong>开始 -&gt; Anaconda3 -&gt; Spyder</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200723191007101.png" alt="image-20200723191007101"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20200723191007101.png" alt="image-20200723191007101"></p>
 <p>也可以点击<strong>开始 -&gt; Anaconda3 -&gt; Jupyter Notebook (Anaconda3)</strong></p>
 <p>等待片刻后会自动打开浏览器</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200723191158884.png" alt="image-20200723191158884"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20200723191158884.png" alt="image-20200723191158884"></p>
 <p>输入代码以后，按住<strong>shift+回车</strong>，即可运行代码。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200723191351960.png" alt="image-20200723191351960"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20200723191351960.png" alt="image-20200723191351960"></p>
 <p>未完待续……</p>
 ]]></content>
       <tags>
@@ -313,109 +313,17 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch <span class="keyword">as</span> t</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;计算y&quot;&quot;&quot;</span></span><br><span class="line">    y = x**<span class="number">2</span> * t.exp(x)</span><br><span class="line">    <span class="keyword">return</span> y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gradf</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;手动求导函数&quot;&quot;&quot;</span></span><br><span class="line">    dx = <span class="number">2</span>*x*t.exp(x) + x**<span class="number">2</span>*t.exp(x)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> dx</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置随机数种子, 使结果可以复现</span></span><br><span class="line">t.manual_seed(<span class="number">0</span>)</span><br><span class="line">np.random.seed(<span class="number">0</span>)</span><br><span class="line">x = t.randn(<span class="number">3</span>, <span class="number">4</span>, requires_grad = <span class="literal">True</span>)</span><br><span class="line">y = f(x)</span><br><span class="line">y</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[11.0879,  0.0642,  0.5373,  0.5705],</span></span><br><span class="line"><span class="string">        [ 0.3976,  0.4830,  0.2435,  1.6235],</span></span><br><span class="line"><span class="string">        [ 0.2520,  0.1087,  0.1960,  0.0398]], grad_fn=&lt;MulBackward0&gt;)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">y.backward(t.ones(y.size())) <span class="comment"># 和grad_tensor形状一致</span></span><br><span class="line">x.grad</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[25.4785, -0.3734,  0.0441,  2.5776],</span></span><br><span class="line"><span class="string">        [-0.3356, -0.2077,  1.4510,  5.4982],</span></span><br><span class="line"><span class="string">        [-0.4487, -0.4302, -0.4611,  0.4765]])</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">y.sum().backward()</span><br><span class="line">x.grad</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[25.4785, -0.3734,  0.0441,  2.5776],</span></span><br><span class="line"><span class="string">        [-0.3356, -0.2077,  1.4510,  5.4982],</span></span><br><span class="line"><span class="string">        [-0.4487, -0.4302, -0.4611,  0.4765]])</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># autograd的计算结果与利用公式手动计算的结果一致</span></span><br><span class="line">gradf(x)</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[25.4785, -0.3734,  0.0441,  2.5776],</span></span><br><span class="line"><span class="string">        [-0.3356, -0.2077,  1.4510,  5.4982],</span></span><br><span class="line"><span class="string">        [-0.4487, -0.4302, -0.4611,  0.4765]], grad_fn=&lt;AddBackward0&gt;)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h3 id="计算图"><a href="#计算图" class="headerlink" title="计算图"></a>计算图</h3><p>PyTorch 中的 autograd 的底层采用了计算图，计算图是一种<strong>特殊的有向无环图(DAG)</strong>.用于记录算子和变量之间的关系。一般用矩形表示算子，椭圆形表示变量。如表达式$z=wx+b$可以分解为$y=wx$和$z=y+b$，其计算图如下图所示，图中的<code>MUL</code>和<code>ADD</code>都是算子，$w、x、b$为变量。</p>
-<img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200820171041627.png" alt="image-20200820171041627" style="zoom:50%;" />
+<img src="https://ftp.fly97.cn/image/image-20200820171041627.png" alt="image-20200820171041627" style="zoom:50%;" />
 
 <p>如上有向无环图中，$X$和$b$是叶子节点(leaf node)，这些节点通常由用户自己创建，不依赖其他变量。$z$称为根节点，是计算图的最终目标。利用链式法则很容易求得各个叶子节点的梯度。<br>$$<br>\frac{\partial z}{\partial b}=1\quad\frac{\partial z}{\partial y}=1<br>$$</p>
 <p>$$<br>\frac{\partial y}{\partial w}=x\quad\frac{\partial y}{\partial x}=w<br>$$</p>
 <p>$$<br>\frac{\partial z}{\partial x}=\frac{\partial z}{\partial y} \times\frac{\partial y}{\partial x}=1\times w<br>$$</p>
 <p>$$<br>\frac{\partial z}{\partial w}=\frac{\partial z}{\partial y} \times\frac{\partial y}{\partial w}=1\times x<br>$$</p>
 <p>而有了计算图，上述链式求导即可利用计算图的反向传播自动完成，其传播过程如下图所示。</p>
-<img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200820172727826.png" alt="image-20200820172727826" style="zoom:50%;" />
+<img src="https://ftp.fly97.cn/image/image-20200820172727826.png" alt="image-20200820172727826" style="zoom:50%;" />
 
 <p>在 PyTorch 实现中，<code>autograd</code>会随着用户的操作，记录生成当前 <strong>Tensor</strong> 的所有操作，并由此建立一个有向无环图。用户没进行一个操作，相应的计算图就会发生改变。更底层的实现中，图中记录了操作<code>Function</code>，每个变量在图中的位置可通过其<code>grad_fn</code>属性在图中的位置可以推测得到。在反向传播过程中，<code>autograd</code>沿着这个图从当前变量(根节点$z$)溯源，可以利用链式求导法则计算所有叶子节点的梯度。每一个前向传播操作的函数都有与之对应的反向传播函数用来计算输入的各个Tensor的梯度，这些函数的函数名通常以<code>Backward</code>结尾。</p>
 <p>部分转载自：<a href="https://zhuanlan.zhihu.com/p/83172023">https://zhuanlan.zhihu.com/p/83172023</a></p>
-]]></content>
-      <tags>
-        <tag>PyTorch</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PyTorch模块学习(一)</title>
-    <url>/2020/08/03/PyTorch%E6%A8%A1%E5%9D%97%E5%AD%A6%E4%B9%A0(%E4%B8%80)/</url>
-    <content><![CDATA[<p>PyTorch（1.3.0）主要包括以下16个模块。</p>
-<a id="more"></a>
-
-<h4 id="torch模块"><a href="#torch模块" class="headerlink" title="torch模块"></a>torch模块</h4><p>torch 模块本身包含了PyTorch经常使用的一些激活函数。</p>
-<p>例如<strong>Sigmoid (torch.sigmoid)**、</strong>ReLU(torch.relu)<strong>和</strong>Tanh（torch.tanh)<strong>，以及PyTorch张量的一些操作，比如</strong>矩阵的乘法(torch.mm)<strong>、</strong>张量元素的选择(torch.select)<strong>。需要注意的是，这些操作的对象大多数都是张量，因此传入的参数需要是PyTorch的张量。否则会抛出</strong>类型错误（TypeError)**的异常。</p>
-<p>此外，还有一类函数能够产生一定形状的张量，比如<strong>torch.zeros产生元素全为0的张量</strong>。<strong>torch.randn产生元素服从标准正态分布的张量</strong>等等。</p>
-<h4 id="torch-Tensor模块"><a href="#torch-Tensor模块" class="headerlink" title="torch.Tensor模块"></a>torch.Tensor模块</h4><p>torch.Tensor模块定义了torch中的张量类型，其中的张量有不同的数值类型，例如单精度、双精度浮点型、整数类型等，而且张量有一定的维度和形状。同时，张量的类中也包含一系列的方法，返回新的张量或者更改当前的张量。torch.Storage负责torch.Tensor底层的数据存储，即前面提到的为一个张量分配连续的一维内存地址（用于存储相同类型的一系列元素，数目则为张量的总元素数目）。</p>
-<p><strong>如果张量的某个类方法会返回张量，按照PyTorch的命名规则，如果张量方法后缀带下划线，则该方法会修改张量本身的数据，反之则会返回新的张量。</strong></p>
-<blockquote>
-<p>例如：Tensor.add方法会让当前张量和输入参数张量做加法，返回新的张量。而Tensor.add_方法会改变当前张量的值，新的值为旧的值和输入参数之和。</p>
-</blockquote>
-<h4 id="torch-sparse模块"><a href="#torch-sparse模块" class="headerlink" title="torch.sparse模块"></a>torch.sparse模块</h4><p>torch.sparse模块定义了稀疏张量，其中构造的稀疏张量采用的是COO格式（Coordinate），主要方法是用一个长整型定义非零元素的位置，用浮点数张量定义非零元素的值。稀疏张量之间可以做元素加、减、乘、除运算和矩阵乘法。</p>
-<h4 id="torch-cuda模块"><a href="#torch-cuda模块" class="headerlink" title="torch.cuda模块"></a>torch.cuda模块</h4><p>torch.cuda模块定义了CUDA运算一系列函数，包括但不限于检查系统的CUDA是否可用，当前进程对应的GPU序号，清除GPU上面的缓存，设置GPU的计算流（Stream），同步GPU上执行的所以核函数（Kernel）等。</p>
-<h4 id="torch-nn模块"><a href="#torch-nn模块" class="headerlink" title="torch.nn模块"></a>torch.nn模块</h4><p>torch.nn是一个非常重要的模块，是PyTorch神经网络模块化的核心，这个模块定义了一系列模块，包括<strong>卷积层(nn.ConvNd(N=1，2，3))**和</strong>线性层(nn.Linear)**等。</p>
-<p>当构建深度学习模型的时候，可以通过继承<strong>torch.nn.Module类</strong>重写forward方法来实现一个新的神经网络(后续会提到如何通过组合神经网络模块来构建深度学习模型)。</p>
-<p>另外，torch.nn中也定义了一系列的损失函数，包括<strong>平方损失函数(torch.nn.MSEloss)**、</strong>交叉熵损失函数(torch.nn.CrossEntropyLoss)**等。</p>
-<p>torch.nn里定义的神经网络模块都含有参数，可以对这些参数使用优化器进行训练。</p>
-<h4 id="torch-nn-functional函数模块"><a href="#torch-nn-functional函数模块" class="headerlink" title="torch.nn.functional函数模块"></a>torch.nn.functional函数模块</h4><p><strong>torch.nn.funtional</strong>是PyTorch的函数模块，定义了一些核神经网络相关的函数，包括卷积函数和池化函数等，这些函数也是深度学习模型构建的基础。</p>
-<p>torch.nn中定义的模块一般会调用torch.nn.functional里的函数。例如，nn.ConvNd模块(N=1,2,3)会调用torch.nn.functional.convNd函数(N=1,2,3)。</p>
-<p>torch.nn.functional里面还定义了一些不常用的激活函数，包括<strong>torch.nn.functional.relu6和torch.nn.functional.elu</strong>等。</p>
-<h4 id="torch-nn-init模块"><a href="#torch-nn-init模块" class="headerlink" title="torch.nn.init模块"></a>torch.nn.init模块</h4><p>torch.nn.init模块定义了神经网络权重初始化。</p>
-<p>如果初始化的神经网络取值不合适，就会导致后续的优化过程收敛很慢，甚至不收敛。</p>
-<p>这个模块包含很多初始化方法，包括<strong>均匀初始化torch.nn.init.uniform_</strong>和<strong>正态分布归一化torch.nn.init.normal_</strong>等。这个方法会直接改变传入张量的值，同时会改变返回后的张量。</p>
-<h4 id="torch-optim模块"><a href="#torch-optim模块" class="headerlink" title="torch.optim模块"></a>torch.optim模块</h4><p>torch.optim模块定义了一系列的优化器，如t<strong>orch.optim.SGD(随机梯度下降法)**、</strong>torch.optim.Adagrad(AdaGrad算法)<strong>、</strong>torch.optim.RMSprop(RMSprop算法)<strong>和</strong>torch.optim.Adam(Adam算法)**等。</p>
-<p>这个模块还包含学习率衰减的算法的子模块，即<strong>torch.optim.lr_scheduler</strong>。这个子模块中包含了<strong>torch.optim.lr_scheduker.StepLR(学习率阶梯下降算法)**和</strong>torch.optim.lr_scheduler.CosineAnnealingLR(余弦退火算法)**等学习率衰减算法。</p>
-<h4 id="torch-autograd模块"><a href="#torch-autograd模块" class="headerlink" title="torch.autograd模块"></a>torch.autograd模块</h4><p>torch.autograd模块是PyTorch的自动微分模块，定义了一系列的自动微分函数。<strong>torch.autograd.backward</strong>函数，主要用于在求得损失函数之后进行反向梯度传播。<strong>torch.autograd.grad</strong>函数用于一个标量张量(即只有一个分量的张量)对另一个张量求导，以及在代码中设置不参与求导的部分。</p>
-<p>这个模块还内置了<strong>数值梯度功能</strong>和<strong>检查自动微分引擎是否输出正确结果</strong>的功能。</p>
-]]></content>
-      <tags>
-        <tag>PyTorch</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PyTorch模块学习(三)</title>
-    <url>/2020/08/03/PyTorch%E6%A8%A1%E5%9D%97%E5%AD%A6%E4%B9%A0(%E4%B8%89)/</url>
-    <content><![CDATA[<p>下面介绍PyTorch的辅助工具模块。</p>
-<p>torch.utils提供了一系列的工具来帮助神经网络的训练、测试和结构优化。这个模块主要包含以下6个子模块。</p>
-<a id="more"></a>
-
-<h4 id="torch-utils-bottleneck"><a href="#torch-utils-bottleneck" class="headerlink" title="torch.utils.bottleneck"></a><del>torch.utils.bottleneck</del></h4><p>torch.utils.bottleneck可以用来检查深度学习模型中模块的运行时间，从而可以找到性能瓶颈的模块，通过优化那些模块的运行时间，从而优化整个深度学习模型的性能。</p>
-<h4 id="torch-utils-checkpoint"><a href="#torch-utils-checkpoint" class="headerlink" title="torch.utils.checkpoint"></a><del>torch.utils.checkpoint</del></h4><p>torch.utils.checkpoint可以用来节约深度学习使用的内存。</p>
-<p>要进行梯度反向传播，在构建计算图的时候需要保存中间的数据，而这些数据大大增加了深度学习的内存消耗。</p>
-<p>为了减少内存消耗，让迷你批次的大小得到提高，从而提升深度学习模型的性能和优化时的稳定性，可以通过这个模块记录中间数据的计算过程，然后丢弃这些中间数据，等到需要用到的时候再重新计算这些数据。这个模块设计的核心思想是以计算时间换内存空间。使用得当时，深度学习模型的性能可以有很大的提升。</p>
-<h4 id="torch-utils-cpp-extension"><a href="#torch-utils-cpp-extension" class="headerlink" title="torch.utils.cpp_extension"></a><del>torch.utils.cpp_extension</del></h4><p><strong>torch.utils.cpp_extension</strong>定义了PyTorch的C++拓展，其主要包含两个类：</p>
-<p><strong>CppExtension</strong>定义了使用C++来编写的拓展模块的源代码相关信息。</p>
-<p><strong>CUDAExtension</strong>则定义了C++/CUDA编写的拓展模块的源代码相关信息。</p>
-<p>在某些情况下，用户可能需要使用C++实现某些张量运算和神经网络结构（比如PyTorch没有类似功能的模块或者PyTorch类似功能的模块性能比较低），PyTorch的<strong>C++**拓展模块就提供一个方法能够让Python来调用使用</strong>C++/CUDA<strong>编写的深度学习拓展模块。在底层上，这个拓展模块使用了</strong>pybind11**，保持了接口的轻量性并使得PyTorch易于被拓展。</p>
-<h4 id="torch-utils-data"><a href="#torch-utils-data" class="headerlink" title="torch.utils.data"></a>torch.utils.data</h4><p>torch.utils.data引入了数据集（Dataset）和数据载入器（DataLoader）的概念。</p>
-<p>Dataset代表了包含了所有数据的数据集，通过索引能够得到某一条特定的数据。</p>
-<p>DataLoader通过对数据集的包装，可以通过对数据集的包装，可以对数据集进行随机排列（Shuffle）和采样（Sample），得到一系列打乱数据顺序的迷你批次。</p>
-<h4 id="torch-utils-dlpack"><a href="#torch-utils-dlpack" class="headerlink" title="torch.utils.dlpack"></a><del>torch.utils.dlpack</del></h4><p>torch.utils.dlpack定义了PyTorch张量和DLPack张量存储格式之间的转换，用于不同框架之间张量数据的交换。</p>
-<h4 id="torch-utils-tensorboard"><a href="#torch-utils-tensorboard" class="headerlink" title="torch.utils.tensorboard"></a>torch.utils.tensorboard</h4><p>torch.utils.tensorboard是PyTorch对TensorBoard数据可视化工具的支持。</p>
-<p>TensorBoard原来是TensorFlow自带的数据可视化工具，能够显示深度学习模型在训练过程中损失函数、张量权重的直方图，以及模型训练过程中输出的文本、图像、和视频等。</p>
-<p>TensorBoard的功能非常强大，而且是基于可交互的动态网页设计的，使用者可以通过预先提供的一系列功能来输出特定的训练过程的细节（如某一神经网络层的权重的直方图，以及训练过程中给某一段时间的损失函数等）。</p>
-<p>PyTorch支持TensorBoard可视化之后，在PyTorch的训练过程中，可以很方便地观察中间输出的张量，也可以方便地调试深度学习模型。</p>
-<p><strong>PS：PyTorch在版本迭代的过程中，一些函数的用法会发生改变。含有删除线的函数的用法在最新的版本中已经被删掉了。</strong></p>
-]]></content>
-      <tags>
-        <tag>PyTorch</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PyTorch模块学习(二)</title>
-    <url>/2020/08/03/PyTorch%E6%A8%A1%E5%9D%97%E5%AD%A6%E4%B9%A0(%E4%BA%8C)/</url>
-    <content><![CDATA[<p>下面继续介绍PyTorch的主要模块。</p>
-<a id="more"></a>
-
-<h4 id="torch-distributed模块"><a href="#torch-distributed模块" class="headerlink" title="torch.distributed模块"></a>torch.distributed模块</h4><p>torch.distributed是PyTorch的分布式计算模块，主要功能是提供PyTorch并行运行环境，其主要支持的后端有MPI、Gloo和NCCL三种。PyTorch的分布式计算工作原理主要是启动多个并行的进程，每个进程独立地做反向传播，最后对所有进程权重张量地梯度做归约（Reduce）。用到后端地部分主要是广播（Broadcast）和数据地收集（Gather）,其中，前者是把数据从一个节点（进程）传播到另一个节点（进程）传播到另一个节点（进程），比如归约后梯度张量地传播，后者则是把数据从其他节点（进程）转移到当前节点（进程），比如把梯度张量从其他节点转移到某个特定地节点，然后对所有地张量求平均。</p>
-<p>PyTorch地分布式计算模块不但提供了后端地一个包装，还提供了一些启动方式来启动多个进程。可以通过网络、通过环境变量、通过共享文件等。</p>
-<h4 id="torch-distributions模块"><a href="#torch-distributions模块" class="headerlink" title="torch.distributions模块"></a>torch.distributions模块</h4><p>torch.distributions模块提供了一系列类，使得PyTorch能够对不同的分布进行采样，而且生成概率采样过程地计算图。</p>
-<p>在强化学习（Reinforcement Learning）应用中，经常会使用一个深度学习模型来模拟在不同环境条件下采取地策略（Policy）,其最后地输出是不同动作地概率。当深度学习模型输出概率之后，需要根据概率对策略进行采样来模拟当前地概率分布，最后用梯度下降方法来让最优策略地概率最大（这个算法称为策略梯度算法，Policy Gradient）。实际上，因为采样输出地结果是离散的，无法直接求导，所以不能使用反向传播的方法来优化网络。</p>
-<p>此模块的存在就是为了解决这个问题。可以结合torch.distributions.Categorical进行采样，然后使用对数求导技巧来规避这个问题。当然，除了服从多项式分布的torch.distributions.Categorical类，PyTorch还支持其他的分布（包括连续分布和离散分布），比如torch.distributions,Normal类支持连续的正态分布的采样，可以用于连续的强化学习策略。</p>
-<h4 id="torch-hub模块"><a href="#torch-hub模块" class="headerlink" title="torch.hub模块"></a>torch.hub模块</h4><p>torch.hub提供了一系列预训练的模型供用户使用。</p>
-<p>比如，可以通过torch.hub.list函数来获取某个模型镜像站点的模型信息。通过torch.hub.load来载入预训练的模型，载入后的模型可以保存到本地，并可以看的这些模型对应类支持的方法。</p>
-<h4 id="torch-jit模块"><a href="#torch-jit模块" class="headerlink" title="torch.jit模块"></a>torch.jit模块</h4><p>torch.jit 是PyTorch的即时编译器（Just-In-Time Compiler ，JIT）模块，这个模块存在的意义是把PyTorch的动态图转换成可以优化和序列化的静态图，其主要工作原理是通过输入预先定义好的张量，追踪整个动态图的构建过程，得到最终构建出来的动态图，然后转换为静态图（通过中间表示，即Intermediate Representation，来描述最后的到的图）。通过JIT得到的经他图可以被保存，并且被PyTorch其他的前端（如C++语言的前端）支持。</p>
-<p>JIT也可以用来生成其他格式的神经网络描述文件，如前文叙述的ONNX。</p>
-<p>torch.jit支持两种方式，即脚本模式（ScriptModule）和追踪模式（Tracing）。前者和后者都能构建静态图，区别在于前者支持控制流，后者不支持，但是前者支持的升级网络模块比后者少，比如脚本模式不支持torch.nn.GRU（详细的描述可以参考PyTorch官方提供的JIT相关的文档）。</p>
-<h4 id="torch-multprocessing模块"><a href="#torch-multprocessing模块" class="headerlink" title="torch.multprocessing模块"></a>torch.multprocessing模块</h4><p>torch.multiprocessing定义了PyTorch中的多进程API。</p>
-<p>这个模块可以启动不同的进程，每个进程运行不同的深度学习模型，并且能够在进程间共享张量（通过共享内存的方式）。共享的张量可以在CPU上，也可以在GPU上，多进程API还提供了与Python原生的多进程API（即multiprocessing库）相同的一系列函数，包括锁（Lock）和队列（Queue）等。</p>
-<h4 id="torch-random模块"><a href="#torch-random模块" class="headerlink" title="torch.random模块"></a>torch.random模块</h4><p>torch.random提供了一系列的方法来保存和设置随机数生成器的状态。</p>
-<p>使用<strong>get_rng_state函数</strong>获取当前随机数生成器状态，<strong>set_rng_state函数</strong>设置当前随机数生成器状态，并且可以使用<strong>manual_seed函数</strong>来设置随机种子，也可使用initial_seed函数来得到程序初始的随机种子。</p>
-<p>神经网络的训练是一个随机的过程，包括数据的输入，权重的初始化都具有一定的随机性。设置一个统一的随机数种子可以有效地帮助我们测试不同结构地神经网络地表现，有助于调试升级神经网络地结构。</p>
-<h4 id="torch-onnx模块"><a href="#torch-onnx模块" class="headerlink" title="torch.onnx模块"></a>torch.onnx模块</h4><p>torch.onnx定义了PyTorch导出和载入ONNX格式地深度学习模型描述文件。</p>
-<p>ONNX格式地存在是为了方便不同深度学习框架之间交换模型。引入这个模块可以很方便从PyTorch导出模型给其他深度学习框架使用，或者让PyTorch可以载入其他深度学习框架构建的深度学习模型。</p>
 ]]></content>
       <tags>
         <tag>PyTorch</tag>
@@ -939,10 +847,10 @@
 <p>软件介绍：<a href="https://otp.landian.vip/zh-cn/">https://otp.landian.vip/zh-cn/</a></p>
 <p>软件下载地址：<a href="https://download.coolhub.top/">https://download.coolhub.top/</a></p>
 <p>备份地址：<a href="https://ftp.fly97.cn/windows/app/Office%20Tool%20v7.5.zip">https://ftp.fly97.cn/windows/app/Office%20Tool%20v7.5.zip</a></p>
-<h4 id="1-选择安装产品"><a href="#1-选择安装产品" class="headerlink" title="1.选择安装产品"></a>1.选择安装产品</h4><p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200517194431639.png" alt="image-20200517194431639"></p>
+<h4 id="1-选择安装产品"><a href="#1-选择安装产品" class="headerlink" title="1.选择安装产品"></a>1.选择安装产品</h4><p><img src="https://ftp.fly97.cn/image/image-20200517194431639.png" alt="image-20200517194431639"></p>
 <p>注意：由于国内到微软的网络不稳定，建议<strong>部署模式</strong>选择<strong>下载后安装</strong>。耐心等待安装完毕即可。</p>
 <h4 id="2-激活office"><a href="#2-激活office" class="headerlink" title="2.激活office"></a>2.激活office</h4><p>首先，根据选择的类型选择对应的许可证。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200517194323507.png" alt="image-20200517194323507"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20200517194323507.png" alt="image-20200517194323507"></p>
 <p><del>然后，选择<strong>零售版</strong>安装的同学<strong>可能需要安装</strong>Office2019专业版特定的密钥：</del></p>
 <figure class="highlight text"><table><tr><td class="code"><pre><span class="line">NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP</span><br></pre></td></tr></table></figure>
 
@@ -990,14 +898,14 @@
 <a id="more"></a>
 
 <h4 id="1-首先，要安装WSL-Windows-Subsystem-for-Linux-。即适用于Window10的Linux子系统。"><a href="#1-首先，要安装WSL-Windows-Subsystem-for-Linux-。即适用于Window10的Linux子系统。" class="headerlink" title="1.首先，要安装WSL(Windows Subsystem for Linux)。即适用于Window10的Linux子系统。"></a>1.首先，要安装WSL(Windows Subsystem for Linux)。即适用于Window10的Linux子系统。</h4><ul>
-<li>打开开发者选项，选择开发人员模式。<img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228201007723.png" alt="image-20191228201007723"></li>
+<li>打开开发者选项，选择开发人员模式。<img src="https://ftp.fly97.cn/image/image-20191228201007723.png" alt="image-20191228201007723"></li>
 </ul>
 <ul>
-<li>打开控制面板-程序，选择适用于Linux的Windows子系统。<img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20191228201255121.png" alt="image-20191228201255121"></li>
+<li>打开控制面板-程序，选择适用于Linux的Windows子系统。<img src="https://ftp.fly97.cn/image/image-20191228201255121.png" alt="image-20191228201255121"></li>
 </ul>
 <ul>
 <li><p>打开Windows应用商店，搜索linux，选择你喜欢的linux系统点击安装。这里以Ubuntu为例。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/20200531102849.png" alt="image-20191228201558935"></p>
+<p><img src="https://ftp.fly97.cn/image/20200531102849.png" alt="image-20191228201558935"></p>
 </li>
 </ul>
 <p>第一次打开要选择用户名和密码，因为笔者已经安装完了，这里就不再截图了。到此为止WSL就安装好了。</p>
@@ -1009,7 +917,7 @@
 <h5 id="创建ssh-key："><a href="#创建ssh-key：" class="headerlink" title="创建ssh key："></a>创建ssh key：</h5><p>为了让github能够识别是我们自己上传文件，需要创建ssh key</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</span><br></pre></td></tr></table></figure>
 
-<p>这里的<strong><a href="mailto:&#121;&#x6f;&#x75;&#114;&#95;&#x65;&#109;&#x61;&#x69;&#x6c;&#x40;&#121;&#111;&#117;&#x72;&#101;&#109;&#x61;&#x69;&#x6c;&#46;&#x63;&#x6f;&#109;">&#121;&#x6f;&#x75;&#114;&#95;&#x65;&#109;&#x61;&#x69;&#x6c;&#x40;&#121;&#111;&#117;&#x72;&#101;&#109;&#x61;&#x69;&#x6c;&#46;&#x63;&#x6f;&#109;</a></strong>是你的<strong>邮箱地址</strong>，在输入后会询问你是否保存创建的ssh key，点回车就好，然后要求输入你要设置的密码，如果直接回车表示不设密码。然后会提示你ssh key已经创建好。</p>
+<p>这里的<strong><a href="mailto:&#121;&#x6f;&#x75;&#114;&#95;&#101;&#x6d;&#97;&#x69;&#x6c;&#x40;&#x79;&#111;&#117;&#x72;&#x65;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#111;&#109;">&#121;&#x6f;&#x75;&#114;&#95;&#101;&#x6d;&#97;&#x69;&#x6c;&#x40;&#x79;&#111;&#117;&#x72;&#x65;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#111;&#109;</a></strong>是你的<strong>邮箱地址</strong>，在输入后会询问你是否保存创建的ssh key，点回车就好，然后要求输入你要设置的密码，如果直接回车表示不设密码。然后会提示你ssh key已经创建好。</p>
 <h5 id="把密码导入GitHub："><a href="#把密码导入GitHub：" class="headerlink" title="把密码导入GitHub："></a>把密码导入GitHub：</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat ~&#x2F;.ssh&#x2F;id_rsa.pub</span><br></pre></td></tr></table></figure>
 
 <p>此时在终端会显示出刚刚创建好的ssh key，复制出来，在github在点击头像，然后点击setting，在找到SSH and GPG keys，创建一个new ssh key，然后将刚刚复制的ssh key填入即可。</p>
@@ -1164,6 +1072,7 @@
 <li><code>master</code> 仓库的分支</li>
 <li><code>1.png</code>仓库下的具体文件</li>
 </ul>
+<h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><p>2020年8月15日 jsDelivr新增使用政策且已经生效。如果将Github+jsDelivr作为图床使用的话是算违规！！！<br>相关链接：<a href="https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net">https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net</a></p>
 ]]></content>
       <tags>
         <tag>github</tag>
@@ -1471,7 +1380,7 @@
 <h4 id="Windows-10"><a href="#Windows-10" class="headerlink" title="Windows 10"></a>Windows 10</h4><p>对于使用 <code>Windows 10</code> 的用户，在任务栏托盘 Docker 图标内右键菜单选择 <code>Settings</code>，打开配置窗口后在左侧导航菜单选择 <code>Docker Engine</code>，在右侧像下边一样编辑 json 文件，之后点击 <code>Apply &amp; Restart</code> 保存后 Docker 就会重启并应用配置的镜像地址了。</p>
 <figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;registry-mirrors&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;https://28wgvhgl.mirror.aliyuncs.com&quot;</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">&quot;insecure-registries&quot;</span>: [],</span><br><span class="line">  <span class="attr">&quot;debug&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">&quot;experimental&quot;</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200718170304988.png"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20200718170304988.png"></p>
 <h3 id="常见docker命令"><a href="#常见docker命令" class="headerlink" title="常见docker命令"></a>常见docker命令</h3><h4 id="取回容器"><a href="#取回容器" class="headerlink" title="取回容器"></a>取回容器</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker pull fly97/v2fly</span><br></pre></td></tr></table></figure>
 
 <h4 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h4><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker run -d --name v2fly -v /etc/caddy:/etc/caddy  -p 443:443 fly97/v2fly</span><br></pre></td></tr></table></figure>
@@ -1543,7 +1452,7 @@
 
 <p>以上示例，通过目录下的 Dockerfile 构建一个 <code>ubuntu:latest（镜像名称:镜像标签）</code>。</p>
 <p><strong>注：最后的 . 代表本次执行的上下文路径，下一节会介绍。</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200718201119692.png" alt="image-20200718201119692"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20200718201119692.png" alt="image-20200718201119692"></p>
 <p>以上说明已经构建成功。</p>
 <h4 id="上下文路径"><a href="#上下文路径" class="headerlink" title="上下文路径"></a>上下文路径</h4><p>上面提到 <strong>.</strong> 是上下文路径，那么什么是上下文路径呢？</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker build -t ubuntu:latest .</span><br></pre></td></tr></table></figure>
@@ -1674,7 +1583,7 @@
 <p>相信大家不难理解这个哲学思想，比如在数学领域，大多数数学家认为“好的公式应当是简洁明了的”，就是“奥卡姆剃刀”的体现。</p>
 <p>这个思想我能理解，但为什么叫这么奇怪的名字？容易想到，“奥卡姆”是提出这个思想的人的名字；至于为什么叫“剃刀”是因为这个思想的提出，对封建旧思想来说是把锋利的剃刀，狠狠地剃除教会的旧思想。（具体是如何剃除旧思想的就不展开了）</p>
 <p>那这个思想是怎么应用在机器学习领域的呢？用下图就可以概括：</p>
-<img src="https://cdn.jsdelivr.net/gh/wf09/upload/overfit.png" style="zoom:80%;" align="center"/>
+<img src="https://ftp.fly97.cn/image/overfit.png" style="zoom:80%;" align="center"/>
 
 <p>了解机器学习的同学不难看出，上图表示的是过拟合问题，不了解的同学也不必担心，可以把上图想象成用曲线拟合几个点。</p>
 <p>那么问题来了，上图中，哪种拟合方式是比较好的呢？相信大多数人都会选择左小图的拟合方式。机器学习领域也通常认为左小图是比较好的，原因就是“奥卡姆剃刀”的思想，“简单的是最好的”。</p>
@@ -1711,13 +1620,13 @@
 <li>可以使用web网页的进行终端配置</li>
 </ul>
 <p>fish 有智能提示，一个命令一旦输入过一次，会自动显示上一次的全部命令，细心一点会发现会有一层灰色的字体表示上一次的命令，按<code>Ctrl+F</code>或者 右方向键<code>→</code>， 即可自动补全。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/20200811_144927.gif"></p>
+<p><img src="https://ftp.fly97.cn/image/20200811_144927.gif"></p>
 <h5 id="网页配置Fish"><a href="#网页配置Fish" class="headerlink" title="网页配置Fish"></a>网页配置Fish</h5><p><code>fish_config</code> 可以直接跳出网页版本配置fish的界面。</p>
 <p>web版本可以设置主题， 推荐其中的”Tomorrow Night”主题颜色。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/2027280-11b7a5729b03227b.webp" alt="img"></p>
+<p><img src="https://ftp.fly97.cn/image/2027280-11b7a5729b03227b.webp" alt="img"></p>
 <p>选择想要的主题，然后点击set theme即可设置主题。<br>在命令里按enter 即可退出web版本的界面。</p>
 <p>在prompt里面可以自己选择fish终端的主题。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/2027280-3f8729b449ea454d.webp" alt="img"></p>
+<p><img src="https://ftp.fly97.cn/image/2027280-3f8729b449ea454d.webp" alt="img"></p>
 <h4 id="兼容Bash"><a href="#兼容Bash" class="headerlink" title="兼容Bash"></a>兼容Bash</h4><p>由于fish 很多<strong>不兼容</strong>bash的功能导致了很多脚本无法运行，这一点是很多人吐槽fish的地方，我们需要一种方式来运行bash脚本。</p>
 <p>比如</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">arc land --onto `git rev-parse --abbrev-ref HEAD` </span><br></pre></td></tr></table></figure>
@@ -1736,7 +1645,7 @@
 <p>其中function fish_prompt 函数用于定义fish终端的显示样式。</p>
 <p>我们只需要写一个fish_prompt函数即可。集成了git的分支名称以及当前的变化。</p>
 <p>显示的样式如下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/2027280-2c1a98068158e5fd.webp" alt="img"></p>
+<p><img src="https://ftp.fly97.cn/image/2027280-2c1a98068158e5fd.webp" alt="img"></p>
 <p><strong>说明:<br> ✔代表当前git项目是干净的。<br> %1 表示有一个文件未追踪<br> +1 表示一个文件已暂存</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 终端显示样式的配置</span></span><br><span class="line"><span class="keyword">function</span> fish_prompt --description <span class="string">&#x27;Write out the prompt&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> not <span class="built_in">set</span> -q __fish_prompt_normal</span><br><span class="line">        <span class="built_in">set</span> -g __fish_prompt_normal (set_color normal)</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    __fish_git_prompt &gt;/dev/null 2&gt;&amp;1</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> git_is_repo</span><br><span class="line">        <span class="keyword">if</span> not <span class="built_in">set</span> -q __git_cb</span><br><span class="line">            <span class="built_in">set</span> __git_cb (set_color blue)<span class="string">&quot; (&quot;</span>(set_color brred)(git branch | grep \* | sed <span class="string">&#x27;s/* //&#x27;</span>) (set_color -o bryellow)(__fish_git_prompt_informative_status)(set_color blue)<span class="string">&quot;)&quot;</span></span><br><span class="line">        end</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> not <span class="built_in">set</span> -q __fish_prompt_cwd</span><br><span class="line">        <span class="built_in">set</span> -g __fish_prompt_cwd (set_color <span class="variable">$fish_color_cwd</span>)</span><br><span class="line">    end</span><br><span class="line">    <span class="built_in">printf</span> <span class="string">&#x27;%s%s%s%s &#x27;</span> <span class="string">&quot;<span class="variable">$__fish_prompt_cwd</span>&quot;</span> (prompt_pwd) <span class="string">&quot;<span class="variable">$__fish_prompt_normal</span>&quot;</span> <span class="variable">$__git_cb</span></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 
@@ -1777,13 +1686,13 @@
 
 <h5 id="执行以下命令检查是否正常运行"><a href="#执行以下命令检查是否正常运行" class="headerlink" title="执行以下命令检查是否正常运行"></a>执行以下命令检查是否正常运行</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">j --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200811140853462.png" alt="image-20200811140853462"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20200811140853462.png" alt="image-20200811140853462"></p>
 <h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><h5 id="查看-autojump-存储的目录的状态"><a href="#查看-autojump-存储的目录的状态" class="headerlink" title="查看 autojump 存储的目录的状态"></a>查看 <code>autojump</code> 存储的目录的状态</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">j -s</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200811142040440.png" alt="image-20200811142040440"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20200811142040440.png" alt="image-20200811142040440"></p>
 <h5 id="查看使用帮助"><a href="#查看使用帮助" class="headerlink" title="查看使用帮助"></a>查看使用帮助</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">j -h</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200811142133380.png" alt="image-20200811142133380"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20200811142133380.png" alt="image-20200811142133380"></p>
 ]]></content>
       <tags>
         <tag>Linux</tag>
@@ -1798,40 +1707,40 @@
 <p>LSTM 即 Long Short Term 网络——一般就叫做LSTM——是一种特殊的RNN，可以学习长期依赖信息。LSTM由 <em>Hochreiter &amp; Schmidhuber</em> (1997) 提出， 并被 <em>Alex Graves</em> 进行了改良和推广。在很多问题，LSTM 都取得了相当巨大的成功，并得到了广泛的使用。</p>
 <p>LSTM 通过刻意的设计来避免长期依赖问题。记住长期的信息是 LSTM 的默认行为，而非需要付出很大代价才能获得的能力。</p>
 <p>所有的 RNN都具有一种重复神经网络模块的链式的形式，在标准的RNN中，这个重复的模块只有一个非常简单的结构，例如一个 <em>tanh</em> 层。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/20150829181722_450.png"></p>
+<p><img src="https://ftp.fly97.cn/image/20150829181722_450.png"></p>
 <blockquote>
 <p>上图即<strong>标准RNN中</strong>重复模块包含单一的层</p>
 </blockquote>
 <p>LSTM同样是这样的结构，但是重复的模块拥有一个不同的结构。不同于单一神经网络层，这里有四个，以一种非常特殊的方式进行交互。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/20150829181722_631.png"></p>
+<p><img src="https://ftp.fly97.cn/image/20150829181722_631.png"></p>
 <blockquote>
 <p>上图即<strong>LSTM</strong>中的重复模块包含的四个交互的层</p>
 </blockquote>
 <p>我们会一步一步的剖析LSTM解析图。现在，我们先来熟悉一下途中使用的各种元素的图标。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/20150829181722_777.png"></p>
+<p><img src="https://ftp.fly97.cn/image/20150829181722_777.png"></p>
 <blockquote>
 <p>LSTM中的图标</p>
 </blockquote>
 <p>在上面的图例中，每一条黑线传输着一整个向量，从一个节点的输出到其他节点的输入。粉色的圈代表 <em>pointwise</em> (逐点的)操作，诸如向量的和，而黄色的矩阵就是学习到的神经网络层。合在一起的线表示向量的连接，分开的线表示内容被复制，然后分发到不同的位置。</p>
 <h4 id="2-LSTM核心内容"><a href="#2-LSTM核心内容" class="headerlink" title="2.LSTM核心内容"></a>2.LSTM核心内容</h4><p>LSTM的关键就是细胞状态（cell），水平线在图上方贯穿运行，细胞状态类似于传送带，直接在整个链上运行，只有一些少量的线性交互，信息在上面流传保持不变会很容易。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/20150829181723_640.png"></p>
+<p><img src="https://ftp.fly97.cn/image/20150829181723_640.png"></p>
 <p>LSTM 有通过精心设计的称作”<strong>门</strong>“的结构来去除或者增加信息到细胞状态的能力。门是一种让信息选择式通过的方法。他们包含一个 <em>sigmoid</em> 神经网络层和一个 <em>pointwise</em> 乘法操作。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/20150829181723_567.png"></p>
+<p><img src="https://ftp.fly97.cn/image/20150829181723_567.png"></p>
 <p><em>sigmoid</em> 层输出 0 到 1 之间的数值，描述每个部分有多少量可以通过。0 代表”不允许任何量通过”，1 就指”允许任何量通过”。</p>
 <p>LSTM有三个门，来保护和控制细胞状态。</p>
 <h4 id="3-逐步理解LSTM"><a href="#3-逐步理解LSTM" class="headerlink" title="3.逐步理解LSTM"></a>3.逐步理解LSTM</h4><p>LSTM中第一步是决定会从细胞状态中丢弃什么信息。这个决定通过一个称为 <strong>忘记门层</strong> 的门来完成。该门会读取 \(h_{t-1}\) 和 \(x_{t}\) ，输出一个在 0 到 1 之间的数值给每个在细胞状态中的数字。1 表示”完全保留”，0 代表”完全舍弃”。</p>
 <p>让我们回到 <strong>语言模型</strong> 的例子中来基于已经看到的词预测下一个词。在这个问题中，细胞状态可能包含当前 <strong>主语</strong> 的类别，因此正确的 <strong>代词</strong> 可以被选择出来。当我们看到新的 <strong>代词</strong> 可以被选择出来。当我们看到新的 <strong>代词</strong> ，我们希望忘记旧的 <strong>代词</strong>。</p>
-<p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\20150829181723_259.png"></p>
+<p><img src="https://ftp.fly97.cn/image/20150829181723_259.png"></p>
 <h5 id="3-1决定丢弃信息"><a href="#3-1决定丢弃信息" class="headerlink" title="3.1决定丢弃信息"></a>3.1决定丢弃信息</h5><p>下一步是确定什么样的新信息被存放在细胞状态中。这里包含两部分。第一，<em>sigmoid</em> 层称 “输入门层” 决定什么值我们将要更新。然后，一个 <em>tanh</em> 层创建一个一个新的候选值向量，\(\tilde{C_{t}}\)，会被加入到状态中。下一步，我们会将这两个信息来产生对状态的更新。</p>
 <p>在我们 <strong>语言模型</strong> 的例子中，我们希望增加新的 <strong>代词</strong> 的类别到细胞状态中，来替代旧的需要忘记的 <strong>代词</strong>。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/20150829181723_897.png"></p>
+<p><img src="https://ftp.fly97.cn/image/20150829181723_897.png"></p>
 <h5 id="3-2确定更新的信息"><a href="#3-2确定更新的信息" class="headerlink" title="3.2确定更新的信息"></a>3.2确定更新的信息</h5><p>现在是更新旧细胞状态的时间了，\(C_{t-1}\) 更新为 \(C_{t}\)</p>
 <p>我们把旧状态与 \(f_t\) 相乘，丢弃掉确定丢弃的信息，接着加上 \(i_t * \tilde{C}_t\) ，这就是新的候选值。</p>
 <p>在 <strong>语言模型</strong> 的例子中，这就是我们实际根据前面确定的目标，丢弃 <strong>旧代词</strong> 的类别信息并添加新的信息的地方。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/20150829181723_883.png"></p>
+<p><img src="https://ftp.fly97.cn/image/20150829181723_883.png"></p>
 <h5 id="3-3更新细胞状态"><a href="#3-3更新细胞状态" class="headerlink" title="3.3更新细胞状态"></a>3.3更新细胞状态</h5><p>最终，我们需要确定输出什么值，这个输出将会基于我们的细胞状态，但是也是一个过滤后的版本。首先，我们运行一个 <em>sigmoid</em> 层来确定细胞状态的哪个部分将输出出去。接着，我们把细胞状态通过 <em>tanh</em> 进行处理，得到一个在 -1 到 1 之间的值，并将它和 sigmoid 门的输出相乘，最终我们仅仅会输出我们确定输出的那部分。</p>
 <p>在 <strong>语言模型</strong> 的例子中，因为他就看到了一个  <strong>代词</strong> ，可能需要输出一个 <strong>代词</strong> 相关的信息。例如，可能输出是否代词是单数还是负数。如果是 <strong>动词</strong> 的话，我们也他要知道 <strong>动词</strong> 需要进行的词形变化。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/20150829181723_463.png"></p>
+<p><img src="https://ftp.fly97.cn/image/20150829181723_463.png"></p>
 ]]></content>
       <tags>
         <tag>LSTM</tag>
@@ -1844,16 +1753,16 @@
 <a id="more"></a>
 
 <h3 id="安装git软件"><a href="#安装git软件" class="headerlink" title="安装git软件"></a>安装git软件</h3><p><a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
-<img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200119205126173.png" alt="image-20200119205126173" style="zoom: 50%;" />
+<img src="https://ftp.fly97.cn/image/image-20200119205126173.png" alt="image-20200119205126173" style="zoom: 50%;" />
 
 <p>注意：此步需要添加git到环境变量，<del>因为写这边文章时，笔者已经安装完成了。</del></p>
 <p>即最后一步添加路径时选择<code>Use Git from the Windows Command Prompt</code>，这样我们就可以直接在命令提示符里打开git了。</p>
 <h3 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h3><p><a href="https://nodejs.org/dist/v13.6.0/node-v13.6.0-x64.msi">https://nodejs.org/dist/v13.6.0/node-v13.6.0-x64.msi</a></p>
-<img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200119205441241.png" alt="image-20200119205441241" style="zoom:50%;" />
+<img src="https://ftp.fly97.cn/image/image-20200119205441241.png" alt="image-20200119205441241" style="zoom:50%;" />
 
 <p>注意：此步需要添加<code>nodejs</code>到系统变量。</p>
 <p>安装完毕后打开<code>cmd</code>输入<code>node -v npm -v</code>。如果显示版本号就说明安装完成了。</p>
-<img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200119210346780.png" alt="image-20200119210346780" style="zoom:50%;" />
+<img src="https://ftp.fly97.cn/image/image-20200119210346780.png" alt="image-20200119210346780" style="zoom:50%;" />
 
 <h4 id="给npm添加国内镜像源"><a href="#给npm添加国内镜像源" class="headerlink" title="给npm添加国内镜像源"></a>给npm添加国内镜像源</h4><p>由于众所周知的原因，官方源如此缓慢，故使用阿里爸爸的源进行加速。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
@@ -1861,7 +1770,7 @@
 <h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><p>在合适的地方新建一个文件夹，用来存放自己的博客文件。比如我的博客文件都存放在</p>
 <p><code>C:\Users\wf09\Desktop\hexo</code></p>
 <p>在该目录下右键点击<code>Git Bash Here</code></p>
-<img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200119211049388.png" alt="image-20200119211049388" style="zoom:50%;" />
+<img src="https://ftp.fly97.cn/image/image-20200119211049388.png" alt="image-20200119211049388" style="zoom:50%;" />
 
 <p>在git命令行下依次输入以下命令：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g             <span class="comment">#安装hexo相关组件</span></span><br><span class="line">hexo -v                             <span class="comment">#检查是否安装完成</span></span><br><span class="line">hexo init                           <span class="comment">#初始化hexo博客目录</span></span><br><span class="line">npm install                         <span class="comment">#安装相关依赖</span></span><br><span class="line">npm install hexo-server --save      <span class="comment">#安装hexo服务器模块</span></span><br></pre></td></tr></table></figure>
@@ -1956,7 +1865,7 @@
 <h4 id="假设空间"><a href="#假设空间" class="headerlink" title="假设空间"></a>假设空间</h4><p>​    <strong>归纳(induction)和演绎(deduction)**是科学推理的两大基本手段。归纳是从特殊到一般的”泛化”(generalization)过程。即从具体的事实归结出一般性规律；演绎则是从一般到特殊的”特化”(specialization)过程，即从基础原理推演出具体状况。例如，在数学公理系统中，基于一组公理和推理规则推导出与之相恰的定理，这是演绎；而”从样例中学习”显然是一个归纳的过程，因此亦称为</strong>“归纳学习”(inductive learning)**</p>
 <p>​    归纳学习有狭义和广义之分，广义的归纳学习大体相当于从样例中学习，而狭义的归纳学习则要求从训练数据中学得概念(concept),因此亦称为**”概念学习”或”概念形成”**.概念学习技术目前应用、研究都比较少，因为要学得泛化性能好而且语义明确的概念实在是太难了，现实常用的技术大多数产生”黑箱”模型.然而，对概念学习有所理解，有助于理解机器学习的一些基础思想。</p>
 <p>​    概念学习中最基本的是<strong>布尔概念学习</strong>，即对”是””不是”这样的可表示为0/1布尔值的目标概念的学习.举一个简单的例子，假定我们获得了这样的一个训练数据集：</p>
-<img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200806202414852.png" alt="image-20200806202414852" style="zoom:50%;" />
+<img src="https://ftp.fly97.cn/image/image-20200806202414852.png" alt="image-20200806202414852" style="zoom:50%;" />
 
 <p>​    这里要学习的目标是”好瓜”，暂且假设”好瓜”可由”色泽””根蒂””敲声”这三个因素完全确定，换言之，只要某个瓜的三个属性取值明确了，我们就能判断出它是不是好瓜，于是，我们学到的将是”好瓜是某种色泽、某种根蒂、某种敲声的瓜”这样的概念，用布尔表达式写出来则是**”好瓜$ \leftrightarrow $(色泽=?)^(根蒂=?)^(敲声=?)”**，这里”?”表示尚未确定的取值，而我们的任务就是通过对上表的训练集进行学习，把”?”确定下来.</p>
 <p>​    读者可能马上发现，上表第一行：**”(色泽=青绿)^(根蒂=蜷缩)^(敲声=浊响)”<strong>不就是好瓜吗？是的，但这是一个已见过的瓜，不要忘记学习的目的是</strong>“泛化”<strong>，即通过对训练集中的瓜的学习以获得对没见过瓜进行判断的能力.如果仅仅把训练集中的瓜”记住”，今后再见到一模一样的瓜当然可以判断，但是，对没见过的瓜，例如</strong>“(色泽=浅白)^(根蒂=蜷缩)^(敲声=浊响)”**怎么办呢？</p>
@@ -1964,13 +1873,13 @@
 <blockquote>
 <p>这里我们假定训练样本不含噪声，而且不考虑”非青绿”这样的$\not\subset A$操作，由于训练集包含正例，因此$ \emptyset $假设自然不出现。</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200806202019247.png" alt="image-20200806202019247"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20200806202019247.png" alt="image-20200806202019247"></p>
 <p>​    可以有许多策略对这个假设空间进行搜索，例如自顶向下、从一般到特殊，或是自底向上、从特殊到一般，搜索过程种可以不断删除与正例不一致的假设和(或)与反例一致的假设.最终将会获得**与训练集一致(即对所有训练样本能够进行正确判断)**的假设，这就是我们学习的结果。</p>
 <blockquote>
 <p>有很多可能的选择，如在路径上自顶向下与自底向上同时进行，在操作上只删除与正例不一致的假设等。</p>
 </blockquote>
 <p>​    需注意的是，现实问题种我们常面临很大的假设空间，但学习过程是基于有限样本训练集进行的，因此，可能有多个假设与训练集一致，即存在一个<strong>与训练集一致的”假设集合”**，我们称之为</strong>“版本空间”(version space).**例如，在西瓜问题中，与表1.1训练集所对应的版本空间如图1.2所示.</p>
-<img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200806203152041.png" alt="image-20200806203152041"  />]]></content>
+<img src="https://ftp.fly97.cn/image/image-20200806203152041.png" alt="image-20200806203152041"  />]]></content>
       <tags>
         <tag>机器学习</tag>
       </tags>
@@ -1993,6 +1902,7 @@
 <p>然而，奥卡姆剃刀并非唯一可行的原则，退一步说，即便假定我们是奥卡姆剃刀的铁杆拥簇，也需注意到，奥卡姆剃刀本身存在不同的诠释，使用奥卡姆剃刀原则并不平凡。例如对我们已经很熟悉的西瓜问题来说，“假设1：好瓜&lt;-&gt;(色泽=*)^(根蒂=蜷缩)^(敲声=浊响)”和“假设2：好瓜&lt;-&gt;(色泽=*)^(根蒂=蜷缩)^(敲声=*)”这两个假设，哪一个更“简单”呢？这个问题并不简单，需要借助其他机制才能解决.</p>
 <p>事实上，归纳偏好对应了学习算法本身所作出的关于”什么样的模型更好”的假设.在具体的实现问题中，这个假设是否成立，即算法的归纳偏好是否与问题匹配，大多数时候直接决定了算法能否取得好的性能.</p>
 <p>继续回头看图1.3，假设学习算法$\mathcal{L}$</p>
+<p><strong>未完待续…..</strong></p>
 ]]></content>
       <tags>
         <tag>机器学习</tag>
