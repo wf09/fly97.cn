@@ -917,7 +917,7 @@
 <h5 id="创建ssh-key："><a href="#创建ssh-key：" class="headerlink" title="创建ssh key："></a>创建ssh key：</h5><p>为了让github能够识别是我们自己上传文件，需要创建ssh key</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</span><br></pre></td></tr></table></figure>
 
-<p>这里的<strong><a href="mailto:&#121;&#x6f;&#x75;&#114;&#95;&#101;&#x6d;&#97;&#x69;&#x6c;&#x40;&#x79;&#111;&#117;&#x72;&#x65;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#111;&#109;">&#121;&#x6f;&#x75;&#114;&#95;&#101;&#x6d;&#97;&#x69;&#x6c;&#x40;&#x79;&#111;&#117;&#x72;&#x65;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#111;&#109;</a></strong>是你的<strong>邮箱地址</strong>，在输入后会询问你是否保存创建的ssh key，点回车就好，然后要求输入你要设置的密码，如果直接回车表示不设密码。然后会提示你ssh key已经创建好。</p>
+<p>这里的<strong><a href="mailto:&#121;&#x6f;&#117;&#114;&#95;&#x65;&#109;&#97;&#x69;&#x6c;&#64;&#x79;&#x6f;&#x75;&#x72;&#101;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#109;">&#121;&#x6f;&#117;&#114;&#95;&#x65;&#109;&#97;&#x69;&#x6c;&#64;&#x79;&#x6f;&#x75;&#x72;&#101;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#109;</a></strong>是你的<strong>邮箱地址</strong>，在输入后会询问你是否保存创建的ssh key，点回车就好，然后要求输入你要设置的密码，如果直接回车表示不设密码。然后会提示你ssh key已经创建好。</p>
 <h5 id="把密码导入GitHub："><a href="#把密码导入GitHub：" class="headerlink" title="把密码导入GitHub："></a>把密码导入GitHub：</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat ~&#x2F;.ssh&#x2F;id_rsa.pub</span><br></pre></td></tr></table></figure>
 
 <p>此时在终端会显示出刚刚创建好的ssh key，复制出来，在github在点击头像，然后点击setting，在找到SSH and GPG keys，创建一个new ssh key，然后将刚刚复制的ssh key填入即可。</p>
@@ -1088,7 +1088,7 @@
 <h4 id="1-查看Linux预装的Python3版本"><a href="#1-查看Linux预装的Python3版本" class="headerlink" title="1.查看Linux预装的Python3版本"></a>1.查看Linux预装的Python3版本</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@wf09:~<span class="comment"># python3 -V</span></span><br><span class="line">Python 3.6.9</span><br></pre></td></tr></table></figure>
 
 <h4 id="2-下载对应的Pytorch版本"><a href="#2-下载对应的Pytorch版本" class="headerlink" title="2.下载对应的Pytorch版本"></a>2.下载对应的Pytorch版本</h4><p><a href="https://download.pytorch.org/whl/torch_stable.html">https://download.pytorch.org/whl/torch_stable.html</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/3.png"></p>
+<p><img src="https://ftp.fly97.cn/image/3.png"></p>
 <p>Python版本是3.6.9，下载的版本是<code>cpu/torch-1.4.0%2Bcpu-cp36-cp36m-linux_x86_64.whl</code></p>
 <h4 id="3-安装pip3"><a href="#3-安装pip3" class="headerlink" title="3.安装pip3"></a>3.安装pip3</h4><h5 id="3-1-Linux"><a href="#3-1-Linux" class="headerlink" title="3.1 Linux"></a>3.1 Linux</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install python3-pip</span><br></pre></td></tr></table></figure>
 
@@ -1103,19 +1103,19 @@
 
 <h4 id="5-windows10卸载Pytorch-cpu版本并安装GPU版本"><a href="#5-windows10卸载Pytorch-cpu版本并安装GPU版本" class="headerlink" title="5.windows10卸载Pytorch-cpu版本并安装GPU版本"></a>5.windows10卸载Pytorch-cpu版本并安装GPU版本</h4><h5 id="5-1-卸载cpu版"><a href="#5-1-卸载cpu版" class="headerlink" title="5.1 卸载cpu版"></a>5.1 卸载cpu版</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip uninstall torch           <span class="comment">#卸载torch</span></span><br><span class="line">pip uninstall torchvison    <span class="comment">#卸载torchvison</span></span><br></pre></td></tr></table></figure>
 
-<h5 id="5-2-安装CUDA"><a href="#5-2-安装CUDA" class="headerlink" title="5.2 安装CUDA"></a>5.2 安装CUDA</h5><p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315143756001.png" alt="image-20200315143756001"></p>
+<h5 id="5-2-安装CUDA"><a href="#5-2-安装CUDA" class="headerlink" title="5.2 安装CUDA"></a>5.2 安装CUDA</h5><p><img src="https://ftp.fly97.cn/image/image-20200315143756001.png" alt="image-20200315143756001"></p>
 <p><a href="https://developer.nvidia.com/cuda-toolkit-archive">https://developer.nvidia.com/cuda-toolkit-archive</a></p>
 <p>笔者使用的<code>Win10</code>，附上离线安装版链接：</p>
 <p><del><a href="http://developer.download.nvidia.com/compute/cuda/10.2/Prod/local_installers/cuda_10.2.89_441.22_win10.exe">http://developer.download.nvidia.com/compute/cuda/10.2/Prod/local_installers/cuda_10.2.89_441.22_win10.exe</a></del></p>
 <h6 id="Tips：最新版本的CUDA-10-2-现在还无法被Pytorch支持，安装10-1版本的即可。"><a href="#Tips：最新版本的CUDA-10-2-现在还无法被Pytorch支持，安装10-1版本的即可。" class="headerlink" title="Tips：最新版本的CUDA(10.2)现在还无法被Pytorch支持，安装10.1版本的即可。"></a>Tips：最新版本的CUDA(10.2)现在还无法被Pytorch支持，安装10.1版本的即可。</h6><p><a href="http://developer.download.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.243_426.00_win10.exe">http://developer.download.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.243_426.00_win10.exe</a></p>
 <p>下载完毕，双击打开即可。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315145247036.png" alt="image-20200315145247036"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20200315145247036.png" alt="image-20200315145247036"></p>
 <p>点击OK选择下一步。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315145432177.png" alt="image-20200315145432177"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20200315145432177.png" alt="image-20200315145432177"></p>
 <p>等待进度条达到100%，会自动打开安装程序。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315150124951.png" alt="image-20200315150124951"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20200315150124951.png" alt="image-20200315150124951"></p>
 <p>选择自定义，然后全部选中，期间会升级本机的<strong>显卡驱动</strong>。</p>
-<h6 id="Tips：升级显卡驱动是很重要的一步，不升级到最新版本无法正确安装CUDA"><a href="#Tips：升级显卡驱动是很重要的一步，不升级到最新版本无法正确安装CUDA" class="headerlink" title="Tips：升级显卡驱动是很重要的一步，不升级到最新版本无法正确安装CUDA"></a><strong>Tips：</strong>升级显卡驱动是很重要的一步，不升级到最新版本无法正确安装<strong>CUDA</strong></h6><p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315150240356.png" alt="image-20200315150240356"></p>
+<h6 id="Tips：升级显卡驱动是很重要的一步，不升级到最新版本无法正确安装CUDA"><a href="#Tips：升级显卡驱动是很重要的一步，不升级到最新版本无法正确安装CUDA" class="headerlink" title="Tips：升级显卡驱动是很重要的一步，不升级到最新版本无法正确安装CUDA"></a><strong>Tips：</strong>升级显卡驱动是很重要的一步，不升级到最新版本无法正确安装<strong>CUDA</strong></h6><p><img src="https://ftp.fly97.cn/image/image-20200315150240356.png" alt="image-20200315150240356"></p>
 <p>等待安装完毕。</p>
 <h5 id="5-3-安装cuDNN"><a href="#5-3-安装cuDNN" class="headerlink" title="5.3 安装cuDNN"></a>5.3 安装cuDNN</h5><p><strong>相比标准的cuda，它在一些常用的神经网络操作上进行了性能的优化，比如卷积，pooling，归一化，以及激活层等等。</strong></p>
 <p>下载过程中需要注册 <strong>NVIDIA account</strong>。</p>
@@ -1123,7 +1123,7 @@
 <p>然后分别将<code>cuda/include、cuda/lib、cuda/bin</code>三个目录中的内容拷贝到<code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1</code>对应的<code>include、lib、bin</code>目录下即可。</p>
 <h5 id="5-4安装Pytorch-GPU版本"><a href="#5-4安装Pytorch-GPU版本" class="headerlink" title="5.4安装Pytorch-GPU版本"></a><strong>5.4安装Pytorch-GPU版本</strong></h5><p>下载Pytorch-CUDA版本的whl文件，用于离线安装。</p>
 <p><a href="https://download.pytorch.org/whl/torch_stable.html">https://download.pytorch.org/whl/torch_stable.html</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315151856974.png" alt="image-20200315151856974"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20200315151856974.png" alt="image-20200315151856974"></p>
 <p>其中，<strong>cu101</strong>代表CUDA版本是10.1，<strong>cp37</strong>代表CPython version 3.7（指的是C语言实现的Python，就是原汁原味的Python。除了CPython以外，还有用Java实现的Jython，用.NET实现的IronPython，使Python方便地和Java程序、.NET程序集成。另外还有一些实验性的Python解释器比如PyPy），<strong>win</strong>代表Windows操作系统，<strong>amd64</strong>代表64位CPU平台。</p>
 <p>使用<strong>管理员权限</strong>打开<code>Anaconda Prompt (Anaconda3)</code>cmd窗口，输入</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install 下载路径\torch-1.4.0-cp37-cp37m-win_amd64.whl</span><br></pre></td></tr></table></figure>
@@ -1134,7 +1134,7 @@
 
 <p>至此<strong>Pytoch-GPU</strong>版已经全部安装完毕。</p>
 <p><strong>5.5 测试是否安装成功</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wf09/upload/image-20200315153854134.png" alt="image-20200315153854134"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20200315153854134.png" alt="image-20200315153854134"></p>
 <p>打开cmd窗口，输入<strong>python</strong>进入<strong>python环境</strong>。依次输入：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">torch.cuda.is_available()</span><br><span class="line"><span class="comment"># True</span></span><br></pre></td></tr></table></figure>
 
@@ -1988,6 +1988,129 @@
 ]]></content>
       <tags>
         <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记一次重装系统</title>
+    <url>/2020/08/28/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%87%8D%E8%A3%85Win10%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<p>本文主要介绍了如何使用U盘进行重装系统，主要面向电脑小白用户。</p>
+<p><strong>关键字</strong>：重装win10，电脑重装</p>
+<a id="more"></a>
+
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ol>
+<li>大于<strong>8G</strong>的U盘</li>
+<li>Windows PE，<a href="https://ftp.fly97.cn/file/wepe_64.exe">点击此处下载</a></li>
+<li>Windows 10 1909系统镜像，<a href="https://ftp.fly97.cn/file/cn_windows_10_business_editions_version_1909_updated_april_2020_x64_dvd_5d3fcf2e.iso">点击此处下载</a></li>
+</ol>
+<h3 id="制作启动盘"><a href="#制作启动盘" class="headerlink" title="制作启动盘"></a>制作启动盘</h3><p>制作系统盘期间需要格式化U盘，如有需要请先备份U盘的文件。</p>
+<h4 id="打开微PE工具箱"><a href="#打开微PE工具箱" class="headerlink" title="打开微PE工具箱"></a>打开微PE工具箱</h4><p>双击打开即可。</p>
+<p><img src="https://ftp.fly97.cn/image/20200826101947.png"></p>
+<h4 id="选择其他安装方式"><a href="#选择其他安装方式" class="headerlink" title="选择其他安装方式"></a>选择其他安装方式</h4><p>注意不要点击<strong>立即安装进系统</strong></p>
+<p><img src="https://ftp.fly97.cn/image/20200826102028.png"></p>
+<h4 id="选择安装PE进U盘"><a href="#选择安装PE进U盘" class="headerlink" title="选择安装PE进U盘"></a>选择安装PE进U盘</h4><p>注意待写入U盘<strong>盘符、容量</strong>是不是正确，安装方法默认即可。</p>
+<p><img src="https://ftp.fly97.cn/image/20200826102211.png"></p>
+<h4 id="等待安装完毕"><a href="#等待安装完毕" class="headerlink" title="等待安装完毕"></a>等待安装完毕</h4><p><img src="https://ftp.fly97.cn/image/20200826102242.png"></p>
+<p>稍后片刻，安装速度视U盘写入速度决定，建议安装过程中<strong>不要操作电脑</strong>。</p>
+<p><img src="https://ftp.fly97.cn/image/20200826102535.png"></p>
+<h4 id="检查启动盘是否制作成功"><a href="#检查启动盘是否制作成功" class="headerlink" title="检查启动盘是否制作成功"></a>检查启动盘是否制作成功</h4><p>安装完毕后，打开<strong>此电脑</strong>，如果发现多了两个盘符，则视为完整成功。</p>
+<p>如果没有发现多余的盘符，重新插拔U盘后再尝试查看。</p>
+<p><img src="https://ftp.fly97.cn/image/20200826102652.png"></p>
+<h4 id="将下载的镜像复制进U盘"><a href="#将下载的镜像复制进U盘" class="headerlink" title="将下载的镜像复制进U盘"></a>将下载的镜像复制进U盘</h4><p>切记切记！复制文件的速度视U盘读写速度决定，请耐心等待。</p>
+<h3 id="切换到Windows-PE"><a href="#切换到Windows-PE" class="headerlink" title="切换到Windows PE"></a>切换到Windows PE</h3><p>将U盘插入电脑并重启电脑，切换到Windows PE系统。</p>
+<p>大多数的电脑都提供了启动选项菜单，开机的时候按住对应的快捷键即可进入启动选择界面。</p>
+<p>重启时，电脑亮屏后立马按下对应的快捷键。</p>
+<p><img src="https://ftp.fly97.cn/image/1281268-20190308133836366-1665479547.jpg"></p>
+<p>如果电脑键盘还有Fn键，且重启过程单独按下<strong>快捷键</strong>无效，那么可以尝试按下<strong>Fn键+快捷键</strong>，反复尝试几次。</p>
+<h4 id="选择U盘启动"><a href="#选择U盘启动" class="headerlink" title="选择U盘启动"></a>选择U盘启动</h4><p>使用键盘的上下进行选择，然后敲回车。这里以<strong>Shinelon</strong>笔记本为例。这款笔记本的启动项选择的快捷键是<strong>F7</strong>.</p>
+<p>不同品牌的笔记本启动项选择的界面可能不同，但都<strong>大同小异</strong>。</p>
+<p>选择<strong>已经写入好PE</strong>的U盘，如下图所示。<img src="https://ftp.fly97.cn/image/photo_2020-08-27_16-18-31.jpg"></p>
+<h4 id="进入PE系统"><a href="#进入PE系统" class="headerlink" title="进入PE系统"></a>进入PE系统</h4><p>如果上述操作没有问题，会出现一个<strong>Windows Boot Mananger</strong>的选择界面，选择第一项即可。</p>
+<p><img src="https://ftp.fly97.cn/image/photo_2020-08-27_16-18-35.jpg"></p>
+<p>进入PE以后的界面，如下图所示。</p>
+<p><img src="https://ftp.fly97.cn/image/Snipaste_2020-08-26_11-06-55.png"></p>
+<h4 id="进行磁盘分区"><a href="#进行磁盘分区" class="headerlink" title="进行磁盘分区"></a>进行磁盘分区</h4><p><strong><em>注意：如果不需要改变磁盘分区的大小，只想格式化原有的系统盘并安装全新的系统，此步可以跳过！直接跳转到下一步安装全新系统！强烈建议小白跳过此步！</em></strong></p>
+<p>打开上图所示的<strong>分区助手</strong>，找到你要安装的磁盘，如下图所示。</p>
+<p><img src="https://ftp.fly97.cn/image/Snipaste_2020-08-26_11-07-46.png"></p>
+<p><em>操作到这里要注意：</em></p>
+<ol>
+<li>如果你的电脑只有一个磁盘，继续操作会丢失<strong>全部硬盘</strong>的数据！切记切记！</li>
+<li>如果你的电脑和我一样有多个磁盘，请选中你要安装系统的磁盘。继续操作会丢失<strong>以前系统盘</strong>的数据！</li>
+</ol>
+<p>进行<strong>磁盘分区</strong>是为了便于磁盘管理，和磁盘的个数无关。</p>
+<ol>
+<li>如果你的电脑只有一个磁盘，接下来进行的<strong>快捷分区操作</strong>你可以选择<u>多分出几个分区</u>，重装完毕后打开此电脑，你选了几个分区就会看到有几个盘。</li>
+<li>如果你的电脑和我一样有多个磁盘，建议将要安装系统的磁盘<u>全部分成一个区</u>，这样后期不会因为C盘容量较小而影响系统正常运行。具体参照以下步骤。</li>
+</ol>
+<p><img src="https://ftp.fly97.cn/image/Snipaste_2020-08-26_11-09-06.png"></p>
+<p>注意，如果你的电脑有多个磁盘，请不要选错。分区数目视个人情况决定，多磁盘建议<strong>一个分区</strong>。磁盘的类型请选择<strong>GPT</strong>，注意勾选<strong>重建MBR</strong>、<strong>创建ESP和MSR分区</strong>。如果你的系统盘是<strong>固态硬盘</strong>，请<strong>勾选分区对其到4096扇区</strong>。</p>
+<p>一般来说，如果你的电脑有多个磁盘，那么一个是<strong>传统的机械硬盘</strong>，一个是固态硬盘。固态硬盘的读写速度要比机械硬盘的读写速度要快得多。所以一般将固态硬盘安装成系统盘。</p>
+<p>点击开始执行，进行系统分区。</p>
+<p><img src="https://ftp.fly97.cn/image/Snipaste_2020-08-26_11-09-48.png"></p>
+<p><strong><em>执行过程中请勿操作电脑！否则有可能对磁盘造成不可逆的损害！等待执行完毕。</em></strong></p>
+<p><img src="https://ftp.fly97.cn/image/Snipaste_2020-08-26_11-09-53.png"></p>
+<p>执行完毕后的新磁盘，如下图所示：</p>
+<p><img src="https://ftp.fly97.cn/image/Snipaste_2020-08-26_11-10-15.png"></p>
+<p>可以看到，磁盘已经被清空，且只有一个<strong>系统</strong>分区。</p>
+<h4 id="还原系统镜像"><a href="#还原系统镜像" class="headerlink" title="还原系统镜像"></a>还原系统镜像</h4><p>此步是重装系统的核心步骤，主要就是将全新的系统还原到系统盘中。</p>
+<p>打开PE系统桌面的<strong>CGI备份还原</strong>，如图所示：</p>
+<p><img src="https://ftp.fly97.cn/image/Snipaste_2020-08-26_11-11-47.png"></p>
+<p>选择<strong>还原分区</strong>，一般来说，分区会默认选择好。通过<strong>盘符</strong>、<strong>可用空间</strong>和<strong>卷标</strong>来判断是不是系统盘。</p>
+<p>镜像文件选择已经移动到U盘里的ISO文件，并选择<u>Windows 10 Pro</u> 即 <u>Windows10专业版</u> 的镜像。</p>
+<p><img src="https://ftp.fly97.cn/image/Snipaste_2020-08-26_11-12-18.png"></p>
+<p>点击执行，选中<strong>不保留目标分区的文件</strong>。最后点击确定。</p>
+<p><img src="https://ftp.fly97.cn/image/Snipaste_2020-08-26_11-12-41.png"></p>
+<p><strong><em>等待执行完毕，进度条大概会走三次，执行过程中请勿操作电脑！</em></strong></p>
+<p><img src="https://ftp.fly97.cn/image/Snipaste_2020-08-26_11-13-24.png"></p>
+<p>执行完毕后，请自行重启。点击<strong>开始</strong> ==&gt; <strong>重启</strong>。电脑黑屏以后可以将U盘拔出，以免下次启动再进入U盘的PE系统。</p>
+<h4 id="进入新系统"><a href="#进入新系统" class="headerlink" title="进入新系统"></a>进入新系统</h4><p>重启过程可能比较慢。请耐心等待。</p>
+<p><img src="https://ftp.fly97.cn/image/photo_2020-08-28_09-39-49.jpg"></p>
+<p>海内存知己，天涯若比邻。无为在歧路，儿女共沾巾。</p>
+<p>出自唐代诗人王勃《送杜少府之任蜀州》</p>
+<p><img src="https://ftp.fly97.cn/image/photo_2020-08-28_09-43-30.jpg"></p>
+<p>接下来是设置区域。默认帮你选好中国。</p>
+<p><img src="https://ftp.fly97.cn/image/photo_2020-08-28_09-43-32.jpg"></p>
+<p>然后是设置网络。这里推荐设置，连接网络以后Win 10 可以帮你安装<strong>硬件设备的驱动</strong>。<strong>没有硬件驱动的电脑显卡，声卡，以及其他设备可能无法正常工作。</strong>由于个人网络原因这里选择不连接。</p>
+<p><img src="https://ftp.fly97.cn/image/photo_2020-08-28_09-43-35.jpg"></p>
+<p>再次推荐你连接到网络。</p>
+<p><img src="https://ftp.fly97.cn/image/photo_2020-08-28_09-43-43.jpg"></p>
+<p>接受许可协议。不接受无法继续安装23333</p>
+<p><img src="https://ftp.fly97.cn/image/photo_2020-08-28_09-43-46.jpg"></p>
+<p>设置用户名。这里推荐设置英文的用户名，以免安装一些软件时出现一些莫名其妙的问题。</p>
+<p><img src="https://ftp.fly97.cn/image/photo_2020-08-28_09-43-48.jpg"></p>
+<p>接下来是设置密码。可以留空。</p>
+<p><img src="https://ftp.fly97.cn/image/photo_2020-08-28_09-43-55.jpg"></p>
+<p>选择隐私设置。</p>
+<p><img src="https://ftp.fly97.cn/image/photo_2020-08-28_09-43-58.jpg"></p>
+<p>继续下一步。</p>
+<p><img src="https://ftp.fly97.cn/image/photo_2020-08-28_09-44-01.jpg"></p>
+<p>设置微软个人助理小娜。</p>
+<p><img src="https://ftp.fly97.cn/image/photo_2020-08-28_09-44-09.jpg"></p>
+<p>耐心等待。这是最后一步了。</p>
+<p><img src="https://ftp.fly97.cn/image/photo_2020-08-28_09-45-47.jpg"></p>
+<p>即将完成。</p>
+<p><img src="https://ftp.fly97.cn/image/photo_2020-08-28_09-45-50.jpg"></p>
+<p>熟悉的Windows 窗口又回来了！</p>
+<p><img src="https://ftp.fly97.cn/image/photo_2020-08-28_09-45-52.jpg"></p>
+<p>至此，系统安装已经完成。后续还有<strong>激活系统，安装office办公软件</strong>等其他操作。</p>
+<h3 id="后续操作"><a href="#后续操作" class="headerlink" title="后续操作"></a>后续操作</h3><h4 id="激活系统"><a href="#激活系统" class="headerlink" title="激活系统"></a>激活系统</h4><p>激活软件：<a href="https://ftp.fly97.cn/file/HWIDGen_CN.exe">点此下载</a></p>
+<p>打开激活软件，需要<strong>连接网络</strong>。点击<strong>数字激活</strong>。稍后片刻提示激活成功。</p>
+<p><img src="https://ftp.fly97.cn/image/Snipaste_2020-08-26_12-47-49.png"></p>
+<p>接下来是还原<strong>此电脑，控制面板等一系列图标</strong></p>
+<p>单机<strong>桌面</strong> ==&gt; <strong>个性化</strong>，找到<strong>主题</strong>。</p>
+<p><img src="https://ftp.fly97.cn/image/Snipaste_2020-08-26_12-43-21.png"></p>
+<p>下拉菜单，选择桌面光标设置</p>
+<p><img src="https://ftp.fly97.cn/image/Snipaste_2020-08-26_12-44-11.png"></p>
+<p>根据需要找回桌面图标。</p>
+<p><img src="https://ftp.fly97.cn/image/Snipaste_2020-08-26_12-44-43.png"></p>
+<p>回到<strong>桌面</strong>，右击<strong>此电脑</strong>，找到<strong>属性</strong>。</p>
+<p><img src="https://ftp.fly97.cn/image/Snipaste_2020-08-26_12-46-28.png"></p>
+<p>这里提示，此电脑已激活。此项激活是永久激活。</p>
+<p><img src="https://ftp.fly97.cn/image/Snipaste_2020-08-26_12-46-56.png"></p>
+<p>激活系统的步骤到此结束。</p>
+<h4 id="安装office-2019-办公软件"><a href="#安装office-2019-办公软件" class="headerlink" title="安装office 2019 办公软件"></a>安装office 2019 办公软件</h4><p><em>未完待续。。。</em></p>
+]]></content>
+      <tags>
+        <tag>教程</tag>
       </tags>
   </entry>
   <entry>
