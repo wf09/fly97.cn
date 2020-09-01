@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Anacoda3 安装Pytorch小记录</title>
-    <url>/2019/12/30/Anacoda3%20%E5%AE%89%E8%A3%85Pytorch%E5%B0%8F%E8%AE%B0%E5%BD%95/</url>
+    <url>/2019/12/30/Anacoda3%20%E5%AE%89%E8%A3%85Pytorch%E5%B0%8F%E8%AE%B0%E5%BD%95.html</url>
     <content><![CDATA[<p>话不多说，先上教程。</p>
 <a id="more"></a>
 
@@ -56,7 +56,7 @@
   </entry>
   <entry>
     <title>安装Anaconda3(一)</title>
-    <url>/2020/07/23/Anacoda3%E6%95%99%E7%A8%8B(%E4%B8%80)/</url>
+    <url>/2020/07/23/Anacoda3%E6%95%99%E7%A8%8B(%E4%B8%80).html</url>
     <content><![CDATA[<p>Python是一种面向对象的解释型计算机程序设计语言，其使用，具有跨平台的特点，可以在Linux、macOS以及Windows系统中搭建环境并使用，其编写的代码在不同平台上运行时，几乎不需要做较大的改动，使用者无不受益于它的便捷性。</p>
 <p>此外，Python的强大之处在于它的应用领域范围之广，遍及人工智能、科学计算、Web开发、系统运维、大数据及云计算、金融、游戏开发等。实现其强大功能的前提，就是Python具有数量庞大且功能相对完善的标准库和第三方库。通过对库的引用，能够实现对不同领域业务的开发。然而，正是由于库的数量庞大，对于管理这些库以及对库作及时的维护成为既重要但复杂度又高的事情。</p>
 <p><strong>Anaconda（<a href="https://link.zhihu.com/?target=https://www.anaconda.com/download/%23macos">官方网站</a>）就是可以便捷获取包且对包能够进行管理，同时对环境可以统一管理的发行版本。Anaconda包含了conda、Python在内的超过180个科学包及其依赖项。</strong></p>
@@ -100,7 +100,7 @@
   </entry>
   <entry>
     <title>Docker的网络模式</title>
-    <url>/2020/08/01/Docker%E7%9A%84%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F/</url>
+    <url>/2020/08/01/Docker%E7%9A%84%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F.html</url>
     <content><![CDATA[<p><code>docker</code>目前支持以下5种网络模式：</p>
 <p>使用<code>docker run</code> 创建 <code>Docker</code> 容器时，可以用 <code>--network</code> 选项指定容器的网络模式。</p>
 <a id="more"></a>
@@ -122,7 +122,7 @@
   </entry>
   <entry>
     <title>Git常见操作</title>
-    <url>/2020/03/07/Git%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/</url>
+    <url>/2020/03/07/Git%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C.html</url>
     <content><![CDATA[<p>不说废话，上教程。</p>
 <a id="more"></a>
 
@@ -141,7 +141,7 @@
   </entry>
   <entry>
     <title>Linux之crontab定时任务</title>
-    <url>/2020/04/24/Linux%E4%B9%8Bcrontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</url>
+    <url>/2020/04/24/Linux%E4%B9%8Bcrontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1.html</url>
     <content><![CDATA[<p>Linux中的crontab - - - -一个自定义定时器</p>
 <a id="more"></a>
 
@@ -170,7 +170,7 @@
   </entry>
   <entry>
     <title>PyTorch中torch.Tensor和torch.tensor的区别</title>
-    <url>/2020/03/05/PyTorch%E4%B8%ADtorch.Tensor%E5%92%8Ctorch.tensor%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <url>/2020/03/05/PyTorch%E4%B8%ADtorch.Tensor%E5%92%8Ctorch.tensor%E7%9A%84%E5%8C%BA%E5%88%AB.html</url>
     <content><![CDATA[<p>不说废话，直接上教程。</p>
 <a id="more"></a>
 
@@ -195,7 +195,7 @@
   </entry>
   <entry>
     <title>PyTorch中的Tensor</title>
-    <url>/2020/08/17/PyTorch%E4%B8%AD%E7%9A%84Tensor/</url>
+    <url>/2020/08/17/PyTorch%E4%B8%AD%E7%9A%84Tensor.html</url>
     <content><![CDATA[<p>通过以下几个例子来了解以下PyTorch中的Tensor。</p>
 <a id="more"></a>
 
@@ -228,7 +228,7 @@
   </entry>
   <entry>
     <title>PyTorch中的损失函数和优化器</title>
-    <url>/2020/08/20/PyTorch%E4%B8%AD%E7%9A%84%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E5%92%8C%E4%BC%98%E5%8C%96%E5%99%A8/</url>
+    <url>/2020/08/20/PyTorch%E4%B8%AD%E7%9A%84%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E5%92%8C%E4%BC%98%E5%8C%96%E5%99%A8.html</url>
     <content><![CDATA[<p>本文介绍了 PyTorch 的损失函数和优化器。</p>
 <p><strong>关键字</strong>：PyTorch，损失函数，优化器</p>
 <a id="more"></a>
@@ -246,7 +246,7 @@
   </entry>
   <entry>
     <title>PyTorch中的自动求导机制和计算图</title>
-    <url>/2020/08/18/PyTorch%E4%B8%AD%E7%9A%84%E8%87%AA%E5%8A%A8%E6%B1%82%E5%AF%BC%E6%9C%BA%E5%88%B6%E5%92%8C%E8%AE%A1%E7%AE%97%E5%9B%BE/</url>
+    <url>/2020/08/18/PyTorch%E4%B8%AD%E7%9A%84%E8%87%AA%E5%8A%A8%E6%B1%82%E5%AF%BC%E6%9C%BA%E5%88%B6%E5%92%8C%E8%AE%A1%E7%AE%97%E5%9B%BE.html</url>
     <content><![CDATA[<p>本文介绍了 PyTorch 的自动求导机制和计算图。</p>
 <p><strong>摘要</strong>：深度学习的算法本质是通过反向传播求导数，PyTorch 的 <code>Autograd</code>模块实现了此功能。在 Tensor 上的所有操作，<code>Autograd</code>都能为他们自动提供微分，避免手动求导的复杂过程。</p>
 <p><strong>关键字</strong>：PyTorch，自动求导，计算图</p>
@@ -331,7 +331,7 @@
   </entry>
   <entry>
     <title>Python中_getattr__等的用法</title>
-    <url>/2020/03/16/Python%E4%B8%AD_getattr__%E7%AD%89%E7%9A%84%E7%94%A8%E6%B3%95/</url>
+    <url>/2020/03/16/Python%E4%B8%AD_getattr__%E7%AD%89%E7%9A%84%E7%94%A8%E6%B3%95.html</url>
     <content><![CDATA[<p>在使用Python的过程中可能遇到以下几个函数：</p>
 <ul>
 <li><code>getattr</code></li>
@@ -376,7 +376,7 @@
   </entry>
   <entry>
     <title>Python中pickle模块的使用</title>
-    <url>/2020/03/04/Python%E4%B8%ADpickle%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <url>/2020/03/04/Python%E4%B8%ADpickle%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8.html</url>
     <content><![CDATA[<p>废话不多说，直接上代码。</p>
 <a id="more"></a>
 
@@ -450,7 +450,7 @@
   </entry>
   <entry>
     <title>Python中下划线命名模式</title>
-    <url>/2020/03/16/Python%E4%B8%AD%E4%B8%8B%E5%88%92%E7%BA%BF%E5%91%BD%E5%90%8D%E6%A8%A1%E5%BC%8F/</url>
+    <url>/2020/03/16/Python%E4%B8%AD%E4%B8%8B%E5%88%92%E7%BA%BF%E5%91%BD%E5%90%8D%E6%A8%A1%E5%BC%8F.html</url>
     <content><![CDATA[<p>直接上表格。</p>
 <table>
 <thead>
@@ -493,7 +493,7 @@
   </entry>
   <entry>
     <title>Python升级pip</title>
-    <url>/2020/05/27/Python%E5%8D%87%E7%BA%A7pip/</url>
+    <url>/2020/05/27/Python%E5%8D%87%E7%BA%A7pip.html</url>
     <content><![CDATA[<p>安装pip：<code>apt install python3-pip</code></p>
 <p>升级pip：<code>python -m pip install --upgrade pip</code></p>
 ]]></content>
@@ -504,7 +504,7 @@
   </entry>
   <entry>
     <title>Python时间处理</title>
-    <url>/2020/08/13/Python%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/</url>
+    <url>/2020/08/13/Python%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86.html</url>
     <content><![CDATA[<p>本文主要介绍了Python时间处理的函数。</p>
 <p><strong>摘要</strong>：有时需要在国外的服务器上处理北京时间等非本地时区的时间，经过查找，发现了<code>pytz</code>这个处理时区的包。<code>pytz</code>允许使用Python 2.4或更高版本进行准确的跨平台时区计算。</p>
 <p><strong>关键词</strong>：时区计算，pytz</p>
@@ -528,7 +528,7 @@
   </entry>
   <entry>
     <title>Ubuntu18.04更换镜像源</title>
-    <url>/2019/01/06/Ubuntu18.04%E6%9B%B4%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E6%BA%90/</url>
+    <url>/2019/01/06/Ubuntu18.04%E6%9B%B4%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E6%BA%90.html</url>
     <content><![CDATA[<h4 id="Ubuntu18-04更换镜像源"><a href="#Ubuntu18-04更换镜像源" class="headerlink" title="Ubuntu18.04更换镜像源"></a>Ubuntu18.04更换镜像源</h4><h5 id="1-备份原有镜像源"><a href="#1-备份原有镜像源" class="headerlink" title="1.备份原有镜像源"></a>1.备份原有镜像源</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo mv /etc/apt/sources.list /etc/apt/sourses.list.bak</span><br></pre></td></tr></table></figure>
 
 <h5 id="2-修改-etc-apt-sources-list文件"><a href="#2-修改-etc-apt-sources-list文件" class="headerlink" title="2.修改/etc/apt/sources.list文件"></a>2.修改/etc/apt/sources.list文件</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/apt/sources.list</span><br><span class="line"><span class="comment">#中科大源</span></span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"><span class="comment">#阿里云源</span></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"><span class="comment">#清华源</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"><span class="comment">#香港中文科技大学源</span></span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic main restricted universe </span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-security main restricted universe </span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-updates main restricted universe </span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-proposed main restricted universe </span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-backports main restricted universe </span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-security main restricted universe </span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-updates main restricted universe </span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-proposed main restricted universe </span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-backports main restricted universe </span><br></pre></td></tr></table></figure>
@@ -543,7 +543,7 @@
   </entry>
   <entry>
     <title>Ubuntu安装nodejs并更改npm镜像源</title>
-    <url>/2019/01/06/Ubuntu%E5%AE%89%E8%A3%85nodejs/</url>
+    <url>/2019/01/06/Ubuntu%E5%AE%89%E8%A3%85nodejs.html</url>
     <content><![CDATA[<h4 id="Ubuntu安装nodejs并更改npm镜像源"><a href="#Ubuntu安装nodejs并更改npm镜像源" class="headerlink" title="Ubuntu安装nodejs并更改npm镜像源"></a>Ubuntu安装nodejs并更改npm镜像源</h4><p>由于众所周知的原因，在国内使用原有的源安装<code>nodejs</code>速度非常缓慢，故可以采用清华大学的源</p>
 <h5 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -sL https://deb.nodesource.com/setup_12.x | sudo bash</span><br></pre></td></tr></table></figure>
 
@@ -575,7 +575,7 @@
   </entry>
   <entry>
     <title>Ubuntu安装php指南</title>
-    <url>/2019/01/07/Ubuntu%E5%AE%89%E8%A3%85php%E6%8C%87%E5%8D%97/</url>
+    <url>/2019/01/07/Ubuntu%E5%AE%89%E8%A3%85php%E6%8C%87%E5%8D%97.html</url>
     <content><![CDATA[<h4 id="Ubuntu安装php指南"><a href="#Ubuntu安装php指南" class="headerlink" title="Ubuntu安装php指南"></a>Ubuntu安装php指南</h4><p>由于自带的apt源中不包含php，所以在安装php之前需要给apt添加第三方源</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install software-properties-common</span><br><span class="line">sudo add-apt-repository ppa:ondrej/php</span><br><span class="line"><span class="comment">#sudo add-apt-repository -r ppa:ondrej/php              #删除</span></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y php7.3</span><br></pre></td></tr></table></figure>
 
@@ -587,7 +587,7 @@
   </entry>
   <entry>
     <title>Ubuntu服务管理</title>
-    <url>/2020/03/20/Ubuntu%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/</url>
+    <url>/2020/03/20/Ubuntu%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86.html</url>
     <content><![CDATA[<p>Linux 服务管理两种方式service和systemctl的用法</p>
 <a id="more"></a>
 
@@ -800,7 +800,7 @@
   </entry>
   <entry>
     <title>Caddy web docker镜像</title>
-    <url>/2020/06/20/caddy%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</url>
+    <url>/2020/06/20/caddy%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97.html</url>
     <content><![CDATA[<p>基于Go语言的web服务器</p>
 <a id="more"></a>
 
@@ -820,7 +820,7 @@
   </entry>
   <entry>
     <title>使用Github Action定时重启IBM cloud foundry</title>
-    <url>/2020/08/27/ibm-cloud-auto-restart/</url>
+    <url>/2020/08/27/ibm-cloud-auto-restart.html</url>
     <content><![CDATA[<p>本文简单介绍了Github Action的用法，并使用Gihub Action定时重启IBM cloud foundry容器。</p>
 <p><strong>摘要：</strong>GitHub Actions是GitHub自家的持续集成及自动化工作流服务，它使用起来非常简单，只要在你的仓库根目录建立<code>.github/workflows</code>文件夹，将你的工作流配置(YML文件)放到这个目录下，就能启用GitHub Actions服务。</p>
 <p><strong>关键字</strong>：Github Action，IBM cloud foundry</p>
@@ -840,7 +840,7 @@
   </entry>
   <entry>
     <title>Office Tool Plus使用教程</title>
-    <url>/2020/05/11/office%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B/</url>
+    <url>/2020/05/11/office%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B.html</url>
     <content><![CDATA[<p>Office Tool Plus 使用教程</p>
 <a id="more"></a>
 
@@ -866,7 +866,7 @@
   </entry>
   <entry>
     <title>使用PyTorch进行MNIST识别</title>
-    <url>/2020/05/29/%E4%BD%BF%E7%94%A8PyTorch%E8%BF%9B%E8%A1%8CMNIST%E8%AF%86%E5%88%AB/</url>
+    <url>/2020/05/29/%E4%BD%BF%E7%94%A8PyTorch%E8%BF%9B%E8%A1%8CMNIST%E8%AF%86%E5%88%AB.html</url>
     <content><![CDATA[<p>使用PyTorch进行MNIST识别</p>
 <a id="more"></a>
 
@@ -893,7 +893,7 @@
   </entry>
   <entry>
     <title>使用WSL链接Github仓库以及如何配置ssh权限问题</title>
-    <url>/2020/05/31/%E4%BD%BF%E7%94%A8WSL%E9%93%BE%E6%8E%A5Github%E4%BB%93%E5%BA%93/</url>
+    <url>/2020/05/31/%E4%BD%BF%E7%94%A8WSL%E9%93%BE%E6%8E%A5Github%E4%BB%93%E5%BA%93.html</url>
     <content><![CDATA[<p>话不多说，先上教程。</p>
 <a id="more"></a>
 
@@ -917,7 +917,7 @@
 <h5 id="创建ssh-key："><a href="#创建ssh-key：" class="headerlink" title="创建ssh key："></a>创建ssh key：</h5><p>为了让github能够识别是我们自己上传文件，需要创建ssh key</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</span><br></pre></td></tr></table></figure>
 
-<p>这里的<strong><a href="mailto:&#x79;&#x6f;&#117;&#x72;&#x5f;&#x65;&#x6d;&#x61;&#x69;&#108;&#x40;&#x79;&#x6f;&#x75;&#x72;&#101;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#99;&#111;&#x6d;">&#x79;&#x6f;&#117;&#x72;&#x5f;&#x65;&#x6d;&#x61;&#x69;&#108;&#x40;&#x79;&#x6f;&#x75;&#x72;&#101;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#99;&#111;&#x6d;</a></strong>是你的<strong>邮箱地址</strong>，在输入后会询问你是否保存创建的ssh key，点回车就好，然后要求输入你要设置的密码，如果直接回车表示不设密码。然后会提示你ssh key已经创建好。</p>
+<p>这里的<strong><a href="mailto:&#x79;&#x6f;&#x75;&#x72;&#95;&#101;&#x6d;&#97;&#105;&#108;&#x40;&#121;&#111;&#x75;&#114;&#101;&#x6d;&#97;&#105;&#x6c;&#x2e;&#x63;&#111;&#x6d;">&#x79;&#x6f;&#x75;&#x72;&#95;&#101;&#x6d;&#97;&#105;&#108;&#x40;&#121;&#111;&#x75;&#114;&#101;&#x6d;&#97;&#105;&#x6c;&#x2e;&#x63;&#111;&#x6d;</a></strong>是你的<strong>邮箱地址</strong>，在输入后会询问你是否保存创建的ssh key，点回车就好，然后要求输入你要设置的密码，如果直接回车表示不设密码。然后会提示你ssh key已经创建好。</p>
 <h5 id="把密码导入GitHub："><a href="#把密码导入GitHub：" class="headerlink" title="把密码导入GitHub："></a>把密码导入GitHub：</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat ~&#x2F;.ssh&#x2F;id_rsa.pub</span><br></pre></td></tr></table></figure>
 
 <p>此时在终端会显示出刚刚创建好的ssh key，复制出来，在github在点击头像，然后点击setting，在找到SSH and GPG keys，创建一个new ssh key，然后将刚刚复制的ssh key填入即可。</p>
@@ -962,7 +962,7 @@
   </entry>
   <entry>
     <title>使用acme.sh快速申请ssl证书</title>
-    <url>/2020/03/23/%E4%BD%BF%E7%94%A8acme.sh%E5%BF%AB%E9%80%9F%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A6/</url>
+    <url>/2020/03/23/%E4%BD%BF%E7%94%A8acme.sh%E5%BF%AB%E9%80%9F%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A6.html</url>
     <content><![CDATA[<p><strong>acme.sh</strong> 实现了 <code>acme</code> 协议, 可以从 letsencrypt 生成免费的证书.</p>
 <p><strong>转载自：<a href="https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E">https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E</a></strong></p>
 <a id="more"></a>
@@ -1059,7 +1059,7 @@
   </entry>
   <entry>
     <title>使用jsdelivrCDN加速github文件</title>
-    <url>/2020/06/20/%E4%BD%BF%E7%94%A8jsdelivrCDN%E5%8A%A0%E9%80%9Fgithub%E6%96%87%E4%BB%B6/</url>
+    <url>/2020/06/20/%E4%BD%BF%E7%94%A8jsdelivrCDN%E5%8A%A0%E9%80%9Fgithub%E6%96%87%E4%BB%B6.html</url>
     <content><![CDATA[<p>jsDelivr 是国外的一家优秀的公共 CDN 服务提供商，也是首个「打通中国大陆（网宿公司运营）与海外的免费 CDN 服务」。</p>
 <a id="more"></a>
 
@@ -1081,7 +1081,7 @@
   </entry>
   <entry>
     <title>使用pip离线安装PyTorch-gpu</title>
-    <url>/2020/02/17/%E4%BD%BF%E7%94%A8pip%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85PyTorch-gpu/</url>
+    <url>/2020/02/17/%E4%BD%BF%E7%94%A8pip%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85PyTorch-gpu.html</url>
     <content><![CDATA[<p>废话不多说，上教程。</p>
 <a id="more"></a>
 
@@ -1146,7 +1146,7 @@
   </entry>
   <entry>
     <title>修改Pip镜像源</title>
-    <url>/2020/05/11/%E4%BF%AE%E6%94%B9pip%E9%95%9C%E5%83%8F%E6%BA%90/</url>
+    <url>/2020/05/11/%E4%BF%AE%E6%94%B9pip%E9%95%9C%E5%83%8F%E6%BA%90.html</url>
     <content><![CDATA[<p>修改pip镜像源</p>
 <a id="more"></a>
 
@@ -1166,7 +1166,7 @@
   </entry>
   <entry>
     <title>初探Tkinter(一)</title>
-    <url>/2020/06/30/%E5%88%9D%E6%8E%A2Tkinter01/</url>
+    <url>/2020/06/30/%E5%88%9D%E6%8E%A2Tkinter01.html</url>
     <content><![CDATA[<p>基于 Python 的 Tkinter 常用于UI界面开发。</p>
 <p>以下是Tkinter为验证函数提供的一些额外选项。</p>
 <a id="more"></a>
@@ -1252,7 +1252,7 @@
   </entry>
   <entry>
     <title>初探Tkinter(二)</title>
-    <url>/2020/07/25/%E5%88%9D%E6%8E%A2Tkinter02/</url>
+    <url>/2020/07/25/%E5%88%9D%E6%8E%A2Tkinter02.html</url>
     <content><![CDATA[<p>基于 Python 的 Tkinter 常用于UI界面开发。</p>
 <p>下表列出了Tkinter 框架的常用组件和用法，供查找。</p>
 <a id="more"></a>
@@ -1346,7 +1346,7 @@
   </entry>
   <entry>
     <title>初探docker(一)</title>
-    <url>/2020/07/17/%E5%88%9D%E6%8E%A2docker01/</url>
+    <url>/2020/07/17/%E5%88%9D%E6%8E%A2docker01.html</url>
     <content><![CDATA[<p>本文介绍的是docker的安装及常见命令。</p>
 <p><strong>摘要：</strong><a href="https://www.docker.com/">Docker</a> 是个划时代的开源项目，它彻底释放了计算虚拟化的威力，极大提高了应用的维护效率，降低了云计算应用开发的成本。使用 Docker，可以让应用的部署、测试和分发都变得前所未有的高效和轻松。</p>
 <p><strong>关键词：</strong>Docker</p>
@@ -1421,7 +1421,7 @@
   </entry>
   <entry>
     <title>初探Docker(二)</title>
-    <url>/2020/07/18/%E5%88%9D%E6%8E%A2docker02/</url>
+    <url>/2020/07/18/%E5%88%9D%E6%8E%A2docker02.html</url>
     <content><![CDATA[<p>本文主要介绍了Dockerfile。</p>
 <p><strong>摘要：什么是 Dockerfile？</strong></p>
 <p>Dockerfile 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。</p>
@@ -1572,7 +1572,7 @@
   </entry>
   <entry>
     <title>奥卡姆剃刀和没有免费的午餐定理</title>
-    <url>/2020/08/06/%E5%A5%A5%E5%8D%A1%E5%A7%86%E5%89%83%E5%88%80%E5%92%8C%E6%B2%A1%E6%9C%89%E5%85%8D%E8%B4%B9%E7%9A%84%E5%8D%88%E9%A4%90%E5%AE%9A%E7%90%86/</url>
+    <url>/2020/08/06/%E5%A5%A5%E5%8D%A1%E5%A7%86%E5%89%83%E5%88%80%E5%92%8C%E6%B2%A1%E6%9C%89%E5%85%8D%E8%B4%B9%E7%9A%84%E5%8D%88%E9%A4%90%E5%AE%9A%E7%90%86.html</url>
     <content><![CDATA[<p>本文原载于<a href="https://imlogm.github.io/">https://imlogm.github.io</a>，转载请注明出处！</p>
 <p><strong>摘要</strong>：“奥卡姆剃刀”和“没有免费的午餐”是机器学习中两个很基本的原则和定理。由于名字有点怪，所以初学者可能在理解上陷入误区。本文试图用简洁易懂的方式解释这两个原则和定理，并告诉大家它们的名字是怎么来的。</p>
 <p><strong>关键字</strong>：机器学习, 奥卡姆剃刀, 没有免费的午餐</p>
@@ -1605,7 +1605,7 @@
   </entry>
   <entry>
     <title>安装Fish自动匹配历史命令</title>
-    <url>/2020/08/10/%E5%AE%89%E8%A3%85Fish%E8%87%AA%E5%8A%A8%E5%8C%B9%E9%85%8D%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4/</url>
+    <url>/2020/08/10/%E5%AE%89%E8%A3%85Fish%E8%87%AA%E5%8A%A8%E5%8C%B9%E9%85%8D%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4.html</url>
     <content><![CDATA[<p>本文介绍了Fish的使用，使用Fish可以根据输入自动匹配历史命令。</p>
 <p><strong>摘要</strong>：Fish的官网宣传语是 Finally, a command line shell for the 90s。 翻译过来就是 Fish shell 是一个为90后准备的 shell。有人说：“二逼青年用bash，普通青年用zsh，文艺青年用fish。”<br>其次由于zsh 的速度实在是太慢，所以决定换用fish，fish速度快，智能提示强大。</p>
 <p><strong>关键字</strong>：Fish</p>
@@ -1664,7 +1664,7 @@
   </entry>
   <entry>
     <title>安装autojump自动切换目录</title>
-    <url>/2020/08/10/%E5%AE%89%E8%A3%85autojump%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E7%9B%AE%E5%BD%95/</url>
+    <url>/2020/08/10/%E5%AE%89%E8%A3%85autojump%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E7%9B%AE%E5%BD%95.html</url>
     <content><![CDATA[<p>本文介绍了autojump的使用，使用autojump可以很方便地切换目录。</p>
 <p><strong>摘要</strong>：熟悉Linux 的小伙伴们都知道，在终端下需要使用命令<code>cd</code>切换目录。对于多层目录，还需要不停的用使用<code>cd</code>命令或者 Tab 键补齐，如果目录下文件夹过多，还需要使用<code>ls</code>查看当前目录下的文件。<a href="https://github.com/wting/autojump">autojump </a>是浏览文件系统的一种更快的方法。它通过维护命令行中最常用的目录的数据库来工作。autojump 是通过记录进入过的目录到数据库来实现的，所以必须是曾经进入过的目录才能跳转。</p>
 <p><strong>关键字</strong>：autojump</p>
@@ -1700,7 +1700,7 @@
   </entry>
   <entry>
     <title>循环神经网络介绍</title>
-    <url>/2020/03/16/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BB%8B%E7%BB%8D/</url>
+    <url>/2020/03/16/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BB%8B%E7%BB%8D.html</url>
     <content><![CDATA[<p>什么是LSTM？</p>
 <a id="more"></a>
 
@@ -1748,7 +1748,7 @@
   </entry>
   <entry>
     <title>搭建hexo并推送到GitHub Pages</title>
-    <url>/2020/01/03/%E6%90%AD%E5%BB%BAhexo%E5%B9%B6%E6%8E%A8%E9%80%81%E5%88%B0GitHub%20Pages/</url>
+    <url>/2020/01/03/%E6%90%AD%E5%BB%BAhexo%E5%B9%B6%E6%8E%A8%E9%80%81%E5%88%B0GitHub%20Pages.html</url>
     <content><![CDATA[<p>之前因为重装系统丢掉了已经搭建好的Hexo博客配置文件。经过这件事以后我深刻地记住了备份的重要性。趁着刚刚搭建完博客，于是写一篇文章水一下！</p>
 <a id="more"></a>
 
@@ -1819,7 +1819,7 @@
   </entry>
   <entry>
     <title>机器学习基本概念01</title>
-    <url>/2020/08/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B501/</url>
+    <url>/2020/08/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B501.html</url>
     <content><![CDATA[<p>为了理解深度学习，先了解一下机器学习的基本术语。</p>
 <a id="more"></a>
 
@@ -1858,7 +1858,7 @@
   </entry>
   <entry>
     <title>机器学习基本概念02</title>
-    <url>/2020/08/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B502/</url>
+    <url>/2020/08/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B502.html</url>
     <content><![CDATA[<p>机器学习中的假设空间。</p>
 <a id="more"></a>
 
@@ -1886,7 +1886,7 @@
   </entry>
   <entry>
     <title>机器学习基本概念03</title>
-    <url>/2020/08/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B503/</url>
+    <url>/2020/08/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B503.html</url>
     <content><![CDATA[<p>机器学习中的归纳偏好。</p>
 <a id="more"></a>
 
@@ -1910,7 +1910,7 @@
   </entry>
   <entry>
     <title>深度学习常见损失函数</title>
-    <url>/2020/08/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B8%B8%E8%A7%81%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/</url>
+    <url>/2020/08/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B8%B8%E8%A7%81%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0.html</url>
     <content><![CDATA[<p>我们所说的优化，即优化网络权值使得损失函数值变小。但是，损失函数值变小是否能代表模型的分类/回归精度变高呢？那么多种损失函数，应该如何选择呢？</p>
 <a id="more"></a>
 
@@ -1992,7 +1992,7 @@
   </entry>
   <entry>
     <title>记一次重装系统</title>
-    <url>/2020/08/28/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%87%8D%E8%A3%85Win10%E7%B3%BB%E7%BB%9F/</url>
+    <url>/2020/08/28/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%87%8D%E8%A3%85Win10%E7%B3%BB%E7%BB%9F.html</url>
     <content><![CDATA[<p>本文主要介绍了如何使用U盘进行重装系统，主要面向电脑小白用户。</p>
 <p><strong>关键字</strong>：重装win10，电脑重装</p>
 <a id="more"></a>
@@ -2117,7 +2117,7 @@
   </entry>
   <entry>
     <title>Python中正则表达式用法</title>
-    <url>/2020/04/30/Python%E4%B8%AD%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%94%A8%E6%B3%95/</url>
+    <url>/2020/04/30/Python%E4%B8%AD%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%94%A8%E6%B3%95.html</url>
     <content><![CDATA[<h4 id="正则表达式全集"><a href="#正则表达式全集" class="headerlink" title="正则表达式全集"></a>正则表达式全集</h4><a id="more"></a>
 
 <table>
@@ -2873,7 +2873,7 @@
   </entry>
   <entry>
     <title>nginx.conf配置文件详解</title>
-    <url>/2020/08/12/nginx.conf%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/</url>
+    <url>/2020/08/12/nginx.conf%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3.html</url>
     <content><![CDATA[<p>本文主要介绍了nginx的配置文件。</p>
 <p><strong>摘要：</strong>Nginx 配置文件主要分成四部分：main（全局设置）、server（主机设置）、upstream（上游服务器设置，主要为反向代理、负载均衡相关配置）和 location（URL匹配特定位置后的设置）。main 部分设置的指令影响其他所有部分的设置；server 部分的指令主要用于制定虚拟主机域名、IP 和端口号；upstream 的指令用于设置一系列的后端服务器，设置反向代理及后端服务器的负载均衡；location 部分用于匹配网页位置（比如，根目录“/”，“/images”，等等）。他们之间的关系：server 继承 main，location 继承 server；upstream 既不会继承指令也不会被继承。</p>
 <p><strong>关键词：</strong>Nginx</p>
