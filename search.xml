@@ -169,6 +169,69 @@
       </tags>
   </entry>
   <entry>
+    <title>NLTK简介</title>
+    <url>/p/NLTK%E7%AE%80%E4%BB%8B.html</url>
+    <content><![CDATA[<p>本文主要介绍了NLTK语言工具包。</p>
+<p><strong>摘要：</strong>自然语言处理（NLP）是计算机科学领域与人工智能的一个重要方向。他研究实现人与计算机之间用自然语言进行有效的通信的各种领域和方法，涉及所有用计算机对自然语言处理进行的操作。以下例子是基于Python语言和一个名为NLTK的自然语言工具包的开源库实现的。</p>
+<p><strong>关键词：</strong>自然语言处理，NLP，NLTK</p>
+<a id="more"></a>
+
+<p>NLTK创建于2001年，最初是宾夕法尼亚州立大学计算机与信息科学系计算语言学课程的一部分。从那以后，在数十名贡献者的帮助下不断发展壮大，如今，它已被数十所大学的课程所采纳，并作为许多项目研究的基础。</p>
+<h3 id="第一章-语言处理与Python"><a href="#第一章-语言处理与Python" class="headerlink" title="第一章 语言处理与Python"></a>第一章 语言处理与Python</h3><p>提出问题：</p>
+<ol>
+<li>通过将技术性较为简单的程序与大规模文本结合起来，我们能实现什么？</li>
+<li>如何自动的提取处关键字和词组，用来总结文本的风格和内容？</li>
+<li>Python编程语言为上述工作提供了哪些工具和技术？</li>
+<li>自然语言处理中有哪些有趣的挑战呢？</li>
+</ol>
+<h4 id="语言计算：文本和词汇"><a href="#语言计算：文本和词汇" class="headerlink" title="语言计算：文本和词汇"></a>语言计算：文本和词汇</h4><h5 id="安装nltk"><a href="#安装nltk" class="headerlink" title="安装nltk"></a>安装nltk</h5><p>使用pip进行安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install nltk</span><br></pre></td></tr></table></figure>
+
+<p>输入以下命令来安装数据：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> nltk</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>nltk.download()</span><br></pre></td></tr></table></figure>
+
+<p>或者直接点击以下链接进行下载：<a href="https://github.com/nltk/nltk_data/archive/gh-pages.zip">点击下载</a></p>
+<p>这里使用第二种方法。</p>
+<p>下载完毕以后得到如图所示的压缩文件</p>
+<p><img src="https://ftp.fly97.cn/image/image-20200917210303624.png" alt="image-20200917210303624"></p>
+<p>解压并打开文件夹</p>
+<p><img src="https://ftp.fly97.cn/image/image-20200917210405366.png" alt="image-20200917210405366"></p>
+<p>打开packages，复制路径，添加<code>NLTK_DATA</code>到环境变量</p>
+<p><img src="https://ftp.fly97.cn/image/image-20200917210518955.png" alt="image-20200917210518955"></p>
+<p>测试是否安装成功</p>
+<p><img src="https://ftp.fly97.cn/image/image-20200917210938768.png" alt="image-20200917210938768"></p>
+<p>输入以下命令加载一些我们需要的文本：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> nltk.book <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://ftp.fly97.cn/image/image-20200917211222091.png" alt="image-20200917211222091"></p>
+<p>无论什么时候想要找到这些文本，只需要在Python提示符后面输入它的名字即可</p>
+<p><img src="https://ftp.fly97.cn/image/image-20200917211343198.png" alt="image-20200917211343198"></p>
+<h5 id="搜索文本"><a href="#搜索文本" class="headerlink" title="搜索文本"></a>搜索文本</h5><p>除了简单地阅读文本之外，还有很多方法可以用来查看文本内容。词语索引视图可以显示指定单词地出现情况，同时可以显示一些上下文。</p>
+<p>使用以下方法搜索<code>text1</code>文本中的<code>monstrous</code>单词。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">text1.concordance(<span class="string">&#x27;monstrous&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>搜索结果</p>
+<p><img src="https://ftp.fly97.cn/image/image-20200917212148198.png" alt="image-20200917212148198"></p>
+<p>小试牛刀：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">text2.concordance(<span class="string">&#x27;lived&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://ftp.fly97.cn/image/image-20200917212629370.png" alt="image-20200917212629370"></p>
+<p>关键词索引可以让我们看到上下文中的词，例如，可以看到monstrous出现在文章中，如the __ pictures 和 the __ size，<strong>还有那些词出现在相似地上下文</strong>中？可以通过以下函数查看。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">text1.similar(<span class="string">&#x27;monstrous&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://ftp.fly97.cn/image/image-20200917220851114.png"></p>
+<p>使用以下函数研究<strong>共用两个或者两个以上的词汇的上下文</strong>，如monstrous 和 very. 使用方括号和圆括号讲这些词括起来，中间用逗号分割。</p>
+<p>【在<strong>text2</strong>找到用法、意义与该单词集合相似的词 】</p>
+<p>【用来识别2个关键词相似的词语。】</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">text2.common_contexts([&quot;monstrous&quot;, &quot;very&quot;])</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://ftp.fly97.cn/image/image-20200917223058920.png" alt="image-20200917223058920"></p>
+]]></content>
+      <tags>
+        <tag>自然语言处理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PyTorch中torch.Tensor和torch.tensor的区别</title>
     <url>/p/PyTorch%E4%B8%ADtorch.Tensor%E5%92%8Ctorch.tensor%E7%9A%84%E5%8C%BA%E5%88%AB.html</url>
     <content><![CDATA[<p>不说废话，直接上教程。</p>
@@ -242,91 +305,6 @@
       <tags>
         <tag>PyTorch</tag>
         <tag>计算图</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PyTorch中的自动求导机制和计算图</title>
-    <url>/p/PyTorch%E4%B8%AD%E7%9A%84%E8%87%AA%E5%8A%A8%E6%B1%82%E5%AF%BC%E6%9C%BA%E5%88%B6%E5%92%8C%E8%AE%A1%E7%AE%97%E5%9B%BE.html</url>
-    <content><![CDATA[<p>本文介绍了 PyTorch 的自动求导机制和计算图。</p>
-<p><strong>摘要</strong>：深度学习的算法本质是通过反向传播求导数，PyTorch 的 <code>Autograd</code>模块实现了此功能。在 Tensor 上的所有操作，<code>Autograd</code>都能为他们自动提供微分，避免手动求导的复杂过程。</p>
-<p><strong>关键字</strong>：PyTorch，自动求导，计算图</p>
-<a id="more"></a>
-
-<p>PyTorch会根据计算过程来自动生成动态图，然后根据动态图的创建过程进行反向传播，计算得到每个节点的梯度值。为了能够记录张量的梯度，首先需要在创建张量的时候设置一个参数<code>requires_grad=True</code>，意味着这个张量将会加入到计算图中，作为计算图的叶子节点参与计算通过一系列的计算最后输出结果张量，也就是根节点。几乎所有的张量创建方式都可以指定这个参数，一旦指定了这个参数，在后续的计算中得到的中间结果的张量都会被设置成<code>requires_grad=True</code>。对于PyTorch 来说，每一个张量都有一个<code>grad_fn</code>方法，这个方法包含创建该张量的运算的导数信息。在反向传播过程中，通过传入后一层的神经网络的梯度，该函数会计算出参与运算的所有张量的梯度，<code>grad_fn</code>本身也携带着计算图的信息，该方法本身有一个<code>next_functions</code>属性，包含连接该张量的其他张量的<code>grad_fn</code>。通过不断反向传播回溯中间张量的计算节点，可以得到所有张量的梯度。一个张量的梯度张量的信息保存在该张量的grad属性中。</p>
-<p>除 PyTorch 张量本身外，PyTorch提供了一个专门用来自动求导的包，即<code>torch.autograd</code>.它包含了两个重要的函数，即<code>torch.autograd.backward</code>函数和<code>torch.autograd.grad</code>函数。</p>
-<p><code>torch.autograd.backward</code>函数通过传入根节点张量，以及起始梯度张量(形状和当前张量的相同)，可以计算产生该根节点所有对应的叶子节点的梯度。当张量为标量张量(即只有一个元素的张量)时，可以不传入起始梯度张量，默认会设置初始梯度张量为1。当计算梯度张量时，原来建立起来的计算图会自动被释放，如果需要再次做自动求导，因为计算图会被自动释放，如果需要再次做自动求导，因为计算图已经不存在，就会报错。如果要在反向传播的时候保留计算图，可以设置<code>retain_graph=True</code>。另外，在自动求导的时候默认不会建立反向传播的计算图(反向传播也是一个计算过程，可以动态创建计算图)，如果需要在反向传播计算的同时建立和梯度张量有关的计算图(在某些情况下，如需要计算高阶导数的情况下，不过这种情况比较少)，可以设置<code>creat_graph=True</code>。对于一个可求导的张量，也可以直接调用该张量内部的<code>backward</code>方法来进行自动求导。</p>
-<h2 id="自动求导机制实例"><a href="#自动求导机制实例" class="headerlink" title="自动求导机制实例"></a>自动求导机制实例</h2><p>下面举一个简单的例子来说明自动求导是如何使用的。根据高等数学的知识可知，若定义一个函数$f(x)=x^2$，则它的导数$f(x)=2x$。于是可以创建一个可求导的张量来测试具体的导数。具体如下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch <span class="keyword">as</span> t</span><br><span class="line"></span><br><span class="line">t1 = t.randn(<span class="number">3</span>, <span class="number">3</span>, requires_grad=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">t1</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[-0.6704,  1.1710,  0.7608],</span></span><br><span class="line"><span class="string">        [ 1.2378, -0.5393, -0.9865],</span></span><br><span class="line"><span class="string">        [ 0.2863,  0.5295, -0.4555]], requires_grad=True)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">t2 = t1.pow(<span class="number">2</span>).sum() </span><br><span class="line">t2.backward(retain_graph=<span class="literal">True</span>) <span class="comment">#梯度反向传播</span></span><br><span class="line">t1.grad <span class="comment">#梯度是张量原始分量的2倍</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;tensor([[-1.3407,  2.3419,  1.5216],</span></span><br><span class="line"><span class="string">        [ 2.4756, -1.0786, -1.9729],</span></span><br><span class="line"><span class="string">        [ 0.5725,  1.0589, -0.9110]]</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">t2 = t1.pow(<span class="number">2</span>).sum()  <span class="comment">#再次计算张量的所有分量平方和</span></span><br><span class="line">t2.backward() <span class="comment"># 梯度再次反向传播</span></span><br><span class="line">t1.grad <span class="comment">#梯度累积</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[-2.1156, -1.1415,  7.4562],</span></span><br><span class="line"><span class="string">        [ 0.0900, -4.8776, -0.5413],</span></span><br><span class="line"><span class="string">        [-8.0727, -0.1184, -6.8779]])</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">t1.grad.zero_() <span class="comment">#梯度清零</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>需要注意的一点是，张量绑定的梯度张量在不清空的情况下会逐渐累积。这种特性在某些情况下是有用的，比如，需要一次性求很多迷你批次的累计梯度，但在一般情况下，不需要用到这个特性，所以要注意将张量的梯度清零。</p>
-<h2 id="梯度函数的使用"><a href="#梯度函数的使用" class="headerlink" title="梯度函数的使用"></a>梯度函数的使用</h2><p>在某些情况下，不需要求出当前张量对所有产生该张量的叶子节点的梯度，此时可以用<code>torch.autograd.grad</code>函数，这个函数的参数是两个张量，第一个张量是计算图的数据结果张量(或是张量列表)，第二个张量是需要对计算图求导的张量(或张量列表)。最后输出的结果是第一个张量对第二个张量求导的结果(注意梯度会累积，和前面介绍的<code>torch.autograd.backward</code>函数的行为一样)。<strong>需要注意的是</strong>，这个函数不会改变叶子节点的grad属性。而函数<code>torch.autograd.backward</code>会设置叶子节点的grad属性为最后求出梯度张量。<code>torch.autograd.grad</code>会在反向传播求导时释放计算图，如果需要保留计算图，同样可以设置<code>retain_graph=True</code>.如果需要反向传播的计算图，可以设置<code>create_graph=True</code>.</p>
-<p>另外，有时候会碰到一种情况是求导的两个张量之间在计算图上没有关联，在这种情况下函数会报错，如果不需要函数的报错行为，可以设置allow_unused=True这个参数，结果会返回分量全为0的梯度张量(因为两个张量没有关联，所以求导的梯度为0).</p>
-<p>具体的使用方法可以参考以下代码：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">t1 = t.randn(<span class="number">3</span>, <span class="number">3</span>, requires_grad=<span class="literal">True</span>) <span class="comment">#初始化t1张量</span></span><br><span class="line">t1</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[-0.1082, -1.0099, -0.4560],</span></span><br><span class="line"><span class="string">        [-0.3910, -0.9767,  0.6419],</span></span><br><span class="line"><span class="string">        [ 1.1544,  0.3572, -1.3304]], requires_grad=True)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">t2 = t1.pow(<span class="number">2</span>).sum() <span class="comment">#根据t1张量求t2张量</span></span><br><span class="line">t.autograd.grad(t2, t1) <span class="comment"># t2张量对t1张量求导</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">(tensor([[-0.2165, -2.0197, -0.9120],</span></span><br><span class="line"><span class="string">         [-0.7820, -1.9535,  1.2837],</span></span><br><span class="line"><span class="string">         [ 2.3088,  0.7145, -2.6608]]),)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="计算图的构建的启用和禁用"><a href="#计算图的构建的启用和禁用" class="headerlink" title="计算图的构建的启用和禁用"></a>计算图的构建的启用和禁用</h2><p>由于计算图的构建需要消耗内存和计算资源，在一些情况下，计算图并不是必要的，比如<strong>神经网络的推导</strong>。在这种情况下，可以使用<code>torch.no_grad</code>上下文管理器，在这个上下文管理器的作用域内进行的神经网络计算不会构建任何计算图。</p>
-<p>另外，还有一种情况是对于一个张量，我们在反向传播的时候可能不需要让梯度通过这个张量的节点，也就是新建的计算图要和原来的计算图分离。在这种情况下，可以使用张量的<code>detach</code>方法，通过调用这个方法，可以返回一个新的张量，该张量会成为一个新的计算图的叶子节点，新的计算图和老的计算图互相分离，互不影响。具体代码如下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">t1 = t.randn(<span class="number">3</span>, <span class="number">3</span>, requires_grad=<span class="literal">True</span>)</span><br><span class="line">t2 = t1.sum()</span><br><span class="line"></span><br><span class="line">t2   <span class="comment">#t2的计算构建了计算图，输出结果带有grad_fn</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string"> tensor(2.2761, grad_fn=&lt;SumBackward0&gt;)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> t.no_grad():</span><br><span class="line">    t3 = t1.sum()</span><br><span class="line">    </span><br><span class="line">t3  <span class="comment">#t3的计算没有构建计算图，输出结果没有grad_fn</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor(2.2761)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">t1.sum()   <span class="comment">#保持原来的计算图</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor(2.2761, grad_fn=&lt;SumBackward0&gt;)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">t1.sum().detach()</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string"> tensor(2.2761)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><h3 id="Tensor"><a href="#Tensor" class="headerlink" title="Tensor"></a>Tensor</h3><p>如果我们需要计算某个Tensor的导数，那么我们需要设置其<code>requires_grad=True</code>.</p>
-<p>Tensor包含以下属性：</p>
-<ul>
-<li><code>grad</code>：保存tensor的梯度，形状与Tensor一致。每次在计算backward时都需要将前一时刻的梯度归零，否则梯度值会一直累加。</li>
-<li><code>grad_fn</code>：指向一个Function，记录Tensor的操作历史，即它是什么操作的输出，用来构建计算图。如果某一个变量是由用户创建的，则他为<strong>叶子节点</strong>，对应的<code>grad_fn</code>等于<code>None</code>。只有<strong>根节点</strong>的<code>grad_fn</code>才有效，用于指示梯度函数是哪种类型。</li>
-<li><code>is_leaf</code>: 用来指示该Tensor是否是叶子节点。</li>
-<li><code>requires_grad</code>: 设置为<code>True</code>则表示该Tensor需要求导</li>
-</ul>
-<p>通过几个例子来了解一下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch <span class="keyword">as</span> t</span><br><span class="line"></span><br><span class="line">a = t.ones(<span class="number">3</span>, <span class="number">4</span>, requires_grad = <span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">a</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[1., 1., 1., 1.],</span></span><br><span class="line"><span class="string">        [1., 1., 1., 1.],</span></span><br><span class="line"><span class="string">        [1., 1., 1., 1.]], requires_grad=True)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">b = t.zeros(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">b</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[0., 0., 0., 0.],</span></span><br><span class="line"><span class="string">        [0., 0., 0., 0.],</span></span><br><span class="line"><span class="string">        [0., 0., 0., 0.]])</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># 张量加法</span></span><br><span class="line"></span><br><span class="line">c = a + b</span><br><span class="line">c</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[1., 1., 1., 1.],</span></span><br><span class="line"><span class="string">        [1., 1., 1., 1.],</span></span><br><span class="line"><span class="string">        [1., 1., 1., 1.]], grad_fn=&lt;AddBackward0&gt;)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 或</span></span><br><span class="line">c = a.add(b)</span><br><span class="line">c</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[1., 1., 1., 1.],</span></span><br><span class="line"><span class="string">        [1., 1., 1., 1.],</span></span><br><span class="line"><span class="string">        [1., 1., 1., 1.]], grad_fn=&lt;AddBackward0&gt;)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">d = c.sum()</span><br><span class="line">d.backward() <span class="comment"># 反向传播</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意两者的区别</span></span><br><span class="line">c.data.sum(), c.sum()</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">(tensor(12.), tensor(12., grad_fn=&lt;SumBackward0&gt;))</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">a.grad</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[1., 1., 1., 1.],</span></span><br><span class="line"><span class="string">        [1., 1., 1., 1.],</span></span><br><span class="line"><span class="string">        [1., 1., 1., 1.]])</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># 此处虽然没有指定c需要求导，但c依赖于a，a需要求导</span></span><br><span class="line"><span class="comment"># 因此c的requires_grad属性会自动设为True</span></span><br><span class="line">a.requires_grad, b.requires_grad, c.requires_grad</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;(True, False, True)&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 由用户创建的 tensor 属于叶子节点，对应的grad_fn是None</span></span><br><span class="line">a.is_leaf, b.is_leaf, c.is_leaf</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;(True, True, False)&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># c.grad是None, c不是叶子节点, 他的梯度是用来计算a的梯度</span></span><br><span class="line"><span class="comment"># 虽然c.requires_grad = True, 但其梯度计算完了即被释放</span></span><br><span class="line"></span><br><span class="line">c.grad <span class="keyword">is</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;True&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="torch-autograd-backward"><a href="#torch-autograd-backward" class="headerlink" title="torch.autograd.backward"></a>torch.autograd.backward</h3><p>先看一下backward的接口是如何定义的：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">torch.autograd.backward(</span><br><span class="line">        tensors, </span><br><span class="line">        grad_tensors&#x3D;None, </span><br><span class="line">        retain_graph&#x3D;None, </span><br><span class="line">        create_graph&#x3D;False, </span><br><span class="line">        grad_variables&#x3D;None)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>tensor</code>: 用于计算梯度的tensor。也就是说这两种方式是等价的：<code>torch.autograd.backward(z) == z.backward()</code></li>
-<li><code>grad_tensors</code>: 在计算矩阵的梯度时会用到。他其实也是一个tensor，shape一般需要和前面的<code>tensor</code>保持一致。</li>
-<li><code>retain_graph</code>: 通常在调用一次backward后，PyTorch会自动把计算图销毁，所以要想对某个变量重复调用backward，则需要将该参数设置为<code>True</code></li>
-<li><code>create_graph</code>: 当设置为<code>True</code>的时候可以用来计算更高阶的梯度</li>
-<li><code>grad_variables</code>: 这个官方说法是grad_variables’ is deprecated. Use ‘grad_tensors’ instead.也就是说这个参数后面版本中应该会丢弃，直接使用<code>grad_tensors</code>.</li>
-</ul>
-<p>使用以下代码尝试解释<code>grad_tensors</code>的作用。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = torch.ones(<span class="number">2</span>,requires_grad=<span class="literal">True</span>)</span><br><span class="line">z = x + <span class="number">2</span></span><br><span class="line">z.backward()</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">RuntimeError: grad can be implicitly created only for scalar outputs</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>当代码被运行，会有一个上述的<code>RuntimeError</code>被抛出。上面的报错信息意思是<strong>只有对标量输出它才会计算梯度</strong>，而求一个矩阵对令一个矩阵的导数束手无策。<br>$$<br>X=[x_0\quad x_1]\quad  Z=X+2=[x_0+2\quad x_1+2]\Rightarrow \frac{\partial Z}{\partial X}=?<br>$$<br>那么我们只要相办法把矩阵转变成一个标量不就好了？比如我们可以对<code>Z</code>求和，然后用求和得到的标量在对x求导，这样不会对结果有影响。即：<br>$$<br>Z_{sum}=\sum{z_i}=x_0+x_1+8\quad then \quad\frac{\partial Z_{sum}}{\partial X_0}=\frac{\partial Z_{sum}}{\partial X_1}=1<br>$$<br>我们可以看到对z求和以后再计算梯度没有报错，结果也和预期一样：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch <span class="keyword">as</span> t</span><br><span class="line"></span><br><span class="line">x = t.ones(<span class="number">2</span>,requires_grad=<span class="literal">True</span>)</span><br><span class="line">z = x + <span class="number">2</span></span><br><span class="line"></span><br><span class="line">z.sum().backward()</span><br><span class="line">x.grad</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([1., 1.])</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>我们再仔细想想，对z求和不就是等价于z<strong>点乘一个一样维度的全为1的矩阵</strong>吗？即$sum(Z)=dot(Z,I)$,而这个I也就是我们需要传入的<code>grad_tensor</code>参数。点乘只是对一维向量而言的，对于矩阵或更高维的张量，可以看作是<strong>对每一个维度做点乘</strong>。</p>
-<p>代码如下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch <span class="keyword">as</span> t</span><br><span class="line">x = t.ones(<span class="number">2</span>,requires_grad=<span class="literal">True</span>)</span><br><span class="line">z = x + <span class="number">2</span></span><br><span class="line"></span><br><span class="line">z.backward(t.ones_like(z))</span><br><span class="line">x.grad</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([1., 1.])</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>弄个再复杂一点的：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = t.tensor([[<span class="number">2.</span>, <span class="number">1.</span>]], requires_grad=<span class="literal">True</span>)</span><br><span class="line">y = t.tensor([[<span class="number">1.</span>, <span class="number">2.</span>], [<span class="number">3.</span>, <span class="number">4.</span>]], requires_grad=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">z = t.mm(x, y)</span><br><span class="line">print(<span class="string">f&quot;z:<span class="subst">&#123;z&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">z.backward(t.tensor([[<span class="number">1.</span>, <span class="number">0</span>]]), retain_graph=<span class="literal">True</span>)</span><br><span class="line">print(<span class="string">f&quot;x.grad:<span class="subst">&#123;x.grad&#125;</span>&quot;</span>)</span><br><span class="line">print(<span class="string">f&quot;y.grad:<span class="subst">&#123;y.grad&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">z:tensor([[5., 8.]], grad_fn=&lt;MmBackward&gt;)</span></span><br><span class="line"><span class="string">x.grad:tensor([[1., 3.]])</span></span><br><span class="line"><span class="string">y.grad:tensor([[2., 0.],</span></span><br><span class="line"><span class="string">        [1., 0.]])</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>总结：说了这么多，grad_tensors的作用其实可以简单地理解成在求梯度时候地权重，因为可能梯度对影响结果程度不同。</p>
-<p><strong>知乎高赞评论：</strong>假设是在z点backward，输入<code>grad_tensors</code>应该是目标函数(scalar)f对z的梯度，那么<br>$$<br>\frac{\partial f}{\partial X}=\frac{\partial f}{\partial z} \times \frac{\partial z}{\partial x}<br>$$<br>其中，传入的第一项就是传入<code>grad_tensors</code></p>
-<h3 id="导数运算"><a href="#导数运算" class="headerlink" title="导数运算"></a>导数运算</h3><p>接着我们来看看autograd计算的导数和我们手动推导的导数的区别。</p>
-<p>给出下列函数表达式：<br>$$<br>y=x^2e^x<br>$$<br>他的导函数是：<br>$$<br>\frac{\partial y}{\partial x}=2xe^x+x^2e^x<br>$$</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch <span class="keyword">as</span> t</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;计算y&quot;&quot;&quot;</span></span><br><span class="line">    y = x**<span class="number">2</span> * t.exp(x)</span><br><span class="line">    <span class="keyword">return</span> y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gradf</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;手动求导函数&quot;&quot;&quot;</span></span><br><span class="line">    dx = <span class="number">2</span>*x*t.exp(x) + x**<span class="number">2</span>*t.exp(x)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> dx</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置随机数种子, 使结果可以复现</span></span><br><span class="line">t.manual_seed(<span class="number">0</span>)</span><br><span class="line">np.random.seed(<span class="number">0</span>)</span><br><span class="line">x = t.randn(<span class="number">3</span>, <span class="number">4</span>, requires_grad = <span class="literal">True</span>)</span><br><span class="line">y = f(x)</span><br><span class="line">y</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[11.0879,  0.0642,  0.5373,  0.5705],</span></span><br><span class="line"><span class="string">        [ 0.3976,  0.4830,  0.2435,  1.6235],</span></span><br><span class="line"><span class="string">        [ 0.2520,  0.1087,  0.1960,  0.0398]], grad_fn=&lt;MulBackward0&gt;)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">y.backward(t.ones(y.size())) <span class="comment"># 和grad_tensor形状一致</span></span><br><span class="line">x.grad</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[25.4785, -0.3734,  0.0441,  2.5776],</span></span><br><span class="line"><span class="string">        [-0.3356, -0.2077,  1.4510,  5.4982],</span></span><br><span class="line"><span class="string">        [-0.4487, -0.4302, -0.4611,  0.4765]])</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">y.sum().backward()</span><br><span class="line">x.grad</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[25.4785, -0.3734,  0.0441,  2.5776],</span></span><br><span class="line"><span class="string">        [-0.3356, -0.2077,  1.4510,  5.4982],</span></span><br><span class="line"><span class="string">        [-0.4487, -0.4302, -0.4611,  0.4765]])</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># autograd的计算结果与利用公式手动计算的结果一致</span></span><br><span class="line">gradf(x)</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[25.4785, -0.3734,  0.0441,  2.5776],</span></span><br><span class="line"><span class="string">        [-0.3356, -0.2077,  1.4510,  5.4982],</span></span><br><span class="line"><span class="string">        [-0.4487, -0.4302, -0.4611,  0.4765]], grad_fn=&lt;AddBackward0&gt;)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="计算图"><a href="#计算图" class="headerlink" title="计算图"></a>计算图</h3><p>PyTorch 中的 autograd 的底层采用了计算图，计算图是一种<strong>特殊的有向无环图(DAG)</strong>.用于记录算子和变量之间的关系。一般用矩形表示算子，椭圆形表示变量。如表达式$z=wx+b$可以分解为$y=wx$和$z=y+b$，其计算图如下图所示，图中的<code>MUL</code>和<code>ADD</code>都是算子，$w、x、b$为变量。</p>
-<img src="https://ftp.fly97.cn/image/image-20200820171041627.png" alt="image-20200820171041627" style="zoom:50%;" />
-
-<p>如上有向无环图中，$X$和$b$是叶子节点(leaf node)，这些节点通常由用户自己创建，不依赖其他变量。$z$称为根节点，是计算图的最终目标。利用链式法则很容易求得各个叶子节点的梯度。<br>$$<br>\frac{\partial z}{\partial b}=1\quad\frac{\partial z}{\partial y}=1<br>$$</p>
-<p>$$<br>\frac{\partial y}{\partial w}=x\quad\frac{\partial y}{\partial x}=w<br>$$</p>
-<p>$$<br>\frac{\partial z}{\partial x}=\frac{\partial z}{\partial y} \times\frac{\partial y}{\partial x}=1\times w<br>$$</p>
-<p>$$<br>\frac{\partial z}{\partial w}=\frac{\partial z}{\partial y} \times\frac{\partial y}{\partial w}=1\times x<br>$$</p>
-<p>而有了计算图，上述链式求导即可利用计算图的反向传播自动完成，其传播过程如下图所示。</p>
-<img src="https://ftp.fly97.cn/image/image-20200820172727826.png" alt="image-20200820172727826" style="zoom:50%;" />
-
-<p>在 PyTorch 实现中，<code>autograd</code>会随着用户的操作，记录生成当前 <strong>Tensor</strong> 的所有操作，并由此建立一个有向无环图。用户没进行一个操作，相应的计算图就会发生改变。更底层的实现中，图中记录了操作<code>Function</code>，每个变量在图中的位置可通过其<code>grad_fn</code>属性在图中的位置可以推测得到。在反向传播过程中，<code>autograd</code>沿着这个图从当前变量(根节点$z$)溯源，可以利用链式求导法则计算所有叶子节点的梯度。每一个前向传播操作的函数都有与之对应的反向传播函数用来计算输入的各个Tensor的梯度，这些函数的函数名通常以<code>Backward</code>结尾。</p>
-<p>部分转载自：<a href="https://zhuanlan.zhihu.com/p/83172023">https://zhuanlan.zhihu.com/p/83172023</a></p>
-]]></content>
-      <tags>
-        <tag>PyTorch</tag>
       </tags>
   </entry>
   <entry>
@@ -524,6 +502,458 @@
       <tags>
         <tag>Python</tag>
         <tag>time</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python的一些高级用法</title>
+    <url>/p/Python%E7%9A%84%E4%B8%80%E4%BA%9B%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95.html</url>
+    <content><![CDATA[<p>此文介绍了一些Python的一些常见的高级用法。</p>
+<a id="more"></a>
+
+<h4 id="format格式化字符串"><a href="#format格式化字符串" class="headerlink" title="format格式化字符串"></a>format格式化字符串</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">t = time.strftime(<span class="string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>, time.localtime())</span><br></pre></td></tr></table></figure>
+
+<h5 id="按照位置来填充"><a href="#按照位置来填充" class="headerlink" title="按照位置来填充"></a>按照位置来填充</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(<span class="string">&quot;现在时刻:&#123;&#125;&quot;</span>.format(t))</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://ftp.fly97.cn/image/image-20200918213811743.png" alt="image-20200918213811743"></p>
+<h6 id="同一个参数可以填充多次"><a href="#同一个参数可以填充多次" class="headerlink" title="同一个参数可以填充多次"></a>同一个参数可以填充多次</h6><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(<span class="string">&quot;现在时刻:&#123;0&#125;---&#123;0&#125;&quot;</span>.format(t))</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://ftp.fly97.cn/image/image-20200918214059634.png" alt="image-20200918214059634"></p>
+<h5 id="通过索引来填充"><a href="#通过索引来填充" class="headerlink" title="通过索引来填充"></a>通过索引来填充</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s1 = <span class="string">&quot;hello&quot;</span></span><br><span class="line">l1 = [<span class="string">&quot;hello&quot;</span>, <span class="string">&quot;world&quot;</span>]</span><br><span class="line">t1 = (<span class="string">&quot;hello&quot;</span>, <span class="string">&quot;world&quot;</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;&#123;[0]&#125;&quot;</span>.format(s1))</span><br><span class="line">print(<span class="string">&quot;&#123;0[0]&#125;,&#123;0[1]&#125;&quot;</span>.format(l1))</span><br><span class="line">print(<span class="string">&quot;&#123;0[0]&#125;,&#123;0[1]&#125;&quot;</span>.format(t1))</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://ftp.fly97.cn/image/image-20200918215314962.png" alt="image-20200918215314962"></p>
+<p>另外一种写法</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s1 = <span class="string">&quot;hello&quot;</span></span><br><span class="line">l1 = [<span class="string">&quot;hello&quot;</span>, <span class="string">&quot;world&quot;</span>]</span><br><span class="line">t1 = (<span class="string">&quot;hello&quot;</span>, <span class="string">&quot;world&quot;</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;&#123;p[1]&#125;&quot;</span>.format(p=s1))</span><br><span class="line">print(<span class="string">&quot;&#123;p[0]&#125;,&#123;p[1]&#125;&quot;</span>.format(p=l1))</span><br><span class="line">print(<span class="string">&quot;&#123;p[0]&#125;,&#123;p[1]&#125;&quot;</span>.format(p=t1))</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://ftp.fly97.cn/image/image-20200918215656093.png" alt="image-20200918215656093"></p>
+<h4 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h4><p>固定格式</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[on_true]  if  [expression]  else [on_false]</span><br></pre></td></tr></table></figure>
+
+<p>上式表达的语义为：若<strong>表达式expression</strong>的结果为<strong>真</strong>，该式的结果是**[on_true]<strong>；若</strong>表达式expression<strong>的结果为</strong>假<strong>，则该式的结果是</strong>[on_false]**</p>
+<p>例子</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line">c = a-b <span class="keyword">if</span> a&gt;b <span class="keyword">else</span> a+b</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://ftp.fly97.cn/image/image-20200918221607752.png" alt="image-20200918221607752"></p>
+<h4 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="Lambda表达式"></a>Lambda表达式</h4><p>Python使用Lambda表达式创建匿名函数</p>
+<ul>
+<li>Lambda只是一个表达式，函数体比def简单的多</li>
+<li>Lambda的主体是一个表达式，而不是一个代码块，只能在lambda表达式中封装有限的逻辑进去</li>
+<li>Lambda函数拥有自己的名字空间，且不能访问自有参数列表之外或全局名字空间里的参数。</li>
+<li>虽然lamda函数看起来只能写一行，却不等于C或C++的内联函数，后者是调用小函数时不占用内存，从而提升运行效率。</li>
+</ul>
+<p>Lambda表达式语法：<code>lambda argument_list: expression</code></p>
+<p>案例</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">summary = <span class="keyword">lambda</span> x,y:x+y</span><br><span class="line">print(<span class="string">&quot;summary=&#123;&#125;&quot;</span>.format(summary(<span class="number">3</span>,<span class="number">4</span>)))</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://ftp.fly97.cn/image/image-20200918230330027.png" alt="image-20200918230330027"></p>
+<p>上述lambda表达式与以下函数等价</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">summary</span>(<span class="params">x, y</span>):</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://ftp.fly97.cn/image/image-20200918231354891.png" alt="image-20200918231354891"></p>
+<h4 id="map函数"><a href="#map函数" class="headerlink" title="map函数"></a>map函数</h4><p>map是Python的高级函数，为函数式编程提供便利。</p>
+<p>形式为<code>map(func, *iterables)</code>：第一个参数func是一个函数的名字；第二个参数为一个可迭代对象。map将函数func应用于列表的所有元素。</p>
+<p>在Python3之前，map用于返回一个列表，其中结果列表的每个元素都是应用于列表或元组序列相应元素上的func结果。</p>
+<p>在Python3中，map返回一个迭代器。</p>
+<p>实例</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">seq_list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line">F = list(map(<span class="keyword">lambda</span> x:x*x, seq_list))</span><br><span class="line">print(F)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://ftp.fly97.cn/image/image-20200918233144997.png" alt="image-20200918233144997"></p>
+<p>map可以用于多个列表，列表不必有相同的长度。map会将<code>lambda函数</code>应用于参数列表的元素，即它首先应用于具有第0个索引的元素，然后应用于具有第一个索引的元素，直到第n个索引。</p>
+<p>如果一个列表的元素少于其他元素，当最短列表消耗完时，map结束迭代。</p>
+<p>示例</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line">b = [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line">c = [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 应用到多个列表</span></span><br><span class="line">ab = list(map(<span class="keyword">lambda</span> x,y:x + y, a, b))</span><br><span class="line">print(ab)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://ftp.fly97.cn/image/image-20200920142041359.png" alt="image-20200920142041359"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 若其中一个列表的元素少于其他元素, 当最短列表消耗完时, map停止迭代</span></span><br><span class="line">ac = list(map(<span class="keyword">lambda</span> x,y:x + y, a, c))</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://ftp.fly97.cn/image/image-20200920142144318.png" alt="image-20200920142144318"></p>
+<h4 id="Filter函数"><a href="#Filter函数" class="headerlink" title="Filter函数"></a>Filter函数</h4><p>filter也是Python的高级函数，为函数式编程提供便利。其作用是对序列中元素进行筛选，最终获得符合条件的序列。其一般形式为**filter(function, iterable)**，函数提供了一种优雅的方式来过滤掉序列中那个的所有元素。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">number = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>]</span><br><span class="line"><span class="comment"># 找到序列中的偶数</span></span><br><span class="line">double_number = list(filter(<span class="keyword">lambda</span> x:x % <span class="number">2</span> ==<span class="number">0</span>, number))</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://ftp.fly97.cn/image/image-20200920144322294.png" alt="image-20200920144322294"></p>
+]]></content>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python科学计算库Numpy</title>
+    <url>/p/Python%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97%E5%BA%93Numpy.html</url>
+    <content><![CDATA[<p><strong>摘要：</strong>Numpy是一个开源的Python科学计算库，它是Python科学计算库的基础库，许多其他著名的科学计算库如Pandas、Scikit-learn等，都要用的Numpy库的一些功能。</p>
+<p><strong>关键词：</strong>科学计算，Numpy</p>
+<a id="more"></a>
+
+<p>Numpy是Python快速处理大型矩阵的科学计算库，Numpy允许你在Python中做向量矩阵的运算，而且很多底层的函数都是用C语言写的，将获得在普通Python中无法达到的运算速度。</p>
+<p>什么是科学计算？科学计算是一个与定量分析、数学模型构建以及利用计算机分析和解决科学问题相关的相关领域。<br><strong>查看Numpy版本</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import numpy</span><br><span class="line"></span><br><span class="line">print(numpy.__version__)</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920154143301.png" alt="image-20200920154143301"></p>
+<h3 id="初识Numpy"><a href="#初识Numpy" class="headerlink" title="初识Numpy"></a>初识Numpy</h3><p><strong>Numpy</strong>的主要对象是同质多维数组，也就是在一个元素(通常是数字)表中，元素的类型都是相同的，其中可以通过正整数的元组来对元素进行索引。</p>
+<p>在Numpy中，数组的维度被称为轴(axes)，轴的数量被称为秩(rank)。例如在三维空间中一个点的坐标【1，2，1】就是秩为1的数组，因为它只有一个轴，这个轴的长度为3。</p>
+<p><strong>Numpy</strong>的数组类称为<strong>ndarray</strong>，别名为array。<strong>numpy.array</strong>与标准Python库类<strong>array.array</strong>不同。标准库类中只能处理一维数组而且功能相对较少。下面我们来认识下<strong>ndarray</strong>对象的常见属性。</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>T</td>
+<td>转置，与self.transpose()相同，如果维度小于2，返回self</td>
+</tr>
+<tr>
+<td>size</td>
+<td>数组中元素个数，等于shape元素的乘积</td>
+</tr>
+<tr>
+<td>itemsize</td>
+<td>一个类型为float64的元素的数组itemsize为8=(64/8)，而一个complex32的数组itersize为4=(32/8). 该属性等价于ndarray.dtype.itemsize</td>
+</tr>
+<tr>
+<td>dtype</td>
+<td>数组元素的数据类型对象。可以用标准Python类型来创建或指定dtype，或者在后面加上Numpy的类型：numpy.int32，numpy.int16，numpy.float64等等</td>
+</tr>
+<tr>
+<td>ndim</td>
+<td>数组的轴（维度）的数量。在Python中，维度的数量通常被称为rank</td>
+</tr>
+<tr>
+<td>shape</td>
+<td>数组的维度，为一个整数元组。表示每个维度上的大小。对于一个m行n列的矩阵来说，shape就是(n, m)</td>
+</tr>
+<tr>
+<td>data</td>
+<td>该缓冲区中包含了数组的实际元素，通常情况下不需要使用这个属性因为我们会使用<strong>索引</strong>的方式来访问数组中的元素。</td>
+</tr>
+<tr>
+<td>Flat</td>
+<td>返回数组的一维迭代器</td>
+</tr>
+<tr>
+<td>imag</td>
+<td>返回数组的虚部</td>
+</tr>
+<tr>
+<td>real</td>
+<td>返回数组的实部</td>
+</tr>
+<tr>
+<td>nbytes</td>
+<td>数组中所有元素的字节长度</td>
+</tr>
+</tbody></table>
+<p>示例</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = np.random.random(<span class="number">4</span>)</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920164603559.png" alt="image-20200920164603559"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(a.shape)</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920164658559.png"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(type(a))</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920165038789.png" alt="image-20200920165038789"></p>
+<p>以上说明，通过np.random.random(4)生成的一个浮点数组，类型为numpy.ndarray，a.shape显示的<strong>长度</strong>为4。</p>
+<p>【这里的数组可以理解为一维数组】</p>
+<h3 id="Numpy数据类型"><a href="#Numpy数据类型" class="headerlink" title="Numpy数据类型"></a>Numpy数据类型</h3><p>对于科学计算来说，Python自带的整型，浮点数和复数类型还远远不够。因此Numpy添加了许多数据类型， 在实际应用中，我们需要不同精度的数据类型，它们占用的内存空间也是不同的，在numpy中，大部分数据类型是以数字结尾的，这个数字表示其在内存中占用的位数。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>描述规则</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>bool</td>
+<td>用一位存储的bool类型</td>
+</tr>
+<tr>
+<td>inti</td>
+<td>由所在平台决定其精度的整数（一般为int32或者int64）</td>
+</tr>
+<tr>
+<td>int8</td>
+<td>整数，范围为-128至127</td>
+</tr>
+<tr>
+<td>int16</td>
+<td>整数，范围为-32768至32767</td>
+</tr>
+<tr>
+<td>int32</td>
+<td>整数，范围为-2^31至2^31-1</td>
+</tr>
+<tr>
+<td>int64</td>
+<td>整数，范围为-2^63至2^63</td>
+</tr>
+<tr>
+<td>uint8</td>
+<td>无符号整数，范围为0至255</td>
+</tr>
+<tr>
+<td>uint16</td>
+<td>无符号整数，范围为0至65535</td>
+</tr>
+<tr>
+<td>uint32</td>
+<td>无符号整数，范围为0至2^32-1</td>
+</tr>
+<tr>
+<td>uint64</td>
+<td>无符号整数，范围为0至2^64</td>
+</tr>
+<tr>
+<td>float16</td>
+<td>半精度浮点数(16位)，其中一位表示正负号，5位表示指数，10位表示尾数</td>
+</tr>
+<tr>
+<td>float32</td>
+<td>单精度浮点数(32位)，其中一位表示正负号，8位表示指数，23位表示尾数</td>
+</tr>
+<tr>
+<td>float64或float</td>
+<td>双精度浮点数(64位)，其中一位表示正负号，11位表示指数，52位表示位数</td>
+</tr>
+<tr>
+<td>complex64</td>
+<td>复数，分别用两个32位浮点数表示实部和虚部</td>
+</tr>
+<tr>
+<td>complex128或complex</td>
+<td>复数，分别用两个64位浮点数表示实部和虚部</td>
+</tr>
+</tbody></table>
+<p>在使用numpy过程中，可以通过dtype来指定数据类型，通常这个参数是可选的。也可以通过astype()来指定。同样，每一种数据类型均有对应的类型转换函数。在Python中，通常不要求内存控制指定。</p>
+<p><strong>Numpy数据类型操作</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 指定数据类型</span></span><br><span class="line">print(np.array(<span class="number">5</span>, dtype = int))</span><br><span class="line"></span><br><span class="line">print(np.array(<span class="number">5</span>).astype(float))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 转换数据类型</span></span><br><span class="line">print(float(<span class="number">42</span>))</span><br><span class="line"></span><br><span class="line">print(bool(<span class="number">42</span>))</span><br><span class="line"></span><br><span class="line">print(float(<span class="literal">True</span>))</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920182149479.png" alt="image-20200920182149479"></p>
+<p><strong>查看Numpy数据类型</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(set(np.typeDict.values()))</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920182353862.png" alt="image-20200920182353862"></p>
+<h3 id="Numpy创建数组"><a href="#Numpy创建数组" class="headerlink" title="Numpy创建数组"></a>Numpy创建数组</h3><h4 id="通过列表或者元组转化"><a href="#通过列表或者元组转化" class="headerlink" title="通过列表或者元组转化"></a>通过列表或者元组转化</h4><p>在Python内建对象中，数组有三种形式：列表（list）、元组（tuple）、字典（dict）。具体形式如下：</p>
+<ul>
+<li>list: [1, 2, 3]</li>
+<li>tuple: (1, 2, 3)</li>
+<li>dict: {a:1, b:2}</li>
+</ul>
+<p>使用np.array将<strong>列表或元组</strong>转换成narray数组。其方法为：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">np.array(object, dtype=<span class="literal">None</span>, copy=<span class="literal">True</span>, </span><br><span class="line">         order=<span class="string">&#x27;K&#x27;</span>, subook= <span class="literal">False</span>, ndmin=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<p>相关参数如下：</p>
+<ul>
+<li>object：输入对象列表、元组等。</li>
+<li>dtype：数据类型。如果没有给出，则类型被保存为所需对象的最小类型。</li>
+<li>copy：布尔类型，默认为<strong>True</strong>，表示复制对象。</li>
+<li>order：顺序。</li>
+<li>subok：布尔类型，表示子类是否被传递。</li>
+</ul>
+<p><strong>使用np.array创建数组</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = np.array([[<span class="number">1</span>, <span class="number">2</span>],[<span class="number">4</span>, <span class="number">5</span>, <span class="number">7</span>]])</span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;a:&#123;&#125;, type of a:&#123;&#125;&quot;</span>.format(a, type(a)))</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920184454753.png" alt="image-20200920184454753"></p>
+<h4 id="arange函数创建数组"><a href="#arange函数创建数组" class="headerlink" title="arange函数创建数组"></a>arange函数创建数组</h4><p>np.arange()的功能是在给定区间内创建<strong>等差数组</strong>。arange类似range函数，接触过Python的人或许对range函数比较熟悉。例如在for循环中，经常用到range。下面通过range来学习arange，主要区别是<strong>返回值类型不同</strong>。</p>
+<p>range返回的是list，np.arange返回的是narray数组。</p>
+<ol>
+<li>range函数为 range(start, stop[, step])，根据start和stop指定的范围以及step设定的步长，生成一个序列，函数返回的是一个range object。这里的[start, stop]是一个<strong>前闭后开</strong>区间。</li>
+</ol>
+<ul>
+<li>start：计数从start开始，默认是从0开始，例如range(5)等价于range(0, 5)</li>
+<li>stop：计数从stop结束，但不包括stop，例如range(0, 5)=[0, 1, 2, 3, 4]</li>
+<li>step：每次跳跃的间距，默认为1且<strong>不支持步长为小数</strong>，例如range(0, 5)等价于range(0, 5, 1)</li>
+</ul>
+<p>案例</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = range(<span class="number">0</span>, <span class="number">5</span>)</span><br><span class="line">b = range(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">a1 = [i <span class="keyword">for</span> i <span class="keyword">in</span> a]</span><br><span class="line">b1 = [i <span class="keyword">for</span> i <span class="keyword">in</span> b]</span><br><span class="line">print(<span class="string">&quot;type of a:&#123;0&#125;, a:&#123;1&#125;, b:&#123;2&#125;,  a1:&#123;3&#125;, b1:&#123;4&#125;&quot;</span>.format(type(a), a, b, a1, b1))</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920190839464.png" alt="image-20200920190839464"></p>
+<ol start="2">
+<li>arange函数为arange(start=None, stop=None, step=None, dtype=None), 根据<strong>start</strong>与<strong>stop</strong>指定的范围以及<strong>step</strong>设定的步长，生成一个<strong>ndarry</strong></li>
+</ol>
+<ul>
+<li>start与stop参数同range。</li>
+<li>step：步长用于设置值之间的间隔，支持<strong>步长为小数</strong>。</li>
+<li>dtype：可选参数，可以设置返回ndarray的值类型。</li>
+</ul>
+<p><strong>arange案例</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.arange(<span class="number">12</span>)</span><br><span class="line"></span><br><span class="line">a2 = np.arange(<span class="number">1</span>, <span class="number">2</span>, <span class="number">0.1</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;a:&#123;&#125;,a2:&#123;&#125;&quot;</span>.format(a,a2))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920191959047.png" alt="image-20200920191959047"></p>
+<h4 id="linspace生成等差数列"><a href="#linspace生成等差数列" class="headerlink" title="linspace生成等差数列"></a>linspace生成等差数列</h4><p>np.linspace方法也可以像np.arange方法一样，创建数值有规律的数组。linespace用于在指定区域返回间隔均匀的值，其方法为：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">np.linespace(start, stop, num=<span class="number">50</span>, endpoint=<span class="literal">True</span>, restep=<span class="literal">False</span>, dtype=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>start：序列的起始值。</li>
+<li>stop：序列的结束值。</li>
+<li>num：生成的样本数，默认为50。</li>
+<li>endpoint：布尔值，若为True，则最后一个样本包含在序列内。</li>
+<li>restep：布尔值，若为True，返回间距。</li>
+<li>dtype：数组的类型。</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Numpy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ROS系统学习小记(一)</title>
+    <url>/p/ROS%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0.html</url>
+    <content><![CDATA[<p><strong>概述：</strong>以下是作者与2020年9月23日起在浙江理工大学读研究生一年级时研究ROS实时系统时的笔记。希望能帮到你。</p>
+<p><strong>关键词：</strong>ROS</p>
+<a id="more"></a>
+
+<h3 id="ROS架构及概念"><a href="#ROS架构及概念" class="headerlink" title="ROS架构及概念"></a>ROS架构及概念</h3><p>ROS的架构经过设计并划分为三部分，每一部分都代表一个层级的概念：</p>
+<ul>
+<li>文件系统级（Filesystem level)</li>
+<li>计算图级(Computation Graph level)</li>
+<li>社区级(Community level)</li>
+</ul>
+<p>第一级是文件系统级。在这一级，我们会使用一组概念来解释ROS的内部构成、文件夹结构，以及工作所需要的核心文件。</p>
+<p>第二级是计算图级，体现的是进程和系统之间的通信。在相关小节中，我们将学习ROS的各个概念和功能，包括建立系统、处理各类进程、与多台机器通信等。</p>
+<p>第三级是社区级，我们将解释一系列的工具和概念，包括在开发人员之间如何共享知识、算法和代码。由于强大社区的支持，不仅提高了初学者理解复杂软件的能力，还解决了最常见的问题。</p>
+<h4 id="理解ROS文件系统级"><a href="#理解ROS文件系统级" class="headerlink" title="理解ROS文件系统级"></a>理解ROS文件系统级</h4><p><img src="/home/wsl/.config/Typora/typora-user-images/image-20200923190637341.png" alt="image-20200923190637341"></p>
+<p>与其他操作系统类似，一个ROS程序的不同组件要放在不同的文件夹下，这些文件夹是根据功能的不同来对文件进行组织的。</p>
+<ol>
+<li>功能包（Package）：功能包构成ROS中的原子级。一个功能包具有创建ROS程序最小结构和最少内容。它可以包含ROS运行时进程（节点）、配置文件等。</li>
+<li>功能包清单（Package Manifest）：功能包清单提供关于功能包、许可证、依赖关系、编译标志等的信息。包清单又一个名为<strong>package.xml</strong>的文件管理。</li>
+<li>元功能包（Metapackage）：如果你希望将几个具有<strong>某些功能的包组织在一起</strong>，那么你将使用一个元功能包。这种包的组织形式<strong>之前被称</strong>为功能包集（Stack ）。功能包集被废除，现在使用元功能包实现这个功能。在ROS中，存在大量不同用途的元功能包，例如<strong>导航功能包集</strong>。</li>
+<li>元功能包清单（Metapackage manifest）：元功能包清单（package.xml）类似普通功能包但又一个XML格式的导出标记，他在结构上也有一定的限制。</li>
+<li>消息类型（Message（msg）type）：消息是一个进程发送到其他进程的消息。ROS 的消息类型的说明存储在<strong>my_package/msg/MyMessageType.msg</strong>中。</li>
+<li>服务类型（Service (srv) Type）：服务描述说明存储在<strong>my_package/srv/MyServiceType.srv</strong>中，为ROS中由每个进程提供的服务定义请求和响应数据结构。</li>
+</ol>
+<p>下面的截图说明了<strong>turtlesim</strong>功能包的内容。所看到的是一系列文件和文件夹，包含代码、图片、启动文件服务和消息。以下只是文件的一个简短列表。</p>
+<p><img src="/home/wsl/.config/Typora/typora-user-images/image-20200923193232140.png" alt="image-20200923193232140"></p>
+<h5 id="工作空间"><a href="#工作空间" class="headerlink" title="工作空间"></a>工作空间</h5><p>工作空间包含功能包，功能包包含源文件和环境和工作空间，是集中开发的一种好方式。</p>
+<p>下图所示是一个典型的工作空间。<img src="/home/wsl/.config/Typora/typora-user-images/image-20200924144159317.png" alt="image-20200924144159317"></p>
+<p>主要包含一下内容：</p>
+<ul>
+<li>源文件空间（Source space）：在源空间（src文件夹）中，放置了功能包、项目、复制的包等。<strong>最重要文件：CMakeLists.txt</strong>。当在工作空间配置包时，通过cmake调用CMakeLists.txt。这个文件是通过<strong>catkin_init_workspace</strong>命令创建的。</li>
+<li>编译空间（build space）：在build文件夹里，cmake和catkin为功能包和项目保存缓存信息、配置和其他中间文件。</li>
+<li>开发空间（Development （devel）space）：devel文件夹用来保存编译后的程序，这些是无需安装就能用来测试的程序。</li>
+</ul>
+<p>用catkin编译包有两个选项。第一个是使用标准CMake工作流程。通过使用此方式。可以一次编译一个包，见以下命令：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">cmake packageToBuild/</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+
+<p>如果想编译所有的包，可以用<strong>catkin_make</strong>命令行，见以下命令：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> workspace</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure>
+
+<p>在ROS配置的编译空间目录中，这两个命令编译出可执行文件。</p>
+<p>ROS支持覆盖（overlay）。当你正在使用ROS功能包例如（<strong>Turtlesim</strong>）时，可以使用安装版本，也可以下载源文件并编译它来使用你修改后的版本。</p>
+<p>ROS允许使用自己版本的功能包去替代安装版本。下一章我们将使用这个功能来创建自己的插件。</p>
+<h5 id="功能包"><a href="#功能包" class="headerlink" title="功能包"></a>功能包</h5><p>包指的是一种特定结构的文件和文件夹组合。</p>
+<table>
+<thead>
+<tr>
+<th>目录</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>include/package_name</td>
+<td>此目录包含了需要的库的头文件</td>
+</tr>
+<tr>
+<td>msg/</td>
+<td>如果开发需要<strong>非标准</strong>的消息，请把文件放在这里。</td>
+</tr>
+<tr>
+<td>script/</td>
+<td>其中包含Bash、Python或者任何其他脚本语言的可执行脚本。</td>
+</tr>
+<tr>
+<td>src/</td>
+<td>存储程序源文件。可以为节点创建一个文件夹或按照希望的方式组织它。</td>
+</tr>
+<tr>
+<td>srv/</td>
+<td>（srv）服务类型</td>
+</tr>
+<tr>
+<td>CMakeLists.txt</td>
+<td>CMake的生成文件</td>
+</tr>
+<tr>
+<td>package.xml</td>
+<td>功能包清单文件</td>
+</tr>
+</tbody></table>
+<p>ROS提供的工具（命令）</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>rospack</td>
+<td>使用此命令来获取信息或在系统中查找包</td>
+</tr>
+<tr>
+<td>catkin_create_pkg</td>
+<td>使用此命令创建一个新的功能包</td>
+</tr>
+<tr>
+<td>catin_make</td>
+<td>使用此命令来编译工作空间</td>
+</tr>
+<tr>
+<td>rosdep</td>
+<td>使用此命令按照功能包的系统依赖项</td>
+</tr>
+<tr>
+<td>rqt_dep</td>
+<td>使用此命令来查看包的依赖关系图</td>
+</tr>
+</tbody></table>
+<p>如果要在文件夹和功能包之间移动文件，ROS提供了非常有用的<strong>rosbash</strong>，功能包，其中包含的非常类似Linux命令的命令。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>roscd</td>
+<td>此命令用于更改目录，相当于Linux中的cd命令</td>
+</tr>
+<tr>
+<td>rosed</td>
+<td>此命令用来编辑文件</td>
+</tr>
+<tr>
+<td>roscp</td>
+<td>此命令用于从功能包复制文件。</td>
+</tr>
+<tr>
+<td>rosls</td>
+<td>此命令列出功能包下的文件，类似Linux中的ls命令。</td>
+</tr>
+</tbody></table>
+<p>文件<strong>package.xml</strong>必须在每个功能包中，它用来说明此包相关的各类信息。如果你发现在某个文件夹内包含此文件，那么这个文件夹很可能是<strong>一个包或者元功能包</strong>。</p>
+<p>打开<strong>package.xml</strong>文件，可以看到包的名称、依赖关系等信息。功能包清单的作用就是为了方便安装和分发这些功能包。</p>
+<p>在<strong>package.xml</strong>文件中使用的两个典型标记是**<build_depend><strong>和</strong><run_depend>**.</p>
+<p>**<build_depend>**标记会显示当前功能包安装之前必须先安装哪些功能包。这是因为新的功能包会使用其他包的一些功能。</p>
+<p>**<run_depend>**标记显示运行功能包中代码所需要的包。以下是package.xml文件的示例。</p>
+<p><img src="/home/wsl/.config/Typora/typora-user-images/image-20200924154802735.png" alt="image-20200924154802735"></p>
+<h5 id="元功能包"><a href="#元功能包" class="headerlink" title="元功能包"></a>元功能包</h5><p>元包中只有一个文件，这个文件就是<strong>package.xml</strong>。它不包含其他文件，如代码等。</p>
+<p>元功能包用于指代其他按照类似功能特性分组的包，例如导航功能包集，ros_tutorials等。</p>
+<p>使用迁移的特定规则，可以讲ROS Fuerte中的功能包和功能包集转换为Kinetic等。具体参见<a href="http://wiki.ros.org/catkin/migrating_from_rosbuild%E3%80%82">http://wiki.ros.org/catkin/migrating_from_rosbuild。</a></p>
+<p>在下图中。可以看到在ros_tutorials元功能包中package.xml的内容。可以看到<br>&lt;export&gt;标记和&lt;run_depend&gt;标记。这些事功能包清单中必不可缺少的，在下图中也可以看到这些标记。</p>
+<p><img src="/home/wsl/.config/Typora/typora-user-images/image-20200924160401768.png" alt="image-20200924160401768"></p>
+<p>如果你想定位<strong>ros_tutorials</strong>元功能包，可以使用下面的命令：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">rosstack find ros_tutorials</span><br></pre></td></tr></table></figure>
+
+<p>显示路径为：</p>
+<p><img src="/home/wsl/.config/Typora/typora-user-images/image-20200924161034651.png" alt="image-20200924161034651"></p>
+<p>查看里面的代码</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">vim /opt/ros/kinetic/share/ros_tutorials/package.xml</span><br></pre></td></tr></table></figure>
+
+<p>注意：Kinetic使用元功能包，不是功能包集，但是<strong>rosstack find</strong> 命令也可以用于查找元功能包。</p>
+]]></content>
+      <tags>
+        <tag>ROS</tag>
       </tags>
   </entry>
   <entry>
@@ -917,7 +1347,7 @@
 <h5 id="创建ssh-key："><a href="#创建ssh-key：" class="headerlink" title="创建ssh key："></a>创建ssh key：</h5><p>为了让github能够识别是我们自己上传文件，需要创建ssh key</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</span><br></pre></td></tr></table></figure>
 
-<p>这里的<strong><a href="mailto:&#x79;&#x6f;&#117;&#x72;&#95;&#x65;&#109;&#x61;&#x69;&#108;&#x40;&#121;&#111;&#117;&#x72;&#101;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#111;&#109;">&#x79;&#x6f;&#117;&#x72;&#95;&#x65;&#109;&#x61;&#x69;&#108;&#x40;&#121;&#111;&#117;&#x72;&#101;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#111;&#109;</a></strong>是你的<strong>邮箱地址</strong>，在输入后会询问你是否保存创建的ssh key，点回车就好，然后要求输入你要设置的密码，如果直接回车表示不设密码。然后会提示你ssh key已经创建好。</p>
+<p>这里的<strong><a href="mailto:&#x79;&#111;&#x75;&#114;&#95;&#x65;&#109;&#x61;&#105;&#x6c;&#64;&#121;&#111;&#117;&#114;&#x65;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#x79;&#111;&#x75;&#114;&#95;&#x65;&#109;&#x61;&#105;&#x6c;&#64;&#121;&#111;&#117;&#114;&#x65;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</a></strong>是你的<strong>邮箱地址</strong>，在输入后会询问你是否保存创建的ssh key，点回车就好，然后要求输入你要设置的密码，如果直接回车表示不设密码。然后会提示你ssh key已经创建好。</p>
 <h5 id="把密码导入GitHub："><a href="#把密码导入GitHub：" class="headerlink" title="把密码导入GitHub："></a>把密码导入GitHub：</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat ~&#x2F;.ssh&#x2F;id_rsa.pub</span><br></pre></td></tr></table></figure>
 
 <p>此时在终端会显示出刚刚创建好的ssh key，复制出来，在github在点击头像，然后点击setting，在找到SSH and GPG keys，创建一个new ssh key，然后将刚刚复制的ssh key填入即可。</p>
@@ -1991,6 +2421,132 @@
       </tags>
   </entry>
   <entry>
+    <title>现代信号分析选讲(一)</title>
+    <url>/p/%E7%8E%B0%E4%BB%A3%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90.html</url>
+    <content><![CDATA[<p><strong>摘要：</strong>此系列文章是我从2020年9月21日开始在浙江理工大学读研一时《现代信号分析》课程的课堂笔记和课后小结。使用的教材是</p>
+<p>《现代信号处理》第三版，作者是张贤达。</p>
+<p><strong>关键词：</strong>研一，现代信号分析</p>
+<a id="more"></a>
+
+<h3 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h3><p>《现代信号分析》课程内容主要包括随机信号、参数估计理论、现代谱估计、自适应滤波器、高阶统计分析（部分）、时域信号分析的线性变换和非线性变换。</p>
+<p>《现代信号分析》的前导课程主要包括数字信号处理、概率论、随机信号分析和线性代数。</p>
+<h4 id="信号处理的方法"><a href="#信号处理的方法" class="headerlink" title="信号处理的方法"></a>信号处理的方法</h4><ol>
+<li>基于变换的方法</li>
+</ol>
+<ul>
+<li><p>傅里叶变换</p>
+</li>
+<li><p>小波变换</p>
+</li>
+</ul>
+<p>分析：</p>
+<ul>
+<li>DFT-频谱分析（确定信号）</li>
+<li>周期图-功率谱分析（随机信号）</li>
+<li>短期傅里叶变换，小波-多频率分析（<strong>时变信号</strong>）</li>
+</ul>
+<p>滤波：</p>
+<ul>
+<li>数字滤波器</li>
+<li>滤波器组</li>
+</ul>
+<ol start="2">
+<li>基于模型的方法</li>
+</ol>
+<ul>
+<li>信号产生过程的参数模型</li>
+</ul>
+<p>分析：</p>
+<ul>
+<li>线性预测</li>
+<li>参数谱估计</li>
+</ul>
+<p>滤波：</p>
+<ul>
+<li>最优线性滤波器（维纳滤波器，卡尔曼滤波器）</li>
+<li>自适应滤波器</li>
+</ul>
+<ol start="3">
+<li>统计分析处理方法</li>
+</ol>
+<ul>
+<li>信号统计模型</li>
+<li>贝叶斯估计</li>
+</ul>
+<p>分析：</p>
+<ul>
+<li>参数估计</li>
+<li>隐马尔可夫模型</li>
+</ul>
+<p>滤波：</p>
+<ul>
+<li>MAP（最大后验估计）</li>
+<li>ML（极大似然）</li>
+<li>LS（最小二乘）  </li>
+</ul>
+<ol start="4">
+<li>智能，机器学习方法</li>
+</ol>
+<ul>
+<li>训练/学习</li>
+<li>推论</li>
+</ul>
+<p>分析：</p>
+<ul>
+<li>数据挖掘（支持向量机）</li>
+</ul>
+<p>滤波：</p>
+<ul>
+<li>人工神经网络</li>
+<li>粒子滤波器</li>
+</ul>
+<h3 id="信号分类"><a href="#信号分类" class="headerlink" title="信号分类"></a>信号分类</h3><p>如果信号在每个时刻的取值不是随机的，而是服从某种固定函数的关系，则称为<strong>确定性信号</strong>。</p>
+<p>常见的确定信号有阶跃信号、符号信号、矩形脉冲信号、余弦信号等。</p>
+<p>与<strong>确定性信号</strong>不同，若序列${s(t)}$在每个时刻的取值都是随机变量，则称之为<strong>随机信号</strong>。例如相位随机变化的正弦波信号<br>$$<br>s(t)=Acos(w_ct+\theta)(实谐波信号)<br>$$</p>
+<p>$$<br>s(t)=Aexp(jw_ct+\theta)(复谐波信号)<br>$$</p>
+<p>即为<strong>随机信号</strong>。式中$\theta$是在$[-\pi, \pi]$内均匀分布的随机变量，其概率密度函数为<br>$$<br>f(n) =<br>\begin{cases}<br>\frac{1}{2\pi},  &amp; \text{$\theta \in[-\pi, \pi]$} \[2ex]<br>0, &amp; \text{其他}<br>\end{cases}<br>$$<br>随机信号也称为<strong>随机过程</strong>，具有以下特点：</p>
+<ol>
+<li>随机信号<strong>在任何时间的取值</strong>都不是能先验确定的随机变量。</li>
+<li>随机信号或过程可以用<strong>概率分布</strong>特性统计描述。</li>
+</ol>
+<p>令$x(t)$表示一连续随机时间的复随机过程。对于任何一固定的时刻$t$，随机过程$x(t)$定义一随机变量$X=x(t)$，令$\mu(t)$表示其均值，则<br>$$<br>\mu(t)=E{x(t)}=\int_{-\infty} ^{+\infty}xf(x,t)dx<br>$$<br>式中$f(x,t)$表示随机变量$X=x(t)$在时间t的概率密度函数。复随机信号$x(t)$的<strong>自相关函数</strong>$R_x(t_1,t_2)定义为$x_t$在时刻t1和t2之间的<strong>相关</strong>，即：<br>$$<br>\begin{align}<br>R_x(t_1,t_2) &amp; = E{x(t_1)x^*(t_2)} \<br>&amp; =\int_{-\infty} ^{+\infty}\int_{-\infty} ^{+\infty}x_1x^<em>_2f(x1,x2;t1,t2)<br>dx_1dx_2 \<br>&amp; =R_x ^</em>(t_2,t_1)<br>\end{align}<br>$$<br>式中，上标 * 表示复数的共轭；$f(x_1, x_2;t_1, t_2)表示随机变量$X_1=x(t)$和$x_2=x(t_2)$的<strong>联合概率密度函数</strong>。一般情况下，自相关函数与时间变量$t_1$和$t_2$有关。</p>
+<p>给出以下不等式：<br>$$<br>{|R_x(t_1,t_2)|}^2 \leq R_x(t_1,t_1)R_x(t_2,t_2)<br>$$<br>这一不等式称为<strong>柯西-施瓦不等式</strong>. 【用语言叙述为：随机信号x(t)在时刻$t_1$和$t_2$的自相关函数的平方小于等于随机信号x(t)在分别在两时刻的自相关函数的乘积。】</p>
+<p>均值$E{x(t)}$和自相关函数$R_x(t_1, t_2)$分别是随机信号$x(t)$的<strong>一阶矩</strong>和<strong>二阶矩</strong>。类似地，定义随机信号${x(t)}$的<strong>k</strong>阶距为<br>$$<br>\mu(t_1,t_2,…,t_k)=E{x(t_1)x(t_2)…x(t_k)}<br>$$<br>根据k阶距是否与时间有关，随机信号又进一步分为<strong>平稳和非平稳</strong>信号两大类。</p>
+<p><strong>定义1.1.1（n阶平稳信号）</strong>    对于随机信号${x(t)}$，若对所有整数$1 \leq k \leq n和所有$t_1, …, t_k以及\tau$，其<strong>k阶距有界</strong>，且满足以下则称为随机信号${x(t)}$是$n$阶平稳信号。特别的，当随机信号是2阶平稳时，则称之为广义平稳信号。</p>
+<p><strong>定义1.1.2（广义平稳信号）</strong>    对于广义平稳复随机信号${x(t)}$，有以下性质：</p>
+<ol>
+<li>其均值是常数，即$E{x(t)}=\mu_x$(常数)；</li>
+<li>其二阶矩有界，即$E{x(t)}x^*(t)}=E&lt;!–￼0–&gt;P_T(f)=\int_{-\infty}^{\infty}C_{xx}(\tau)e^{-j2\pi f \tau}\rm d \tau \geq0<br>$$</li>
+</ol>
+<p><strong>上式给出了功率谱密度的定义，并且功率谱密度不可能为负。下面是功率谱密度的数学性质。</strong></p>
+<ol>
+<li>功率谱密度$P_{xx}(f)$是实的。</li>
+<li>功率谱密度是非负的，即$P_{xx}\geq 0$。</li>
+<li><strong>自协方差函数是功率谱密度的傅里叶逆变换</strong>，即</li>
+</ol>
+<p>$$<br>C_{xx}(\tau)=\int_{-\infty}^{\infty}P_{xx}(f)e^{j2\pi f\tau}\rm d \mit f<br>$$</p>
+<ol start="4">
+<li>功率谱密度对频率的积分给出信号${x(t)}$的方差，即</li>
+</ol>
+<p>$$<br>\int_{-\infty}^{\infty}P_{xx}(f) {\rm d} f=var[x(t)]=E{|x(t)-\mu_x|^2}<br>$$</p>
+<ol start="5">
+<li>若${x(t)}$是<strong>零均值</strong>($ \mu_x=0)的随机过程，则协方差函数与相关函数等价，即$C_{xx}(\tau)=R_xx(\tau)$，此时，<strong>功率谱密度</strong>和自相关函数分别等价为：</li>
+</ol>
+<p>$$<br>P_{xx}(f)=\int_{-\infty}^{\infty}R_{xx}(\tau)e^{-j2\pi f \tau}{\rm d}{\tau} \<br>R_{xx}(\tau)=\int_{-\infty}^{\infty}P_{xx}(f)e^{j2\pi f \tau}{\rm d}{f} \<br>$$</p>
+<p>上式描述的关系成为<strong>维纳——辛钦定理</strong>。其文字表述为：任意一个零均值的广义平稳随机过程的功率谱$P_{xx}(f)$和他的自相关函数$R_{xx}(\tau)$组成一个傅里叶变换对。</p>
+<ol start="6">
+<li>对于零均值的随机过程${x(t)}$，其功率谱的积分等于零滞后$(\tau = 0)$处的相关函数，即有</li>
+</ol>
+<p>$$<br>\int_{-\infty}^{\infty}P_{xx}(f)df=E{|x(t)^2|}=R_{xx}(0)<br>$$</p>
+<p>下面证明<strong>功率谱密度是实</strong>的：</p>
+<p>根据复随机过程$x(t)$的功率谱密度定义，直接有<br>$$<br>P_{xx}^{<em>}(f)=\int_{-\infty}^{\infty}C_{xx}^{</em>}(\tau)e^{j2\pi f \tau}{\rm d}\tau=\int_{-\infty}^{\infty}C_{xx}(-\tau)e^{j2\pi f\tau}{\rm d}\tau<br>$$<br>做变量代换 </p>
+]]></content>
+      <tags>
+        <tag>研一</tag>
+        <tag>现代信号分析</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>记一次重装系统</title>
     <url>/p/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%87%8D%E8%A3%85Win10%E7%B3%BB%E7%BB%9F.html</url>
     <content><![CDATA[<p>本文主要介绍了如何使用U盘进行重装系统，主要面向电脑小白用户。</p>
@@ -2142,6 +2698,91 @@
 ]]></content>
       <tags>
         <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PyTorch中的自动求导机制和计算图</title>
+    <url>/p/PyTorch%E4%B8%AD%E7%9A%84%E8%87%AA%E5%8A%A8%E6%B1%82%E5%AF%BC%E6%9C%BA%E5%88%B6%E5%92%8C%E8%AE%A1%E7%AE%97%E5%9B%BE.html</url>
+    <content><![CDATA[<p>本文介绍了 PyTorch 的自动求导机制和计算图。</p>
+<p><strong>摘要</strong>：深度学习的算法本质是通过反向传播求导数，PyTorch 的 <code>Autograd</code>模块实现了此功能。在 Tensor 上的所有操作，<code>Autograd</code>都能为他们自动提供微分，避免手动求导的复杂过程。</p>
+<p><strong>关键字</strong>：PyTorch，自动求导，计算图</p>
+<a id="more"></a>
+
+<p>PyTorch会根据计算过程来自动生成动态图，然后根据动态图的创建过程进行反向传播，计算得到每个节点的梯度值。为了能够记录张量的梯度，首先需要在创建张量的时候设置一个参数<code>requires_grad=True</code>，意味着这个张量将会加入到计算图中，作为计算图的叶子节点参与计算通过一系列的计算最后输出结果张量，也就是根节点。几乎所有的张量创建方式都可以指定这个参数，一旦指定了这个参数，在后续的计算中得到的中间结果的张量都会被设置成<code>requires_grad=True</code>。对于PyTorch 来说，每一个张量都有一个<code>grad_fn</code>方法，这个方法包含创建该张量的运算的导数信息。在反向传播过程中，通过传入后一层的神经网络的梯度，该函数会计算出参与运算的所有张量的梯度，<code>grad_fn</code>本身也携带着计算图的信息，该方法本身有一个<code>next_functions</code>属性，包含连接该张量的其他张量的<code>grad_fn</code>。通过不断反向传播回溯中间张量的计算节点，可以得到所有张量的梯度。一个张量的梯度张量的信息保存在该张量的grad属性中。</p>
+<p>除 PyTorch 张量本身外，PyTorch提供了一个专门用来自动求导的包，即<code>torch.autograd</code>.它包含了两个重要的函数，即<code>torch.autograd.backward</code>函数和<code>torch.autograd.grad</code>函数。</p>
+<p><code>torch.autograd.backward</code>函数通过传入根节点张量，以及起始梯度张量(形状和当前张量的相同)，可以计算产生该根节点所有对应的叶子节点的梯度。当张量为标量张量(即只有一个元素的张量)时，可以不传入起始梯度张量，默认会设置初始梯度张量为1。当计算梯度张量时，原来建立起来的计算图会自动被释放，如果需要再次做自动求导，因为计算图会被自动释放，如果需要再次做自动求导，因为计算图已经不存在，就会报错。如果要在反向传播的时候保留计算图，可以设置<code>retain_graph=True</code>。另外，在自动求导的时候默认不会建立反向传播的计算图(反向传播也是一个计算过程，可以动态创建计算图)，如果需要在反向传播计算的同时建立和梯度张量有关的计算图(在某些情况下，如需要计算高阶导数的情况下，不过这种情况比较少)，可以设置<code>creat_graph=True</code>。对于一个可求导的张量，也可以直接调用该张量内部的<code>backward</code>方法来进行自动求导。</p>
+<h2 id="自动求导机制实例"><a href="#自动求导机制实例" class="headerlink" title="自动求导机制实例"></a>自动求导机制实例</h2><p>下面举一个简单的例子来说明自动求导是如何使用的。根据高等数学的知识可知，若定义一个函数$f(x)=x^2$，则它的导数$f(x)=2x$。于是可以创建一个可求导的张量来测试具体的导数。具体如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch <span class="keyword">as</span> t</span><br><span class="line"></span><br><span class="line">t1 = t.randn(<span class="number">3</span>, <span class="number">3</span>, requires_grad=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">t1</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[-0.6704,  1.1710,  0.7608],</span></span><br><span class="line"><span class="string">        [ 1.2378, -0.5393, -0.9865],</span></span><br><span class="line"><span class="string">        [ 0.2863,  0.5295, -0.4555]], requires_grad=True)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">t2 = t1.pow(<span class="number">2</span>).sum() </span><br><span class="line">t2.backward(retain_graph=<span class="literal">True</span>) <span class="comment">#梯度反向传播</span></span><br><span class="line">t1.grad <span class="comment">#梯度是张量原始分量的2倍</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;tensor([[-1.3407,  2.3419,  1.5216],</span></span><br><span class="line"><span class="string">        [ 2.4756, -1.0786, -1.9729],</span></span><br><span class="line"><span class="string">        [ 0.5725,  1.0589, -0.9110]]</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">t2 = t1.pow(<span class="number">2</span>).sum()  <span class="comment">#再次计算张量的所有分量平方和</span></span><br><span class="line">t2.backward() <span class="comment"># 梯度再次反向传播</span></span><br><span class="line">t1.grad <span class="comment">#梯度累积</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[-2.1156, -1.1415,  7.4562],</span></span><br><span class="line"><span class="string">        [ 0.0900, -4.8776, -0.5413],</span></span><br><span class="line"><span class="string">        [-8.0727, -0.1184, -6.8779]])</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">t1.grad.zero_() <span class="comment">#梯度清零</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>需要注意的一点是，张量绑定的梯度张量在不清空的情况下会逐渐累积。这种特性在某些情况下是有用的，比如，需要一次性求很多迷你批次的累计梯度，但在一般情况下，不需要用到这个特性，所以要注意将张量的梯度清零。</p>
+<h2 id="梯度函数的使用"><a href="#梯度函数的使用" class="headerlink" title="梯度函数的使用"></a>梯度函数的使用</h2><p>在某些情况下，不需要求出当前张量对所有产生该张量的叶子节点的梯度，此时可以用<code>torch.autograd.grad</code>函数，这个函数的参数是两个张量，第一个张量是计算图的数据结果张量(或是张量列表)，第二个张量是需要对计算图求导的张量(或张量列表)。最后输出的结果是第一个张量对第二个张量求导的结果(注意梯度会累积，和前面介绍的<code>torch.autograd.backward</code>函数的行为一样)。<strong>需要注意的是</strong>，这个函数不会改变叶子节点的grad属性。而函数<code>torch.autograd.backward</code>会设置叶子节点的grad属性为最后求出梯度张量。<code>torch.autograd.grad</code>会在反向传播求导时释放计算图，如果需要保留计算图，同样可以设置<code>retain_graph=True</code>.如果需要反向传播的计算图，可以设置<code>create_graph=True</code>.</p>
+<p>另外，有时候会碰到一种情况是求导的两个张量之间在计算图上没有关联，在这种情况下函数会报错，如果不需要函数的报错行为，可以设置allow_unused=True这个参数，结果会返回分量全为0的梯度张量(因为两个张量没有关联，所以求导的梯度为0).</p>
+<p>具体的使用方法可以参考以下代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">t1 = t.randn(<span class="number">3</span>, <span class="number">3</span>, requires_grad=<span class="literal">True</span>) <span class="comment">#初始化t1张量</span></span><br><span class="line">t1</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[-0.1082, -1.0099, -0.4560],</span></span><br><span class="line"><span class="string">        [-0.3910, -0.9767,  0.6419],</span></span><br><span class="line"><span class="string">        [ 1.1544,  0.3572, -1.3304]], requires_grad=True)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">t2 = t1.pow(<span class="number">2</span>).sum() <span class="comment">#根据t1张量求t2张量</span></span><br><span class="line">t.autograd.grad(t2, t1) <span class="comment"># t2张量对t1张量求导</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">(tensor([[-0.2165, -2.0197, -0.9120],</span></span><br><span class="line"><span class="string">         [-0.7820, -1.9535,  1.2837],</span></span><br><span class="line"><span class="string">         [ 2.3088,  0.7145, -2.6608]]),)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="计算图的构建的启用和禁用"><a href="#计算图的构建的启用和禁用" class="headerlink" title="计算图的构建的启用和禁用"></a>计算图的构建的启用和禁用</h2><p>由于计算图的构建需要消耗内存和计算资源，在一些情况下，计算图并不是必要的，比如<strong>神经网络的推导</strong>。在这种情况下，可以使用<code>torch.no_grad</code>上下文管理器，在这个上下文管理器的作用域内进行的神经网络计算不会构建任何计算图。</p>
+<p>另外，还有一种情况是对于一个张量，我们在反向传播的时候可能不需要让梯度通过这个张量的节点，也就是新建的计算图要和原来的计算图分离。在这种情况下，可以使用张量的<code>detach</code>方法，通过调用这个方法，可以返回一个新的张量，该张量会成为一个新的计算图的叶子节点，新的计算图和老的计算图互相分离，互不影响。具体代码如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">t1 = t.randn(<span class="number">3</span>, <span class="number">3</span>, requires_grad=<span class="literal">True</span>)</span><br><span class="line">t2 = t1.sum()</span><br><span class="line"></span><br><span class="line">t2   <span class="comment">#t2的计算构建了计算图，输出结果带有grad_fn</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string"> tensor(2.2761, grad_fn=&lt;SumBackward0&gt;)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> t.no_grad():</span><br><span class="line">    t3 = t1.sum()</span><br><span class="line">    </span><br><span class="line">t3  <span class="comment">#t3的计算没有构建计算图，输出结果没有grad_fn</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor(2.2761)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">t1.sum()   <span class="comment">#保持原来的计算图</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor(2.2761, grad_fn=&lt;SumBackward0&gt;)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">t1.sum().detach()</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string"> tensor(2.2761)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><h3 id="Tensor"><a href="#Tensor" class="headerlink" title="Tensor"></a>Tensor</h3><p>如果我们需要计算某个Tensor的导数，那么我们需要设置其<code>requires_grad=True</code>.</p>
+<p>Tensor包含以下属性：</p>
+<ul>
+<li><code>grad</code>：保存tensor的梯度，形状与Tensor一致。每次在计算backward时都需要将前一时刻的梯度归零，否则梯度值会一直累加。</li>
+<li><code>grad_fn</code>：指向一个Function，记录Tensor的操作历史，即它是什么操作的输出，用来构建计算图。如果某一个变量是由用户创建的，则他为<strong>叶子节点</strong>，对应的<code>grad_fn</code>等于<code>None</code>。只有<strong>根节点</strong>的<code>grad_fn</code>才有效，用于指示梯度函数是哪种类型。</li>
+<li><code>is_leaf</code>: 用来指示该Tensor是否是叶子节点。</li>
+<li><code>requires_grad</code>: 设置为<code>True</code>则表示该Tensor需要求导</li>
+</ul>
+<p>通过几个例子来了解一下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch <span class="keyword">as</span> t</span><br><span class="line"></span><br><span class="line">a = t.ones(<span class="number">3</span>, <span class="number">4</span>, requires_grad = <span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">a</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[1., 1., 1., 1.],</span></span><br><span class="line"><span class="string">        [1., 1., 1., 1.],</span></span><br><span class="line"><span class="string">        [1., 1., 1., 1.]], requires_grad=True)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">b = t.zeros(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">b</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[0., 0., 0., 0.],</span></span><br><span class="line"><span class="string">        [0., 0., 0., 0.],</span></span><br><span class="line"><span class="string">        [0., 0., 0., 0.]])</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># 张量加法</span></span><br><span class="line"></span><br><span class="line">c = a + b</span><br><span class="line">c</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[1., 1., 1., 1.],</span></span><br><span class="line"><span class="string">        [1., 1., 1., 1.],</span></span><br><span class="line"><span class="string">        [1., 1., 1., 1.]], grad_fn=&lt;AddBackward0&gt;)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 或</span></span><br><span class="line">c = a.add(b)</span><br><span class="line">c</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[1., 1., 1., 1.],</span></span><br><span class="line"><span class="string">        [1., 1., 1., 1.],</span></span><br><span class="line"><span class="string">        [1., 1., 1., 1.]], grad_fn=&lt;AddBackward0&gt;)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">d = c.sum()</span><br><span class="line">d.backward() <span class="comment"># 反向传播</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意两者的区别</span></span><br><span class="line">c.data.sum(), c.sum()</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">(tensor(12.), tensor(12., grad_fn=&lt;SumBackward0&gt;))</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">a.grad</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[1., 1., 1., 1.],</span></span><br><span class="line"><span class="string">        [1., 1., 1., 1.],</span></span><br><span class="line"><span class="string">        [1., 1., 1., 1.]])</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># 此处虽然没有指定c需要求导，但c依赖于a，a需要求导</span></span><br><span class="line"><span class="comment"># 因此c的requires_grad属性会自动设为True</span></span><br><span class="line">a.requires_grad, b.requires_grad, c.requires_grad</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;(True, False, True)&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 由用户创建的 tensor 属于叶子节点，对应的grad_fn是None</span></span><br><span class="line">a.is_leaf, b.is_leaf, c.is_leaf</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;(True, True, False)&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># c.grad是None, c不是叶子节点, 他的梯度是用来计算a的梯度</span></span><br><span class="line"><span class="comment"># 虽然c.requires_grad = True, 但其梯度计算完了即被释放</span></span><br><span class="line"></span><br><span class="line">c.grad <span class="keyword">is</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;True&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="torch-autograd-backward"><a href="#torch-autograd-backward" class="headerlink" title="torch.autograd.backward"></a>torch.autograd.backward</h3><p>先看一下backward的接口是如何定义的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">torch.autograd.backward(</span><br><span class="line">        tensors, </span><br><span class="line">        grad_tensors&#x3D;None, </span><br><span class="line">        retain_graph&#x3D;None, </span><br><span class="line">        create_graph&#x3D;False, </span><br><span class="line">        grad_variables&#x3D;None)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>tensor</code>: 用于计算梯度的tensor。也就是说这两种方式是等价的：<code>torch.autograd.backward(z) == z.backward()</code></li>
+<li><code>grad_tensors</code>: 在计算矩阵的梯度时会用到。他其实也是一个tensor，shape一般需要和前面的<code>tensor</code>保持一致。</li>
+<li><code>retain_graph</code>: 通常在调用一次backward后，PyTorch会自动把计算图销毁，所以要想对某个变量重复调用backward，则需要将该参数设置为<code>True</code></li>
+<li><code>create_graph</code>: 当设置为<code>True</code>的时候可以用来计算更高阶的梯度</li>
+<li><code>grad_variables</code>: 这个官方说法是grad_variables’ is deprecated. Use ‘grad_tensors’ instead.也就是说这个参数后面版本中应该会丢弃，直接使用<code>grad_tensors</code>.</li>
+</ul>
+<p>使用以下代码尝试解释<code>grad_tensors</code>的作用。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = torch.ones(<span class="number">2</span>,requires_grad=<span class="literal">True</span>)</span><br><span class="line">z = x + <span class="number">2</span></span><br><span class="line">z.backward()</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">RuntimeError: grad can be implicitly created only for scalar outputs</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>当代码被运行，会有一个上述的<code>RuntimeError</code>被抛出。上面的报错信息意思是<strong>只有对标量输出它才会计算梯度</strong>，而求一个矩阵对令一个矩阵的导数束手无策。<br>$$<br>X=[x_0\quad x_1]\quad  Z=X+2=[x_0+2\quad x_1+2]\Rightarrow \frac{\partial Z}{\partial X}=?<br>$$<br>那么我们只要相办法把矩阵转变成一个标量不就好了？比如我们可以对<code>Z</code>求和，然后用求和得到的标量在对x求导，这样不会对结果有影响。即：<br>$$<br>Z_{sum}=\sum{z_i}=x_0+x_1+8\quad then \quad\frac{\partial Z_{sum}}{\partial X_0}=\frac{\partial Z_{sum}}{\partial X_1}=1<br>$$<br>我们可以看到对z求和以后再计算梯度没有报错，结果也和预期一样：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch <span class="keyword">as</span> t</span><br><span class="line"></span><br><span class="line">x = t.ones(<span class="number">2</span>,requires_grad=<span class="literal">True</span>)</span><br><span class="line">z = x + <span class="number">2</span></span><br><span class="line"></span><br><span class="line">z.sum().backward()</span><br><span class="line">x.grad</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([1., 1.])</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>我们再仔细想想，对z求和不就是等价于z<strong>点乘一个一样维度的全为1的矩阵</strong>吗？即$sum(Z)=dot(Z,I)$,而这个I也就是我们需要传入的<code>grad_tensor</code>参数。点乘只是对一维向量而言的，对于矩阵或更高维的张量，可以看作是<strong>对每一个维度做点乘</strong>。</p>
+<p>代码如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch <span class="keyword">as</span> t</span><br><span class="line">x = t.ones(<span class="number">2</span>,requires_grad=<span class="literal">True</span>)</span><br><span class="line">z = x + <span class="number">2</span></span><br><span class="line"></span><br><span class="line">z.backward(t.ones_like(z))</span><br><span class="line">x.grad</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([1., 1.])</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>弄个再复杂一点的：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = t.tensor([[<span class="number">2.</span>, <span class="number">1.</span>]], requires_grad=<span class="literal">True</span>)</span><br><span class="line">y = t.tensor([[<span class="number">1.</span>, <span class="number">2.</span>], [<span class="number">3.</span>, <span class="number">4.</span>]], requires_grad=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">z = t.mm(x, y)</span><br><span class="line">print(<span class="string">f&quot;z:<span class="subst">&#123;z&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">z.backward(t.tensor([[<span class="number">1.</span>, <span class="number">0</span>]]), retain_graph=<span class="literal">True</span>)</span><br><span class="line">print(<span class="string">f&quot;x.grad:<span class="subst">&#123;x.grad&#125;</span>&quot;</span>)</span><br><span class="line">print(<span class="string">f&quot;y.grad:<span class="subst">&#123;y.grad&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">z:tensor([[5., 8.]], grad_fn=&lt;MmBackward&gt;)</span></span><br><span class="line"><span class="string">x.grad:tensor([[1., 3.]])</span></span><br><span class="line"><span class="string">y.grad:tensor([[2., 0.],</span></span><br><span class="line"><span class="string">        [1., 0.]])</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>总结：说了这么多，grad_tensors的作用其实可以简单地理解成在求梯度时候地权重，因为可能梯度对影响结果程度不同。</p>
+<p><strong>知乎高赞评论：</strong>假设是在z点backward，输入<code>grad_tensors</code>应该是目标函数(scalar)f对z的梯度，那么<br>$$<br>\frac{\partial f}{\partial X}=\frac{\partial f}{\partial z} \times \frac{\partial z}{\partial x}<br>$$<br>其中，传入的第一项就是传入<code>grad_tensors</code></p>
+<h3 id="导数运算"><a href="#导数运算" class="headerlink" title="导数运算"></a>导数运算</h3><p>接着我们来看看autograd计算的导数和我们手动推导的导数的区别。</p>
+<p>给出下列函数表达式：<br>$$<br>y=x^2e^x<br>$$<br>他的导函数是：<br>$$<br>\frac{\partial y}{\partial x}=2xe^x+x^2e^x<br>$$</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch <span class="keyword">as</span> t</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;计算y&quot;&quot;&quot;</span></span><br><span class="line">    y = x**<span class="number">2</span> * t.exp(x)</span><br><span class="line">    <span class="keyword">return</span> y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gradf</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;手动求导函数&quot;&quot;&quot;</span></span><br><span class="line">    dx = <span class="number">2</span>*x*t.exp(x) + x**<span class="number">2</span>*t.exp(x)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> dx</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置随机数种子, 使结果可以复现</span></span><br><span class="line">t.manual_seed(<span class="number">0</span>)</span><br><span class="line">np.random.seed(<span class="number">0</span>)</span><br><span class="line">x = t.randn(<span class="number">3</span>, <span class="number">4</span>, requires_grad = <span class="literal">True</span>)</span><br><span class="line">y = f(x)</span><br><span class="line">y</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[11.0879,  0.0642,  0.5373,  0.5705],</span></span><br><span class="line"><span class="string">        [ 0.3976,  0.4830,  0.2435,  1.6235],</span></span><br><span class="line"><span class="string">        [ 0.2520,  0.1087,  0.1960,  0.0398]], grad_fn=&lt;MulBackward0&gt;)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">y.backward(t.ones(y.size())) <span class="comment"># 和grad_tensor形状一致</span></span><br><span class="line">x.grad</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[25.4785, -0.3734,  0.0441,  2.5776],</span></span><br><span class="line"><span class="string">        [-0.3356, -0.2077,  1.4510,  5.4982],</span></span><br><span class="line"><span class="string">        [-0.4487, -0.4302, -0.4611,  0.4765]])</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">y.sum().backward()</span><br><span class="line">x.grad</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[25.4785, -0.3734,  0.0441,  2.5776],</span></span><br><span class="line"><span class="string">        [-0.3356, -0.2077,  1.4510,  5.4982],</span></span><br><span class="line"><span class="string">        [-0.4487, -0.4302, -0.4611,  0.4765]])</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># autograd的计算结果与利用公式手动计算的结果一致</span></span><br><span class="line">gradf(x)</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tensor([[25.4785, -0.3734,  0.0441,  2.5776],</span></span><br><span class="line"><span class="string">        [-0.3356, -0.2077,  1.4510,  5.4982],</span></span><br><span class="line"><span class="string">        [-0.4487, -0.4302, -0.4611,  0.4765]], grad_fn=&lt;AddBackward0&gt;)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="计算图"><a href="#计算图" class="headerlink" title="计算图"></a>计算图</h3><p>PyTorch 中的 autograd 的底层采用了计算图，计算图是一种<strong>特殊的有向无环图(DAG)</strong>.用于记录算子和变量之间的关系。一般用矩形表示算子，椭圆形表示变量。如表达式$z=wx+b$可以分解为$y=wx$和$z=y+b$，其计算图如下图所示，图中的<code>MUL</code>和<code>ADD</code>都是算子，$w、x、b$为变量。</p>
+<img src="https://ftp.fly97.cn/image/image-20200820171041627.png" alt="image-20200820171041627" style="zoom:50%;" />
+
+<p>如上有向无环图中，$X$和$b$是叶子节点(leaf node)，这些节点通常由用户自己创建，不依赖其他变量。$z$称为根节点，是计算图的最终目标。利用链式法则很容易求得各个叶子节点的梯度。<br>$$<br>\frac{\partial z}{\partial b}=1\quad\frac{\partial z}{\partial y}=1<br>$$</p>
+<p>$$<br>\frac{\partial y}{\partial w}=x\quad\frac{\partial y}{\partial x}=w<br>$$</p>
+<p>$$<br>\frac{\partial z}{\partial x}=\frac{\partial z}{\partial y} \times\frac{\partial y}{\partial x}=1\times w<br>$$</p>
+<p>$$<br>\frac{\partial z}{\partial w}=\frac{\partial z}{\partial y} \times\frac{\partial y}{\partial w}=1\times x<br>$$</p>
+<p>而有了计算图，上述链式求导即可利用计算图的反向传播自动完成，其传播过程如下图所示。</p>
+<img src="https://ftp.fly97.cn/image/image-20200820172727826.png" alt="image-20200820172727826" style="zoom:50%;" />
+
+<p>在 PyTorch 实现中，<code>autograd</code>会随着用户的操作，记录生成当前 <strong>Tensor</strong> 的所有操作，并由此建立一个有向无环图。用户没进行一个操作，相应的计算图就会发生改变。更底层的实现中，图中记录了操作<code>Function</code>，每个变量在图中的位置可通过其<code>grad_fn</code>属性在图中的位置可以推测得到。在反向传播过程中，<code>autograd</code>沿着这个图从当前变量(根节点$z$)溯源，可以利用链式求导法则计算所有叶子节点的梯度。每一个前向传播操作的函数都有与之对应的反向传播函数用来计算输入的各个Tensor的梯度，这些函数的函数名通常以<code>Backward</code>结尾。</p>
+<p>部分转载自：<a href="https://zhuanlan.zhihu.com/p/83172023">https://zhuanlan.zhihu.com/p/83172023</a></p>
+]]></content>
+      <tags>
+        <tag>PyTorch</tag>
       </tags>
   </entry>
   <entry>
