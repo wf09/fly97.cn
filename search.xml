@@ -281,7 +281,7 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">b.add_(<span class="number">1</span>) <span class="comment"># 以_结尾的函数会修改自身</span></span><br><span class="line">print(a) </span><br><span class="line">print(b) <span class="comment"># Tensor和Numpy共享内存</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>Tensor可通过<code>.cuda</code>方法转换为GPU的Tensor，从而享受GPU带来的加速运算.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在不支持CUDA的机器下，下一步不会运行</span></span><br><span class="line"><span class="keyword">if</span> t.cuda.is_available():</span><br><span class="line">    x = x.cuda()</span><br><span class="line">    y = y.cuda()</span><br><span class="line">    x + y</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在不支持CUDA的机器下，下一步不会运行</span></span><br><span class="line"><span class="keyword">if</span> t.cuda.is_available():</span><br><span class="line">	x = x.cuda()</span><br><span class="line">	y = y.cuda()</span><br><span class="line">	x + y</span><br></pre></td></tr></table></figure>
 
 <p>此处可能会发现GPU的运算速度并未提升太多，这是因为 x 和y 太小且运算也比较简单，而且将数据从内存种转移到显存上还需要花费额外的开销。GPU的优势需要在大规模数据和复杂运算上才能体现出来。</p>
 ]]></content>
@@ -488,7 +488,7 @@
 <p><strong>关键词</strong>：时区计算，pytz</p>
 <a id="more"></a>
 
-<h4 id="获得北京时间"><a href="#获得北京时间" class="headerlink" title="获得北京时间"></a>获得北京时间</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> time </span><br><span class="line"><span class="keyword">import</span> pytz</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> pytz <span class="keyword">import</span> timezone</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">utc = pytz.utc</span><br><span class="line">utc_dt = utc.localize(datetime.utcfromtimestamp(time.time())) <span class="comment"># 获得UTC时间</span></span><br><span class="line"></span><br><span class="line">shanghai = timezone(<span class="string">&#x27;Asia/Shanghai&#x27;</span>)                         <span class="comment"># 定义一个时区</span></span><br><span class="line">shanghai_dt = utc_dt.astimezone(shanghai)                     <span class="comment"># 将本地时区的时间转换成UTC时间</span></span><br><span class="line"></span><br><span class="line">fmt = <span class="string">&#x27;%Y-%m-%d %H:%M:%S %Z%z&#x27;</span>                                <span class="comment"># 定义打印时间</span></span><br><span class="line">print(shanghai_dt.strftime(fmt)                               <span class="comment"># 输出指定时区的时间</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="获得北京时间"><a href="#获得北京时间" class="headerlink" title="获得北京时间"></a>获得北京时间</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> time </span><br><span class="line"><span class="keyword">import</span> pytz</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> pytz <span class="keyword">import</span> timezone</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">utc = pytz.utc</span><br><span class="line">utc_dt = utc.localize(datetime.utcfromtimestamp(time.time())) <span class="comment"># 获得UTC时间</span></span><br><span class="line"></span><br><span class="line">shanghai = timezone(<span class="string">&#x27;Asia/Shanghai&#x27;</span>) 						<span class="comment"># 定义一个时区</span></span><br><span class="line">shanghai_dt = utc_dt.astimezone(shanghai)                     <span class="comment"># 将本地时区的时间转换成UTC时间</span></span><br><span class="line"></span><br><span class="line">fmt = <span class="string">&#x27;%Y-%m-%d %H:%M:%S %Z%z&#x27;</span>                                <span class="comment"># 定义打印时间</span></span><br><span class="line">print(shanghai_dt.strftime(fmt)                               <span class="comment"># 输出指定时区的时间</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>通过Python自带的包也可以方便的进行时区转换。这里使用的是datetime. </p>
 <p>datetime 是Python处理日期和时间的标准库。</p>
@@ -1028,7 +1028,7 @@
 <li>简历一个脚本文件，并赋予755权限：<code>chmod 755 文件名</code></li>
 </ol>
 <p>以kms服务脚本为例</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### BEGIN INIT INFO</span></span><br><span class="line"><span class="comment"># Provides:          kms-service</span></span><br><span class="line"><span class="comment"># Required-Start:    $network $local_fs $remote_fs</span></span><br><span class="line"><span class="comment"># Required-Stop:     $network $local_fs $remote_fs</span></span><br><span class="line"><span class="comment"># Default-Start:     2 3 4 5</span></span><br><span class="line"><span class="comment"># Default-Stop:      0 1 6</span></span><br><span class="line"><span class="comment"># Short-Description: Start kms at boot time</span></span><br><span class="line"><span class="comment"># Description:       Start or stop the KMS-service</span></span><br><span class="line"><span class="comment">### END INIT INFO</span></span><br><span class="line"></span><br><span class="line">NAME=<span class="string">&quot;KMS&quot;</span></span><br><span class="line">NAME_BIN=<span class="string">&quot;kms&quot;</span></span><br><span class="line">FILE=<span class="string">&quot;/home/ubuntu&quot;</span></span><br><span class="line">BIN=<span class="string">&quot;<span class="variable">$&#123;FILE&#125;</span>/kms&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Green_font_prefix=<span class="string">&quot;\033[32m&quot;</span> &amp;&amp; Red_font_prefix=<span class="string">&quot;\033[31m&quot;</span> &amp;&amp; Green_background_prefix=<span class="string">&quot;\033[42;37m&quot;</span> &amp;&amp; Red_background_prefix=<span class="string">&quot;\033[41;37m&quot;</span> &amp;&amp; Font_color_suffix=<span class="string">&quot;\033[0m&quot;</span></span><br><span class="line">Info=<span class="string">&quot;<span class="variable">$&#123;Green_font_prefix&#125;</span>[信息]<span class="variable">$&#123;Font_color_suffix&#125;</span>&quot;</span></span><br><span class="line">Error=<span class="string">&quot;<span class="variable">$&#123;Red_font_prefix&#125;</span>[错误]<span class="variable">$&#123;Font_color_suffix&#125;</span>&quot;</span></span><br><span class="line">RETVAL=0</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">check_running</span></span>()&#123;</span><br><span class="line">    PID=$(ps -ef |grep <span class="string">&quot;<span class="variable">$&#123;NAME_BIN&#125;</span>&quot;</span> |grep -v <span class="string">&quot;grep&quot;</span> |grep -v <span class="string">&quot;init.d&quot;</span> |grep -v <span class="string">&quot;service&quot;</span> |awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> [[ ! -z <span class="variable">$&#123;PID&#125;</span> ]]; <span class="keyword">then</span></span><br><span class="line">        <span class="comment">#echo -e &quot;$&#123;Info&#125;$&#123;NAME&#125; 正在运行！&quot;</span></span><br><span class="line">        <span class="built_in">return</span> 0</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="comment">#echo -e &quot;$&#123;Error&#125;$&#123;NAME&#125; 没有运行！&quot;</span></span><br><span class="line">        <span class="built_in">return</span> 1</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">start</span></span>()&#123;</span><br><span class="line">    check_running</span><br><span class="line">    <span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> -e <span class="string">&quot;<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> (PID <span class="variable">$&#123;PID&#125;</span>) 正在运行...&quot;</span> &amp;&amp; <span class="built_in">exit</span> 0</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">cd</span> <span class="variable">$&#123;FILE&#125;</span></span><br><span class="line">        <span class="built_in">echo</span> -e <span class="string">&quot;<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 启动中...&quot;</span></span><br><span class="line">        <span class="built_in">ulimit</span> -n 51200</span><br><span class="line">        ./kms </span><br><span class="line">        sleep 1s</span><br><span class="line">        check_running</span><br><span class="line">        <span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">echo</span> -e <span class="string">&quot;<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 启动成功 !&quot;</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">echo</span> -e <span class="string">&quot;<span class="variable">$&#123;Error&#125;</span> <span class="variable">$NAME</span> 启动失败(请运行脚本查看日志错误输出) !&quot;</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">stop</span></span>()&#123;</span><br><span class="line">    check_running</span><br><span class="line">    <span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">kill</span> -9 <span class="variable">$&#123;PID&#125;</span></span><br><span class="line">        RETVAL=$?</span><br><span class="line">        <span class="keyword">if</span> [[ <span class="variable">$RETVAL</span> -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">echo</span> -e <span class="string">&quot;<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 停止成功 !&quot;</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">echo</span> -e <span class="string">&quot;<span class="variable">$&#123;Error&#125;</span> <span class="variable">$NAME</span> 停止失败 !&quot;</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> -e <span class="string">&quot;<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 未运行&quot;</span></span><br><span class="line">        RETVAL=1</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">status</span></span>()&#123;</span><br><span class="line">    check_running</span><br><span class="line">    <span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">        <span class="comment">#View_User</span></span><br><span class="line">        <span class="built_in">echo</span> -e <span class="string">&quot;<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> (PID <span class="variable">$&#123;PID&#125;</span>) 正在运行...&quot;</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> -e <span class="string">&quot;<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 未运行 !&quot;</span></span><br><span class="line">        RETVAL=1</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">restart</span></span>()&#123;</span><br><span class="line">    stop</span><br><span class="line">    sleep 2s</span><br><span class="line">    start</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$1</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">    start|stop|restart|status)</span><br><span class="line">    <span class="variable">$1</span></span><br><span class="line">    ;;</span><br><span class="line">    *)</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;使用方法: <span class="variable">$0</span> &#123; start | stop | restart | status &#125;&quot;</span></span><br><span class="line">    RETVAL=1</span><br><span class="line">    ;;</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"><span class="built_in">exit</span> <span class="variable">$RETVAL</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### BEGIN INIT INFO</span></span><br><span class="line"><span class="comment"># Provides:          kms-service</span></span><br><span class="line"><span class="comment"># Required-Start:    $network $local_fs $remote_fs</span></span><br><span class="line"><span class="comment"># Required-Stop:     $network $local_fs $remote_fs</span></span><br><span class="line"><span class="comment"># Default-Start:     2 3 4 5</span></span><br><span class="line"><span class="comment"># Default-Stop:      0 1 6</span></span><br><span class="line"><span class="comment"># Short-Description: Start kms at boot time</span></span><br><span class="line"><span class="comment"># Description:       Start or stop the KMS-service</span></span><br><span class="line"><span class="comment">### END INIT INFO</span></span><br><span class="line"></span><br><span class="line">NAME=<span class="string">&quot;KMS&quot;</span></span><br><span class="line">NAME_BIN=<span class="string">&quot;kms&quot;</span></span><br><span class="line">FILE=<span class="string">&quot;/home/ubuntu&quot;</span></span><br><span class="line">BIN=<span class="string">&quot;<span class="variable">$&#123;FILE&#125;</span>/kms&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Green_font_prefix=<span class="string">&quot;\033[32m&quot;</span> &amp;&amp; Red_font_prefix=<span class="string">&quot;\033[31m&quot;</span> &amp;&amp; Green_background_prefix=<span class="string">&quot;\033[42;37m&quot;</span> &amp;&amp; Red_background_prefix=<span class="string">&quot;\033[41;37m&quot;</span> &amp;&amp; Font_color_suffix=<span class="string">&quot;\033[0m&quot;</span></span><br><span class="line">Info=<span class="string">&quot;<span class="variable">$&#123;Green_font_prefix&#125;</span>[信息]<span class="variable">$&#123;Font_color_suffix&#125;</span>&quot;</span></span><br><span class="line">Error=<span class="string">&quot;<span class="variable">$&#123;Red_font_prefix&#125;</span>[错误]<span class="variable">$&#123;Font_color_suffix&#125;</span>&quot;</span></span><br><span class="line">RETVAL=0</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">check_running</span></span>()&#123;</span><br><span class="line">	PID=$(ps -ef |grep <span class="string">&quot;<span class="variable">$&#123;NAME_BIN&#125;</span>&quot;</span> |grep -v <span class="string">&quot;grep&quot;</span> |grep -v <span class="string">&quot;init.d&quot;</span> |grep -v <span class="string">&quot;service&quot;</span> |awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>)</span><br><span class="line">	<span class="keyword">if</span> [[ ! -z <span class="variable">$&#123;PID&#125;</span> ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="comment">#echo -e &quot;$&#123;Info&#125;$&#123;NAME&#125; 正在运行！&quot;</span></span><br><span class="line">		<span class="built_in">return</span> 0</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="comment">#echo -e &quot;$&#123;Error&#125;$&#123;NAME&#125; 没有运行！&quot;</span></span><br><span class="line">		<span class="built_in">return</span> 1</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">start</span></span>()&#123;</span><br><span class="line">	check_running</span><br><span class="line">	<span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">&quot;<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> (PID <span class="variable">$&#123;PID&#125;</span>) 正在运行...&quot;</span> &amp;&amp; <span class="built_in">exit</span> 0</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">cd</span> <span class="variable">$&#123;FILE&#125;</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">&quot;<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 启动中...&quot;</span></span><br><span class="line">		<span class="built_in">ulimit</span> -n 51200</span><br><span class="line">		./kms </span><br><span class="line">		sleep 1s</span><br><span class="line">		check_running</span><br><span class="line">		<span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">&quot;<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 启动成功 !&quot;</span></span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">&quot;<span class="variable">$&#123;Error&#125;</span> <span class="variable">$NAME</span> 启动失败(请运行脚本查看日志错误输出) !&quot;</span></span><br><span class="line">		<span class="keyword">fi</span></span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">stop</span></span>()&#123;</span><br><span class="line">	check_running</span><br><span class="line">	<span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="built_in">kill</span> -9 <span class="variable">$&#123;PID&#125;</span></span><br><span class="line">		RETVAL=$?</span><br><span class="line">		<span class="keyword">if</span> [[ <span class="variable">$RETVAL</span> -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">&quot;<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 停止成功 !&quot;</span></span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">&quot;<span class="variable">$&#123;Error&#125;</span> <span class="variable">$NAME</span> 停止失败 !&quot;</span></span><br><span class="line">		<span class="keyword">fi</span></span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">&quot;<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 未运行&quot;</span></span><br><span class="line">		RETVAL=1</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">status</span></span>()&#123;</span><br><span class="line">	check_running</span><br><span class="line">	<span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="comment">#View_User</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">&quot;<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> (PID <span class="variable">$&#123;PID&#125;</span>) 正在运行...&quot;</span></span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">echo</span> -e <span class="string">&quot;<span class="variable">$&#123;Info&#125;</span> <span class="variable">$NAME</span> 未运行 !&quot;</span></span><br><span class="line">		RETVAL=1</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">restart</span></span>()&#123;</span><br><span class="line">	stop</span><br><span class="line">	sleep 2s</span><br><span class="line">	start</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$1</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">	start|stop|restart|status)</span><br><span class="line">	<span class="variable">$1</span></span><br><span class="line">	;;</span><br><span class="line">	*)</span><br><span class="line">	<span class="built_in">echo</span> <span class="string">&quot;使用方法: <span class="variable">$0</span> &#123; start | stop | restart | status &#125;&quot;</span></span><br><span class="line">	RETVAL=1</span><br><span class="line">	;;</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"><span class="built_in">exit</span> <span class="variable">$RETVAL</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h5 id="加入到系统启动中"><a href="#加入到系统启动中" class="headerlink" title="加入到系统启动中"></a>加入到系统启动中</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 添加到系统启动</span><br><span class="line">update-rc.d kms defaults </span><br><span class="line">// 从系统启动中删除</span><br><span class="line">update-rc.d kms remove</span><br></pre></td></tr></table></figure>
 
@@ -1347,7 +1347,7 @@
 <h5 id="创建ssh-key："><a href="#创建ssh-key：" class="headerlink" title="创建ssh key："></a>创建ssh key：</h5><p>为了让github能够识别是我们自己上传文件，需要创建ssh key</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</span><br></pre></td></tr></table></figure>
 
-<p>这里的<strong><a href="mailto:&#x79;&#111;&#x75;&#114;&#95;&#x65;&#109;&#x61;&#105;&#x6c;&#64;&#121;&#111;&#117;&#114;&#x65;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#x79;&#111;&#x75;&#114;&#95;&#x65;&#109;&#x61;&#105;&#x6c;&#64;&#121;&#111;&#117;&#114;&#x65;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</a></strong>是你的<strong>邮箱地址</strong>，在输入后会询问你是否保存创建的ssh key，点回车就好，然后要求输入你要设置的密码，如果直接回车表示不设密码。然后会提示你ssh key已经创建好。</p>
+<p>这里的<strong><a href="mailto:&#x79;&#x6f;&#x75;&#114;&#x5f;&#x65;&#109;&#x61;&#105;&#108;&#64;&#x79;&#x6f;&#117;&#114;&#101;&#109;&#97;&#x69;&#x6c;&#46;&#99;&#x6f;&#109;">&#x79;&#x6f;&#x75;&#114;&#x5f;&#x65;&#109;&#x61;&#105;&#108;&#64;&#x79;&#x6f;&#117;&#114;&#101;&#109;&#97;&#x69;&#x6c;&#46;&#99;&#x6f;&#109;</a></strong>是你的<strong>邮箱地址</strong>，在输入后会询问你是否保存创建的ssh key，点回车就好，然后要求输入你要设置的密码，如果直接回车表示不设密码。然后会提示你ssh key已经创建好。</p>
 <h5 id="把密码导入GitHub："><a href="#把密码导入GitHub：" class="headerlink" title="把密码导入GitHub："></a>把密码导入GitHub：</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat ~&#x2F;.ssh&#x2F;id_rsa.pub</span><br></pre></td></tr></table></figure>
 
 <p>此时在终端会显示出刚刚创建好的ssh key，复制出来，在github在点击头像，然后点击setting，在找到SSH and GPG keys，创建一个new ssh key，然后将刚刚复制的ssh key填入即可。</p>
@@ -1531,7 +1531,7 @@
 
 <h4 id="4-离线安装Pytorch"><a href="#4-离线安装Pytorch" class="headerlink" title="4.离线安装Pytorch"></a>4.离线安装Pytorch</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install --no-index --find-links=torch-1.4.0+cpu-cp36-cp36m-linux_x86_64.whl torch</span><br></pre></td></tr></table></figure>
 
-<h4 id="5-windows10卸载Pytorch-cpu版本并安装GPU版本"><a href="#5-windows10卸载Pytorch-cpu版本并安装GPU版本" class="headerlink" title="5.windows10卸载Pytorch-cpu版本并安装GPU版本"></a>5.windows10卸载Pytorch-cpu版本并安装GPU版本</h4><h5 id="5-1-卸载cpu版"><a href="#5-1-卸载cpu版" class="headerlink" title="5.1 卸载cpu版"></a>5.1 卸载cpu版</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip uninstall torch           <span class="comment">#卸载torch</span></span><br><span class="line">pip uninstall torchvison    <span class="comment">#卸载torchvison</span></span><br></pre></td></tr></table></figure>
+<h4 id="5-windows10卸载Pytorch-cpu版本并安装GPU版本"><a href="#5-windows10卸载Pytorch-cpu版本并安装GPU版本" class="headerlink" title="5.windows10卸载Pytorch-cpu版本并安装GPU版本"></a>5.windows10卸载Pytorch-cpu版本并安装GPU版本</h4><h5 id="5-1-卸载cpu版"><a href="#5-1-卸载cpu版" class="headerlink" title="5.1 卸载cpu版"></a>5.1 卸载cpu版</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip uninstall torch   		<span class="comment">#卸载torch</span></span><br><span class="line">pip uninstall torchvison    <span class="comment">#卸载torchvison</span></span><br></pre></td></tr></table></figure>
 
 <h5 id="5-2-安装CUDA"><a href="#5-2-安装CUDA" class="headerlink" title="5.2 安装CUDA"></a>5.2 安装CUDA</h5><p><img src="https://ftp.fly97.cn/image/image-20200315143756001.png" alt="image-20200315143756001"></p>
 <p><a href="https://developer.nvidia.com/cuda-toolkit-archive">https://developer.nvidia.com/cuda-toolkit-archive</a></p>
@@ -2421,132 +2421,6 @@
       </tags>
   </entry>
   <entry>
-    <title>现代信号分析选讲(一)</title>
-    <url>/p/%E7%8E%B0%E4%BB%A3%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90.html</url>
-    <content><![CDATA[<p><strong>摘要：</strong>此系列文章是我从2020年9月21日开始在浙江理工大学读研一时《现代信号分析》课程的课堂笔记和课后小结。使用的教材是</p>
-<p>《现代信号处理》第三版，作者是张贤达。</p>
-<p><strong>关键词：</strong>研一，现代信号分析</p>
-<a id="more"></a>
-
-<h3 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h3><p>《现代信号分析》课程内容主要包括随机信号、参数估计理论、现代谱估计、自适应滤波器、高阶统计分析（部分）、时域信号分析的线性变换和非线性变换。</p>
-<p>《现代信号分析》的前导课程主要包括数字信号处理、概率论、随机信号分析和线性代数。</p>
-<h4 id="信号处理的方法"><a href="#信号处理的方法" class="headerlink" title="信号处理的方法"></a>信号处理的方法</h4><ol>
-<li>基于变换的方法</li>
-</ol>
-<ul>
-<li><p>傅里叶变换</p>
-</li>
-<li><p>小波变换</p>
-</li>
-</ul>
-<p>分析：</p>
-<ul>
-<li>DFT-频谱分析（确定信号）</li>
-<li>周期图-功率谱分析（随机信号）</li>
-<li>短期傅里叶变换，小波-多频率分析（<strong>时变信号</strong>）</li>
-</ul>
-<p>滤波：</p>
-<ul>
-<li>数字滤波器</li>
-<li>滤波器组</li>
-</ul>
-<ol start="2">
-<li>基于模型的方法</li>
-</ol>
-<ul>
-<li>信号产生过程的参数模型</li>
-</ul>
-<p>分析：</p>
-<ul>
-<li>线性预测</li>
-<li>参数谱估计</li>
-</ul>
-<p>滤波：</p>
-<ul>
-<li>最优线性滤波器（维纳滤波器，卡尔曼滤波器）</li>
-<li>自适应滤波器</li>
-</ul>
-<ol start="3">
-<li>统计分析处理方法</li>
-</ol>
-<ul>
-<li>信号统计模型</li>
-<li>贝叶斯估计</li>
-</ul>
-<p>分析：</p>
-<ul>
-<li>参数估计</li>
-<li>隐马尔可夫模型</li>
-</ul>
-<p>滤波：</p>
-<ul>
-<li>MAP（最大后验估计）</li>
-<li>ML（极大似然）</li>
-<li>LS（最小二乘）  </li>
-</ul>
-<ol start="4">
-<li>智能，机器学习方法</li>
-</ol>
-<ul>
-<li>训练/学习</li>
-<li>推论</li>
-</ul>
-<p>分析：</p>
-<ul>
-<li>数据挖掘（支持向量机）</li>
-</ul>
-<p>滤波：</p>
-<ul>
-<li>人工神经网络</li>
-<li>粒子滤波器</li>
-</ul>
-<h3 id="信号分类"><a href="#信号分类" class="headerlink" title="信号分类"></a>信号分类</h3><p>如果信号在每个时刻的取值不是随机的，而是服从某种固定函数的关系，则称为<strong>确定性信号</strong>。</p>
-<p>常见的确定信号有阶跃信号、符号信号、矩形脉冲信号、余弦信号等。</p>
-<p>与<strong>确定性信号</strong>不同，若序列${s(t)}$在每个时刻的取值都是随机变量，则称之为<strong>随机信号</strong>。例如相位随机变化的正弦波信号<br>$$<br>s(t)=Acos(w_ct+\theta)(实谐波信号)<br>$$</p>
-<p>$$<br>s(t)=Aexp(jw_ct+\theta)(复谐波信号)<br>$$</p>
-<p>即为<strong>随机信号</strong>。式中$\theta$是在$[-\pi, \pi]$内均匀分布的随机变量，其概率密度函数为<br>$$<br>f(n) =<br>\begin{cases}<br>\frac{1}{2\pi},  &amp; \text{$\theta \in[-\pi, \pi]$} \[2ex]<br>0, &amp; \text{其他}<br>\end{cases}<br>$$<br>随机信号也称为<strong>随机过程</strong>，具有以下特点：</p>
-<ol>
-<li>随机信号<strong>在任何时间的取值</strong>都不是能先验确定的随机变量。</li>
-<li>随机信号或过程可以用<strong>概率分布</strong>特性统计描述。</li>
-</ol>
-<p>令$x(t)$表示一连续随机时间的复随机过程。对于任何一固定的时刻$t$，随机过程$x(t)$定义一随机变量$X=x(t)$，令$\mu(t)$表示其均值，则<br>$$<br>\mu(t)=E{x(t)}=\int_{-\infty} ^{+\infty}xf(x,t)dx<br>$$<br>式中$f(x,t)$表示随机变量$X=x(t)$在时间t的概率密度函数。复随机信号$x(t)$的<strong>自相关函数</strong>$R_x(t_1,t_2)定义为$x_t$在时刻t1和t2之间的<strong>相关</strong>，即：<br>$$<br>\begin{align}<br>R_x(t_1,t_2) &amp; = E{x(t_1)x^*(t_2)} \<br>&amp; =\int_{-\infty} ^{+\infty}\int_{-\infty} ^{+\infty}x_1x^<em>_2f(x1,x2;t1,t2)<br>dx_1dx_2 \<br>&amp; =R_x ^</em>(t_2,t_1)<br>\end{align}<br>$$<br>式中，上标 * 表示复数的共轭；$f(x_1, x_2;t_1, t_2)表示随机变量$X_1=x(t)$和$x_2=x(t_2)$的<strong>联合概率密度函数</strong>。一般情况下，自相关函数与时间变量$t_1$和$t_2$有关。</p>
-<p>给出以下不等式：<br>$$<br>{|R_x(t_1,t_2)|}^2 \leq R_x(t_1,t_1)R_x(t_2,t_2)<br>$$<br>这一不等式称为<strong>柯西-施瓦不等式</strong>. 【用语言叙述为：随机信号x(t)在时刻$t_1$和$t_2$的自相关函数的平方小于等于随机信号x(t)在分别在两时刻的自相关函数的乘积。】</p>
-<p>均值$E{x(t)}$和自相关函数$R_x(t_1, t_2)$分别是随机信号$x(t)$的<strong>一阶矩</strong>和<strong>二阶矩</strong>。类似地，定义随机信号${x(t)}$的<strong>k</strong>阶距为<br>$$<br>\mu(t_1,t_2,…,t_k)=E{x(t_1)x(t_2)…x(t_k)}<br>$$<br>根据k阶距是否与时间有关，随机信号又进一步分为<strong>平稳和非平稳</strong>信号两大类。</p>
-<p><strong>定义1.1.1（n阶平稳信号）</strong>    对于随机信号${x(t)}$，若对所有整数$1 \leq k \leq n和所有$t_1, …, t_k以及\tau$，其<strong>k阶距有界</strong>，且满足以下则称为随机信号${x(t)}$是$n$阶平稳信号。特别的，当随机信号是2阶平稳时，则称之为广义平稳信号。</p>
-<p><strong>定义1.1.2（广义平稳信号）</strong>    对于广义平稳复随机信号${x(t)}$，有以下性质：</p>
-<ol>
-<li>其均值是常数，即$E{x(t)}=\mu_x$(常数)；</li>
-<li>其二阶矩有界，即$E{x(t)}x^*(t)}=E&lt;!–￼0–&gt;P_T(f)=\int_{-\infty}^{\infty}C_{xx}(\tau)e^{-j2\pi f \tau}\rm d \tau \geq0<br>$$</li>
-</ol>
-<p><strong>上式给出了功率谱密度的定义，并且功率谱密度不可能为负。下面是功率谱密度的数学性质。</strong></p>
-<ol>
-<li>功率谱密度$P_{xx}(f)$是实的。</li>
-<li>功率谱密度是非负的，即$P_{xx}\geq 0$。</li>
-<li><strong>自协方差函数是功率谱密度的傅里叶逆变换</strong>，即</li>
-</ol>
-<p>$$<br>C_{xx}(\tau)=\int_{-\infty}^{\infty}P_{xx}(f)e^{j2\pi f\tau}\rm d \mit f<br>$$</p>
-<ol start="4">
-<li>功率谱密度对频率的积分给出信号${x(t)}$的方差，即</li>
-</ol>
-<p>$$<br>\int_{-\infty}^{\infty}P_{xx}(f) {\rm d} f=var[x(t)]=E{|x(t)-\mu_x|^2}<br>$$</p>
-<ol start="5">
-<li>若${x(t)}$是<strong>零均值</strong>($ \mu_x=0)的随机过程，则协方差函数与相关函数等价，即$C_{xx}(\tau)=R_xx(\tau)$，此时，<strong>功率谱密度</strong>和自相关函数分别等价为：</li>
-</ol>
-<p>$$<br>P_{xx}(f)=\int_{-\infty}^{\infty}R_{xx}(\tau)e^{-j2\pi f \tau}{\rm d}{\tau} \<br>R_{xx}(\tau)=\int_{-\infty}^{\infty}P_{xx}(f)e^{j2\pi f \tau}{\rm d}{f} \<br>$$</p>
-<p>上式描述的关系成为<strong>维纳——辛钦定理</strong>。其文字表述为：任意一个零均值的广义平稳随机过程的功率谱$P_{xx}(f)$和他的自相关函数$R_{xx}(\tau)$组成一个傅里叶变换对。</p>
-<ol start="6">
-<li>对于零均值的随机过程${x(t)}$，其功率谱的积分等于零滞后$(\tau = 0)$处的相关函数，即有</li>
-</ol>
-<p>$$<br>\int_{-\infty}^{\infty}P_{xx}(f)df=E{|x(t)^2|}=R_{xx}(0)<br>$$</p>
-<p>下面证明<strong>功率谱密度是实</strong>的：</p>
-<p>根据复随机过程$x(t)$的功率谱密度定义，直接有<br>$$<br>P_{xx}^{<em>}(f)=\int_{-\infty}^{\infty}C_{xx}^{</em>}(\tau)e^{j2\pi f \tau}{\rm d}\tau=\int_{-\infty}^{\infty}C_{xx}(-\tau)e^{j2\pi f\tau}{\rm d}\tau<br>$$<br>做变量代换 </p>
-]]></content>
-      <tags>
-        <tag>研一</tag>
-        <tag>现代信号分析</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>记一次重装系统</title>
     <url>/p/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%87%8D%E8%A3%85Win10%E7%B3%BB%E7%BB%9F.html</url>
     <content><![CDATA[<p>本文主要介绍了如何使用U盘进行重装系统，主要面向电脑小白用户。</p>
@@ -2740,7 +2614,7 @@
 
 
 <h3 id="torch-autograd-backward"><a href="#torch-autograd-backward" class="headerlink" title="torch.autograd.backward"></a>torch.autograd.backward</h3><p>先看一下backward的接口是如何定义的：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">torch.autograd.backward(</span><br><span class="line">        tensors, </span><br><span class="line">        grad_tensors&#x3D;None, </span><br><span class="line">        retain_graph&#x3D;None, </span><br><span class="line">        create_graph&#x3D;False, </span><br><span class="line">        grad_variables&#x3D;None)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">torch.autograd.backward(</span><br><span class="line">		tensors, </span><br><span class="line">		grad_tensors&#x3D;None, </span><br><span class="line">		retain_graph&#x3D;None, </span><br><span class="line">		create_graph&#x3D;False, </span><br><span class="line">		grad_variables&#x3D;None)</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><code>tensor</code>: 用于计算梯度的tensor。也就是说这两种方式是等价的：<code>torch.autograd.backward(z) == z.backward()</code></li>
