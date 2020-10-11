@@ -6,7 +6,7 @@
   <link href="https://fly97.cn/atom.xml" rel="self"/>
   
   <link href="https://fly97.cn/"/>
-  <updated>2020-09-23T12:46:25.000Z</updated>
+  <updated>2020-10-11T12:00:00.000Z</updated>
   <id>https://fly97.cn/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>现代信号分析第二章作业</title>
+    <link href="https://fly97.cn/p/%E7%8E%B0%E4%BB%A3%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BD%9C%E4%B8%9A.html"/>
+    <id>https://fly97.cn/p/%E7%8E%B0%E4%BB%A3%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BD%9C%E4%B8%9A.html</id>
+    <published>2020-10-11T12:00:00.000Z</published>
+    <updated>2020-10-11T12:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>摘要：</strong>此系列文章是我从2020年9月21日开始在浙江理工大学读研一时《现代信号分析》课后作业练习题及答案。</p><p><strong>关键词：</strong>研一，现代信号分析</p><a id="more"></a><p><img src="https://ftp.fly97.cn/image/image-20200928193703316.png" alt="image-20200928193703316"></p><p><img src="https://ftp.fly97.cn/image/image-20201011203228683.png" alt="image-20201011203228683"></p><p><img src="https://ftp.fly97.cn/image/image-20201011203330808.png" alt="image-20201011203330808"></p><p><img src="https://ftp.fly97.cn/image/image-20200928193714036.png" alt="image-20200928193714036"></p><p><img src="https://ftp.fly97.cn/image/image-20201011203626045.png" alt="image-20201011203626045"></p><p><img src="https://ftp.fly97.cn/image/image-20201011203639917.png" alt="image-20201011203639917"></p><p><img src="https://ftp.fly97.cn/image/image-20201011203658032.png" alt="image-20201011203658032"></p><p><img src="https://ftp.fly97.cn/image/image-20201011203716172.png" alt="image-20201011203716172"></p><p><img src="https://ftp.fly97.cn/image/image-20201011203748238.png" alt="image-20201011203748238"></p><p><img src="https://ftp.fly97.cn/image/image-20201011203823320.png" alt="image-20201011203823320"></p><p><img src="https://ftp.fly97.cn/image/image-20201011203917101.png" alt="image-20201011203917101"></p><p><img src="https://ftp.fly97.cn/image/image-20201011203848593.png" alt="image-20201011203848593"></p><p><img src="https://ftp.fly97.cn/image/image-20200928193737091.png" alt="image-20200928193737091"></p><p><img src="https://ftp.fly97.cn/image/image-20201011204004991.png" alt="image-20201011204004991"></p><p><img src="https://ftp.fly97.cn/image/image-20201011204054961.png" alt="image-20201011204054961"></p><p><img src="https://ftp.fly97.cn/image/image-20201011204157647.png" alt="image-20201011204157647"></p><p><img src="https://ftp.fly97.cn/image/image-20200928193754540.png" alt="image-20200928193754540"></p><p><img src="https://ftp.fly97.cn/image/image-20201011204330872.png" alt="image-20201011204330872"></p><p><img src="https://ftp.fly97.cn/image/image-20201011204359072.png" alt="image-20201011204359072"></p><p><img src="https://ftp.fly97.cn/image/image-20201011204438075.png" alt="image-20201011204438075"></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong&gt;摘要：&lt;/strong&gt;此系列文章是我从2020年9月21日开始在浙江理工大学读研一时《现代信号分析》课后作业练习题及答案。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;关键词：&lt;/strong&gt;研一，现代信号分析&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="研一" scheme="https://fly97.cn/tags/%E7%A0%94%E4%B8%80/"/>
+    
+    <category term="现代信号分析" scheme="https://fly97.cn/tags/%E7%8E%B0%E4%BB%A3%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
   
   <entry>
     <title>ROS系统学习小记(一)</title>
@@ -399,28 +421,6 @@
     
     
     <category term="docker" scheme="https://fly97.cn/tags/docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>初探Tkinter(二)</title>
-    <link href="https://fly97.cn/p/%E5%88%9D%E6%8E%A2Tkinter02.html"/>
-    <id>https://fly97.cn/p/%E5%88%9D%E6%8E%A2Tkinter02.html</id>
-    <published>2020-07-25T12:11:00.000Z</published>
-    <updated>2020-07-25T12:11:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>基于 Python 的 Tkinter 常用于UI界面开发。</p><p>下表列出了Tkinter 框架的常用组件和用法，供查找。</p><a id="more"></a><table><thead><tr><th>组件名称</th><th>组件用法</th></tr></thead><tbody><tr><td>Label组件</td><td>是用于在界面上输出描述的标签</td></tr><tr><td>Button组件</td><td>用于实现一个按钮，它的绝大多数选项与Label组件是一样的。<strong>command选项可以接收用户的信息。</strong></td></tr><tr><td>Checkbutton组件</td><td>实现多选按钮</td></tr><tr><td>Radiobutton组件</td><td>与Checkbutton组件的用法基本一致。唯一不同的是Radiobutton实现的是<strong>“单选”</strong>的效果</td></tr><tr><td>LabelFrame组件</td><td>LabelFrame组件是<strong>Frame</strong>框架的进化版。也就是添加了Label的Frame。</td></tr><tr><td>Entry组件</td><td>用于实现平时所说的输入框。</td></tr><tr><td>Listbox组件</td><td>用于实现列表输入框</td></tr><tr><td>Scrollbar组件</td><td>用于实现垂直滚动条</td></tr><tr><td>Scale组件</td><td>与Scrollbar相似。Scale组件主要通过滑块来表示某个范围内的一个数字，可以通过修改选项设置范围以及分辨率（精度）</td></tr><tr><td><strong>Text组件</strong></td><td>用于显示和处理多行文本。主要任务是显示多行文本，但它常常也被作为<strong>简单的文本编辑器</strong>和<strong>网页浏览器</strong>使用。</td></tr><tr><td>Canvas组件</td><td><strong>通用组件</strong>，通常用于显示和编辑图形，可以用它来绘制直线、圆形、多边形，甚至是绘制其他组件。</td></tr><tr><td>Menu组件</td><td>用于实现顶级菜单、下拉菜单和弹出菜单。由于该组件是<strong>底层代码实现和优化</strong>，所以<strong>不建议自行</strong>通过按钮和其他组件来实现菜单功能。</td></tr><tr><td>Menubutton组件</td><td>用于实现一个与<strong>Menu组件</strong>相关联的按钮，它可以放在窗口中的任意位置，并且在被按下时弹出下拉菜单。</td></tr><tr><td>OptionMenu组件</td><td>该组件是下拉菜单的改版，用于实现下拉列表框。</td></tr><tr><td>Message组件</td><td>Entry组件的变体，用于显示多行文本消息。</td></tr><tr><td>Spinbox组件</td><td>Entry组件的变体，用于从一些固定的值中选取一个。</td></tr><tr><td>PanedWindow组件</td><td>类似于Frame组件，都是为组件提供一个框架。PanedWindow允许让用户调整应用程序的空间划分。</td></tr><tr><td>Toplevel组件</td><td>类似于Frame组件，但Toplevel组件是一个独立的顶级窗口，这种窗口通常拥有标题栏、边框等部件。</td></tr></tbody></table>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;基于 Python 的 Tkinter 常用于UI界面开发。&lt;/p&gt;
-&lt;p&gt;下表列出了Tkinter 框架的常用组件和用法，供查找。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Python" scheme="https://fly97.cn/tags/Python/"/>
-    
-    <category term="Tkinter" scheme="https://fly97.cn/tags/Tkinter/"/>
     
   </entry>
   
