@@ -6,7 +6,7 @@
   <link href="https://fly97.cn/atom.xml" rel="self"/>
   
   <link href="https://fly97.cn/"/>
-  <updated>2020-10-12T12:00:00.000Z</updated>
+  <updated>2020-10-13T12:00:00.000Z</updated>
   <id>https://fly97.cn/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数值分析第一章作业</title>
+    <link href="https://fly97.cn/p/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%AC%AC%E4%B8%80%E7%AB%A0%E4%BD%9C%E4%B8%9A.html"/>
+    <id>https://fly97.cn/p/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%AC%AC%E4%B8%80%E7%AB%A0%E4%BD%9C%E4%B8%9A.html</id>
+    <published>2020-10-13T12:00:00.000Z</published>
+    <updated>2020-10-13T12:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>摘要：</strong>此系列文章是我从2020年9月21日开始在浙江理工大学读研一时《数值分析》课后作业练习题及答案。</p><p><strong>关键词：</strong>研一，数值分析</p><a id="more"></a><p><img src="https://ftp.fly97.cn/image/image-20201013093358782.png" alt="image-20201013093358782"></p><p><img src="https://ftp.fly97.cn/image/image-20201013102937713.png" alt="image-20201013102937713"></p><p><img src="https://ftp.fly97.cn/image/image-20201013104909315.png" alt="image-20201013104909315"></p><p><img src="https://ftp.fly97.cn/image/image-20201013104922645.png" alt="image-20201013104922645"></p><p><img src="https://ftp.fly97.cn/image/image-20201013104953613.png" alt="image-20201013104953613"></p><p><img src="https://ftp.fly97.cn/image/image-20201013110136891.png" alt="image-20201013110136891"></p><p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20201013110806596.png" alt="image-20201013110806596"><br>$$<br>2^{256}=2^{16} \times 2^{16}=[(2^{4})^{2}]^{2}<br>$$</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong&gt;摘要：&lt;/strong&gt;此系列文章是我从2020年9月21日开始在浙江理工大学读研一时《数值分析》课后作业练习题及答案。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;关键词：&lt;/strong&gt;研一，数值分析&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="研一" scheme="https://fly97.cn/tags/%E7%A0%94%E4%B8%80/"/>
+    
+    <category term="现代信号分析" scheme="https://fly97.cn/tags/%E7%8E%B0%E4%BB%A3%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
   
   <entry>
     <title>现代信号分析第四章作业</title>
@@ -399,25 +421,6 @@
     
     
     <summary type="html">&lt;p&gt;机器学习中的假设空间。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="机器学习" scheme="https://fly97.cn/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习基本概念01</title>
-    <link href="https://fly97.cn/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B501.html"/>
-    <id>https://fly97.cn/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B501.html</id>
-    <published>2020-08-05T10:30:00.000Z</published>
-    <updated>2020-08-05T10:30:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>为了理解深度学习，先了解一下机器学习的基本术语。</p><a id="more"></a><h4 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h4><p>机器学习的经典定义：<strong>利用经验改善系统自身的性能。</strong></p><p>机器学习所研究的主要内容，是关于在计算机上从数据中产生的模型的算法，即学习算法。有了学习算法，我们把经验数据提供给它，它就能基于这些数据产生模型。在面对新的情况时，模型会给我们相应的判断。</p><blockquote><p>【Mitchell,1997】给出了一个更形式化的定义：假设用<em>P</em>来评估计算机程序在某任务类<em>T</em>上的性能，若一个程序通过利用经验<em>E</em>在<em>T</em>中任务上获得了性能改善，则我们就说关于<em>T</em>和<em>P</em>，该程序对<em>E</em>进行了学习。</p></blockquote><p>模型：泛指从数据中学到的结果。有文献用”模型”指全局性结果(例如一颗决策树)，而用”模式”指局部性结果(例如一条规则).</p><h4 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h4><p>要进行机器学习，首先要有数据。假定收集了一批关于西瓜的数据，例如（色泽=青绿；根蒂=蜷缩；敲声=浊响），（色泽=乌黑；根蒂=稍蜷；敲声=沉闷），（色泽=浅白；根蒂=硬挺；敲声=清脆），······，每对括号内是一条记录，”=”的意思是”取值为”.</p><p>记录数据的集合称为一个**”数据集”(data set)<strong>，其中每条记录是关于一个事件和对象的叙述，称为一个</strong>“示例”（instance)或”样本”（sample）**。</p><p>反应事件或对象在某方面的表现或者性质的事项，例如”色泽”，”根蒂”，”敲声”，称为**”属性”（attribute)或”特征”（feature）**。</p><p>属性上的取值，例如”青绿”，”乌黑”，称为**”属性值”（attribute value）<strong>。属性张成的空间称为</strong>“属性空间”（attribute space）、”样本空间”（sample space）或”输入空间”**。</p><p>例如，我们把”色泽”、”根蒂”和”敲声”作为三个坐标轴，则他们张成的一个用于描述西瓜的三维空间，每个西瓜都可在这个空间找到他们自己的坐标位置。由于空间中的每个点对应一个坐标向量，因此也把一个示例称为一个**”特征向量”（feature vector）**。</p><p>​    一般地，令$ \small D=\{x_1,x_2,…,x_m\} $表示包含$m$个实例的数据集，每个实例由$d$个属性描述(例如上面的西瓜数据使用了3个属性)，则每个实例$x_i=\{x_{i1},x_{i2},…,x_{id}\}$是$d$维样本空间 $\chi$ 中一个向量，$x_i \in \chi$，其中$x_{ij}$是第$j$个属性上的取值(例如上述第3个西瓜在第二个属性上的属性是”硬挺”)，$d$称为样本$x_i$的**”维数”(dimensionality)**.</p><p>​    从数据中学得模型的过程称为**”学习”（learning）<strong>或者</strong>“训练”（training）<strong>，这个过程通过执行某个学习算法来完成。训练过程使用的数据称为</strong>“训练数据”（training data）<strong>，其中每个样本称为一个</strong>“训练样本”（training sample)<strong>，训练样本组成的集合称为</strong>“训练集”（training set）<strong>。学得模型对应了关于数据的某种潜在的规律，因此亦称</strong>“假设”（hypothesis）<strong>；这种潜在规律本身，则称为</strong>“真相”或”真实”(ground-truth)**，学习过程就是为了找出或逼近真相。</p><blockquote><p>训练样本亦称为”训练示例”（training instance）或者”训练例”。</p><p>学习算法通常由参数需要设置，使用不同的参数值和(或)训练数据，将产生不同的结果。</p><p>有时将模型称为”学习器”（learner)，可看作学习算法在给定数据和参数空间上的实例化。</p></blockquote><p>​    如果希望学得一个能够判断没剖开的是不是”好瓜”的模型，仅有前面的示例数据显然是不够的，要建立这样的关于**”预测”（prediction）<strong>的模型，需要获得训练样本的”结果”信息，例如”((色泽=青绿；根蒂=蜷缩；敲声=浊响)，好瓜)”。这里关于实例结果的信息，例如”好瓜”，称为</strong>“标记”（label）<strong>；拥有了标记信息的示例，则成为</strong>“样例”（example)<strong>。一般地，用$(x_i,y_i)$表示第$i$个样例，其中$y_i \in Y$是示例$x_i$的标记，$Y$ 是所有标记的集合，亦称为</strong>“标记空间”(label space)或”输出空间”**。</p><p>​    若我们欲预测的是离散值，例如”好瓜”、”坏瓜”，此类任务被称为**”分类”(classification)<strong>；若欲预测的是连续值，例如西瓜成熟度0.95，0.37，此类学习任务称为</strong>“回归”(regression)<strong>。对涉及两个类别的</strong>“二分类”(binary classification)<strong>任务，通常称其中一个类为</strong>“正类”(positive class)<strong>，另一个类称为</strong>“反类”(negative class)<strong>;涉及多个类别时，则成为</strong>“多分类”(multi-class classification)**任务。一般地，预测任务是希望通过对训练集${(x_1,y_1),(x_2,y_2),…,(x_m,y_m)}$进行学习，建立一个从输入空间$X$到输出空间$Y$的映射$f : X \to Y$。对于二分类任务，通常令$Y=\{-1,+1\}$或$\{0,1\}$；对多分类任务，$|Y|&gt;2$；对于回归任务，$Y=R$，$R$为实数集。</p><p>​    学得模型后，使用其进行预测的过程称为**”测试”(testing)<strong>，被预测的样本称为</strong>“测试样本”(testing sample)**。例如在学得$f$后，对测试例$x$可得到其预测标记$y=f(x)$。</p><p>​    还可以对西瓜做**”聚类”(clustering)<strong>，即将训练集中的西瓜分成若干组，每组称为一个</strong>“簇”（cluster）**；这些自动形成得簇可能对应一些潜在得概念划分，例如”浅色瓜”、”深色瓜”，甚至”本地瓜”、”外地瓜”。这样的学习过程有助于哦我们了解数据内在得规律，能为更深入地分析数据建立基础。需说明的是，在聚类分析中，”浅色瓜，本地瓜”这样得概念我们实现是不知道的，而且学习过程中使用的训练样本通常不拥有标记信息。</p><p>​    根据训练数据是否拥有标记信息，学习任务可大致分为两大类：**”监督学习”(supervised learning)<strong>和</strong>“无监督学习”(unsupervised learning)**。分类和回归是监督学习的代表，而聚类是无监督学习的代表。</p><p>​    需要注意的是，机器学习的目标是使学得的模型能很好地适用于”新样本”，而不是仅仅在训练样本上工作得很好；即便对聚类这样得无监督学习任务，我们也希望学得簇划分能适用于没在训练集中出现的样本。学得模型适用于新样本的能力，称为**”泛化”(generalization)能力**。具有强泛化能力的模型能够很好的适用于整个样本空间。尽管训练集通常只是样本空间的一个很小的采样，我们仍希望它能很好的反映出样本空间的特性，否则就很难再期望在训练集上学得的模型能在整个样本空间上都工作得很好。</p><blockquote><p>通常假设样本空间中全体样本服从一个未知**”分布”(distribution)<strong>$\small D$，我们获得的每个样本都是</strong>“独立同分布”(independent and identically distributed，简称$i.i.d$)**。一般而言，训练样本越多，我们得到得关于$D$的信息越多，这样就越有可能通过学习获得具有强泛化能力的模型。</p></blockquote>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;为了理解深度学习，先了解一下机器学习的基本术语。&lt;/p&gt;</summary>
     
     
     
