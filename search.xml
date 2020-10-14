@@ -1295,6 +1295,37 @@
       </tags>
   </entry>
   <entry>
+    <title>数值分析10.14</title>
+    <url>/p/readme.html</url>
+    <content><![CDATA[<p>此次和大家分享的是<strong>列高斯消去法</strong>。</p>
+<a id="more"></a>
+
+<p>首先介绍一个概念：</p>
+<p>在矩阵中，<strong>非零行的首项系数（leading coefficient），也称作主元</strong>，即最左边的首个非零元素，严格地<strong>比上面行的首项系数更靠右</strong>。</p>
+<h3 id="高斯消去法的条件"><a href="#高斯消去法的条件" class="headerlink" title="高斯消去法的条件"></a>高斯消去法的条件</h3><p>高斯消去法能进行到底的条件是<strong>主元</strong>全不为零。</p>
+<p>定理：</p>
+<p>在每一步消元的过程中，矩阵的<strong>主元</strong>（<strong>非零行的首项系数</strong>）全不为零的充要条件是A的顺序主子式不为零。</p>
+<p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20201013193001606.png" alt="image-20201013193001606"></p>
+<p> 为了更好的判断主元不为0，我们有以下的推论，<strong>主元</strong>和<strong>顺序主子式</strong>的关系如下：</p>
+<p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20201013193344834.png" alt="image-20201013193344834"> </p>
+<h3 id="问题的提出"><a href="#问题的提出" class="headerlink" title="问题的提出"></a>问题的提出</h3><p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20201013193640473.png" alt="image-20201013193640473"></p>
+<p>带着问题，我们来看以下例子：</p>
+<p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20201013193726569.png" alt="image-20201013193726569"></p>
+<p>观察上述方程组，不难看出，第一行第一列的系数和其他行列的系数相差很大。</p>
+<p>求得上述方程组的精确解为：<br>$$<br>x_2=1-{1 \over 10^{20}-1},x_1=1+{1 \over 10^{20}-1}<br>$$<br>利用高斯消去法求解，对增广矩阵进行初等行变换，求得：<br>$$<br>\left(<br>\begin{array}{cc|c} 10^{-20} &amp; 1 &amp; 1 \ 1 &amp; 1 &amp;2 \ \end{array}<br>\right)<br>\to<br>\left(<br>\begin{array}{cc|c} 10^{-20} &amp; 1 &amp; 1 \ 0 &amp; -10^{20} &amp;-10^{20} \ \end{array}<br>\right)<br>$$<br>在进行初等行变换的过程中，第一行的 $10^{20}$ 倍加到第二行，$1-10^{20}$ 和 $2-10^{20}$都舍入到  $10^{20}$。求得：<br>$$<br>x_2 = 1,x_1=0<br>$$<br>显然这个结果和方程组的精确解相差甚远。引起错误的主要原因是很小的数（10的负20次方）做主元，引起数值不稳定。</p>
+<p>如何避免很小的数做主元？</p>
+<p>对于上面这个问题，我们可以通过交换两行，让第二行做<strong>主元行</strong>，得到：<br>$$<br>\left(<br>\begin{array}{cc|c} 1 &amp; 1 &amp;2 \ 10^{-20} &amp; 1 &amp; 1 \ \end{array}<br>\right)<br>\to<br>\left(<br>\begin{array}{cc|c} 1 &amp; 1 &amp;2 \ 0 &amp; 1 &amp; 1 \ \end{array}<br>\right)<br>$$</p>
+<p>求得方程组的近似解：<br>$$<br>x_2=1,x_1=1<br>$$</p>
+<h3 id="列主元消去法"><a href="#列主元消去法" class="headerlink" title="列主元消去法"></a>列主元消去法</h3><p>寻找每一列<strong>绝对值最大</strong>的元素，并用它作为<strong>主元</strong>，该方法可以保证用来消除其他行的主元行的乘数在绝对值上都小于或者等于1.</p>
+<p>第一步：选主元，消去第一列，首先在 $(A^{(1)}|b^{(1)})$ 的第一列中选取绝对值最大的元素作为主元素，例如：<br>$$<br>|a_{i1,1}|=\max_{1 \leq i \leq n}|a_{i1}| \neq0<br>$$<br>然后交换 $(A^{(1)}|b^{(1)})$ 的第一行和第${i_1}$行，经过第1次消元计算得到<br>$$<br>(A^{(1)}|b^{(1)}) \to (A^{(2)}|b^{(2)})<br>$$<br>以此类推，第<strong>k</strong>步选主元，然后消去第<strong>k</strong>列。即交换$(A^{(k)}|b^{(k)})$的第<strong>k</strong>行与第${i_k}$行，经过第<strong>k</strong>次消元得到<br>$$<br>(A^{(k)}|b^{(k)}) \to (A^{(k+1)}|b^{(k+1)})<br>$$<br>经过 $n-1$ 步后得到上三角形矩阵，利用回代求得方程的解。</p>
+<p><em>注意：在运算上，列主元没有其他代价，只是在每一列求得最大元素要有$O(n^2)$的代价。</em></p>
+<h4 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h4><p>用列主元求解下列方程组<br>$$<br>\to<br>$$</p>
+]]></content>
+      <tags>
+        <tag>研一</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用PyTorch进行MNIST识别</title>
     <url>/p/%E4%BD%BF%E7%94%A8PyTorch%E8%BF%9B%E8%A1%8CMNIST%E8%AF%86%E5%88%AB.html</url>
     <content><![CDATA[<p>使用PyTorch进行MNIST识别</p>
@@ -1347,7 +1378,7 @@
 <h5 id="创建ssh-key："><a href="#创建ssh-key：" class="headerlink" title="创建ssh key："></a>创建ssh key：</h5><p>为了让github能够识别是我们自己上传文件，需要创建ssh key</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</span><br></pre></td></tr></table></figure>
 
-<p>这里的<strong><a href="mailto:&#x79;&#111;&#x75;&#x72;&#x5f;&#x65;&#109;&#x61;&#x69;&#108;&#64;&#x79;&#111;&#117;&#x72;&#101;&#109;&#97;&#105;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#x79;&#111;&#x75;&#x72;&#x5f;&#x65;&#109;&#x61;&#x69;&#108;&#64;&#x79;&#111;&#117;&#x72;&#101;&#109;&#97;&#105;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</a></strong>是你的<strong>邮箱地址</strong>，在输入后会询问你是否保存创建的ssh key，点回车就好，然后要求输入你要设置的密码，如果直接回车表示不设密码。然后会提示你ssh key已经创建好。</p>
+<p>这里的<strong><a href="mailto:&#121;&#x6f;&#117;&#x72;&#x5f;&#101;&#109;&#x61;&#x69;&#x6c;&#64;&#x79;&#111;&#x75;&#x72;&#101;&#109;&#97;&#105;&#108;&#46;&#99;&#x6f;&#109;">&#121;&#x6f;&#117;&#x72;&#x5f;&#101;&#109;&#x61;&#x69;&#x6c;&#64;&#x79;&#111;&#x75;&#x72;&#101;&#109;&#97;&#105;&#108;&#46;&#99;&#x6f;&#109;</a></strong>是你的<strong>邮箱地址</strong>，在输入后会询问你是否保存创建的ssh key，点回车就好，然后要求输入你要设置的密码，如果直接回车表示不设密码。然后会提示你ssh key已经创建好。</p>
 <h5 id="把密码导入GitHub："><a href="#把密码导入GitHub：" class="headerlink" title="把密码导入GitHub："></a>把密码导入GitHub：</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat ~&#x2F;.ssh&#x2F;id_rsa.pub</span><br></pre></td></tr></table></figure>
 
 <p>此时在终端会显示出刚刚创建好的ssh key，复制出来，在github在点击头像，然后点击setting，在找到SSH and GPG keys，创建一个new ssh key，然后将刚刚复制的ssh key填入即可。</p>

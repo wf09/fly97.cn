@@ -310,6 +310,25 @@
   </entry>
   
   <entry>
+    <title>数值分析10.14</title>
+    <link href="https://fly97.cn/p/readme.html"/>
+    <id>https://fly97.cn/p/readme.html</id>
+    <published>2020-08-10T13:50:00.000Z</published>
+    <updated>2020-08-10T13:50:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>此次和大家分享的是<strong>列高斯消去法</strong>。</p><a id="more"></a><p>首先介绍一个概念：</p><p>在矩阵中，<strong>非零行的首项系数（leading coefficient），也称作主元</strong>，即最左边的首个非零元素，严格地<strong>比上面行的首项系数更靠右</strong>。</p><h3 id="高斯消去法的条件"><a href="#高斯消去法的条件" class="headerlink" title="高斯消去法的条件"></a>高斯消去法的条件</h3><p>高斯消去法能进行到底的条件是<strong>主元</strong>全不为零。</p><p>定理：</p><p>在每一步消元的过程中，矩阵的<strong>主元</strong>（<strong>非零行的首项系数</strong>）全不为零的充要条件是A的顺序主子式不为零。</p><p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20201013193001606.png" alt="image-20201013193001606"></p><p> 为了更好的判断主元不为0，我们有以下的推论，<strong>主元</strong>和<strong>顺序主子式</strong>的关系如下：</p><p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20201013193344834.png" alt="image-20201013193344834"> </p><h3 id="问题的提出"><a href="#问题的提出" class="headerlink" title="问题的提出"></a>问题的提出</h3><p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20201013193640473.png" alt="image-20201013193640473"></p><p>带着问题，我们来看以下例子：</p><p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20201013193726569.png" alt="image-20201013193726569"></p><p>观察上述方程组，不难看出，第一行第一列的系数和其他行列的系数相差很大。</p><p>求得上述方程组的精确解为：<br>$$<br>x_2=1-{1 \over 10^{20}-1},x_1=1+{1 \over 10^{20}-1}<br>$$<br>利用高斯消去法求解，对增广矩阵进行初等行变换，求得：<br>$$<br>\left(<br>\begin{array}{cc|c} 10^{-20} &amp; 1 &amp; 1 \ 1 &amp; 1 &amp;2 \ \end{array}<br>\right)<br>\to<br>\left(<br>\begin{array}{cc|c} 10^{-20} &amp; 1 &amp; 1 \ 0 &amp; -10^{20} &amp;-10^{20} \ \end{array}<br>\right)<br>$$<br>在进行初等行变换的过程中，第一行的 $10^{20}$ 倍加到第二行，$1-10^{20}$ 和 $2-10^{20}$都舍入到  $10^{20}$。求得：<br>$$<br>x_2 = 1,x_1=0<br>$$<br>显然这个结果和方程组的精确解相差甚远。引起错误的主要原因是很小的数（10的负20次方）做主元，引起数值不稳定。</p><p>如何避免很小的数做主元？</p><p>对于上面这个问题，我们可以通过交换两行，让第二行做<strong>主元行</strong>，得到：<br>$$<br>\left(<br>\begin{array}{cc|c} 1 &amp; 1 &amp;2 \ 10^{-20} &amp; 1 &amp; 1 \ \end{array}<br>\right)<br>\to<br>\left(<br>\begin{array}{cc|c} 1 &amp; 1 &amp;2 \ 0 &amp; 1 &amp; 1 \ \end{array}<br>\right)<br>$$</p><p>求得方程组的近似解：<br>$$<br>x_2=1,x_1=1<br>$$</p><h3 id="列主元消去法"><a href="#列主元消去法" class="headerlink" title="列主元消去法"></a>列主元消去法</h3><p>寻找每一列<strong>绝对值最大</strong>的元素，并用它作为<strong>主元</strong>，该方法可以保证用来消除其他行的主元行的乘数在绝对值上都小于或者等于1.</p><p>第一步：选主元，消去第一列，首先在 $(A^{(1)}|b^{(1)})$ 的第一列中选取绝对值最大的元素作为主元素，例如：<br>$$<br>|a_{i1,1}|=\max_{1 \leq i \leq n}|a_{i1}| \neq0<br>$$<br>然后交换 $(A^{(1)}|b^{(1)})$ 的第一行和第${i_1}$行，经过第1次消元计算得到<br>$$<br>(A^{(1)}|b^{(1)}) \to (A^{(2)}|b^{(2)})<br>$$<br>以此类推，第<strong>k</strong>步选主元，然后消去第<strong>k</strong>列。即交换$(A^{(k)}|b^{(k)})$的第<strong>k</strong>行与第${i_k}$行，经过第<strong>k</strong>次消元得到<br>$$<br>(A^{(k)}|b^{(k)}) \to (A^{(k+1)}|b^{(k+1)})<br>$$<br>经过 $n-1$ 步后得到上三角形矩阵，利用回代求得方程的解。</p><p><em>注意：在运算上，列主元没有其他代价，只是在每一列求得最大元素要有$O(n^2)$的代价。</em></p><h4 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h4><p>用列主元求解下列方程组<br>$$<br>\to<br>$$</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;此次和大家分享的是&lt;strong&gt;列高斯消去法&lt;/strong&gt;。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="研一" scheme="https://fly97.cn/tags/%E7%A0%94%E4%B8%80/"/>
+    
+  </entry>
+  
+  <entry>
     <title>安装Fish自动匹配历史命令</title>
     <link href="https://fly97.cn/p/%E5%AE%89%E8%A3%85Fish%E8%87%AA%E5%8A%A8%E5%8C%B9%E9%85%8D%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4.html"/>
     <id>https://fly97.cn/p/%E5%AE%89%E8%A3%85Fish%E8%87%AA%E5%8A%A8%E5%8C%B9%E9%85%8D%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4.html</id>
@@ -402,25 +421,6 @@
     <summary type="html">&lt;p&gt;本文原载于&lt;a href=&quot;https://imlogm.github.io/&quot;&gt;https://imlogm.github.io&lt;/a&gt;，转载请注明出处！&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;摘要&lt;/strong&gt;：“奥卡姆剃刀”和“没有免费的午餐”是机器学习中两个很基本的原则和定理。由于名字有点怪，所以初学者可能在理解上陷入误区。本文试图用简洁易懂的方式解释这两个原则和定理，并告诉大家它们的名字是怎么来的。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;关键字&lt;/strong&gt;：机器学习, 奥卡姆剃刀, 没有免费的午餐&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="机器学习" scheme="https://fly97.cn/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习基本概念02</title>
-    <link href="https://fly97.cn/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B502.html"/>
-    <id>https://fly97.cn/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B502.html</id>
-    <published>2020-08-06T10:30:00.000Z</published>
-    <updated>2020-08-06T10:30:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>机器学习中的假设空间。</p><a id="more"></a><h4 id="假设空间"><a href="#假设空间" class="headerlink" title="假设空间"></a>假设空间</h4><p>​    <strong>归纳(induction)和演绎(deduction)**是科学推理的两大基本手段。归纳是从特殊到一般的”泛化”(generalization)过程。即从具体的事实归结出一般性规律；演绎则是从一般到特殊的”特化”(specialization)过程，即从基础原理推演出具体状况。例如，在数学公理系统中，基于一组公理和推理规则推导出与之相恰的定理，这是演绎；而”从样例中学习”显然是一个归纳的过程，因此亦称为</strong>“归纳学习”(inductive learning)**</p><p>​    归纳学习有狭义和广义之分，广义的归纳学习大体相当于从样例中学习，而狭义的归纳学习则要求从训练数据中学得概念(concept),因此亦称为**”概念学习”或”概念形成”**.概念学习技术目前应用、研究都比较少，因为要学得泛化性能好而且语义明确的概念实在是太难了，现实常用的技术大多数产生”黑箱”模型.然而，对概念学习有所理解，有助于理解机器学习的一些基础思想。</p><p>​    概念学习中最基本的是<strong>布尔概念学习</strong>，即对”是””不是”这样的可表示为0/1布尔值的目标概念的学习.举一个简单的例子，假定我们获得了这样的一个训练数据集：</p><img src="https://ftp.fly97.cn/image/image-20200806202414852.png" alt="image-20200806202414852" style="zoom:50%;" /><p>​    这里要学习的目标是”好瓜”，暂且假设”好瓜”可由”色泽””根蒂””敲声”这三个因素完全确定，换言之，只要某个瓜的三个属性取值明确了，我们就能判断出它是不是好瓜，于是，我们学到的将是”好瓜是某种色泽、某种根蒂、某种敲声的瓜”这样的概念，用布尔表达式写出来则是**”好瓜$ \leftrightarrow $(色泽=?)^(根蒂=?)^(敲声=?)”**，这里”?”表示尚未确定的取值，而我们的任务就是通过对上表的训练集进行学习，把”?”确定下来.</p><p>​    读者可能马上发现，上表第一行：**”(色泽=青绿)^(根蒂=蜷缩)^(敲声=浊响)”<strong>不就是好瓜吗？是的，但这是一个已见过的瓜，不要忘记学习的目的是</strong>“泛化”<strong>，即通过对训练集中的瓜的学习以获得对没见过瓜进行判断的能力.如果仅仅把训练集中的瓜”记住”，今后再见到一模一样的瓜当然可以判断，但是，对没见过的瓜，例如</strong>“(色泽=浅白)^(根蒂=蜷缩)^(敲声=浊响)”**怎么办呢？</p><p>​    我们可以把学习过程看作一个在<strong>所有假设组成的空间</strong>中进行搜索的过程，搜索目标是找到与训练集*<em>“匹配(fit)”<strong>的假设，即能够将训练集中的瓜判断正确的假设.假设的表示一旦确定，假设空间及其规模大小就确定了.这里我们的假设空间由形如</strong>“(色泽=?)^(根蒂=?)^(敲声=?)”**的可能取值所形成的假设组成.例如色泽有”青绿””乌黑””浅白”这三种可能取值；还需考虑到，也许色泽无论取什么值都合适，我们用通配符”</em>“来表示，例如*<em>“好瓜$ \leftrightarrow $(色泽=\</em>)^(根蒂=蜷缩)^(敲声=浊响)”**，即”好瓜是根蒂蜷缩、敲声浊响的瓜，什么色泽都行”.此外，还需要考虑极端情况，有可能”好瓜”这个概念根本不成立，世界上没有”好瓜”这种东西，我们用$ \emptyset $表示这个假设。这样，若”色泽””根蒂””敲声”分别有3、2、2种可能取值，则我们面临的假设空间规模大小为$4 \times 3 \times 3+1=37$.下图直观地显示了这个西瓜空间假设问题。</p><blockquote><p>这里我们假定训练样本不含噪声，而且不考虑”非青绿”这样的$\not\subset A$操作，由于训练集包含正例，因此$ \emptyset $假设自然不出现。</p></blockquote><p><img src="https://ftp.fly97.cn/image/image-20200806202019247.png" alt="image-20200806202019247"></p><p>​    可以有许多策略对这个假设空间进行搜索，例如自顶向下、从一般到特殊，或是自底向上、从特殊到一般，搜索过程种可以不断删除与正例不一致的假设和(或)与反例一致的假设.最终将会获得**与训练集一致(即对所有训练样本能够进行正确判断)**的假设，这就是我们学习的结果。</p><blockquote><p>有很多可能的选择，如在路径上自顶向下与自底向上同时进行，在操作上只删除与正例不一致的假设等。</p></blockquote><p>​    需注意的是，现实问题种我们常面临很大的假设空间，但学习过程是基于有限样本训练集进行的，因此，可能有多个假设与训练集一致，即存在一个<strong>与训练集一致的”假设集合”**，我们称之为</strong>“版本空间”(version space).**例如，在西瓜问题中，与表1.1训练集所对应的版本空间如图1.2所示.</p><img src="https://ftp.fly97.cn/image/image-20200806203152041.png" alt="image-20200806203152041"  />]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;机器学习中的假设空间。&lt;/p&gt;</summary>
     
     
     

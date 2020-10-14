@@ -25,19 +25,26 @@
     var CONFIG = {"hostname":"fly97.cn","root":"/","scheme":"Mist","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="你不是我 怎么可能做到感同身受">
-<meta property="og:type" content="website">
-<meta property="og:title" content="个人随想">
-<meta property="og:url" content="https://fly97.cn/archives/2020/05/index.html">
+  <meta name="description" content="此次和大家分享的是列高斯消去法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数值分析10.14">
+<meta property="og:url" content="https://fly97.cn/p/readme.html">
 <meta property="og:site_name" content="个人随想">
-<meta property="og:description" content="你不是我 怎么可能做到感同身受">
+<meta property="og:description" content="此次和大家分享的是列高斯消去法。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:/Users/wf09/AppData/Roaming/Typora/typora-user-images/image-20201013193001606.png">
+<meta property="og:image" content="c:/Users/wf09/AppData/Roaming/Typora/typora-user-images/image-20201013193344834.png">
+<meta property="og:image" content="c:/Users/wf09/AppData/Roaming/Typora/typora-user-images/image-20201013193640473.png">
+<meta property="og:image" content="c:/Users/wf09/AppData/Roaming/Typora/typora-user-images/image-20201013193726569.png">
+<meta property="article:published_time" content="2020-08-10T13:50:00.000Z">
+<meta property="article:modified_time" content="2020-08-10T13:50:00.000Z">
 <meta property="article:author" content="个人随想">
-<meta property="article:tag" content="个人随想">
+<meta property="article:tag" content="研一">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/wf09/AppData/Roaming/Typora/typora-user-images/image-20201013193001606.png">
 
 
-<link rel="canonical" href="https://fly97.cn/archives/2020/05/">
+<link rel="canonical" href="https://fly97.cn/p/readme.html">
 
 
 <script class="page-configurations">
@@ -45,12 +52,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | 个人随想</title>
+  <title>数值分析10.14 | 个人随想</title>
   
 
 
@@ -208,7 +215,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -220,6 +227,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E6%96%AF%E6%B6%88%E5%8E%BB%E6%B3%95%E7%9A%84%E6%9D%A1%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">高斯消去法的条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E7%9A%84%E6%8F%90%E5%87%BA"><span class="nav-number">2.</span> <span class="nav-text">问题的提出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%97%E4%B8%BB%E5%85%83%E6%B6%88%E5%8E%BB%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">列主元消去法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B%E9%A2%98"><span class="nav-number">3.1.</span> <span class="nav-text">例题</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -287,133 +295,127 @@
 </noscript>
 
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
       
 
       
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        
-        <span class="collection-header">不错! 目前共计 51 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fly97.cn/p/readme.html">
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="个人随想">
+      <meta itemprop="description" content="你不是我 怎么可能做到感同身受">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人随想">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数值分析10.14
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-08-10 21:50:00" itemprop="dateCreated datePublished" datetime="2020-08-10T21:50:00+08:00">2020-08-10</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>此次和大家分享的是<strong>列高斯消去法</strong>。</p>
+<a id="more"></a>
+
+<p>首先介绍一个概念：</p>
+<p>在矩阵中，<strong>非零行的首项系数（leading coefficient），也称作主元</strong>，即最左边的首个非零元素，严格地<strong>比上面行的首项系数更靠右</strong>。</p>
+<h3 id="高斯消去法的条件"><a href="#高斯消去法的条件" class="headerlink" title="高斯消去法的条件"></a>高斯消去法的条件</h3><p>高斯消去法能进行到底的条件是<strong>主元</strong>全不为零。</p>
+<p>定理：</p>
+<p>在每一步消元的过程中，矩阵的<strong>主元</strong>（<strong>非零行的首项系数</strong>）全不为零的充要条件是A的顺序主子式不为零。</p>
+<p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20201013193001606.png" alt="image-20201013193001606"></p>
+<p> 为了更好的判断主元不为0，我们有以下的推论，<strong>主元</strong>和<strong>顺序主子式</strong>的关系如下：</p>
+<p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20201013193344834.png" alt="image-20201013193344834"> </p>
+<h3 id="问题的提出"><a href="#问题的提出" class="headerlink" title="问题的提出"></a>问题的提出</h3><p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20201013193640473.png" alt="image-20201013193640473"></p>
+<p>带着问题，我们来看以下例子：</p>
+<p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20201013193726569.png" alt="image-20201013193726569"></p>
+<p>观察上述方程组，不难看出，第一行第一列的系数和其他行列的系数相差很大。</p>
+<p>求得上述方程组的精确解为：<br>$$<br>x_2=1-{1 \over 10^{20}-1},x_1=1+{1 \over 10^{20}-1}<br>$$<br>利用高斯消去法求解，对增广矩阵进行初等行变换，求得：<br>$$<br>\left(<br>\begin{array}{cc|c} 10^{-20} &amp; 1 &amp; 1 \ 1 &amp; 1 &amp;2 \ \end{array}<br>\right)<br>\to<br>\left(<br>\begin{array}{cc|c} 10^{-20} &amp; 1 &amp; 1 \ 0 &amp; -10^{20} &amp;-10^{20} \ \end{array}<br>\right)<br>$$<br>在进行初等行变换的过程中，第一行的 $10^{20}$ 倍加到第二行，$1-10^{20}$ 和 $2-10^{20}$都舍入到  $10^{20}$。求得：<br>$$<br>x_2 = 1,x_1=0<br>$$<br>显然这个结果和方程组的精确解相差甚远。引起错误的主要原因是很小的数（10的负20次方）做主元，引起数值不稳定。</p>
+<p>如何避免很小的数做主元？</p>
+<p>对于上面这个问题，我们可以通过交换两行，让第二行做<strong>主元行</strong>，得到：<br>$$<br>\left(<br>\begin{array}{cc|c} 1 &amp; 1 &amp;2 \ 10^{-20} &amp; 1 &amp; 1 \ \end{array}<br>\right)<br>\to<br>\left(<br>\begin{array}{cc|c} 1 &amp; 1 &amp;2 \ 0 &amp; 1 &amp; 1 \ \end{array}<br>\right)<br>$$</p>
+<p>求得方程组的近似解：<br>$$<br>x_2=1,x_1=1<br>$$</p>
+<h3 id="列主元消去法"><a href="#列主元消去法" class="headerlink" title="列主元消去法"></a>列主元消去法</h3><p>寻找每一列<strong>绝对值最大</strong>的元素，并用它作为<strong>主元</strong>，该方法可以保证用来消除其他行的主元行的乘数在绝对值上都小于或者等于1.</p>
+<p>第一步：选主元，消去第一列，首先在 $(A^{(1)}|b^{(1)})$ 的第一列中选取绝对值最大的元素作为主元素，例如：<br>$$<br>|a_{i1,1}|=\max_{1 \leq i \leq n}|a_{i1}| \neq0<br>$$<br>然后交换 $(A^{(1)}|b^{(1)})$ 的第一行和第${i_1}$行，经过第1次消元计算得到<br>$$<br>(A^{(1)}|b^{(1)}) \to (A^{(2)}|b^{(2)})<br>$$<br>以此类推，第<strong>k</strong>步选主元，然后消去第<strong>k</strong>列。即交换$(A^{(k)}|b^{(k)})$的第<strong>k</strong>行与第${i_k}$行，经过第<strong>k</strong>次消元得到<br>$$<br>(A^{(k)}|b^{(k)}) \to (A^{(k+1)}|b^{(k+1)})<br>$$<br>经过 $n-1$ 步后得到上三角形矩阵，利用回代求得方程的解。</p>
+<p><em>注意：在运算上，列主元没有其他代价，只是在每一列求得最大元素要有$O(n^2)$的代价。</em></p>
+<h4 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h4><p>用列主元求解下列方程组<br>$$<br>\to<br>$$</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-05-31T10:30:00+08:00"
-              content="2020-05-31">
-          05-31
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/p/%E4%BD%BF%E7%94%A8WSL%E9%93%BE%E6%8E%A5Github%E4%BB%93%E5%BA%93.html" itemprop="url">
-            <span itemprop="name">使用WSL链接Github仓库以及如何配置ssh权限问题</span>
+    <footer class="post-footer">
+          
+
+  <div class="followme">
+    <span>欢迎关注我的其它发布渠道</span>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
           </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-05-29T16:56:00+08:00"
-              content="2020-05-29">
-          05-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/p/%E4%BD%BF%E7%94%A8PyTorch%E8%BF%9B%E8%A1%8CMNIST%E8%AF%86%E5%88%AB.html" itemprop="url">
-            <span itemprop="name">使用PyTorch进行MNIST识别</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-05-27T15:00:00+08:00"
-              content="2020-05-27">
-          05-27
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/p/Python%E5%8D%87%E7%BA%A7pip.html" itemprop="url">
-            <span itemprop="name">Python升级pip</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-05-11T12:52:00+08:00"
-              content="2020-05-11">
-          05-11
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/p/office%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B.html" itemprop="url">
-            <span itemprop="name">Office Tool Plus使用教程</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-05-11T12:52:00+08:00"
-              content="2020-05-11">
-          05-11
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/p/%E4%BF%AE%E6%94%B9pip%E9%95%9C%E5%83%8F%E6%BA%90.html" itemprop="url">
-            <span itemprop="name">修改Pip镜像源</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-
+        </div>
     </div>
   </div>
-  
-  
-  
 
+          <div class="post-tags">
+              <a href="/tags/%E7%A0%94%E4%B8%80/" rel="tag"># 研一</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/p/%E5%AE%89%E8%A3%85Fish%E8%87%AA%E5%8A%A8%E5%8C%B9%E9%85%8D%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4.html" rel="prev" title="安装Fish自动匹配历史命令">
+                  <i class="fa fa-chevron-left"></i> 安装Fish自动匹配历史命令
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/p/nginx.conf%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3.html" rel="next" title="nginx.conf配置文件详解">
+                  nginx.conf配置文件详解 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
   
 
 
@@ -504,23 +506,67 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
     element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
   }
 });
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
 </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-
-
-
-  
-
-
-
-
-
-
-
-
-  
-
-  
+    
 
   
 
