@@ -64,16 +64,19 @@
 
 <h3 id="下载Anadoda3安装包"><a href="#下载Anadoda3安装包" class="headerlink" title="下载Anadoda3安装包"></a>下载Anadoda3安装包</h3><ul>
 <li><p>可以选择清华镜像源</p>
-<p><a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2019.10-Windows-x86_64.exe">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2019.10-Windows-x86_64.exe</a></p>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</a></p>
+<p><img src="https://ftp.fly97.cn/image/image-20191228165427982.png"></p>
 </li>
 </ul>
-<p><img src="https://ftp.fly97.cn/image/image-20191228165427982.png"></p>
+<p>注意时间，选择最近的即可</p>
+<p><img src="https://ftp.fly97.cn/image/image-20201015093722350.png" alt="image-20201015093722350"></p>
 <ul>
 <li><p><del>官网下载(网速特别慢)</del></p>
-<p><a href="https://repo.anaconda.com/archive/Anaconda3-2019.10-Windows-x86_64.exe">https://repo.anaconda.com/archive/Anaconda3-2019.10-Windows-x86_64.exe</a></p>
-<p><img src="https://ftp.fly97.cn/image/image-20191228170139071.png" alt="image-20191228170139071"></p>
+<p><a href="https://repo.anaconda.com/archive/">https://repo.anaconda.com/archive/</a></p>
+<p><img src="https://ftp.fly97.cn/image/image-20201015094427422.png" alt="image-20201015094427422"></p>
 </li>
 </ul>
+<p>等待下载完成（以下以2019.10的版本为例）。</p>
 <h3 id="双击安装"><a href="#双击安装" class="headerlink" title="双击安装"></a>双击安装</h3><p><em>注意：安装时可以选择将Anaconda注册为默认的Python环境</em></p>
 <p>​    <img src="https://ftp.fly97.cn/image/image-20191228170508433.png" alt="image-20191228170508433" style="zoom:67%;" /></p>
 <p><strong>注意：官方不推荐第一个选项。勾选第二个选项即可。</strong></p>
@@ -811,7 +814,7 @@
 <p>第一级是文件系统级。在这一级，我们会使用一组概念来解释ROS的内部构成、文件夹结构，以及工作所需要的核心文件。</p>
 <p>第二级是计算图级，体现的是进程和系统之间的通信。在相关小节中，我们将学习ROS的各个概念和功能，包括建立系统、处理各类进程、与多台机器通信等。</p>
 <p>第三级是社区级，我们将解释一系列的工具和概念，包括在开发人员之间如何共享知识、算法和代码。由于强大社区的支持，不仅提高了初学者理解复杂软件的能力，还解决了最常见的问题。</p>
-<h4 id="理解ROS文件系统级"><a href="#理解ROS文件系统级" class="headerlink" title="理解ROS文件系统级"></a>理解ROS文件系统级</h4><p><img src="/home/wsl/.config/Typora/typora-user-images/image-20200923190637341.png" alt="image-20200923190637341"></p>
+<h4 id="理解ROS文件系统级"><a href="#理解ROS文件系统级" class="headerlink" title="理解ROS文件系统级"></a>理解ROS文件系统级</h4><p><img src="https://ftp.fly97.cn/image/image-20200923190637341.png" alt="image-20200923190637341"></p>
 <p>与其他操作系统类似，一个ROS程序的不同组件要放在不同的文件夹下，这些文件夹是根据功能的不同来对文件进行组织的。</p>
 <ol>
 <li>功能包（Package）：功能包构成ROS中的原子级。一个功能包具有创建ROS程序最小结构和最少内容。它可以包含ROS运行时进程（节点）、配置文件等。</li>
@@ -822,9 +825,9 @@
 <li>服务类型（Service (srv) Type）：服务描述说明存储在<strong>my_package/srv/MyServiceType.srv</strong>中，为ROS中由每个进程提供的服务定义请求和响应数据结构。</li>
 </ol>
 <p>下面的截图说明了<strong>turtlesim</strong>功能包的内容。所看到的是一系列文件和文件夹，包含代码、图片、启动文件服务和消息。以下只是文件的一个简短列表。</p>
-<p><img src="/home/wsl/.config/Typora/typora-user-images/image-20200923193232140.png" alt="image-20200923193232140"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20200923193232140.png" alt="image-20200923193232140"></p>
 <h5 id="工作空间"><a href="#工作空间" class="headerlink" title="工作空间"></a>工作空间</h5><p>工作空间包含功能包，功能包包含源文件和环境和工作空间，是集中开发的一种好方式。</p>
-<p>下图所示是一个典型的工作空间。<img src="/home/wsl/.config/Typora/typora-user-images/image-20200924144159317.png" alt="image-20200924144159317"></p>
+<p>下图所示是一个典型的工作空间。<img src="https://ftp.fly97.cn/image/image-20200924144159317.png" alt="image-20200924144159317"></p>
 <p>主要包含一下内容：</p>
 <ul>
 <li>源文件空间（Source space）：在源空间（src文件夹）中，放置了功能包、项目、复制的包等。<strong>最重要文件：CMakeLists.txt</strong>。当在工作空间配置包时，通过cmake调用CMakeLists.txt。这个文件是通过<strong>catkin_init_workspace</strong>命令创建的。</li>
@@ -936,17 +939,17 @@
 <p>在<strong>package.xml</strong>文件中使用的两个典型标记是**<build_depend><strong>和</strong><run_depend>**.</p>
 <p>**<build_depend>**标记会显示当前功能包安装之前必须先安装哪些功能包。这是因为新的功能包会使用其他包的一些功能。</p>
 <p>**<run_depend>**标记显示运行功能包中代码所需要的包。以下是package.xml文件的示例。</p>
-<p><img src="/home/wsl/.config/Typora/typora-user-images/image-20200924154802735.png" alt="image-20200924154802735"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20200924154802735.png" alt="image-20200924154802735"></p>
 <h5 id="元功能包"><a href="#元功能包" class="headerlink" title="元功能包"></a>元功能包</h5><p>元包中只有一个文件，这个文件就是<strong>package.xml</strong>。它不包含其他文件，如代码等。</p>
 <p>元功能包用于指代其他按照类似功能特性分组的包，例如导航功能包集，ros_tutorials等。</p>
 <p>使用迁移的特定规则，可以讲ROS Fuerte中的功能包和功能包集转换为Kinetic等。具体参见<a href="http://wiki.ros.org/catkin/migrating_from_rosbuild%E3%80%82">http://wiki.ros.org/catkin/migrating_from_rosbuild。</a></p>
 <p>在下图中。可以看到在ros_tutorials元功能包中package.xml的内容。可以看到<br>&lt;export&gt;标记和&lt;run_depend&gt;标记。这些事功能包清单中必不可缺少的，在下图中也可以看到这些标记。</p>
-<p><img src="/home/wsl/.config/Typora/typora-user-images/image-20200924160401768.png" alt="image-20200924160401768"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20200924160401768.png" alt="image-20200924160401768"></p>
 <p>如果你想定位<strong>ros_tutorials</strong>元功能包，可以使用下面的命令：</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">rosstack find ros_tutorials</span><br></pre></td></tr></table></figure>
 
 <p>显示路径为：</p>
-<p><img src="/home/wsl/.config/Typora/typora-user-images/image-20200924161034651.png" alt="image-20200924161034651"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20200924161034651.png" alt="image-20200924161034651"></p>
 <p>查看里面的代码</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">vim /opt/ros/kinetic/share/ros_tutorials/package.xml</span><br></pre></td></tr></table></figure>
 
@@ -1347,7 +1350,7 @@
 <h5 id="创建ssh-key："><a href="#创建ssh-key：" class="headerlink" title="创建ssh key："></a>创建ssh key：</h5><p>为了让github能够识别是我们自己上传文件，需要创建ssh key</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</span><br></pre></td></tr></table></figure>
 
-<p>这里的<strong><a href="mailto:&#x79;&#x6f;&#x75;&#114;&#95;&#101;&#109;&#97;&#x69;&#108;&#64;&#x79;&#111;&#x75;&#114;&#x65;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#99;&#111;&#x6d;">&#x79;&#x6f;&#x75;&#114;&#95;&#101;&#109;&#97;&#x69;&#108;&#64;&#x79;&#111;&#x75;&#114;&#x65;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#99;&#111;&#x6d;</a></strong>是你的<strong>邮箱地址</strong>，在输入后会询问你是否保存创建的ssh key，点回车就好，然后要求输入你要设置的密码，如果直接回车表示不设密码。然后会提示你ssh key已经创建好。</p>
+<p>这里的<strong><a href="mailto:&#121;&#111;&#x75;&#114;&#95;&#101;&#x6d;&#97;&#105;&#108;&#x40;&#x79;&#111;&#117;&#114;&#x65;&#109;&#x61;&#105;&#x6c;&#x2e;&#x63;&#111;&#109;">&#121;&#111;&#x75;&#114;&#95;&#101;&#x6d;&#97;&#105;&#108;&#x40;&#x79;&#111;&#117;&#114;&#x65;&#109;&#x61;&#105;&#x6c;&#x2e;&#x63;&#111;&#109;</a></strong>是你的<strong>邮箱地址</strong>，在输入后会询问你是否保存创建的ssh key，点回车就好，然后要求输入你要设置的密码，如果直接回车表示不设密码。然后会提示你ssh key已经创建好。</p>
 <h5 id="把密码导入GitHub："><a href="#把密码导入GitHub：" class="headerlink" title="把密码导入GitHub："></a>把密码导入GitHub：</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat ~&#x2F;.ssh&#x2F;id_rsa.pub</span><br></pre></td></tr></table></figure>
 
 <p>此时在终端会显示出刚刚创建好的ssh key，复制出来，在github在点击头像，然后点击setting，在找到SSH and GPG keys，创建一个new ssh key，然后将刚刚复制的ssh key填入即可。</p>
