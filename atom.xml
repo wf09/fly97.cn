@@ -6,7 +6,7 @@
   <link href="https://www.fly97.cn/atom.xml" rel="self"/>
   
   <link href="https://www.fly97.cn/"/>
-  <updated>2020-10-13T12:00:00.000Z</updated>
+  <updated>2020-10-18T07:09:00.000Z</updated>
   <id>https://www.fly97.cn/</id>
   
   <author>
@@ -17,9 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Jupyter NoteBook的快捷键使用指南</title>
+    <link href="https://www.fly97.cn/p/jupyter-notebook-keyboard-shortcut/"/>
+    <id>https://www.fly97.cn/p/jupyter-notebook-keyboard-shortcut/</id>
+    <published>2020-10-18T07:09:00.000Z</published>
+    <updated>2020-10-18T07:09:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>概述：</strong>Jupyter Notebook是基于网页的用于交互计算的应用程序。其可被应用于全过程计算：开发、文档编写、运行代码和展示结果。</p><p>此文简单介绍了 Jupyter Notebook 的快捷键用法。</p><p><strong>关键词：</strong>Jupyter Notebook</p><a id="more"></a><p><strong>Jupyter Notebook</strong> 有两种键盘输入模式。即命令模式和编辑模式，这与 <a href="http://www.vim.org/">Vim</a> 有些类似。</p><p>在<strong>编辑模式</strong>下，可以往单元中键入代码或文本，<u>此时单元格被绿色的框线包围，且命令模式下的快捷键不生效。</u></p><p>在<strong>命令模式</strong>下，可以用快捷键命令运行单元格，移动单元格，切换单元格编辑状态等等，<u>此时的单元格被灰色的框线包围，且编辑模式下的快捷键不生效。</u></p><p>从命令模式进入编辑模式需按 <code>Enter</code> 键，从编辑模式切换到命令模式需按 <code>Esc</code> 键。</p><p>以下两表分别是对命令和编辑两种模式下快捷键的简单说明：</p><h3 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h3><p><strong>快捷键（按 Esc 键开启）:</strong></p><table><thead><tr><th>快捷键</th><th align="center">作用</th><th align="center">说明</th></tr></thead><tbody><tr><td><strong>Enter</strong></td><td align="center">转入编辑模式</td><td align="center"></td></tr><tr><td><strong>Shift-Enter</strong></td><td align="center">运行本单元，选中下个单元</td><td align="center">新单元默认为命令模式</td></tr><tr><td><strong>Ctrl-Enter</strong></td><td align="center">运行本单元</td><td align="center"></td></tr><tr><td><strong>Alt-Enter</strong></td><td align="center">运行本单元，在其下插入新单元</td><td align="center">新单元默认为编辑模式</td></tr><tr><td><strong>Y</strong></td><td align="center">单元转入代码状态</td><td align="center"></td></tr><tr><td><strong>M</strong></td><td align="center">单元转入 <strong>markdown</strong> 状态</td><td align="center"></td></tr><tr><td><strong>R</strong></td><td align="center">单元转入 raw 状态</td><td align="center"></td></tr><tr><td><strong>1</strong></td><td align="center">设定 1 级标题</td><td align="center">仅在 markdown 状态下时建议使用标题相关快捷键，如果单元处于其他状态，则会强制切换到 markdown 状态</td></tr><tr><td><strong>2</strong></td><td align="center">设定 2 级标题</td><td align="center"></td></tr><tr><td><strong>3</strong></td><td align="center">设定 3 级标题</td><td align="center"></td></tr><tr><td><strong>4</strong></td><td align="center">设定 4 级标题</td><td align="center"></td></tr><tr><td><strong>5</strong></td><td align="center">设定 5 级标题</td><td align="center"></td></tr><tr><td><strong>6</strong></td><td align="center">设定 6 级标题</td><td align="center"></td></tr><tr><td><strong>Up</strong></td><td align="center">选中上方单元</td><td align="center"></td></tr><tr><td><strong>K</strong></td><td align="center">选中上方单元</td><td align="center"></td></tr><tr><td><strong>Down</strong></td><td align="center">选中下方单元</td><td align="center"></td></tr><tr><td><strong>J</strong></td><td align="center">选中下方单元</td><td align="center"></td></tr><tr><td><strong>Shift-K</strong></td><td align="center">连续选择上方单元</td><td align="center"></td></tr><tr><td><strong>Shift-J</strong></td><td align="center">连续选择下方单元</td><td align="center"></td></tr><tr><td><strong>A</strong></td><td align="center">在上方插入新单元</td><td align="center"></td></tr><tr><td><strong>B</strong></td><td align="center">在下方插入新单元</td><td align="center"></td></tr><tr><td><strong>X</strong></td><td align="center">剪切选中的单元</td><td align="center"></td></tr><tr><td><strong>C</strong></td><td align="center">复制选中的单元</td><td align="center"></td></tr><tr><td><strong>Shift-V</strong></td><td align="center">粘贴到上方单元</td><td align="center"></td></tr><tr><td><strong>V</strong></td><td align="center">粘贴到下方单元</td><td align="center"></td></tr><tr><td><strong>Z</strong></td><td align="center">恢复删除的最后一个单元</td><td align="center"></td></tr><tr><td><strong>D,D</strong></td><td align="center">删除选中的单元</td><td align="center">连续按两个 D 键</td></tr><tr><td><strong>Shift-M</strong></td><td align="center">合并选中的单元</td><td align="center"></td></tr><tr><td><strong>Ctrl-S</strong></td><td align="center">保存当前 NoteBook</td><td align="center"></td></tr><tr><td><strong>S</strong></td><td align="center">保存当前 NoteBook</td><td align="center"></td></tr><tr><td><strong>L</strong></td><td align="center">开关行号</td><td align="center">编辑框的行号是可以开启和关闭的</td></tr><tr><td><strong>O</strong></td><td align="center">转换输出</td><td align="center"></td></tr><tr><td><strong>Shift-O</strong></td><td align="center">转换输出滚动</td><td align="center"></td></tr><tr><td><strong>Esc</strong></td><td align="center">关闭页面</td><td align="center"></td></tr><tr><td><strong>Q</strong></td><td align="center">关闭页面</td><td align="center"></td></tr><tr><td><strong>H</strong></td><td align="center">显示快捷键帮助</td><td align="center"></td></tr><tr><td><strong>I,I</strong></td><td align="center">中断 NoteBook 内核</td><td align="center"></td></tr><tr><td><strong>0,0</strong></td><td align="center">重启 NoteBook 内核</td><td align="center"></td></tr><tr><td><strong>Shift</strong></td><td align="center">忽略</td><td align="center"></td></tr><tr><td>**Shift-Space              **</td><td align="center">向上滚动</td><td align="center"></td></tr><tr><td><strong>Space</strong></td><td align="center">向下滚动</td><td align="center"></td></tr></tbody></table><h3 id="编辑模式"><a href="#编辑模式" class="headerlink" title="编辑模式"></a>编辑模式</h3><p><strong>快捷键（ 按 Enter 键启动）:</strong></p><table><thead><tr><th align="left">快捷键</th><th align="left">作用</th><th align="left">说明</th></tr></thead><tbody><tr><td align="left"><strong>Tab</strong></td><td align="left">代码补全或缩进</td><td align="left"></td></tr><tr><td align="left"><strong>Shift-Tab</strong></td><td align="left">提示</td><td align="left">输出帮助信息，部分函数、类、方法等会显示其定义原型，如果在其后加 <code>?</code> 再运行会显示更加详细的帮助</td></tr><tr><td align="left"><strong>Ctrl-]</strong></td><td align="left">缩进</td><td align="left">向右缩进</td></tr><tr><td align="left"><strong>Ctrl-[</strong></td><td align="left">解除缩进</td><td align="left">向左缩进</td></tr><tr><td align="left"><strong>Ctrl-A</strong></td><td align="left">全选</td><td align="left"></td></tr><tr><td align="left"><strong>Ctrl-Z</strong></td><td align="left">撤销</td><td align="left"></td></tr><tr><td align="left"><strong>Ctrl-Shift-Z</strong></td><td align="left">重做</td><td align="left"></td></tr><tr><td align="left"><strong>Ctrl-Y</strong></td><td align="left">重做</td><td align="left"></td></tr><tr><td align="left"><strong>Ctrl-Home</strong></td><td align="left">跳到单元开头</td><td align="left"></td></tr><tr><td align="left"><strong>Ctrl-Up</strong></td><td align="left">跳到单元开头</td><td align="left"></td></tr><tr><td align="left"><strong>Ctrl-End</strong></td><td align="left">跳到单元末尾</td><td align="left"></td></tr><tr><td align="left"><strong>Ctrl-Down</strong></td><td align="left">跳到单元末尾</td><td align="left"></td></tr><tr><td align="left"><strong>Ctrl-Left</strong></td><td align="left">跳到左边一个字首</td><td align="left"></td></tr><tr><td align="left"><strong>Ctrl-Right</strong></td><td align="left">跳到右边一个字首</td><td align="left"></td></tr><tr><td align="left"><strong>Ctrl-Backspace</strong></td><td align="left">删除前面一个字</td><td align="left"></td></tr><tr><td align="left"><strong>Ctrl-Delete</strong></td><td align="left">删除后面一个字</td><td align="left"></td></tr><tr><td align="left"><strong>Esc</strong></td><td align="left">切换到命令模式</td><td align="left"></td></tr><tr><td align="left"><strong>Ctrl-M</strong></td><td align="left">切换到命令模式</td><td align="left"></td></tr><tr><td align="left"><strong>Shift-Enter</strong></td><td align="left">运行本单元，选中下一单元</td><td align="left">新单元默认为命令模式</td></tr><tr><td align="left"><strong>Ctrl-Enter</strong></td><td align="left">运行本单元</td><td align="left"></td></tr><tr><td align="left"><strong>Alt-Enter</strong></td><td align="left">运行本单元，在下面插入一单元</td><td align="left">新单元默认为编辑模式</td></tr><tr><td align="left"><strong>Ctrl-Shift–</strong></td><td align="left">分割单元</td><td align="left">按光标所在行进行分割</td></tr><tr><td align="left"><strong>Ctrl-Shift-Subtract</strong></td><td align="left">分割单元</td><td align="left"></td></tr><tr><td align="left"><strong>Ctrl-S</strong></td><td align="left">保存当前 NoteBook</td><td align="left"></td></tr><tr><td align="left"><strong>Shift</strong></td><td align="left">忽略</td><td align="left"></td></tr><tr><td align="left"><strong>Up</strong></td><td align="left">光标上移或转入上一单元</td><td align="left"></td></tr><tr><td align="left"><strong>Down</strong></td><td align="left">光标下移或转入下一单元</td><td align="left"></td></tr><tr><td align="left"><strong>Ctrl-/</strong></td><td align="left">注释整行/撤销注释</td><td align="left">仅代码状态有效</td></tr></tbody></table><p><strong>注：</strong> 如果快捷键被系统中的其它应用占用，则可能会失效</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong&gt;概述：&lt;/strong&gt;Jupyter Notebook是基于网页的用于交互计算的应用程序。其可被应用于全过程计算：开发、文档编写、运行代码和展示结果。&lt;/p&gt;
+&lt;p&gt;此文简单介绍了 Jupyter Notebook 的快捷键用法。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;关键词：&lt;/strong&gt;Jupyter Notebook&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Jupyter" scheme="https://www.fly97.cn/tags/Jupyter/"/>
+    
+  </entry>
+  
+  <entry>
     <title>数值分析第一章作业</title>
-    <link href="https://www.fly97.cn/p/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%AC%AC%E4%B8%80%E7%AB%A0%E4%BD%9C%E4%B8%9A.html"/>
-    <id>https://www.fly97.cn/p/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%AC%AC%E4%B8%80%E7%AB%A0%E4%BD%9C%E4%B8%9A.html</id>
+    <link href="https://www.fly97.cn/p/Chapter-01-of-Numerical-Analysis/"/>
+    <id>https://www.fly97.cn/p/Chapter-01-of-Numerical-Analysis/</id>
     <published>2020-10-13T12:00:00.000Z</published>
     <updated>2020-10-13T12:00:00.000Z</updated>
     
@@ -40,8 +61,8 @@
   
   <entry>
     <title>现代信号分析第四章作业</title>
-    <link href="https://www.fly97.cn/p/%E7%8E%B0%E4%BB%A3%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90%E7%AC%AC%E5%9B%9B%E7%AB%A0%E4%BD%9C%E4%B8%9A.html"/>
-    <id>https://www.fly97.cn/p/%E7%8E%B0%E4%BB%A3%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90%E7%AC%AC%E5%9B%9B%E7%AB%A0%E4%BD%9C%E4%B8%9A.html</id>
+    <link href="https://www.fly97.cn/p/Chapter-02-of-Modern-Signal-Analysis/"/>
+    <id>https://www.fly97.cn/p/Chapter-02-of-Modern-Signal-Analysis/</id>
     <published>2020-10-12T12:00:00.000Z</published>
     <updated>2020-10-12T12:00:00.000Z</updated>
     
@@ -62,8 +83,8 @@
   
   <entry>
     <title>现代信号分析第二章作业</title>
-    <link href="https://www.fly97.cn/p/%E7%8E%B0%E4%BB%A3%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BD%9C%E4%B8%9A.html"/>
-    <id>https://www.fly97.cn/p/%E7%8E%B0%E4%BB%A3%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BD%9C%E4%B8%9A.html</id>
+    <link href="https://www.fly97.cn/p/Chapter-01-of-Modern-Signal-Analysis/"/>
+    <id>https://www.fly97.cn/p/Chapter-01-of-Modern-Signal-Analysis/</id>
     <published>2020-10-11T12:00:00.000Z</published>
     <updated>2020-10-11T12:00:00.000Z</updated>
     
@@ -84,8 +105,8 @@
   
   <entry>
     <title>ROS系统学习小记(一)</title>
-    <link href="https://www.fly97.cn/p/ROS%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0.html"/>
-    <id>https://www.fly97.cn/p/ROS%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0.html</id>
+    <link href="https://www.fly97.cn/p/ROS-system-learning-notes-01/"/>
+    <id>https://www.fly97.cn/p/ROS-system-learning-notes-01/</id>
     <published>2020-09-23T12:46:25.000Z</published>
     <updated>2020-09-23T12:46:25.000Z</updated>
     
@@ -104,8 +125,8 @@
   
   <entry>
     <title>Python科学计算库Numpy</title>
-    <link href="https://www.fly97.cn/p/Python%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97%E5%BA%93Numpy.html"/>
-    <id>https://www.fly97.cn/p/Python%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97%E5%BA%93Numpy.html</id>
+    <link href="https://www.fly97.cn/p/an-introduction-to-numpy/"/>
+    <id>https://www.fly97.cn/p/an-introduction-to-numpy/</id>
     <published>2020-09-20T07:00:00.000Z</published>
     <updated>2020-09-20T07:00:00.000Z</updated>
     
@@ -124,8 +145,8 @@
   
   <entry>
     <title>NLTK简介</title>
-    <link href="https://www.fly97.cn/p/NLTK%E7%AE%80%E4%BB%8B.html"/>
-    <id>https://www.fly97.cn/p/NLTK%E7%AE%80%E4%BB%8B.html</id>
+    <link href="https://www.fly97.cn/p/an-introduction-to-NLTK/"/>
+    <id>https://www.fly97.cn/p/an-introduction-to-NLTK/</id>
     <published>2020-09-17T11:43:00.000Z</published>
     <updated>2020-09-17T11:43:00.000Z</updated>
     
@@ -145,8 +166,8 @@
   
   <entry>
     <title>Python的一些高级用法</title>
-    <link href="https://www.fly97.cn/p/Python%E7%9A%84%E4%B8%80%E4%BA%9B%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95.html"/>
-    <id>https://www.fly97.cn/p/Python%E7%9A%84%E4%B8%80%E4%BA%9B%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95.html</id>
+    <link href="https://www.fly97.cn/p/Some-advanced-usages-of-Python/"/>
+    <id>https://www.fly97.cn/p/Some-advanced-usages-of-Python/</id>
     <published>2020-09-10T07:00:00.000Z</published>
     <updated>2020-09-10T07:00:00.000Z</updated>
     
@@ -164,8 +185,8 @@
   
   <entry>
     <title>记一次重装系统</title>
-    <link href="https://www.fly97.cn/p/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%87%8D%E8%A3%85Win10%E7%B3%BB%E7%BB%9F.html"/>
-    <id>https://www.fly97.cn/p/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%87%8D%E8%A3%85Win10%E7%B3%BB%E7%BB%9F.html</id>
+    <link href="https://www.fly97.cn/p/index/"/>
+    <id>https://www.fly97.cn/p/index/</id>
     <published>2020-09-03T12:46:00.000Z</published>
     <updated>2020-09-03T12:46:00.000Z</updated>
     
@@ -184,8 +205,8 @@
   
   <entry>
     <title>使用Github Action定时重启IBM cloud foundry</title>
-    <link href="https://www.fly97.cn/p/ibm-cloud-auto-restart.html"/>
-    <id>https://www.fly97.cn/p/ibm-cloud-auto-restart.html</id>
+    <link href="https://www.fly97.cn/p/ibm-cloud-auto-restart/"/>
+    <id>https://www.fly97.cn/p/ibm-cloud-auto-restart/</id>
     <published>2020-08-27T10:46:00.000Z</published>
     <updated>2020-08-27T10:46:00.000Z</updated>
     
@@ -205,8 +226,8 @@
   
   <entry>
     <title>PyTorch中的损失函数和优化器</title>
-    <link href="https://www.fly97.cn/p/PyTorch%E4%B8%AD%E7%9A%84%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E5%92%8C%E4%BC%98%E5%8C%96%E5%99%A8.html"/>
-    <id>https://www.fly97.cn/p/PyTorch%E4%B8%AD%E7%9A%84%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E5%92%8C%E4%BC%98%E5%8C%96%E5%99%A8.html</id>
+    <link href="https://www.fly97.cn/p/loss-function-and-optimizer-in-PyTorch/"/>
+    <id>https://www.fly97.cn/p/loss-function-and-optimizer-in-PyTorch/</id>
     <published>2020-08-20T08:54:00.000Z</published>
     <updated>2020-08-20T08:54:00.000Z</updated>
     
@@ -227,8 +248,8 @@
   
   <entry>
     <title>PyTorch中的自动求导机制和计算图</title>
-    <link href="https://www.fly97.cn/p/PyTorch%E4%B8%AD%E7%9A%84%E8%87%AA%E5%8A%A8%E6%B1%82%E5%AF%BC%E6%9C%BA%E5%88%B6%E5%92%8C%E8%AE%A1%E7%AE%97%E5%9B%BE.html"/>
-    <id>https://www.fly97.cn/p/PyTorch%E4%B8%AD%E7%9A%84%E8%87%AA%E5%8A%A8%E6%B1%82%E5%AF%BC%E6%9C%BA%E5%88%B6%E5%92%8C%E8%AE%A1%E7%AE%97%E5%9B%BE.html</id>
+    <link href="https://www.fly97.cn/p/automatic-derivation-mechanism-and-calculation-graph-in-PyTorch/"/>
+    <id>https://www.fly97.cn/p/automatic-derivation-mechanism-and-calculation-graph-in-PyTorch/</id>
     <published>2020-08-18T05:27:00.000Z</published>
     <updated>2020-08-18T05:27:00.000Z</updated>
     
@@ -248,8 +269,8 @@
   
   <entry>
     <title>PyTorch中的Tensor</title>
-    <link href="https://www.fly97.cn/p/PyTorch%E4%B8%AD%E7%9A%84Tensor.html"/>
-    <id>https://www.fly97.cn/p/PyTorch%E4%B8%AD%E7%9A%84Tensor.html</id>
+    <link href="https://www.fly97.cn/p/Tensor-in-PyTorch/"/>
+    <id>https://www.fly97.cn/p/Tensor-in-PyTorch/</id>
     <published>2020-08-17T05:27:00.000Z</published>
     <updated>2020-08-17T05:27:00.000Z</updated>
     
@@ -267,8 +288,8 @@
   
   <entry>
     <title>Python时间处理</title>
-    <link href="https://www.fly97.cn/p/Python%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86.html"/>
-    <id>https://www.fly97.cn/p/Python%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86.html</id>
+    <link href="https://www.fly97.cn/p/time-processing-in-python/"/>
+    <id>https://www.fly97.cn/p/time-processing-in-python/</id>
     <published>2020-08-13T12:31:00.000Z</published>
     <updated>2020-08-13T12:31:00.000Z</updated>
     
@@ -290,8 +311,8 @@
   
   <entry>
     <title>nginx.conf配置文件详解</title>
-    <link href="https://www.fly97.cn/p/nginx.conf%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3.html"/>
-    <id>https://www.fly97.cn/p/nginx.conf%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3.html</id>
+    <link href="https://www.fly97.cn/p/How-to-configure-nginx-conf/"/>
+    <id>https://www.fly97.cn/p/How-to-configure-nginx-conf/</id>
     <published>2020-08-12T05:28:00.000Z</published>
     <updated>2020-08-12T05:28:00.000Z</updated>
     
@@ -311,8 +332,8 @@
   
   <entry>
     <title>安装Fish自动匹配历史命令</title>
-    <link href="https://www.fly97.cn/p/%E5%AE%89%E8%A3%85Fish%E8%87%AA%E5%8A%A8%E5%8C%B9%E9%85%8D%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4.html"/>
-    <id>https://www.fly97.cn/p/%E5%AE%89%E8%A3%85Fish%E8%87%AA%E5%8A%A8%E5%8C%B9%E9%85%8D%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4.html</id>
+    <link href="https://www.fly97.cn/p/install-fish-shell-to-automatically-match-historical-commands/"/>
+    <id>https://www.fly97.cn/p/install-fish-shell-to-automatically-match-historical-commands/</id>
     <published>2020-08-10T13:50:00.000Z</published>
     <updated>2020-08-10T13:50:00.000Z</updated>
     
@@ -332,8 +353,8 @@
   
   <entry>
     <title>安装autojump自动切换目录</title>
-    <link href="https://www.fly97.cn/p/%E5%AE%89%E8%A3%85autojump%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E7%9B%AE%E5%BD%95.html"/>
-    <id>https://www.fly97.cn/p/%E5%AE%89%E8%A3%85autojump%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E7%9B%AE%E5%BD%95.html</id>
+    <link href="https://www.fly97.cn/p/install-autojump-to-automatically-switch-directories/"/>
+    <id>https://www.fly97.cn/p/install-autojump-to-automatically-switch-directories/</id>
     <published>2020-08-10T13:50:00.000Z</published>
     <updated>2020-08-10T13:50:00.000Z</updated>
     
@@ -353,8 +374,8 @@
   
   <entry>
     <title>深度学习常见损失函数</title>
-    <link href="https://www.fly97.cn/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B8%B8%E8%A7%81%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0.html"/>
-    <id>https://www.fly97.cn/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B8%B8%E8%A7%81%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0.html</id>
+    <link href="https://www.fly97.cn/p/common-loss-functions-for-deep-learning/"/>
+    <id>https://www.fly97.cn/p/common-loss-functions-for-deep-learning/</id>
     <published>2020-08-09T05:00:00.000Z</published>
     <updated>2020-08-09T05:00:00.000Z</updated>
     
@@ -372,8 +393,8 @@
   
   <entry>
     <title>机器学习基本概念03</title>
-    <link href="https://www.fly97.cn/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B503.html"/>
-    <id>https://www.fly97.cn/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B503.html</id>
+    <link href="https://www.fly97.cn/p/Basic-Concepts-of-Machine-Learning-03/"/>
+    <id>https://www.fly97.cn/p/Basic-Concepts-of-Machine-Learning-03/</id>
     <published>2020-08-07T13:50:00.000Z</published>
     <updated>2020-08-07T13:50:00.000Z</updated>
     
@@ -391,8 +412,8 @@
   
   <entry>
     <title>奥卡姆剃刀和没有免费的午餐定理</title>
-    <link href="https://www.fly97.cn/p/%E5%A5%A5%E5%8D%A1%E5%A7%86%E5%89%83%E5%88%80%E5%92%8C%E6%B2%A1%E6%9C%89%E5%85%8D%E8%B4%B9%E7%9A%84%E5%8D%88%E9%A4%90%E5%AE%9A%E7%90%86.html"/>
-    <id>https://www.fly97.cn/p/%E5%A5%A5%E5%8D%A1%E5%A7%86%E5%89%83%E5%88%80%E5%92%8C%E6%B2%A1%E6%9C%89%E5%85%8D%E8%B4%B9%E7%9A%84%E5%8D%88%E9%A4%90%E5%AE%9A%E7%90%86.html</id>
+    <link href="https://www.fly97.cn/p/Occam&#39;s-razor-and-no-free-lunch-theorem/"/>
+    <id>https://www.fly97.cn/p/Occam&#39;s-razor-and-no-free-lunch-theorem/</id>
     <published>2020-08-06T13:50:00.000Z</published>
     <updated>2020-08-06T13:50:00.000Z</updated>
     
@@ -402,25 +423,6 @@
     <summary type="html">&lt;p&gt;本文原载于&lt;a href=&quot;https://imlogm.github.io/&quot;&gt;https://imlogm.github.io&lt;/a&gt;，转载请注明出处！&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;摘要&lt;/strong&gt;：“奥卡姆剃刀”和“没有免费的午餐”是机器学习中两个很基本的原则和定理。由于名字有点怪，所以初学者可能在理解上陷入误区。本文试图用简洁易懂的方式解释这两个原则和定理，并告诉大家它们的名字是怎么来的。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;关键字&lt;/strong&gt;：机器学习, 奥卡姆剃刀, 没有免费的午餐&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="机器学习" scheme="https://www.fly97.cn/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习基本概念02</title>
-    <link href="https://www.fly97.cn/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B502.html"/>
-    <id>https://www.fly97.cn/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B502.html</id>
-    <published>2020-08-06T10:30:00.000Z</published>
-    <updated>2020-08-06T10:30:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>机器学习中的假设空间。</p><a id="more"></a><h4 id="假设空间"><a href="#假设空间" class="headerlink" title="假设空间"></a>假设空间</h4><p>​    <strong>归纳(induction)和演绎(deduction)**是科学推理的两大基本手段。归纳是从特殊到一般的”泛化”(generalization)过程。即从具体的事实归结出一般性规律；演绎则是从一般到特殊的”特化”(specialization)过程，即从基础原理推演出具体状况。例如，在数学公理系统中，基于一组公理和推理规则推导出与之相恰的定理，这是演绎；而”从样例中学习”显然是一个归纳的过程，因此亦称为</strong>“归纳学习”(inductive learning)**</p><p>​    归纳学习有狭义和广义之分，广义的归纳学习大体相当于从样例中学习，而狭义的归纳学习则要求从训练数据中学得概念(concept),因此亦称为**”概念学习”或”概念形成”**.概念学习技术目前应用、研究都比较少，因为要学得泛化性能好而且语义明确的概念实在是太难了，现实常用的技术大多数产生”黑箱”模型.然而，对概念学习有所理解，有助于理解机器学习的一些基础思想。</p><p>​    概念学习中最基本的是<strong>布尔概念学习</strong>，即对”是””不是”这样的可表示为0/1布尔值的目标概念的学习.举一个简单的例子，假定我们获得了这样的一个训练数据集：</p><img src="https://ftp.fly97.cn/image/image-20200806202414852.png" alt="image-20200806202414852" style="zoom:50%;" /><p>​    这里要学习的目标是”好瓜”，暂且假设”好瓜”可由”色泽””根蒂””敲声”这三个因素完全确定，换言之，只要某个瓜的三个属性取值明确了，我们就能判断出它是不是好瓜，于是，我们学到的将是”好瓜是某种色泽、某种根蒂、某种敲声的瓜”这样的概念，用布尔表达式写出来则是**”好瓜$ \leftrightarrow $(色泽=?)^(根蒂=?)^(敲声=?)”**，这里”?”表示尚未确定的取值，而我们的任务就是通过对上表的训练集进行学习，把”?”确定下来.</p><p>​    读者可能马上发现，上表第一行：**”(色泽=青绿)^(根蒂=蜷缩)^(敲声=浊响)”<strong>不就是好瓜吗？是的，但这是一个已见过的瓜，不要忘记学习的目的是</strong>“泛化”<strong>，即通过对训练集中的瓜的学习以获得对没见过瓜进行判断的能力.如果仅仅把训练集中的瓜”记住”，今后再见到一模一样的瓜当然可以判断，但是，对没见过的瓜，例如</strong>“(色泽=浅白)^(根蒂=蜷缩)^(敲声=浊响)”**怎么办呢？</p><p>​    我们可以把学习过程看作一个在<strong>所有假设组成的空间</strong>中进行搜索的过程，搜索目标是找到与训练集*<em>“匹配(fit)”<strong>的假设，即能够将训练集中的瓜判断正确的假设.假设的表示一旦确定，假设空间及其规模大小就确定了.这里我们的假设空间由形如</strong>“(色泽=?)^(根蒂=?)^(敲声=?)”**的可能取值所形成的假设组成.例如色泽有”青绿””乌黑””浅白”这三种可能取值；还需考虑到，也许色泽无论取什么值都合适，我们用通配符”</em>“来表示，例如*<em>“好瓜$ \leftrightarrow $(色泽=\</em>)^(根蒂=蜷缩)^(敲声=浊响)”**，即”好瓜是根蒂蜷缩、敲声浊响的瓜，什么色泽都行”.此外，还需要考虑极端情况，有可能”好瓜”这个概念根本不成立，世界上没有”好瓜”这种东西，我们用$ \emptyset $表示这个假设。这样，若”色泽””根蒂””敲声”分别有3、2、2种可能取值，则我们面临的假设空间规模大小为$4 \times 3 \times 3+1=37$.下图直观地显示了这个西瓜空间假设问题。</p><blockquote><p>这里我们假定训练样本不含噪声，而且不考虑”非青绿”这样的$\not\subset A$操作，由于训练集包含正例，因此$ \emptyset $假设自然不出现。</p></blockquote><p><img src="https://ftp.fly97.cn/image/image-20200806202019247.png" alt="image-20200806202019247"></p><p>​    可以有许多策略对这个假设空间进行搜索，例如自顶向下、从一般到特殊，或是自底向上、从特殊到一般，搜索过程种可以不断删除与正例不一致的假设和(或)与反例一致的假设.最终将会获得**与训练集一致(即对所有训练样本能够进行正确判断)**的假设，这就是我们学习的结果。</p><blockquote><p>有很多可能的选择，如在路径上自顶向下与自底向上同时进行，在操作上只删除与正例不一致的假设等。</p></blockquote><p>​    需注意的是，现实问题种我们常面临很大的假设空间，但学习过程是基于有限样本训练集进行的，因此，可能有多个假设与训练集一致，即存在一个<strong>与训练集一致的”假设集合”**，我们称之为</strong>“版本空间”(version space).**例如，在西瓜问题中，与表1.1训练集所对应的版本空间如图1.2所示.</p><img src="https://ftp.fly97.cn/image/image-20200806203152041.png" alt="image-20200806203152041"  />]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;机器学习中的假设空间。&lt;/p&gt;</summary>
     
     
     

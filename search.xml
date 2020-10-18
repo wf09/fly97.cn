@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Anacoda3 安装Pytorch小记录</title>
-    <url>/p/Anacoda3%20%E5%AE%89%E8%A3%85Pytorch%E5%B0%8F%E8%AE%B0%E5%BD%95.html</url>
+    <url>/p/Install-Pytorch-using-Anaconda3/</url>
     <content><![CDATA[<p>话不多说，先上教程。</p>
 <a id="more"></a>
 
@@ -56,7 +56,7 @@
   </entry>
   <entry>
     <title>安装Anaconda3(一)</title>
-    <url>/p/Anacoda3%E6%95%99%E7%A8%8B(%E4%B8%80).html</url>
+    <url>/p/Chapter-01-of-how-to-install-anaconda/</url>
     <content><![CDATA[<p>Python是一种面向对象的解释型计算机程序设计语言，其使用，具有跨平台的特点，可以在Linux、macOS以及Windows系统中搭建环境并使用，其编写的代码在不同平台上运行时，几乎不需要做较大的改动，使用者无不受益于它的便捷性。</p>
 <p>此外，Python的强大之处在于它的应用领域范围之广，遍及人工智能、科学计算、Web开发、系统运维、大数据及云计算、金融、游戏开发等。实现其强大功能的前提，就是Python具有数量庞大且功能相对完善的标准库和第三方库。通过对库的引用，能够实现对不同领域业务的开发。然而，正是由于库的数量庞大，对于管理这些库以及对库作及时的维护成为既重要但复杂度又高的事情。</p>
 <p><strong>Anaconda（<a href="https://link.zhihu.com/?target=https://www.anaconda.com/download/%23macos">官方网站</a>）就是可以便捷获取包且对包能够进行管理，同时对环境可以统一管理的发行版本。Anaconda包含了conda、Python在内的超过180个科学包及其依赖项。</strong></p>
@@ -102,8 +102,29 @@
       </tags>
   </entry>
   <entry>
+    <title>Caddy web docker镜像</title>
+    <url>/p/How-to-use-Caddy-web-docker-image/</url>
+    <content><![CDATA[<p>基于Go语言的web服务器</p>
+<p>Caddy服务器是一个开源的，使用 Golang 编写，支持 HTTP/2 的 Web 服务端。它使用Golang 标准库提供HTTP 功能。 Caddy 一个显著的特性是默认启用HTTPS。它是第一个无需额外配置即可提供HTTPS 特性的Web 服务器。</p>
+<a id="more"></a>
+
+<p>拉取镜像</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker pull fly97&#x2F;caddy</span><br></pre></td></tr></table></figure>
+
+<p>后台运行容器</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker run -d --name caddy \</span><br><span class="line">    -p 443:443 -p 80:80 \</span><br><span class="line">    -v /var/caddywww/:/var/caddywww \</span><br><span class="line">    -v /var/<span class="built_in">log</span>/caddy:/var/<span class="built_in">log</span>/caddy \</span><br><span class="line">    -v /etc/caddy:/etc/caddy \</span><br><span class="line">    --restart=always fly97/caddy </span><br></pre></td></tr></table></figure>
+
+<p>配置文件放在以下目录</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">/etc/caddy/Caddyfile</span><br><span class="line">http:///hub.docker.com https:///hub.docker.com * &#123;</span><br><span class="line">        root /var/caddywww/hub.docker.com</span><br><span class="line">        gzip</span><br><span class="line">        tls /var/caddywww/.ssl/hub.docker.com/_hub.docker.com_bundle.pem /var/caddywww/.ssl/hub.docker.com/_hub.docker.com.pem</span><br><span class="line">        <span class="built_in">log</span> /var/<span class="built_in">log</span>/caddy/access.log</span><br><span class="line">        errors /var/<span class="built_in">log</span>/caddy/error.log</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>caddy</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Docker的网络模式</title>
-    <url>/p/Docker%E7%9A%84%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F.html</url>
+    <url>/p/Docker-network-mode/</url>
     <content><![CDATA[<p><code>docker</code>目前支持以下5种网络模式：</p>
 <p>使用<code>docker run</code> 创建 <code>Docker</code> 容器时，可以用 <code>--network</code> 选项指定容器的网络模式。</p>
 <a id="more"></a>
@@ -125,7 +146,7 @@
   </entry>
   <entry>
     <title>Git常见操作</title>
-    <url>/p/Git%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C.html</url>
+    <url>/p/Git-common-operations/</url>
     <content><![CDATA[<p>不说废话，上教程。</p>
 <a id="more"></a>
 
@@ -143,8 +164,392 @@
       </tags>
   </entry>
   <entry>
+    <title>Jupyter NoteBook的快捷键使用指南</title>
+    <url>/p/jupyter-notebook-keyboard-shortcut/</url>
+    <content><![CDATA[<p><strong>概述：</strong>Jupyter Notebook是基于网页的用于交互计算的应用程序。其可被应用于全过程计算：开发、文档编写、运行代码和展示结果。</p>
+<p>此文简单介绍了 Jupyter Notebook 的快捷键用法。</p>
+<p><strong>关键词：</strong>Jupyter Notebook</p>
+<a id="more"></a>
+
+<p><strong>Jupyter Notebook</strong> 有两种键盘输入模式。即命令模式和编辑模式，这与 <a href="http://www.vim.org/">Vim</a> 有些类似。</p>
+<p>在<strong>编辑模式</strong>下，可以往单元中键入代码或文本，<u>此时单元格被绿色的框线包围，且命令模式下的快捷键不生效。</u></p>
+<p>在<strong>命令模式</strong>下，可以用快捷键命令运行单元格，移动单元格，切换单元格编辑状态等等，<u>此时的单元格被灰色的框线包围，且编辑模式下的快捷键不生效。</u></p>
+<p>从命令模式进入编辑模式需按 <code>Enter</code> 键，从编辑模式切换到命令模式需按 <code>Esc</code> 键。</p>
+<p>以下两表分别是对命令和编辑两种模式下快捷键的简单说明：</p>
+<h3 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h3><p><strong>快捷键（按 Esc 键开启）:</strong></p>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th align="center">作用</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Enter</strong></td>
+<td align="center">转入编辑模式</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>Shift-Enter</strong></td>
+<td align="center">运行本单元，选中下个单元</td>
+<td align="center">新单元默认为命令模式</td>
+</tr>
+<tr>
+<td><strong>Ctrl-Enter</strong></td>
+<td align="center">运行本单元</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>Alt-Enter</strong></td>
+<td align="center">运行本单元，在其下插入新单元</td>
+<td align="center">新单元默认为编辑模式</td>
+</tr>
+<tr>
+<td><strong>Y</strong></td>
+<td align="center">单元转入代码状态</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>M</strong></td>
+<td align="center">单元转入 <strong>markdown</strong> 状态</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>R</strong></td>
+<td align="center">单元转入 raw 状态</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>1</strong></td>
+<td align="center">设定 1 级标题</td>
+<td align="center">仅在 markdown 状态下时建议使用标题相关快捷键，如果单元处于其他状态，则会强制切换到 markdown 状态</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td align="center">设定 2 级标题</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td align="center">设定 3 级标题</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td align="center">设定 4 级标题</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td align="center">设定 5 级标题</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td align="center">设定 6 级标题</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>Up</strong></td>
+<td align="center">选中上方单元</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>K</strong></td>
+<td align="center">选中上方单元</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>Down</strong></td>
+<td align="center">选中下方单元</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>J</strong></td>
+<td align="center">选中下方单元</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>Shift-K</strong></td>
+<td align="center">连续选择上方单元</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>Shift-J</strong></td>
+<td align="center">连续选择下方单元</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>A</strong></td>
+<td align="center">在上方插入新单元</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>B</strong></td>
+<td align="center">在下方插入新单元</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>X</strong></td>
+<td align="center">剪切选中的单元</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>C</strong></td>
+<td align="center">复制选中的单元</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>Shift-V</strong></td>
+<td align="center">粘贴到上方单元</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>V</strong></td>
+<td align="center">粘贴到下方单元</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>Z</strong></td>
+<td align="center">恢复删除的最后一个单元</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>D,D</strong></td>
+<td align="center">删除选中的单元</td>
+<td align="center">连续按两个 D 键</td>
+</tr>
+<tr>
+<td><strong>Shift-M</strong></td>
+<td align="center">合并选中的单元</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>Ctrl-S</strong></td>
+<td align="center">保存当前 NoteBook</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>S</strong></td>
+<td align="center">保存当前 NoteBook</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>L</strong></td>
+<td align="center">开关行号</td>
+<td align="center">编辑框的行号是可以开启和关闭的</td>
+</tr>
+<tr>
+<td><strong>O</strong></td>
+<td align="center">转换输出</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>Shift-O</strong></td>
+<td align="center">转换输出滚动</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>Esc</strong></td>
+<td align="center">关闭页面</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>Q</strong></td>
+<td align="center">关闭页面</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>H</strong></td>
+<td align="center">显示快捷键帮助</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>I,I</strong></td>
+<td align="center">中断 NoteBook 内核</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>0,0</strong></td>
+<td align="center">重启 NoteBook 内核</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>Shift</strong></td>
+<td align="center">忽略</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>**Shift-Space              **</td>
+<td align="center">向上滚动</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><strong>Space</strong></td>
+<td align="center">向下滚动</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h3 id="编辑模式"><a href="#编辑模式" class="headerlink" title="编辑模式"></a>编辑模式</h3><p><strong>快捷键（ 按 Enter 键启动）:</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">快捷键</th>
+<th align="left">作用</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Tab</strong></td>
+<td align="left">代码补全或缩进</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>Shift-Tab</strong></td>
+<td align="left">提示</td>
+<td align="left">输出帮助信息，部分函数、类、方法等会显示其定义原型，如果在其后加 <code>?</code> 再运行会显示更加详细的帮助</td>
+</tr>
+<tr>
+<td align="left"><strong>Ctrl-]</strong></td>
+<td align="left">缩进</td>
+<td align="left">向右缩进</td>
+</tr>
+<tr>
+<td align="left"><strong>Ctrl-[</strong></td>
+<td align="left">解除缩进</td>
+<td align="left">向左缩进</td>
+</tr>
+<tr>
+<td align="left"><strong>Ctrl-A</strong></td>
+<td align="left">全选</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>Ctrl-Z</strong></td>
+<td align="left">撤销</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>Ctrl-Shift-Z</strong></td>
+<td align="left">重做</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>Ctrl-Y</strong></td>
+<td align="left">重做</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>Ctrl-Home</strong></td>
+<td align="left">跳到单元开头</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>Ctrl-Up</strong></td>
+<td align="left">跳到单元开头</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>Ctrl-End</strong></td>
+<td align="left">跳到单元末尾</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>Ctrl-Down</strong></td>
+<td align="left">跳到单元末尾</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>Ctrl-Left</strong></td>
+<td align="left">跳到左边一个字首</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>Ctrl-Right</strong></td>
+<td align="left">跳到右边一个字首</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>Ctrl-Backspace</strong></td>
+<td align="left">删除前面一个字</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>Ctrl-Delete</strong></td>
+<td align="left">删除后面一个字</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>Esc</strong></td>
+<td align="left">切换到命令模式</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>Ctrl-M</strong></td>
+<td align="left">切换到命令模式</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>Shift-Enter</strong></td>
+<td align="left">运行本单元，选中下一单元</td>
+<td align="left">新单元默认为命令模式</td>
+</tr>
+<tr>
+<td align="left"><strong>Ctrl-Enter</strong></td>
+<td align="left">运行本单元</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>Alt-Enter</strong></td>
+<td align="left">运行本单元，在下面插入一单元</td>
+<td align="left">新单元默认为编辑模式</td>
+</tr>
+<tr>
+<td align="left"><strong>Ctrl-Shift–</strong></td>
+<td align="left">分割单元</td>
+<td align="left">按光标所在行进行分割</td>
+</tr>
+<tr>
+<td align="left"><strong>Ctrl-Shift-Subtract</strong></td>
+<td align="left">分割单元</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>Ctrl-S</strong></td>
+<td align="left">保存当前 NoteBook</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>Shift</strong></td>
+<td align="left">忽略</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>Up</strong></td>
+<td align="left">光标上移或转入上一单元</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>Down</strong></td>
+<td align="left">光标下移或转入下一单元</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>Ctrl-/</strong></td>
+<td align="left">注释整行/撤销注释</td>
+<td align="left">仅代码状态有效</td>
+</tr>
+</tbody></table>
+<p><strong>注：</strong> 如果快捷键被系统中的其它应用占用，则可能会失效</p>
+]]></content>
+      <tags>
+        <tag>Jupyter</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux之crontab定时任务</title>
-    <url>/p/Linux%E4%B9%8Bcrontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1.html</url>
+    <url>/p/how-to-use-crontab/</url>
     <content><![CDATA[<p>Linux中的crontab - - - -一个自定义定时器</p>
 <a id="more"></a>
 
@@ -173,7 +578,7 @@
   </entry>
   <entry>
     <title>NLTK简介</title>
-    <url>/p/NLTK%E7%AE%80%E4%BB%8B.html</url>
+    <url>/p/an-introduction-to-NLTK/</url>
     <content><![CDATA[<p>本文主要介绍了NLTK语言工具包。</p>
 <p><strong>摘要：</strong>自然语言处理（NLP）是计算机科学领域与人工智能的一个重要方向。他研究实现人与计算机之间用自然语言进行有效的通信的各种领域和方法，涉及所有用计算机对自然语言处理进行的操作。以下例子是基于Python语言和一个名为NLTK的自然语言工具包的开源库实现的。</p>
 <p><strong>关键词：</strong>自然语言处理，NLP，NLTK</p>
@@ -236,7 +641,7 @@
   </entry>
   <entry>
     <title>PyTorch中torch.Tensor和torch.tensor的区别</title>
-    <url>/p/PyTorch%E4%B8%ADtorch.Tensor%E5%92%8Ctorch.tensor%E7%9A%84%E5%8C%BA%E5%88%AB.html</url>
+    <url>/p/the-difference-between-torch-Tensor-and-torch-tensor-in-PyTorch/</url>
     <content><![CDATA[<p>不说废话，直接上教程。</p>
 <a id="more"></a>
 
@@ -261,7 +666,7 @@
   </entry>
   <entry>
     <title>PyTorch中的Tensor</title>
-    <url>/p/PyTorch%E4%B8%AD%E7%9A%84Tensor.html</url>
+    <url>/p/Tensor-in-PyTorch/</url>
     <content><![CDATA[<p>通过以下几个例子来了解以下PyTorch中的Tensor。</p>
 <a id="more"></a>
 
@@ -294,7 +699,7 @@
   </entry>
   <entry>
     <title>PyTorch中的损失函数和优化器</title>
-    <url>/p/PyTorch%E4%B8%AD%E7%9A%84%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E5%92%8C%E4%BC%98%E5%8C%96%E5%99%A8.html</url>
+    <url>/p/loss-function-and-optimizer-in-PyTorch/</url>
     <content><![CDATA[<p>本文介绍了 PyTorch 的损失函数和优化器。</p>
 <p><strong>关键字</strong>：PyTorch，损失函数，优化器</p>
 <a id="more"></a>
@@ -311,8 +716,8 @@
       </tags>
   </entry>
   <entry>
-    <title>Python中_getattr__等的用法</title>
-    <url>/p/Python%E4%B8%AD_getattr__%E7%AD%89%E7%9A%84%E7%94%A8%E6%B3%95.html</url>
+    <title>Python中__getattr__等的用法</title>
+    <url>/p/usage-of-getattr-and-else-in-Python/</url>
     <content><![CDATA[<p>在使用Python的过程中可能遇到以下几个函数：</p>
 <ul>
 <li><code>getattr</code></li>
@@ -357,7 +762,7 @@
   </entry>
   <entry>
     <title>Python中pickle模块的使用</title>
-    <url>/p/Python%E4%B8%ADpickle%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8.html</url>
+    <url>/p/use-of-pickle-module-in-python/</url>
     <content><![CDATA[<p>废话不多说，直接上代码。</p>
 <a id="more"></a>
 
@@ -431,7 +836,7 @@
   </entry>
   <entry>
     <title>Python中下划线命名模式</title>
-    <url>/p/Python%E4%B8%AD%E4%B8%8B%E5%88%92%E7%BA%BF%E5%91%BD%E5%90%8D%E6%A8%A1%E5%BC%8F.html</url>
+    <url>/p/underscore-naming-pattern-in-python/</url>
     <content><![CDATA[<p>直接上表格。</p>
 <table>
 <thead>
@@ -474,7 +879,7 @@
   </entry>
   <entry>
     <title>Python升级pip</title>
-    <url>/p/Python%E5%8D%87%E7%BA%A7pip.html</url>
+    <url>/p/how-to-upgrade%20pip-in-python/</url>
     <content><![CDATA[<p>安装pip：<code>apt install python3-pip</code></p>
 <p>升级pip：<code>python -m pip install --upgrade pip</code></p>
 ]]></content>
@@ -485,7 +890,7 @@
   </entry>
   <entry>
     <title>Python时间处理</title>
-    <url>/p/Python%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86.html</url>
+    <url>/p/time-processing-in-python/</url>
     <content><![CDATA[<p>本文主要介绍了Python时间处理的函数。</p>
 <p><strong>摘要</strong>：有时需要在国外的服务器上处理北京时间等非本地时区的时间，经过查找，发现了<code>pytz</code>这个处理时区的包。<code>pytz</code>允许使用Python 2.4或更高版本进行准确的跨平台时区计算。</p>
 <p><strong>关键词</strong>：时区计算，pytz</p>
@@ -509,7 +914,7 @@
   </entry>
   <entry>
     <title>Python的一些高级用法</title>
-    <url>/p/Python%E7%9A%84%E4%B8%80%E4%BA%9B%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95.html</url>
+    <url>/p/Some-advanced-usages-of-Python/</url>
     <content><![CDATA[<p>此文介绍了一些Python的一些常见的高级用法。</p>
 <a id="more"></a>
 
@@ -580,7 +985,7 @@
   </entry>
   <entry>
     <title>Python科学计算库Numpy</title>
-    <url>/p/Python%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97%E5%BA%93Numpy.html</url>
+    <url>/p/an-introduction-to-numpy/</url>
     <content><![CDATA[<p><strong>摘要：</strong>Numpy是一个开源的Python科学计算库，它是Python科学计算库的基础库，许多其他著名的科学计算库如Pandas、Scikit-learn等，都要用的Numpy库的一些功能。</p>
 <p><strong>关键词：</strong>科学计算，Numpy</p>
 <a id="more"></a>
@@ -800,7 +1205,7 @@
   </entry>
   <entry>
     <title>ROS系统学习小记(一)</title>
-    <url>/p/ROS%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0.html</url>
+    <url>/p/ROS-system-learning-notes-01/</url>
     <content><![CDATA[<p><strong>概述：</strong>以下是作者与2020年9月23日起在浙江理工大学读研究生一年级时研究ROS实时系统时的笔记。希望能帮到你。</p>
 <p><strong>关键词：</strong>ROS</p>
 <a id="more"></a>
@@ -961,7 +1366,7 @@
   </entry>
   <entry>
     <title>Ubuntu18.04更换镜像源</title>
-    <url>/p/Ubuntu18.04%E6%9B%B4%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E6%BA%90.html</url>
+    <url>/p/How-to-change-the-mirror-source-on-Ubuntu-1804/</url>
     <content><![CDATA[<h4 id="Ubuntu18-04更换镜像源"><a href="#Ubuntu18-04更换镜像源" class="headerlink" title="Ubuntu18.04更换镜像源"></a>Ubuntu18.04更换镜像源</h4><h5 id="1-备份原有镜像源"><a href="#1-备份原有镜像源" class="headerlink" title="1.备份原有镜像源"></a>1.备份原有镜像源</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo mv /etc/apt/sources.list /etc/apt/sourses.list.bak</span><br></pre></td></tr></table></figure>
 
 <h5 id="2-修改-etc-apt-sources-list文件"><a href="#2-修改-etc-apt-sources-list文件" class="headerlink" title="2.修改/etc/apt/sources.list文件"></a>2.修改/etc/apt/sources.list文件</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/apt/sources.list</span><br><span class="line"><span class="comment">#中科大源</span></span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"><span class="comment">#阿里云源</span></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"><span class="comment">#清华源</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"><span class="comment">#香港中文科技大学源</span></span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic main restricted universe </span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-security main restricted universe </span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-updates main restricted universe </span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-proposed main restricted universe </span><br><span class="line">deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-backports main restricted universe </span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-security main restricted universe </span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-updates main restricted universe </span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-proposed main restricted universe </span><br><span class="line">deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ bionic-backports main restricted universe </span><br></pre></td></tr></table></figure>
@@ -976,7 +1381,7 @@
   </entry>
   <entry>
     <title>Ubuntu安装nodejs并更改npm镜像源</title>
-    <url>/p/Ubuntu%E5%AE%89%E8%A3%85nodejs.html</url>
+    <url>/p/How-to-install-nodejs-and-change-npm-mirror-source-on-Ubuntu/</url>
     <content><![CDATA[<h4 id="Ubuntu安装nodejs并更改npm镜像源"><a href="#Ubuntu安装nodejs并更改npm镜像源" class="headerlink" title="Ubuntu安装nodejs并更改npm镜像源"></a>Ubuntu安装nodejs并更改npm镜像源</h4><p>由于众所周知的原因，在国内使用原有的源安装<code>nodejs</code>速度非常缓慢，故可以采用清华大学的源</p>
 <h5 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -sL https://deb.nodesource.com/setup_12.x | sudo bash</span><br></pre></td></tr></table></figure>
 
@@ -1008,7 +1413,7 @@
   </entry>
   <entry>
     <title>Ubuntu安装php指南</title>
-    <url>/p/Ubuntu%E5%AE%89%E8%A3%85php%E6%8C%87%E5%8D%97.html</url>
+    <url>/p/How-to-install-php-on-Ubuntu/</url>
     <content><![CDATA[<h4 id="Ubuntu安装php指南"><a href="#Ubuntu安装php指南" class="headerlink" title="Ubuntu安装php指南"></a>Ubuntu安装php指南</h4><p>由于自带的apt源中不包含php，所以在安装php之前需要给apt添加第三方源</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install software-properties-common</span><br><span class="line">sudo add-apt-repository ppa:ondrej/php</span><br><span class="line"><span class="comment">#sudo add-apt-repository -r ppa:ondrej/php              #删除</span></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y php7.3</span><br></pre></td></tr></table></figure>
 
@@ -1020,7 +1425,7 @@
   </entry>
   <entry>
     <title>Ubuntu服务管理</title>
-    <url>/p/Ubuntu%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86.html</url>
+    <url>/p/How-to-manage-services-on-ubuntu/</url>
     <content><![CDATA[<p>Linux 服务管理两种方式service和systemctl的用法</p>
 <a id="more"></a>
 
@@ -1232,28 +1637,8 @@
       </tags>
   </entry>
   <entry>
-    <title>Caddy web docker镜像</title>
-    <url>/p/caddy%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97.html</url>
-    <content><![CDATA[<p>基于Go语言的web服务器</p>
-<a id="more"></a>
-
-<p>拉取镜像</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker pull fly97&#x2F;caddy</span><br></pre></td></tr></table></figure>
-
-<p>后台运行容器</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker run -d --name caddy \</span><br><span class="line">    -p 443:443 -p 80:80 \</span><br><span class="line">    -v /var/caddywww/:/var/caddywww \</span><br><span class="line">    -v /var/<span class="built_in">log</span>/caddy:/var/<span class="built_in">log</span>/caddy \</span><br><span class="line">    -v /etc/caddy:/etc/caddy \</span><br><span class="line">    --restart=always fly97/caddy </span><br></pre></td></tr></table></figure>
-
-<p>配置文件放在以下目录</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">/etc/caddy/Caddyfile</span><br><span class="line">http:///hub.docker.com https:///hub.docker.com * &#123;</span><br><span class="line">        root /var/caddywww/hub.docker.com</span><br><span class="line">        gzip</span><br><span class="line">        tls /var/caddywww/.ssl/hub.docker.com/_hub.docker.com_bundle.pem /var/caddywww/.ssl/hub.docker.com/_hub.docker.com.pem</span><br><span class="line">        <span class="built_in">log</span> /var/<span class="built_in">log</span>/caddy/access.log</span><br><span class="line">        errors /var/<span class="built_in">log</span>/caddy/error.log</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>caddy</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用Github Action定时重启IBM cloud foundry</title>
-    <url>/p/ibm-cloud-auto-restart.html</url>
+    <url>/p/ibm-cloud-auto-restart/</url>
     <content><![CDATA[<p>本文简单介绍了Github Action的用法，并使用Gihub Action定时重启IBM cloud foundry容器。</p>
 <p><strong>摘要：</strong>GitHub Actions是GitHub自家的持续集成及自动化工作流服务，它使用起来非常简单，只要在你的仓库根目录建立<code>.github/workflows</code>文件夹，将你的工作流配置(YML文件)放到这个目录下，就能启用GitHub Actions服务。</p>
 <p><strong>关键字</strong>：Github Action，IBM cloud foundry</p>
@@ -1273,13 +1658,13 @@
   </entry>
   <entry>
     <title>Office Tool Plus使用教程</title>
-    <url>/p/office%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B.html</url>
+    <url>/p/how-to-use-office-tool-plus/</url>
     <content><![CDATA[<p>Office Tool Plus 使用教程</p>
 <a id="more"></a>
 
 <p>软件介绍：<a href="https://otp.landian.vip/zh-cn/">https://otp.landian.vip/zh-cn/</a></p>
 <p>软件下载地址：<a href="https://download.coolhub.top/">https://download.coolhub.top/</a></p>
-<p>备份地址：<a href="https://ftp.fly97.cn/windows/app/Office%20Tool%20v7.5.zip">https://ftp.fly97.cn/windows/app/Office%20Tool%20v7.5.zip</a></p>
+<p><del>备份地址：<a href="https://ftp.fly97.cn/windows/app/Office%20Tool%20v7.5.zip">https://ftp.fly97.cn/windows/app/Office%20Tool%20v7.5.zip</a></del></p>
 <h4 id="1-选择安装产品"><a href="#1-选择安装产品" class="headerlink" title="1.选择安装产品"></a>1.选择安装产品</h4><p><img src="https://ftp.fly97.cn/image/image-20200517194431639.png" alt="image-20200517194431639"></p>
 <p>注意：由于国内到微软的网络不稳定，建议<strong>部署模式</strong>选择<strong>下载后安装</strong>。耐心等待安装完毕即可。</p>
 <h4 id="2-激活office"><a href="#2-激活office" class="headerlink" title="2.激活office"></a>2.激活office</h4><p>首先，根据选择的类型选择对应的许可证。</p>
@@ -1299,7 +1684,7 @@
   </entry>
   <entry>
     <title>使用PyTorch进行MNIST识别</title>
-    <url>/p/%E4%BD%BF%E7%94%A8PyTorch%E8%BF%9B%E8%A1%8CMNIST%E8%AF%86%E5%88%AB.html</url>
+    <url>/p/Use-PyTorch-for-MNIST-recognition/</url>
     <content><![CDATA[<p>使用PyTorch进行MNIST识别</p>
 <a id="more"></a>
 
@@ -1326,7 +1711,7 @@
   </entry>
   <entry>
     <title>使用WSL链接Github仓库以及如何配置ssh权限问题</title>
-    <url>/p/%E4%BD%BF%E7%94%A8WSL%E9%93%BE%E6%8E%A5Github%E4%BB%93%E5%BA%93.html</url>
+    <url>/p/Use-WSL-to-link-Github-repositories-and-how-to-configure-ssh-permissions/</url>
     <content><![CDATA[<p>话不多说，先上教程。</p>
 <a id="more"></a>
 
@@ -1350,7 +1735,7 @@
 <h5 id="创建ssh-key："><a href="#创建ssh-key：" class="headerlink" title="创建ssh key："></a>创建ssh key：</h5><p>为了让github能够识别是我们自己上传文件，需要创建ssh key</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</span><br></pre></td></tr></table></figure>
 
-<p>这里的<strong><a href="mailto:&#121;&#111;&#x75;&#114;&#95;&#101;&#x6d;&#97;&#105;&#108;&#x40;&#x79;&#111;&#117;&#114;&#x65;&#109;&#x61;&#105;&#x6c;&#x2e;&#x63;&#111;&#109;">&#121;&#111;&#x75;&#114;&#95;&#101;&#x6d;&#97;&#105;&#108;&#x40;&#x79;&#111;&#117;&#114;&#x65;&#109;&#x61;&#105;&#x6c;&#x2e;&#x63;&#111;&#109;</a></strong>是你的<strong>邮箱地址</strong>，在输入后会询问你是否保存创建的ssh key，点回车就好，然后要求输入你要设置的密码，如果直接回车表示不设密码。然后会提示你ssh key已经创建好。</p>
+<p>这里的<strong><a href="mailto:&#x79;&#x6f;&#117;&#x72;&#95;&#101;&#109;&#97;&#105;&#x6c;&#x40;&#121;&#111;&#x75;&#x72;&#101;&#109;&#x61;&#105;&#108;&#x2e;&#99;&#111;&#x6d;">&#x79;&#x6f;&#117;&#x72;&#95;&#101;&#109;&#97;&#105;&#x6c;&#x40;&#121;&#111;&#x75;&#x72;&#101;&#109;&#x61;&#105;&#108;&#x2e;&#99;&#111;&#x6d;</a></strong>是你的<strong>邮箱地址</strong>，在输入后会询问你是否保存创建的ssh key，点回车就好，然后要求输入你要设置的密码，如果直接回车表示不设密码。然后会提示你ssh key已经创建好。</p>
 <h5 id="把密码导入GitHub："><a href="#把密码导入GitHub：" class="headerlink" title="把密码导入GitHub："></a>把密码导入GitHub：</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat ~&#x2F;.ssh&#x2F;id_rsa.pub</span><br></pre></td></tr></table></figure>
 
 <p>此时在终端会显示出刚刚创建好的ssh key，复制出来，在github在点击头像，然后点击setting，在找到SSH and GPG keys，创建一个new ssh key，然后将刚刚复制的ssh key填入即可。</p>
@@ -1395,7 +1780,7 @@
   </entry>
   <entry>
     <title>使用acme.sh快速申请ssl证书</title>
-    <url>/p/%E4%BD%BF%E7%94%A8acme.sh%E5%BF%AB%E9%80%9F%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A6.html</url>
+    <url>/p/Use-acme-to-quickly-apply-for-an-ssl-certificate/</url>
     <content><![CDATA[<p><strong>acme.sh</strong> 实现了 <code>acme</code> 协议, 可以从 letsencrypt 生成免费的证书.</p>
 <p><strong>转载自：<a href="https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E">https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E</a></strong></p>
 <a id="more"></a>
@@ -1492,8 +1877,10 @@
   </entry>
   <entry>
     <title>使用jsdelivrCDN加速github文件</title>
-    <url>/p/%E4%BD%BF%E7%94%A8jsdelivrCDN%E5%8A%A0%E9%80%9Fgithub%E6%96%87%E4%BB%B6.html</url>
+    <url>/p/Use-jsdelivrCDN-to-accelerate-github-files/</url>
     <content><![CDATA[<p>jsDelivr 是国外的一家优秀的公共 CDN 服务提供商，也是首个「打通中国大陆（网宿公司运营）与海外的免费 CDN 服务」。</p>
+<p><strong>更新：</strong>jsDelivr新增使用政策已经于8月15日生效。根据最新的使用政策，<strong>滥用服务及其资源或将jsDelivr用作通用文件或媒体托管服务，账户将会被BAN。</strong></p>
+<p>如果将Github+jsDelivr作为图床使用的话是算违规！！！<br>相关链接：<a href="https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net">https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net</a></p>
 <a id="more"></a>
 
 <h3 id="jsDelivr-配置"><a href="#jsDelivr-配置" class="headerlink" title="jsDelivr 配置"></a>jsDelivr 配置</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;wf09&#x2F;upload@master&#x2F;1.png</span><br></pre></td></tr></table></figure>
@@ -1505,7 +1892,6 @@
 <li><code>master</code> 仓库的分支</li>
 <li><code>1.png</code>仓库下的具体文件</li>
 </ul>
-<h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><p>2020年8月15日 jsDelivr新增使用政策且已经生效。如果将Github+jsDelivr作为图床使用的话是算违规！！！<br>相关链接：<a href="https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net">https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net</a></p>
 ]]></content>
       <tags>
         <tag>github</tag>
@@ -1514,7 +1900,7 @@
   </entry>
   <entry>
     <title>使用pip离线安装PyTorch-gpu</title>
-    <url>/p/%E4%BD%BF%E7%94%A8pip%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85PyTorch-gpu.html</url>
+    <url>/p/Use-pip-to-install-the-GPU-version-of-PyTorch-offline/</url>
     <content><![CDATA[<p>废话不多说，上教程。</p>
 <a id="more"></a>
 
@@ -1579,7 +1965,7 @@
   </entry>
   <entry>
     <title>修改Pip镜像源</title>
-    <url>/p/%E4%BF%AE%E6%94%B9pip%E9%95%9C%E5%83%8F%E6%BA%90.html</url>
+    <url>/p/Modify-pip-mirror-source/</url>
     <content><![CDATA[<p>修改pip镜像源</p>
 <a id="more"></a>
 
@@ -1599,7 +1985,7 @@
   </entry>
   <entry>
     <title>初探Tkinter(一)</title>
-    <url>/p/%E5%88%9D%E6%8E%A2Tkinter01.html</url>
+    <url>/p/tkinter-tutorial-01/</url>
     <content><![CDATA[<p>基于 Python 的 Tkinter 常用于UI界面开发。</p>
 <p>以下是Tkinter为验证函数提供的一些额外选项。</p>
 <a id="more"></a>
@@ -1685,7 +2071,7 @@
   </entry>
   <entry>
     <title>初探Tkinter(二)</title>
-    <url>/p/%E5%88%9D%E6%8E%A2Tkinter02.html</url>
+    <url>/p/tkinter-tutorial-01/</url>
     <content><![CDATA[<p>基于 Python 的 Tkinter 常用于UI界面开发。</p>
 <p>下表列出了Tkinter 框架的常用组件和用法，供查找。</p>
 <a id="more"></a>
@@ -1779,7 +2165,7 @@
   </entry>
   <entry>
     <title>初探docker(一)</title>
-    <url>/p/%E5%88%9D%E6%8E%A2docker01.html</url>
+    <url>/p/docker-tutorial-01/</url>
     <content><![CDATA[<p>本文介绍的是docker的安装及常见命令。</p>
 <p><strong>摘要：</strong><a href="https://www.docker.com/">Docker</a> 是个划时代的开源项目，它彻底释放了计算虚拟化的威力，极大提高了应用的维护效率，降低了云计算应用开发的成本。使用 Docker，可以让应用的部署、测试和分发都变得前所未有的高效和轻松。</p>
 <p><strong>关键词：</strong>Docker</p>
@@ -1854,7 +2240,7 @@
   </entry>
   <entry>
     <title>初探Docker(二)</title>
-    <url>/p/%E5%88%9D%E6%8E%A2docker02.html</url>
+    <url>/p/docker-tutorial-02/</url>
     <content><![CDATA[<p>本文主要介绍了Dockerfile。</p>
 <p><strong>摘要：什么是 Dockerfile？</strong></p>
 <p>Dockerfile 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。</p>
@@ -2005,7 +2391,7 @@
   </entry>
   <entry>
     <title>奥卡姆剃刀和没有免费的午餐定理</title>
-    <url>/p/%E5%A5%A5%E5%8D%A1%E5%A7%86%E5%89%83%E5%88%80%E5%92%8C%E6%B2%A1%E6%9C%89%E5%85%8D%E8%B4%B9%E7%9A%84%E5%8D%88%E9%A4%90%E5%AE%9A%E7%90%86.html</url>
+    <url>/p/Occam&#39;s-razor-and-no-free-lunch-theorem/</url>
     <content><![CDATA[<p>本文原载于<a href="https://imlogm.github.io/">https://imlogm.github.io</a>，转载请注明出处！</p>
 <p><strong>摘要</strong>：“奥卡姆剃刀”和“没有免费的午餐”是机器学习中两个很基本的原则和定理。由于名字有点怪，所以初学者可能在理解上陷入误区。本文试图用简洁易懂的方式解释这两个原则和定理，并告诉大家它们的名字是怎么来的。</p>
 <p><strong>关键字</strong>：机器学习, 奥卡姆剃刀, 没有免费的午餐</p>
@@ -2038,7 +2424,7 @@
   </entry>
   <entry>
     <title>安装Fish自动匹配历史命令</title>
-    <url>/p/%E5%AE%89%E8%A3%85Fish%E8%87%AA%E5%8A%A8%E5%8C%B9%E9%85%8D%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4.html</url>
+    <url>/p/install-fish-shell-to-automatically-match-historical-commands/</url>
     <content><![CDATA[<p>本文介绍了Fish的使用，使用Fish可以根据输入自动匹配历史命令。</p>
 <p><strong>摘要</strong>：Fish的官网宣传语是 Finally, a command line shell for the 90s。 翻译过来就是 Fish shell 是一个为90后准备的 shell。有人说：“二逼青年用bash，普通青年用zsh，文艺青年用fish。”<br>其次由于zsh 的速度实在是太慢，所以决定换用fish，fish速度快，智能提示强大。</p>
 <p><strong>关键字</strong>：Fish</p>
@@ -2097,7 +2483,7 @@
   </entry>
   <entry>
     <title>安装autojump自动切换目录</title>
-    <url>/p/%E5%AE%89%E8%A3%85autojump%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E7%9B%AE%E5%BD%95.html</url>
+    <url>/p/install-autojump-to-automatically-switch-directories/</url>
     <content><![CDATA[<p>本文介绍了autojump的使用，使用autojump可以很方便地切换目录。</p>
 <p><strong>摘要</strong>：熟悉Linux 的小伙伴们都知道，在终端下需要使用命令<code>cd</code>切换目录。对于多层目录，还需要不停的用使用<code>cd</code>命令或者 Tab 键补齐，如果目录下文件夹过多，还需要使用<code>ls</code>查看当前目录下的文件。<a href="https://github.com/wting/autojump">autojump </a>是浏览文件系统的一种更快的方法。它通过维护命令行中最常用的目录的数据库来工作。autojump 是通过记录进入过的目录到数据库来实现的，所以必须是曾经进入过的目录才能跳转。</p>
 <p><strong>关键字</strong>：autojump</p>
@@ -2133,7 +2519,7 @@
   </entry>
   <entry>
     <title>循环神经网络介绍</title>
-    <url>/p/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BB%8B%E7%BB%8D.html</url>
+    <url>/p/Introduction-to-Recurren-Neural-Networks/</url>
     <content><![CDATA[<p>什么是LSTM？</p>
 <a id="more"></a>
 
@@ -2181,7 +2567,7 @@
   </entry>
   <entry>
     <title>搭建hexo并推送到GitHub Pages</title>
-    <url>/p/%E6%90%AD%E5%BB%BAhexo%E5%B9%B6%E6%8E%A8%E9%80%81%E5%88%B0GitHub%20Pages.html</url>
+    <url>/p/build-a-hexo-blog-and-push-to-GitHub-Pages/</url>
     <content><![CDATA[<p>之前因为重装系统丢掉了已经搭建好的Hexo博客配置文件。经过这件事以后我深刻地记住了备份的重要性。趁着刚刚搭建完博客，于是写一篇文章水一下！</p>
 <a id="more"></a>
 
@@ -2252,7 +2638,7 @@
   </entry>
   <entry>
     <title>数值分析第一章作业</title>
-    <url>/p/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%AC%AC%E4%B8%80%E7%AB%A0%E4%BD%9C%E4%B8%9A.html</url>
+    <url>/p/Chapter-01-of-Numerical-Analysis/</url>
     <content><![CDATA[<p><strong>摘要：</strong>此系列文章是我从2020年9月21日开始在浙江理工大学读研一时《数值分析》课后作业练习题及答案。</p>
 <p><strong>关键词：</strong>研一，数值分析</p>
 <a id="more"></a>
@@ -2272,7 +2658,7 @@
   </entry>
   <entry>
     <title>机器学习基本概念01</title>
-    <url>/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B501.html</url>
+    <url>/p/Basic-Concepts-of-Machine-Learning-01/</url>
     <content><![CDATA[<p>为了理解深度学习，先了解一下机器学习的基本术语。</p>
 <a id="more"></a>
 
@@ -2311,7 +2697,7 @@
   </entry>
   <entry>
     <title>机器学习基本概念02</title>
-    <url>/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B502.html</url>
+    <url>/p/Basic-Concepts-of-Machine-Learning-02/</url>
     <content><![CDATA[<p>机器学习中的假设空间。</p>
 <a id="more"></a>
 
@@ -2339,7 +2725,7 @@
   </entry>
   <entry>
     <title>机器学习基本概念03</title>
-    <url>/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B503.html</url>
+    <url>/p/Basic-Concepts-of-Machine-Learning-03/</url>
     <content><![CDATA[<p>机器学习中的归纳偏好。</p>
 <a id="more"></a>
 
@@ -2363,7 +2749,7 @@
   </entry>
   <entry>
     <title>深度学习常见损失函数</title>
-    <url>/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B8%B8%E8%A7%81%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0.html</url>
+    <url>/p/common-loss-functions-for-deep-learning/</url>
     <content><![CDATA[<p>我们所说的优化，即优化网络权值使得损失函数值变小。但是，损失函数值变小是否能代表模型的分类/回归精度变高呢？那么多种损失函数，应该如何选择呢？</p>
 <a id="more"></a>
 
@@ -2445,7 +2831,7 @@
   </entry>
   <entry>
     <title>现代信号分析第二章作业</title>
-    <url>/p/%E7%8E%B0%E4%BB%A3%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BD%9C%E4%B8%9A.html</url>
+    <url>/p/Chapter-01-of-Modern-Signal-Analysis/</url>
     <content><![CDATA[<p><strong>摘要：</strong>此系列文章是我从2020年9月21日开始在浙江理工大学读研一时《现代信号分析》课后作业练习题及答案。</p>
 <p><strong>关键词：</strong>研一，现代信号分析</p>
 <a id="more"></a>
@@ -2478,7 +2864,7 @@
   </entry>
   <entry>
     <title>现代信号分析第四章作业</title>
-    <url>/p/%E7%8E%B0%E4%BB%A3%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90%E7%AC%AC%E5%9B%9B%E7%AB%A0%E4%BD%9C%E4%B8%9A.html</url>
+    <url>/p/Chapter-02-of-Modern-Signal-Analysis/</url>
     <content><![CDATA[<p><strong>摘要：</strong>此系列文章是我从2020年9月21日开始在浙江理工大学读研一时《现代信号分析》课后作业练习题及答案。</p>
 <p><strong>关键词：</strong>研一，现代信号分析</p>
 <a id="more"></a>
@@ -2498,7 +2884,7 @@
   </entry>
   <entry>
     <title>记一次重装系统</title>
-    <url>/p/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%87%8D%E8%A3%85Win10%E7%B3%BB%E7%BB%9F.html</url>
+    <url>/p/index/</url>
     <content><![CDATA[<p>本文主要介绍了如何使用U盘进行重装系统，主要面向电脑小白用户。</p>
 <p><strong>关键字</strong>：重装win10，电脑重装</p>
 <a id="more"></a>
@@ -2652,7 +3038,7 @@
   </entry>
   <entry>
     <title>PyTorch中的自动求导机制和计算图</title>
-    <url>/p/PyTorch%E4%B8%AD%E7%9A%84%E8%87%AA%E5%8A%A8%E6%B1%82%E5%AF%BC%E6%9C%BA%E5%88%B6%E5%92%8C%E8%AE%A1%E7%AE%97%E5%9B%BE.html</url>
+    <url>/p/automatic-derivation-mechanism-and-calculation-graph-in-PyTorch/</url>
     <content><![CDATA[<p>本文介绍了 PyTorch 的自动求导机制和计算图。</p>
 <p><strong>摘要</strong>：深度学习的算法本质是通过反向传播求导数，PyTorch 的 <code>Autograd</code>模块实现了此功能。在 Tensor 上的所有操作，<code>Autograd</code>都能为他们自动提供微分，避免手动求导的复杂过程。</p>
 <p><strong>关键字</strong>：PyTorch，自动求导，计算图</p>
@@ -2737,7 +3123,7 @@
   </entry>
   <entry>
     <title>Python中正则表达式用法</title>
-    <url>/p/Python%E4%B8%AD%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%94%A8%E6%B3%95.html</url>
+    <url>/p/regular-expression-usage-in-python/</url>
     <content><![CDATA[<h4 id="正则表达式全集"><a href="#正则表达式全集" class="headerlink" title="正则表达式全集"></a>正则表达式全集</h4><a id="more"></a>
 
 <table>
@@ -3493,7 +3879,7 @@
   </entry>
   <entry>
     <title>nginx.conf配置文件详解</title>
-    <url>/p/nginx.conf%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3.html</url>
+    <url>/p/How-to-configure-nginx-conf/</url>
     <content><![CDATA[<p>本文主要介绍了nginx的配置文件。</p>
 <p><strong>摘要：</strong>Nginx 配置文件主要分成四部分：main（全局设置）、server（主机设置）、upstream（上游服务器设置，主要为反向代理、负载均衡相关配置）和 location（URL匹配特定位置后的设置）。main 部分设置的指令影响其他所有部分的设置；server 部分的指令主要用于制定虚拟主机域名、IP 和端口号；upstream 的指令用于设置一系列的后端服务器，设置反向代理及后端服务器的负载均衡；location 部分用于匹配网页位置（比如，根目录“/”，“/images”，等等）。他们之间的关系：server 继承 main，location 继承 server；upstream 既不会继承指令也不会被继承。</p>
 <p><strong>关键词：</strong>Nginx</p>
