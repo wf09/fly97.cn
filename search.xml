@@ -1377,35 +1377,35 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rospack find turtlesim </span><br></pre></td></tr></table></figure>
 
 <p>你将要获得以下信息：</p>
-<p><img src="/home/wsl/.config/Typora/typora-user-images/image-20201019194410801.png" alt="image-20201019194410801"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20201019194410801.png" alt="image-20201019194410801"></p>
 <p>如果你想要找到已经在系统安装过的某个<strong>元功能包</strong>，示例如下：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rospack find ros_comm</span><br></pre></td></tr></table></figure>
 
-<p>你将获得ros-comm元功能包的路径：<img src="/home/wsl/.config/Typora/typora-user-images/image-20201019194825060.png" alt="image-20201019194825060"></p>
+<p>你将获得ros-comm元功能包的路径：<img src="https://ftp.fly97.cn/image/image-20201019194825060.png" alt="image-20201019194825060"></p>
 <p><em>注意：功能包是rospack ，元功能包是rosstack，要注意区分。</em></p>
 <p>要获得功能包或者功能包集下面的文件列表，需要使用：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rosls turtlesim</span><br></pre></td></tr></table></figure>
 
-<p><img src="/home/wsl/.config/Typora/typora-user-images/image-20201019195209283.png" alt="image-20201019195209283"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20201019195209283.png" alt="image-20201019195209283"></p>
 <p>更改当前目录，尤其是进入某个文件夹，可以使用roscd命令完成：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">roscd turtlesim</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">pwd</span></span><br></pre></td></tr></table></figure>
 
 <p>将获得以下新路径：</p>
-<p><img src="/home/wsl/.config/Typora/typora-user-images/image-20201019195406492.png" alt="image-20201019195406492"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20201019195406492.png" alt="image-20201019195406492"></p>
 <h4 id="创建工作空间"><a href="#创建工作空间" class="headerlink" title="创建工作空间"></a>创建工作空间</h4><p>我们会在工作空间完成本书使用的所有代码。</p>
 <p>要查看ROS正在使用的工作空间，请使用下面的命令：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$ROS_PACKAGE_PATH</span></span><br></pre></td></tr></table></figure>
 
-<p>会看到如下类似信息：<img src="/home/wsl/.config/Typora/typora-user-images/image-20201019195658744.png" alt="image-20201019195658744"></p>
+<p>会看到如下类似信息：<img src="https://ftp.fly97.cn/image/image-20201019195658744.png" alt="image-20201019195658744"></p>
 <p>我们将要创建的文件夹位于<code>/root/dev/catkin_ws/src</code>中。要新建文件夹，使用以下命令：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p /root/dev/catkin_ws/src</span><br><span class="line"><span class="built_in">cd</span> /root/dev/catkin_ws/src</span><br><span class="line">catkin_init_workspace</span><br></pre></td></tr></table></figure>
 
 <p>当创建工作空间文件夹后，里面并没有功能包，只有CMakeList.txt文件。使用下面的命令来<strong>编译工作空间</strong>：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /root/dev/catkin_ws</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure>
 
-<p>你将看到类似信息：<img src="/home/wsl/.config/Typora/typora-user-images/image-20201019200504031.png" alt="image-20201019200504031"></p>
+<p>你将看到类似信息：<img src="https://ftp.fly97.cn/image/image-20201019200504031.png" alt="image-20201019200504031"></p>
 <p>现在输入<code>ls</code>命令，可以看到创建的新文件夹，分别是build和devel文件夹。</p>
 <p>输入以下命令，再次初始化ros环境，至此，工作空间创建完毕。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> devel/setup.bash</span><br></pre></td></tr></table></figure>
@@ -1427,7 +1427,7 @@
 <li>roscpp：使用C++实现了ROS的各种功能。它提供了一个客户端库，让C++程序员能够调用这些接口快速完成与ROS的主题、服务和参数相关的开发工作。</li>
 </ul>
 <p>如果所有步骤一切顺利，结果如下图所示：</p>
-<p><img src="/home/wsl/.config/Typora/typora-user-images/image-20201019202650647.png" alt="image-20201019202650647"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20201019202650647.png" alt="image-20201019202650647"></p>
 <p>正如我们看到的，可以使用rospack、roscd和rosls命令来获取新的功能包信息。下面是可以执行的一些操作。</p>
 <ul>
 <li>rospack profile：此命令用于通知用户ROS中新添加的内容。在安装任何功能包之后使用它。</li>
@@ -1442,7 +1442,7 @@
 <p>如果没有看到错误提示信息，说明功能包编译成功。</p>
 <p>必须在<code>workspace</code>文件夹中运行catkin_make命令。如果在其他文件这样做，命令将无法执行！</p>
 <p>当你在TEST文件夹中试图使用catkin_make编译工具包时，你会看到如下错误：</p>
-<p><img src="/home/wsl/.config/Typora/typora-user-images/image-20201019204443411.png" alt="image-20201019204443411"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20201019204443411.png" alt="image-20201019204443411"></p>
 <p>当你在<code>catkin_ws</code>文件夹中执行catkin_make命令时，则会编译成功。</p>
 <p>如果编译单个工具包，可以使用如下格式的命令：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">catkin_make --pkg &lt;package name&gt;</span><br></pre></td></tr></table></figure>
@@ -1823,7 +1823,7 @@
 <h5 id="创建ssh-key："><a href="#创建ssh-key：" class="headerlink" title="创建ssh key："></a>创建ssh key：</h5><p>为了让github能够识别是我们自己上传文件，需要创建ssh key</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</span><br></pre></td></tr></table></figure>
 
-<p>这里的<strong><a href="mailto:&#x79;&#111;&#117;&#114;&#95;&#x65;&#109;&#97;&#105;&#108;&#64;&#x79;&#x6f;&#117;&#114;&#101;&#109;&#x61;&#x69;&#108;&#46;&#x63;&#111;&#109;">&#x79;&#111;&#117;&#114;&#95;&#x65;&#109;&#97;&#105;&#108;&#64;&#x79;&#x6f;&#117;&#114;&#101;&#109;&#x61;&#x69;&#108;&#46;&#x63;&#111;&#109;</a></strong>是你的<strong>邮箱地址</strong>，在输入后会询问你是否保存创建的ssh key，点回车就好，然后要求输入你要设置的密码，如果直接回车表示不设密码。然后会提示你ssh key已经创建好。</p>
+<p>这里的<strong><a href="mailto:&#x79;&#111;&#117;&#114;&#x5f;&#101;&#109;&#97;&#105;&#108;&#64;&#121;&#111;&#x75;&#x72;&#101;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#x6d;">&#x79;&#111;&#117;&#114;&#x5f;&#101;&#109;&#97;&#105;&#108;&#64;&#121;&#111;&#x75;&#x72;&#101;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#x6d;</a></strong>是你的<strong>邮箱地址</strong>，在输入后会询问你是否保存创建的ssh key，点回车就好，然后要求输入你要设置的密码，如果直接回车表示不设密码。然后会提示你ssh key已经创建好。</p>
 <h5 id="把密码导入GitHub："><a href="#把密码导入GitHub：" class="headerlink" title="把密码导入GitHub："></a>把密码导入GitHub：</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat ~&#x2F;.ssh&#x2F;id_rsa.pub</span><br></pre></td></tr></table></figure>
 
 <p>此时在终端会显示出刚刚创建好的ssh key，复制出来，在github在点击头像，然后点击setting，在找到SSH and GPG keys，创建一个new ssh key，然后将刚刚复制的ssh key填入即可。</p>
