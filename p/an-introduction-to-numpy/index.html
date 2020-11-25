@@ -237,7 +237,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E8%AF%86Numpy"><span class="nav-number">1.</span> <span class="nav-text">初识Numpy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Numpy%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">Numpy数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Numpy%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84"><span class="nav-number">3.</span> <span class="nav-text">Numpy创建数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E5%88%97%E8%A1%A8%E6%88%96%E8%80%85%E5%85%83%E7%BB%84%E8%BD%AC%E5%8C%96"><span class="nav-number">3.1.</span> <span class="nav-text">通过列表或者元组转化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#arange%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84"><span class="nav-number">3.2.</span> <span class="nav-text">arange函数创建数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#linspace%E7%94%9F%E6%88%90%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97"><span class="nav-number">3.3.</span> <span class="nav-text">linspace生成等差数列</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E8%AF%86Numpy"><span class="nav-number">1.</span> <span class="nav-text">初识Numpy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Numpy%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">Numpy数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Numpy%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84"><span class="nav-number">3.</span> <span class="nav-text">Numpy创建数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E5%88%97%E8%A1%A8%E6%88%96%E8%80%85%E5%85%83%E7%BB%84%E8%BD%AC%E5%8C%96"><span class="nav-number">3.1.</span> <span class="nav-text">通过列表或者元组转化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#np-arange-%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84"><span class="nav-number">3.2.</span> <span class="nav-text">np.arange()函数创建数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#np-linspace-%E7%94%9F%E6%88%90%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97"><span class="nav-number">3.3.</span> <span class="nav-text">np.linspace()生成等差数列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#np-concatenate-%E6%95%B0%E7%BB%84%E6%8B%BC%E6%8E%A5"><span class="nav-number">3.4.</span> <span class="nav-text">np.concatenate()数组拼接</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -251,7 +251,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-count">56</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -529,7 +529,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = np.array([[<span class="number">1</span>, <span class="number">2</span>],[<span class="number">4</span>, <span class="number">5</span>, <span class="number">7</span>]])</span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;a:&#123;&#125;, type of a:&#123;&#125;&quot;</span>.format(a, type(a)))</span><br></pre></td></tr></table></figure>
 
 <p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920184454753.png" alt="image-20200920184454753"></p>
-<h4 id="arange函数创建数组"><a href="#arange函数创建数组" class="headerlink" title="arange函数创建数组"></a>arange函数创建数组</h4><p>np.arange()的功能是在给定区间内创建<strong>等差数组</strong>。arange类似range函数，接触过Python的人或许对range函数比较熟悉。例如在for循环中，经常用到range。下面通过range来学习arange，主要区别是<strong>返回值类型不同</strong>。</p>
+<h4 id="np-arange-函数创建数组"><a href="#np-arange-函数创建数组" class="headerlink" title="np.arange()函数创建数组"></a>np.arange()函数创建数组</h4><p>np.arange()的功能是在给定区间内创建<strong>等差数组</strong>。arange类似range函数，接触过Python的人或许对range函数比较熟悉。例如在for循环中，经常用到range。下面通过range来学习arange，主要区别是<strong>返回值类型不同</strong>。</p>
 <p>range返回的是list，np.arange返回的是narray数组。</p>
 <ol>
 <li>range函数为 range(start, stop[, step])，根据start和stop指定的范围以及step设定的步长，生成一个序列，函数返回的是一个range object。这里的[start, stop]是一个<strong>前闭后开</strong>区间。</li>
@@ -551,21 +551,35 @@
 <li>step：步长用于设置值之间的间隔，支持<strong>步长为小数</strong>。</li>
 <li>dtype：可选参数，可以设置返回ndarray的值类型。</li>
 </ul>
-<p><strong>arange案例</strong></p>
+<p><strong>np.arange()案例</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.arange(<span class="number">12</span>)</span><br><span class="line"></span><br><span class="line">a2 = np.arange(<span class="number">1</span>, <span class="number">2</span>, <span class="number">0.1</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;a:&#123;&#125;,a2:&#123;&#125;&quot;</span>.format(a,a2))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920191959047.png" alt="image-20200920191959047"></p>
-<h4 id="linspace生成等差数列"><a href="#linspace生成等差数列" class="headerlink" title="linspace生成等差数列"></a>linspace生成等差数列</h4><p>np.linspace方法也可以像np.arange方法一样，创建数值有规律的数组。linespace用于在指定区域返回间隔均匀的值，其方法为：</p>
+<h4 id="np-linspace-生成等差数列"><a href="#np-linspace-生成等差数列" class="headerlink" title="np.linspace()生成等差数列"></a>np.linspace()生成等差数列</h4><p>np.linspace方法也可以像np.arange方法一样，创建数值有规律的数组。linespace用于在指定区域返回间隔均匀的值，其方法为：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.linespace(start, stop, num=<span class="number">50</span>, endpoint=<span class="literal">True</span>, restep=<span class="literal">False</span>, dtype=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>start：序列的起始值。</li>
-<li>stop：序列的结束值。</li>
-<li>num：生成的样本数，默认为50。</li>
-<li>endpoint：布尔值，若为True，则最后一个样本包含在序列内。</li>
-<li>restep：布尔值，若为True，返回间距。</li>
-<li>dtype：数组的类型。</li>
+<li><p>start：序列的起始值。</p>
+</li>
+<li><p>stop：序列的结束值。</p>
+</li>
+<li><p>num：生成的样本数，默认为50。</p>
+</li>
+<li><p>endpoint：布尔值，若为True，则最后一个样本包含在序列内。</p>
+</li>
+<li><p>restep：布尔值，若为True，返回间距。</p>
+</li>
+<li><p>dtype：数组的类型。</p>
+</li>
 </ul>
+<h4 id="np-concatenate-数组拼接"><a href="#np-concatenate-数组拼接" class="headerlink" title="np.concatenate()数组拼接"></a>np.concatenate()数组拼接</h4><p>numpy提供了numpy.concatenate()函数，能够一次完成多个数组的拼接。</p>
+<p>实例1：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">b = np.array([<span class="number">11</span>,<span class="number">22</span>,<span class="number">33</span>])</span><br><span class="line">c = np.array([<span class="number">44</span>,<span class="number">55</span>,<span class="number">66</span>])</span><br><span class="line">np.concatenate((a,b,c),axis=<span class="number">0</span>)     <span class="comment">#axis=0是默认值</span></span><br><span class="line"><span class="comment"># array([1,2,3,11,22,33,44,55,66]) #对于一维数组拼接，axis的值不影响最后的结果</span></span><br></pre></td></tr></table></figure>
+
+<p>实例2：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]])</span><br><span class="line">b = np.array([[<span class="number">11</span>,<span class="number">21</span>,<span class="number">31</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]])</span><br><span class="line">np.concatenate((a,b),axis=<span class="number">0</span>)</span><br><span class="line"><span class="string">&quot;&quot;&quot;array([[ 1,  2,  3],          #对应列拼接</span></span><br><span class="line"><span class="string">       [ 4,  5,  6],</span></span><br><span class="line"><span class="string">       [11, 21, 31],</span></span><br><span class="line"><span class="string">       [ 7,  8,  9]])</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span>  </span><br><span class="line">np.concatenate((a,b),axis=<span class="number">1</span>)</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">array([[ 1,  2,  3, 11, 21, 31],  #对应行拼接</span></span><br><span class="line"><span class="string">       [ 4,  5,  6,  7,  8,  9]])  </span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>oncatenate()效率更高，适合大规模的数据拼接。</p>
 
     </div>
 
@@ -574,25 +588,6 @@
     
 
     <footer class="post-footer">
-          
-
-  <div class="followme">
-    <span>欢迎关注我的其它发布渠道</span>
-
-    <div class="social-list">
-
-        <div class="social-item">
-          <a target="_blank" class="social-link" href="/atom.xml">
-            <span class="icon">
-              <i class="fa fa-rss"></i>
-            </span>
-
-            <span class="label">RSS</span>
-          </a>
-        </div>
-    </div>
-  </div>
-
           <div class="post-tags">
               <a href="/tags/Numpy/" rel="tag"># Numpy</a>
           </div>

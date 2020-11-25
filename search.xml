@@ -1316,7 +1316,7 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = np.array([[<span class="number">1</span>, <span class="number">2</span>],[<span class="number">4</span>, <span class="number">5</span>, <span class="number">7</span>]])</span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;a:&#123;&#125;, type of a:&#123;&#125;&quot;</span>.format(a, type(a)))</span><br></pre></td></tr></table></figure>
 
 <p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920184454753.png" alt="image-20200920184454753"></p>
-<h4 id="arange函数创建数组"><a href="#arange函数创建数组" class="headerlink" title="arange函数创建数组"></a>arange函数创建数组</h4><p>np.arange()的功能是在给定区间内创建<strong>等差数组</strong>。arange类似range函数，接触过Python的人或许对range函数比较熟悉。例如在for循环中，经常用到range。下面通过range来学习arange，主要区别是<strong>返回值类型不同</strong>。</p>
+<h4 id="np-arange-函数创建数组"><a href="#np-arange-函数创建数组" class="headerlink" title="np.arange()函数创建数组"></a>np.arange()函数创建数组</h4><p>np.arange()的功能是在给定区间内创建<strong>等差数组</strong>。arange类似range函数，接触过Python的人或许对range函数比较熟悉。例如在for循环中，经常用到range。下面通过range来学习arange，主要区别是<strong>返回值类型不同</strong>。</p>
 <p>range返回的是list，np.arange返回的是narray数组。</p>
 <ol>
 <li>range函数为 range(start, stop[, step])，根据start和stop指定的范围以及step设定的步长，生成一个序列，函数返回的是一个range object。这里的[start, stop]是一个<strong>前闭后开</strong>区间。</li>
@@ -1338,21 +1338,35 @@
 <li>step：步长用于设置值之间的间隔，支持<strong>步长为小数</strong>。</li>
 <li>dtype：可选参数，可以设置返回ndarray的值类型。</li>
 </ul>
-<p><strong>arange案例</strong></p>
+<p><strong>np.arange()案例</strong></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.arange(<span class="number">12</span>)</span><br><span class="line"></span><br><span class="line">a2 = np.arange(<span class="number">1</span>, <span class="number">2</span>, <span class="number">0.1</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;a:&#123;&#125;,a2:&#123;&#125;&quot;</span>.format(a,a2))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920191959047.png" alt="image-20200920191959047"></p>
-<h4 id="linspace生成等差数列"><a href="#linspace生成等差数列" class="headerlink" title="linspace生成等差数列"></a>linspace生成等差数列</h4><p>np.linspace方法也可以像np.arange方法一样，创建数值有规律的数组。linespace用于在指定区域返回间隔均匀的值，其方法为：</p>
+<h4 id="np-linspace-生成等差数列"><a href="#np-linspace-生成等差数列" class="headerlink" title="np.linspace()生成等差数列"></a>np.linspace()生成等差数列</h4><p>np.linspace方法也可以像np.arange方法一样，创建数值有规律的数组。linespace用于在指定区域返回间隔均匀的值，其方法为：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">np.linespace(start, stop, num=<span class="number">50</span>, endpoint=<span class="literal">True</span>, restep=<span class="literal">False</span>, dtype=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>start：序列的起始值。</li>
-<li>stop：序列的结束值。</li>
-<li>num：生成的样本数，默认为50。</li>
-<li>endpoint：布尔值，若为True，则最后一个样本包含在序列内。</li>
-<li>restep：布尔值，若为True，返回间距。</li>
-<li>dtype：数组的类型。</li>
+<li><p>start：序列的起始值。</p>
+</li>
+<li><p>stop：序列的结束值。</p>
+</li>
+<li><p>num：生成的样本数，默认为50。</p>
+</li>
+<li><p>endpoint：布尔值，若为True，则最后一个样本包含在序列内。</p>
+</li>
+<li><p>restep：布尔值，若为True，返回间距。</p>
+</li>
+<li><p>dtype：数组的类型。</p>
+</li>
 </ul>
+<h4 id="np-concatenate-数组拼接"><a href="#np-concatenate-数组拼接" class="headerlink" title="np.concatenate()数组拼接"></a>np.concatenate()数组拼接</h4><p>numpy提供了numpy.concatenate()函数，能够一次完成多个数组的拼接。</p>
+<p>实例1：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">b = np.array([<span class="number">11</span>,<span class="number">22</span>,<span class="number">33</span>])</span><br><span class="line">c = np.array([<span class="number">44</span>,<span class="number">55</span>,<span class="number">66</span>])</span><br><span class="line">np.concatenate((a,b,c),axis=<span class="number">0</span>)     <span class="comment">#axis=0是默认值</span></span><br><span class="line"><span class="comment"># array([1,2,3,11,22,33,44,55,66]) #对于一维数组拼接，axis的值不影响最后的结果</span></span><br></pre></td></tr></table></figure>
+
+<p>实例2：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]])</span><br><span class="line">b = np.array([[<span class="number">11</span>,<span class="number">21</span>,<span class="number">31</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]])</span><br><span class="line">np.concatenate((a,b),axis=<span class="number">0</span>)</span><br><span class="line"><span class="string">&quot;&quot;&quot;array([[ 1,  2,  3],          #对应列拼接</span></span><br><span class="line"><span class="string">       [ 4,  5,  6],</span></span><br><span class="line"><span class="string">       [11, 21, 31],</span></span><br><span class="line"><span class="string">       [ 7,  8,  9]])</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span>  </span><br><span class="line">np.concatenate((a,b),axis=<span class="number">1</span>)</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">array([[ 1,  2,  3, 11, 21, 31],  #对应行拼接</span></span><br><span class="line"><span class="string">       [ 4,  5,  6,  7,  8,  9]])  </span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>oncatenate()效率更高，适合大规模的数据拼接。</p>
 ]]></content>
       <tags>
         <tag>Numpy</tag>
@@ -1978,7 +1992,7 @@
 <h5 id="创建ssh-key："><a href="#创建ssh-key：" class="headerlink" title="创建ssh key："></a>创建ssh key：</h5><p>为了让github能够识别是我们自己上传文件，需要创建ssh key</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</span><br></pre></td></tr></table></figure>
 
-<p>这里的<strong><a href="mailto:&#x79;&#x6f;&#x75;&#x72;&#95;&#x65;&#x6d;&#97;&#x69;&#108;&#x40;&#121;&#x6f;&#117;&#x72;&#x65;&#x6d;&#97;&#x69;&#108;&#46;&#99;&#x6f;&#x6d;">&#x79;&#x6f;&#x75;&#x72;&#95;&#x65;&#x6d;&#97;&#x69;&#108;&#x40;&#121;&#x6f;&#117;&#x72;&#x65;&#x6d;&#97;&#x69;&#108;&#46;&#99;&#x6f;&#x6d;</a></strong>是你的<strong>邮箱地址</strong>，在输入后会询问你是否保存创建的ssh key，点回车就好，然后要求输入你要设置的密码，如果直接回车表示不设密码。然后会提示你ssh key已经创建好。</p>
+<p>这里的<strong><a href="mailto:&#121;&#x6f;&#x75;&#x72;&#95;&#x65;&#x6d;&#97;&#x69;&#x6c;&#64;&#121;&#x6f;&#117;&#114;&#x65;&#x6d;&#97;&#105;&#x6c;&#x2e;&#99;&#x6f;&#x6d;">&#121;&#x6f;&#x75;&#x72;&#95;&#x65;&#x6d;&#97;&#x69;&#x6c;&#64;&#121;&#x6f;&#117;&#114;&#x65;&#x6d;&#97;&#105;&#x6c;&#x2e;&#99;&#x6f;&#x6d;</a></strong>是你的<strong>邮箱地址</strong>，在输入后会询问你是否保存创建的ssh key，点回车就好，然后要求输入你要设置的密码，如果直接回车表示不设密码。然后会提示你ssh key已经创建好。</p>
 <h5 id="把密码导入GitHub："><a href="#把密码导入GitHub：" class="headerlink" title="把密码导入GitHub："></a>把密码导入GitHub：</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat ~&#x2F;.ssh&#x2F;id_rsa.pub</span><br></pre></td></tr></table></figure>
 
 <p>此时在终端会显示出刚刚创建好的ssh key，复制出来，在github在点击头像，然后点击setting，在找到SSH and GPG keys，创建一个new ssh key，然后将刚刚复制的ssh key填入即可。</p>
@@ -3123,6 +3137,22 @@
       <tags>
         <tag>研一</tag>
         <tag>现代信号分析</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>线性回归中的基函数</title>
+    <url>/p/a-basis-function-in-linear-regression/</url>
+    <content><![CDATA[<p><strong>摘要：</strong>最近再看<a href="https://www.zhihu.com/people/xpqiu">邱锡鹏</a>老师的《神经网络与深度学习》，学习过程中难免遇到问题。谨以此文作为记录，希望自己能坚持下去吧。</p>
+<p><strong>关键词：</strong>线性回归，基函数</p>
+<a id="more"></a>
+
+<h4 id="线性基函数模型"><a href="#线性基函数模型" class="headerlink" title="线性基函数模型"></a>线性基函数模型</h4><p>最简单的回归线性模型是输入变量的线性组合：<br>$$<br>y(x,w) = w_0 + w_1x_1+ … + w_Dx_D \tag{3.1}<br>$$<br>其中<br>$$<br>x = (x_1,…,x_D)^T<br>$$<br>这通常被叫做简单的线性回归。这个模型的关键属性是它是一个参数$w_0,…,w_D$的一个线性函数，同时，它也是输入变量$x_i$的一个线性函数，这给模型带来了<strong>极大的局限性</strong>。因此，我们将输入变量确定了的非线性函数进行线性组合来拓模型的类别：<br>$$<br>y(x,w) = w_0 + \sum\limits_{j=1}^{M-1}w_j\phi_j(x) \tag{3.2}<br>$$<br>其中$\phi_j(x)$被称为基函数。通过把下标$j$的最大值记作$M-1$，使得这个模型的参数总数为$M$.</p>
+<p>参数$w_0$使得数据中可以存在任意的固定偏移，通常被称为偏置参数。这里请不要和统计观念下的偏置搞混淆。通常，定义一个额外的占位基函数是很方便的，以便把函数简化为：<br>$$<br>y(x,w) = \sum\limits_{j=0}^{M-1}w_j\phi_j(x) = w^T\phi(x) \tag{3.3}<br>$$<br>其中$w = (w_0,…,w_{M-1})^T , \phi = (\phi_0,…,\phi_{M-1})^T$。在很多模型识别的应用中，会在原始数据上应用固定形式的预处理或特征抽取。如果原始变量组成向量$x$，那么特征可以表示为基函数${\phi_j(x)}$的项。</p>
+<p>通过使用非线性的基函数，我们允许函数$y(x,w)$是关于输入向量$x$的非线性函数。由于式(3.2)是关于$w$的线性函数，所以他被称为<font size="3" color="red">线性模型。</font>这种参数的线性性质极大地简化了这类模型的分析。不过，这也造成了一定的局限性。</p>
+<p><font size="3" color="red">多项式拟合</font>也被称作多项式基函数是这类模型的一个特例，他有单个输入变量$x$，基函数是$x$的幂函数的形式，即$\phi_j(x) = x^j$。多项式基函数的局限性是他们是输入变量的<strong>全局函数</strong>，所以一个区间内改变会影响所有区域。解决的办法是把输入空间切分成若干个区域，然后对于每个区域用不同的多项式函数拟合，这样的函数被称为<strong>样条函数</strong>。还有很多其他基函数的选择，如：<br>$$<br>\phi_j(x) = exp\left\{-\frac{(x-\mu_j)^2}{2s^2}\right\} \tag{3.4}<br>$$<br>其中，$\mu_j$控制着基函数在输入空间中的位置，参数$s$控制着基函数的空间大小。这些通常被称为<font size="3" color="red">高斯基函数</font>。由于这些基函数会有一个调节参数$w_j$相乘，所以标准化系数是不重要的。</p>
+<h4 id="未完待续…"><a href="#未完待续…" class="headerlink" title="未完待续….."></a>未完待续…..</h4>]]></content>
+      <tags>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
