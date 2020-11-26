@@ -25,17 +25,14 @@
     var CONFIG = {"hostname":"www.fly97.cn","root":"/","scheme":"Mist","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="本文介绍了Fish的使用，使用Fish可以根据输入自动匹配历史命令。 摘要：Fish的官网宣传语是 Finally, a command line shell for the 90s。 翻译过来就是 Fish shell 是一个为90后准备的 shell。有人说：“二逼青年用bash，普通青年用zsh，文艺青年用fish。”其次由于zsh 的速度实在是太慢，所以决定换用fish，fish速度快，智">
+  <meta name="description" content="本文介绍了Fish的使用，使用Fish可以根据输入自动匹配历史命令。 摘要：Fish的官网宣传语是 Finally, a command line shell for the 90s。 翻译过来就是 Fish shell 是一个为90后准备的 shell。有人说：“二逼青年用bash，普通青年用zsh，文艺青年用fish。” 其次由于zsh 的速度实在是太慢，所以决定换用fish，fish速度快，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="安装Fish自动匹配历史命令">
 <meta property="og:url" content="https://www.fly97.cn/p/install-fish-shell-to-automatically-match-historical-commands/index.html">
 <meta property="og:site_name" content="个人随想">
-<meta property="og:description" content="本文介绍了Fish的使用，使用Fish可以根据输入自动匹配历史命令。 摘要：Fish的官网宣传语是 Finally, a command line shell for the 90s。 翻译过来就是 Fish shell 是一个为90后准备的 shell。有人说：“二逼青年用bash，普通青年用zsh，文艺青年用fish。”其次由于zsh 的速度实在是太慢，所以决定换用fish，fish速度快，智">
+<meta property="og:description" content="本文介绍了Fish的使用，使用Fish可以根据输入自动匹配历史命令。 摘要：Fish的官网宣传语是 Finally, a command line shell for the 90s。 翻译过来就是 Fish shell 是一个为90后准备的 shell。有人说：“二逼青年用bash，普通青年用zsh，文艺青年用fish。” 其次由于zsh 的速度实在是太慢，所以决定换用fish，fish速度快，">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ftp.fly97.cn/image/20200811_144927.gif">
-<meta property="og:image" content="https://ftp.fly97.cn/image/2027280-11b7a5729b03227b.webp">
-<meta property="og:image" content="https://ftp.fly97.cn/image/2027280-3f8729b449ea454d.webp">
-<meta property="og:image" content="https://ftp.fly97.cn/image/2027280-2c1a98068158e5fd.webp">
 <meta property="article:published_time" content="2020-08-10T13:50:00.000Z">
 <meta property="article:modified_time" content="2020-08-10T13:50:00.000Z">
 <meta property="article:author" content="个人随想">
@@ -232,7 +229,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Fish%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">Fish入门使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Ubuntu%E5%AE%89%E8%A3%85Fish"><span class="nav-number">1.1.</span> <span class="nav-text">Ubuntu安装Fish</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BD%91%E9%A1%B5%E9%85%8D%E7%BD%AEFish"><span class="nav-number">1.2.</span> <span class="nav-text">网页配置Fish</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%BC%E5%AE%B9Bash"><span class="nav-number">2.</span> <span class="nav-text">兼容Bash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%90%E8%97%8F%E6%AC%A2%E8%BF%8E%E8%AF%AD"><span class="nav-number">3.</span> <span class="nav-text">隐藏欢迎语</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">其他配置</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#fish%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">Fish入门使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ubuntu%E5%AE%89%E8%A3%85fish"><span class="nav-number">1.1.</span> <span class="nav-text">Ubuntu安装Fish</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BD%91%E9%A1%B5%E9%85%8D%E7%BD%AEfish"><span class="nav-number">1.2.</span> <span class="nav-text">网页配置Fish</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%BC%E5%AE%B9bash"><span class="nav-number">2.</span> <span class="nav-text">兼容Bash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%90%E8%97%8F%E6%AC%A2%E8%BF%8E%E8%AF%AD"><span class="nav-number">3.</span> <span class="nav-text">隐藏欢迎语</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">其他配置</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -350,56 +347,57 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>本文介绍了Fish的使用，使用Fish可以根据输入自动匹配历史命令。</p>
-<p><strong>摘要</strong>：Fish的官网宣传语是 Finally, a command line shell for the 90s。 翻译过来就是 Fish shell 是一个为90后准备的 shell。有人说：“二逼青年用bash，普通青年用zsh，文艺青年用fish。”<br>其次由于zsh 的速度实在是太慢，所以决定换用fish，fish速度快，智能提示强大。</p>
+<p><strong>摘要</strong>：Fish的官网宣传语是 Finally, a command line shell for the 90s。 翻译过来就是 Fish shell 是一个为90后准备的 shell。有人说：“二逼青年用bash，普通青年用zsh，文艺青年用fish。” 其次由于zsh 的速度实在是太慢，所以决定换用fish，fish速度快，智能提示强大。</p>
 <p><strong>关键字</strong>：Fish</p>
 <a id="more"></a>
-
-<h4 id="Fish入门使用"><a href="#Fish入门使用" class="headerlink" title="Fish入门使用"></a>Fish入门使用</h4><h5 id="Ubuntu安装Fish"><a href="#Ubuntu安装Fish" class="headerlink" title="Ubuntu安装Fish"></a>Ubuntu安装Fish</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">apt-get install software-properties-common</span><br><span class="line">sudo apt-add-repository ppa:fish-shell/release-2</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install fish</span><br><span class="line"><span class="comment">#切换到fish</span></span><br><span class="line"><span class="built_in">echo</span> /usr/bin/fish | sudo tee -a /etc/shells</span><br><span class="line">sudo chsh -s /usr/bin/fish &amp;&amp; fish</span><br></pre></td></tr></table></figure>
-
-<p>fish的鲜明特征在于安装时已经默认集成了很多需要的功能。<br>比如：</p>
+<h4 id="fish入门使用">Fish入门使用</h4>
+<h5 id="ubuntu安装fish">Ubuntu安装Fish</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">apt-get install software-properties-common</span><br><span class="line">sudo apt-add-repository ppa:fish-shell/release-2</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install fish</span><br><span class="line"><span class="comment">#切换到fish</span></span><br><span class="line"><span class="built_in">echo</span> /usr/bin/fish | sudo tee -a /etc/shells</span><br><span class="line">sudo chsh -s /usr/bin/fish &amp;&amp; fish</span><br></pre></td></tr></table></figure>
+<p>fish的鲜明特征在于安装时已经默认集成了很多需要的功能。 比如：</p>
 <ul>
 <li>命令行语法高亮，错误会显示红色</li>
 <li>智能提示</li>
 <li>可以使用web网页的进行终端配置</li>
 </ul>
 <p>fish 有智能提示，一个命令一旦输入过一次，会自动显示上一次的全部命令，细心一点会发现会有一层灰色的字体表示上一次的命令，按<code>Ctrl+F</code>或者 右方向键<code>→</code>， 即可自动补全。</p>
-<p><img src="https://ftp.fly97.cn/image/20200811_144927.gif"></p>
-<h5 id="网页配置Fish"><a href="#网页配置Fish" class="headerlink" title="网页配置Fish"></a>网页配置Fish</h5><p><code>fish_config</code> 可以直接跳出网页版本配置fish的界面。</p>
-<p>web版本可以设置主题， 推荐其中的”Tomorrow Night”主题颜色。</p>
-<p><img src="https://ftp.fly97.cn/image/2027280-11b7a5729b03227b.webp" alt="img"></p>
-<p>选择想要的主题，然后点击set theme即可设置主题。<br>在命令里按enter 即可退出web版本的界面。</p>
+<p><img src="https://ftp.fly97.cn/image/20200811_144927.gif" /></p>
+<h5 id="网页配置fish">网页配置Fish</h5>
+<p><code>fish_config</code> 可以直接跳出网页版本配置fish的界面。</p>
+<p>web版本可以设置主题， 推荐其中的"Tomorrow Night"主题颜色。</p>
+<figure>
+<embed src="https://ftp.fly97.cn/image/2027280-11b7a5729b03227b.webp" /><figcaption>img</figcaption>
+</figure>
+<p>选择想要的主题，然后点击set theme即可设置主题。 在命令里按enter 即可退出web版本的界面。</p>
 <p>在prompt里面可以自己选择fish终端的主题。</p>
-<p><img src="https://ftp.fly97.cn/image/2027280-3f8729b449ea454d.webp" alt="img"></p>
-<h4 id="兼容Bash"><a href="#兼容Bash" class="headerlink" title="兼容Bash"></a>兼容Bash</h4><p>由于fish 很多<strong>不兼容</strong>bash的功能导致了很多脚本无法运行，这一点是很多人吐槽fish的地方，我们需要一种方式来运行bash脚本。</p>
+<figure>
+<embed src="https://ftp.fly97.cn/image/2027280-3f8729b449ea454d.webp" /><figcaption>img</figcaption>
+</figure>
+<h4 id="兼容bash">兼容Bash</h4>
+<p>由于fish 很多<strong>不兼容</strong>bash的功能导致了很多脚本无法运行，这一点是很多人吐槽fish的地方，我们需要一种方式来运行bash脚本。</p>
 <p>比如</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arc land --onto `git rev-parse --abbrev-ref HEAD` </span><br></pre></td></tr></table></figure>
-
 <p>只需要在前面添加一个bash -c 命令即可。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash -c <span class="string">&quot;arc land --onto `git rev-parse --abbrev-ref HEAD`&quot;</span></span><br></pre></td></tr></table></figure>
-
 <p>顺手加个alias就更方便了，可以直接在命令行里使用命令<code>arcl</code>。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> arcl bash -c <span class="string">&quot;arc land --onto `git rev-parse --abbrev-ref HEAD`&quot;</span></span><br></pre></td></tr></table></figure>
-
 <p>对于脚本文件，比如我将需要执行的命令或文件放到<code>repomerge.sh</code></p>
 <p>在~/.config/fish/config.fish添加</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> up <span class="string">&quot;bash -c /usr/bin/repomerge.sh&quot;</span></span><br></pre></td></tr></table></figure>
-
 <p>然后就可以自由的使用up命令了</p>
 <p>其中function fish_prompt 函数用于定义fish终端的显示样式。</p>
 <p>我们只需要写一个fish_prompt函数即可。集成了git的分支名称以及当前的变化。</p>
 <p>显示的样式如下：</p>
-<p><img src="https://ftp.fly97.cn/image/2027280-2c1a98068158e5fd.webp" alt="img"></p>
-<p><strong>说明:<br> ✔代表当前git项目是干净的。<br> %1 表示有一个文件未追踪<br> +1 表示一个文件已暂存</strong></p>
+<figure>
+<embed src="https://ftp.fly97.cn/image/2027280-2c1a98068158e5fd.webp" /><figcaption>img</figcaption>
+</figure>
+<p><strong>说明: ✔代表当前git项目是干净的。 %1 表示有一个文件未追踪 +1 表示一个文件已暂存</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 终端显示样式的配置</span></span><br><span class="line"><span class="keyword">function</span> fish_prompt --description <span class="string">&#x27;Write out the prompt&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> not <span class="built_in">set</span> -q __fish_prompt_normal</span><br><span class="line">        <span class="built_in">set</span> -g __fish_prompt_normal (set_color normal)</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    __fish_git_prompt &gt;/dev/null 2&gt;&amp;1</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> git_is_repo</span><br><span class="line">        <span class="keyword">if</span> not <span class="built_in">set</span> -q __git_cb</span><br><span class="line">            <span class="built_in">set</span> __git_cb (set_color blue)<span class="string">&quot; (&quot;</span>(set_color brred)(git branch | grep \* | sed <span class="string">&#x27;s/* //&#x27;</span>) (set_color -o bryellow)(__fish_git_prompt_informative_status)(set_color blue)<span class="string">&quot;)&quot;</span></span><br><span class="line">        end</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> not <span class="built_in">set</span> -q __fish_prompt_cwd</span><br><span class="line">        <span class="built_in">set</span> -g __fish_prompt_cwd (set_color <span class="variable">$fish_color_cwd</span>)</span><br><span class="line">    end</span><br><span class="line">    <span class="built_in">printf</span> <span class="string">&#x27;%s%s%s%s &#x27;</span> <span class="string">&quot;<span class="variable">$__fish_prompt_cwd</span>&quot;</span> (prompt_pwd) <span class="string">&quot;<span class="variable">$__fish_prompt_normal</span>&quot;</span> <span class="variable">$__git_cb</span></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-
-<h4 id="隐藏欢迎语"><a href="#隐藏欢迎语" class="headerlink" title="隐藏欢迎语"></a>隐藏欢迎语</h4><p>在confin.sh文件里添加如下函数即可</p>
+<h4 id="隐藏欢迎语">隐藏欢迎语</h4>
+<p>在confin.sh文件里添加如下函数即可</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> fish_greeting</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-
-<h4 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> l <span class="string">&quot;ll&quot;</span></span><br><span class="line"><span class="built_in">alias</span> dir <span class="string">&quot;dde-file-manager . &amp;&quot;</span></span><br><span class="line"><span class="built_in">alias</span> docker <span class="string">&quot;sudo docker&quot;</span></span><br><span class="line"><span class="built_in">alias</span> apt <span class="string">&quot;sudo apt&quot;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p>作者：iceqing<br>链接：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/bf03bce60987">https://www.jianshu.com/p/bf03bce60987</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<h4 id="其他配置">其他配置</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> l <span class="string">&quot;ll&quot;</span></span><br><span class="line"><span class="built_in">alias</span> dir <span class="string">&quot;dde-file-manager . &amp;&quot;</span></span><br><span class="line"><span class="built_in">alias</span> docker <span class="string">&quot;sudo docker&quot;</span></span><br><span class="line"><span class="built_in">alias</span> apt <span class="string">&quot;sudo apt&quot;</span></span><br></pre></td></tr></table></figure>
+<p>作者：iceqing 链接：https://www.jianshu.com/p/bf03bce60987 来源：简书 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 
     </div>
 

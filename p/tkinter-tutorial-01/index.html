@@ -347,80 +347,87 @@
         <p>基于 Python 的 Tkinter 常用于UI界面开发。</p>
 <p>以下是Tkinter为验证函数提供的一些额外选项。</p>
 <a id="more"></a>
-
 <table>
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 93%" />
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>选项</th>
 <th>含义</th>
 </tr>
 </thead>
-<tbody><tr>
-<td>‘%d’</td>
+<tbody>
+<tr class="odd">
+<td>'%d'</td>
 <td>操作代码：0表示删除操作；1表示插入操作；2表示获得、失去焦点或者<code>textvariable</code>变量的值被修改</td>
 </tr>
-<tr>
-<td>‘%i’</td>
+<tr class="even">
+<td>'%i'</td>
 <td>当用户尝试插入或者删除操作时，该选项表示插入或者删除的位置(索引号)，如果是由于获得、失去焦点或<code>textvarible</code>变量的值被修改而调用验证函数，那么该值是-1</td>
 </tr>
-<tr>
-<td>‘%P’</td>
+<tr class="odd">
+<td>'%P'</td>
 <td>当输入框的值允许改变的时候，该值有效。该值作为输入框的最新文本内容。</td>
 </tr>
-<tr>
-<td>‘%s’</td>
+<tr class="even">
+<td>'%s'</td>
 <td>该值为调用验证函数前输入框的文本内容</td>
 </tr>
-<tr>
-<td>‘%S’</td>
+<tr class="odd">
+<td>'%S'</td>
 <td>当插入或者删除操作触发验证函数时，该值有效。该选项表示文本被插入和删除的内容</td>
 </tr>
-<tr>
-<td>‘%v’</td>
+<tr class="even">
+<td>'%v'</td>
 <td>该组件当前validate选项的值</td>
 </tr>
-<tr>
-<td>‘%V’</td>
-<td>调用该验证函数的原因。该值是’focusin’、’focusout’、’key’或’forced’（textvariable选项指定的变量值被修改）中的一个</td>
+<tr class="odd">
+<td>'%V'</td>
+<td>调用该验证函数的原因。该值是'focusin'、'focusout'、'key'或'forced'（textvariable选项指定的变量值被修改）中的一个</td>
 </tr>
-<tr>
-<td>‘%W’</td>
+<tr class="even">
+<td>'%W'</td>
 <td>该组件的名字</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>启用验证的开关是validate选项，该选项可以设置的值如下表所示</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>值</th>
 <th>含义</th>
 </tr>
 </thead>
-<tbody><tr>
-<td>‘focus’</td>
+<tbody>
+<tr class="odd">
+<td>'focus'</td>
 <td>当Entry组件获得或者失去焦点时候验证</td>
 </tr>
-<tr>
-<td>‘focusin’</td>
+<tr class="even">
+<td>'focusin'</td>
 <td>当Entry组件获得焦点的时候验证</td>
 </tr>
-<tr>
-<td>‘focusont’</td>
+<tr class="odd">
+<td>'focusont'</td>
 <td>当Entry组件失去焦点的时候验证</td>
 </tr>
-<tr>
-<td>‘key’</td>
+<tr class="even">
+<td>'key'</td>
 <td>当输入框被编辑的时候验证</td>
 </tr>
-<tr>
-<td>‘all’</td>
+<tr class="odd">
+<td>'all'</td>
 <td>当出现上面任何一种情况时验证</td>
 </tr>
-<tr>
-<td>‘none’</td>
-<td>关闭验证功能，默认设置。注意是字符串的<code>&#39;none&#39;</code>，而非<code>None</code></td>
+<tr class="even">
+<td>'none'</td>
+<td>关闭验证功能，默认设置。注意是字符串的<code>'none'</code>，而非<code>None</code></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 
     </div>
 

@@ -239,7 +239,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#format%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">1.</span> <span class="nav-text">format格式化字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8C%89%E7%85%A7%E4%BD%8D%E7%BD%AE%E6%9D%A5%E5%A1%AB%E5%85%85"><span class="nav-number">1.1.</span> <span class="nav-text">按照位置来填充</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%90%8C%E4%B8%80%E4%B8%AA%E5%8F%82%E6%95%B0%E5%8F%AF%E4%BB%A5%E5%A1%AB%E5%85%85%E5%A4%9A%E6%AC%A1"><span class="nav-number">1.1.1.</span> <span class="nav-text">同一个参数可以填充多次</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E7%B4%A2%E5%BC%95%E6%9D%A5%E5%A1%AB%E5%85%85"><span class="nav-number">1.2.</span> <span class="nav-text">通过索引来填充</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.</span> <span class="nav-text">三元运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">Lambda表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#map%E5%87%BD%E6%95%B0"><span class="nav-number">4.</span> <span class="nav-text">map函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Filter%E5%87%BD%E6%95%B0"><span class="nav-number">5.</span> <span class="nav-text">Filter函数</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#format%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">1.</span> <span class="nav-text">format格式化字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8C%89%E7%85%A7%E4%BD%8D%E7%BD%AE%E6%9D%A5%E5%A1%AB%E5%85%85"><span class="nav-number">1.1.</span> <span class="nav-text">按照位置来填充</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%90%8C%E4%B8%80%E4%B8%AA%E5%8F%82%E6%95%B0%E5%8F%AF%E4%BB%A5%E5%A1%AB%E5%85%85%E5%A4%9A%E6%AC%A1"><span class="nav-number">1.1.1.</span> <span class="nav-text">同一个参数可以填充多次</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E7%B4%A2%E5%BC%95%E6%9D%A5%E5%A1%AB%E5%85%85"><span class="nav-number">1.2.</span> <span class="nav-text">通过索引来填充</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.</span> <span class="nav-text">三元运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">Lambda表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#map%E5%87%BD%E6%95%B0"><span class="nav-number">4.</span> <span class="nav-text">map函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filter%E5%87%BD%E6%95%B0"><span class="nav-number">5.</span> <span class="nav-text">Filter函数</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -358,31 +358,39 @@
     <div class="post-body" itemprop="articleBody">
         <p>此文介绍了一些Python的一些常见的高级用法。</p>
 <a id="more"></a>
-
-<h4 id="format格式化字符串"><a href="#format格式化字符串" class="headerlink" title="format格式化字符串"></a>format格式化字符串</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">t = time.strftime(<span class="string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>, time.localtime())</span><br></pre></td></tr></table></figure>
-
-<h5 id="按照位置来填充"><a href="#按照位置来填充" class="headerlink" title="按照位置来填充"></a>按照位置来填充</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">&quot;现在时刻:&#123;&#125;&quot;</span>.format(t))</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://ftp.fly97.cn/image/image-20200918213811743.png" alt="image-20200918213811743"></p>
-<h6 id="同一个参数可以填充多次"><a href="#同一个参数可以填充多次" class="headerlink" title="同一个参数可以填充多次"></a>同一个参数可以填充多次</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">&quot;现在时刻:&#123;0&#125;---&#123;0&#125;&quot;</span>.format(t))</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://ftp.fly97.cn/image/image-20200918214059634.png" alt="image-20200918214059634"></p>
-<h5 id="通过索引来填充"><a href="#通过索引来填充" class="headerlink" title="通过索引来填充"></a>通过索引来填充</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="string">&quot;hello&quot;</span></span><br><span class="line">l1 = [<span class="string">&quot;hello&quot;</span>, <span class="string">&quot;world&quot;</span>]</span><br><span class="line">t1 = (<span class="string">&quot;hello&quot;</span>, <span class="string">&quot;world&quot;</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;&#123;[0]&#125;&quot;</span>.format(s1))</span><br><span class="line">print(<span class="string">&quot;&#123;0[0]&#125;,&#123;0[1]&#125;&quot;</span>.format(l1))</span><br><span class="line">print(<span class="string">&quot;&#123;0[0]&#125;,&#123;0[1]&#125;&quot;</span>.format(t1))</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://ftp.fly97.cn/image/image-20200918215314962.png" alt="image-20200918215314962"></p>
+<h4 id="format格式化字符串">format格式化字符串</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">t = time.strftime(<span class="string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>, time.localtime())</span><br></pre></td></tr></table></figure>
+<h5 id="按照位置来填充">按照位置来填充</h5>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">&quot;现在时刻:&#123;&#125;&quot;</span>.format(t))</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://ftp.fly97.cn/image/image-20200918213811743.png" alt="image-20200918213811743" /><figcaption>image-20200918213811743</figcaption>
+</figure>
+<h6 id="同一个参数可以填充多次">同一个参数可以填充多次</h6>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">&quot;现在时刻:&#123;0&#125;---&#123;0&#125;&quot;</span>.format(t))</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://ftp.fly97.cn/image/image-20200918214059634.png" alt="image-20200918214059634" /><figcaption>image-20200918214059634</figcaption>
+</figure>
+<h5 id="通过索引来填充">通过索引来填充</h5>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="string">&quot;hello&quot;</span></span><br><span class="line">l1 = [<span class="string">&quot;hello&quot;</span>, <span class="string">&quot;world&quot;</span>]</span><br><span class="line">t1 = (<span class="string">&quot;hello&quot;</span>, <span class="string">&quot;world&quot;</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;&#123;[0]&#125;&quot;</span>.format(s1))</span><br><span class="line">print(<span class="string">&quot;&#123;0[0]&#125;,&#123;0[1]&#125;&quot;</span>.format(l1))</span><br><span class="line">print(<span class="string">&quot;&#123;0[0]&#125;,&#123;0[1]&#125;&quot;</span>.format(t1))</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://ftp.fly97.cn/image/image-20200918215314962.png" alt="image-20200918215314962" /><figcaption>image-20200918215314962</figcaption>
+</figure>
 <p>另外一种写法</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="string">&quot;hello&quot;</span></span><br><span class="line">l1 = [<span class="string">&quot;hello&quot;</span>, <span class="string">&quot;world&quot;</span>]</span><br><span class="line">t1 = (<span class="string">&quot;hello&quot;</span>, <span class="string">&quot;world&quot;</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;&#123;p[1]&#125;&quot;</span>.format(p=s1))</span><br><span class="line">print(<span class="string">&quot;&#123;p[0]&#125;,&#123;p[1]&#125;&quot;</span>.format(p=l1))</span><br><span class="line">print(<span class="string">&quot;&#123;p[0]&#125;,&#123;p[1]&#125;&quot;</span>.format(p=t1))</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://ftp.fly97.cn/image/image-20200918215656093.png" alt="image-20200918215656093"></p>
-<h4 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h4><p>固定格式</p>
+<figure>
+<img src="https://ftp.fly97.cn/image/image-20200918215656093.png" alt="image-20200918215656093" /><figcaption>image-20200918215656093</figcaption>
+</figure>
+<h4 id="三元运算符">三元运算符</h4>
+<p>固定格式</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[on_true]  if  [expression]  else [on_false]</span><br></pre></td></tr></table></figure>
-
-<p>上式表达的语义为：若<strong>表达式expression</strong>的结果为<strong>真</strong>，该式的结果是**[on_true]<strong>；若</strong>表达式expression<strong>的结果为</strong>假<strong>，则该式的结果是</strong>[on_false]**</p>
+<p>上式表达的语义为：若<strong>表达式expression</strong>的结果为<strong>真</strong>，该式的结果是<strong>[on_true]</strong>；若<strong>表达式expression</strong>的结果为<strong>假</strong>，则该式的结果是<strong>[on_false]</strong></p>
 <p>例子</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line">c = a-b <span class="keyword">if</span> a&gt;b <span class="keyword">else</span> a+b</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://ftp.fly97.cn/image/image-20200918221607752.png" alt="image-20200918221607752"></p>
-<h4 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="Lambda表达式"></a>Lambda表达式</h4><p>Python使用Lambda表达式创建匿名函数</p>
+<figure>
+<img src="https://ftp.fly97.cn/image/image-20200918221607752.png" alt="image-20200918221607752" /><figcaption>image-20200918221607752</figcaption>
+</figure>
+<h4 id="lambda表达式">Lambda表达式</h4>
+<p>Python使用Lambda表达式创建匿名函数</p>
 <ul>
 <li>Lambda只是一个表达式，函数体比def简单的多</li>
 <li>Lambda的主体是一个表达式，而不是一个代码块，只能在lambda表达式中封装有限的逻辑进去</li>
@@ -392,33 +400,41 @@
 <p>Lambda表达式语法：<code>lambda argument_list: expression</code></p>
 <p>案例</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">summary = <span class="keyword">lambda</span> x,y:x+y</span><br><span class="line">print(<span class="string">&quot;summary=&#123;&#125;&quot;</span>.format(summary(<span class="number">3</span>,<span class="number">4</span>)))</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://ftp.fly97.cn/image/image-20200918230330027.png" alt="image-20200918230330027"></p>
+<figure>
+<img src="https://ftp.fly97.cn/image/image-20200918230330027.png" alt="image-20200918230330027" /><figcaption>image-20200918230330027</figcaption>
+</figure>
 <p>上述lambda表达式与以下函数等价</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">summary</span>(<span class="params">x, y</span>):</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://ftp.fly97.cn/image/image-20200918231354891.png" alt="image-20200918231354891"></p>
-<h4 id="map函数"><a href="#map函数" class="headerlink" title="map函数"></a>map函数</h4><p>map是Python的高级函数，为函数式编程提供便利。</p>
+<figure>
+<img src="https://ftp.fly97.cn/image/image-20200918231354891.png" alt="image-20200918231354891" /><figcaption>image-20200918231354891</figcaption>
+</figure>
+<h4 id="map函数">map函数</h4>
+<p>map是Python的高级函数，为函数式编程提供便利。</p>
 <p>形式为<code>map(func, *iterables)</code>：第一个参数func是一个函数的名字；第二个参数为一个可迭代对象。map将函数func应用于列表的所有元素。</p>
 <p>在Python3之前，map用于返回一个列表，其中结果列表的每个元素都是应用于列表或元组序列相应元素上的func结果。</p>
 <p>在Python3中，map返回一个迭代器。</p>
 <p>实例</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">seq_list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line">F = list(map(<span class="keyword">lambda</span> x:x*x, seq_list))</span><br><span class="line">print(F)</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://ftp.fly97.cn/image/image-20200918233144997.png" alt="image-20200918233144997"></p>
+<figure>
+<img src="https://ftp.fly97.cn/image/image-20200918233144997.png" alt="image-20200918233144997" /><figcaption>image-20200918233144997</figcaption>
+</figure>
 <p>map可以用于多个列表，列表不必有相同的长度。map会将<code>lambda函数</code>应用于参数列表的元素，即它首先应用于具有第0个索引的元素，然后应用于具有第一个索引的元素，直到第n个索引。</p>
 <p>如果一个列表的元素少于其他元素，当最短列表消耗完时，map结束迭代。</p>
 <p>示例</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line">b = [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line">c = [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 应用到多个列表</span></span><br><span class="line">ab = list(map(<span class="keyword">lambda</span> x,y:x + y, a, b))</span><br><span class="line">print(ab)</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://ftp.fly97.cn/image/image-20200920142041359.png" alt="image-20200920142041359"></p>
+<figure>
+<img src="https://ftp.fly97.cn/image/image-20200920142041359.png" alt="image-20200920142041359" /><figcaption>image-20200920142041359</figcaption>
+</figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 若其中一个列表的元素少于其他元素, 当最短列表消耗完时, map停止迭代</span></span><br><span class="line">ac = list(map(<span class="keyword">lambda</span> x,y:x + y, a, c))</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://ftp.fly97.cn/image/image-20200920142144318.png" alt="image-20200920142144318"></p>
-<h4 id="Filter函数"><a href="#Filter函数" class="headerlink" title="Filter函数"></a>Filter函数</h4><p>filter也是Python的高级函数，为函数式编程提供便利。其作用是对序列中元素进行筛选，最终获得符合条件的序列。其一般形式为**filter(function, iterable)**，函数提供了一种优雅的方式来过滤掉序列中那个的所有元素。</p>
+<figure>
+<img src="https://ftp.fly97.cn/image/image-20200920142144318.png" alt="image-20200920142144318" /><figcaption>image-20200920142144318</figcaption>
+</figure>
+<h4 id="filter函数">Filter函数</h4>
+<p>filter也是Python的高级函数，为函数式编程提供便利。其作用是对序列中元素进行筛选，最终获得符合条件的序列。其一般形式为<strong>filter(function, iterable)</strong>，函数提供了一种优雅的方式来过滤掉序列中那个的所有元素。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">number = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>]</span><br><span class="line"><span class="comment"># 找到序列中的偶数</span></span><br><span class="line">double_number = list(filter(<span class="keyword">lambda</span> x:x % <span class="number">2</span> ==<span class="number">0</span>, number))</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://ftp.fly97.cn/image/image-20200920144322294.png" alt="image-20200920144322294"></p>
+<figure>
+<img src="https://ftp.fly97.cn/image/image-20200920144322294.png" alt="image-20200920144322294" /><figcaption>image-20200920144322294</figcaption>
+</figure>
 
     </div>
 

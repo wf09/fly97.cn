@@ -227,7 +227,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Pandas"><span class="nav-number">1.</span> <span class="nav-text">安装Pandas</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pandas%E7%AE%80%E4%BB%8B"><span class="nav-number">2.</span> <span class="nav-text">Pandas简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pandas%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">3.</span> <span class="nav-text">Pandas中的数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9C%89%E5%A4%9A%E4%B8%AA%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">为什么有多个数据结构？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E5%B0%8F%E5%8F%AF%E5%8F%98%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%A4%8D%E5%88%B6"><span class="nav-number"></span> <span class="nav-text">大小可变与数据复制</span></a></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85pandas"><span class="nav-number">1.</span> <span class="nav-text">安装Pandas</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pandas%E7%AE%80%E4%BB%8B"><span class="nav-number">2.</span> <span class="nav-text">Pandas简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pandas%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">3.</span> <span class="nav-text">Pandas中的数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9C%89%E5%A4%9A%E4%B8%AA%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">4.</span> <span class="nav-text">为什么有多个数据结构？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E5%B0%8F%E5%8F%AF%E5%8F%98%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%A4%8D%E5%88%B6"><span class="nav-number"></span> <span class="nav-text">大小可变与数据复制</span></a></div>
       </section>
       <!--/noindex-->
 
@@ -346,11 +346,11 @@
     <div class="post-body" itemprop="articleBody">
         <p>Pandas是什么？</p>
 <a id="more"></a>
-
 <p>Pandas是一个强大的分析结构化数据的工具集；它的使用基础是Numpy（提供高性能的矩阵运算）；用于数据挖掘和数据分析，同时也提供数据清洗功能。</p>
-<h3 id="安装Pandas"><a href="#安装Pandas" class="headerlink" title="安装Pandas"></a>安装Pandas</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install Pandas -i http://mirrors.aliyun.com/pypi/simple/</span><br></pre></td></tr></table></figure>
-
-<h3 id="Pandas简介"><a href="#Pandas简介" class="headerlink" title="Pandas简介"></a>Pandas简介</h3><p>Pandas 适用于处理以下类型的数据：</p>
+<h3 id="安装pandas">安装Pandas</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install Pandas -i http://mirrors.aliyun.com/pypi/simple/</span><br></pre></td></tr></table></figure>
+<h3 id="pandas简介">Pandas简介</h3>
+<p>Pandas 适用于处理以下类型的数据：</p>
 <ul>
 <li>与 SQL 或 Excel 表类似的，含异构列的表格数据;</li>
 <li>有序和无序（非固定频率）的时间序列数据;</li>
@@ -379,31 +379,35 @@
 <li>Pandas 是 <a target="_blank" rel="noopener" href="https://www.statsmodels.org/stable/index.html">statsmodels</a> 的依赖项，因此，Pandas 也是 Python 中统计计算生态系统的重要组成部分。</li>
 <li>Pandas 已广泛应用于金融领域</li>
 </ul>
-<h3 id="Pandas中的数据结构"><a href="#Pandas中的数据结构" class="headerlink" title="Pandas中的数据结构"></a>Pandas中的数据结构</h3><table>
+<h3 id="pandas中的数据结构">Pandas中的数据结构</h3>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>维数</th>
 <th>名称</th>
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>1</td>
 <td>Series</td>
 <td>带标签的一维同构数组</td>
 </tr>
-<tr>
+<tr class="even">
 <td>2</td>
 <td>DataFrame</td>
 <td>带标签的，大小可变的，二维异构表格</td>
 </tr>
-</tbody></table>
-<h3 id="为什么有多个数据结构？"><a href="#为什么有多个数据结构？" class="headerlink" title="为什么有多个数据结构？"></a>为什么有多个数据结构？</h3><p>Pandas 数据结构就像是低维数据的容器。比如，DataFrame 是 Series 的容器，Series 则是标量的容器。使用这种方式，可以在容器中以字典的形式插入或删除对象。</p>
+</tbody>
+</table>
+<h3 id="为什么有多个数据结构">为什么有多个数据结构？</h3>
+<p>Pandas 数据结构就像是低维数据的容器。比如，DataFrame 是 Series 的容器，Series 则是标量的容器。使用这种方式，可以在容器中以字典的形式插入或删除对象。</p>
 <p>此外，通用 API 函数的默认操作要顾及时间序列与截面数据集的方向。多维数组存储二维或三维数据时，编写函数要注意数据集的方向，这对用户来说是一种负担；如果不考虑 C 或 Fortran 中连续性对性能的影响，一般情况下，不同的轴在程序里其实没有什么区别。Pandas 里，轴的概念主要是为了给数据赋予更直观的语义，即用“更恰当”的方式表示数据集的方向。这样做可以让用户编写数据转换函数时，少费点脑子。</p>
 <p>处理 DataFrame 等表格数据时，<strong>index</strong>（行）或 <strong>columns</strong>（列）比 <strong>axis 0</strong> 和 <strong>axis 1</strong> 更直观。用这种方式迭代 DataFrame 的列，代码更易读易懂：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> col <span class="keyword">in</span> df.columns:</span><br><span class="line">    series = df[col]</span><br><span class="line">    <span class="comment"># do something with series</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="大小可变与数据复制"><a href="#大小可变与数据复制" class="headerlink" title="#大小可变与数据复制"></a><a target="_blank" rel="noopener" href="https://www.pypandas.cn/docs/getting_started/overview.html#%E5%A4%A7%E5%B0%8F%E5%8F%AF%E5%8F%98%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%A4%8D%E5%88%B6">#</a>大小可变与数据复制</h2><p>Pandas 所有数据结构的值都是可变的，但数据结构的大小并非都是可变的，比如，Series 的长度不可改变，但 DataFrame 里就可以插入列。</p>
+<h2 id="大小可变与数据复制"><a target="_blank" rel="noopener" href="https://www.pypandas.cn/docs/getting_started/overview.html#大小可变与数据复制">#</a>大小可变与数据复制</h2>
+<p>Pandas 所有数据结构的值都是可变的，但数据结构的大小并非都是可变的，比如，Series 的长度不可改变，但 DataFrame 里就可以插入列。</p>
 <p>Pandas 里，绝大多数方法都不改变原始的输入数据，而是复制数据，生成新的对象。 一般来说，原始输入数据<strong>不变</strong>更稳妥。</p>
 
     </div>

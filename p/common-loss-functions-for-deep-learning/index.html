@@ -227,7 +227,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#L1%E8%8C%83%E6%95%B0%E6%8D%9F%E5%A4%B1-L1Loss"><span class="nav-number">1.</span> <span class="nav-text">L1范数损失  L1Loss</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9D%87%E6%96%B9%E6%8D%9F%E5%A4%B1%E8%AF%AF%E5%B7%AE-MESLoss"><span class="nav-number">2.</span> <span class="nav-text">均方损失误差 MESLoss</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%A4%E5%8F%89%E7%86%B5%E6%8D%9F%E5%A4%B1-CrossEntropyLoss"><span class="nav-number">3.</span> <span class="nav-text">交叉熵损失 CrossEntropyLoss</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#KL%E6%95%A3%E5%BA%A6%E6%8D%9F%E5%A4%B1-KLDivLoss"><span class="nav-number">4.</span> <span class="nav-text">KL散度损失 KLDivLoss</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BA%A4%E5%8F%89%E7%86%B5%E6%8D%9F%E5%A4%B1-BCELoss"><span class="nav-number">5.</span> <span class="nav-text">二进制交叉熵损失 BCELoss</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BCEWithLogitsLoss"><span class="nav-number">6.</span> <span class="nav-text">BCEWithLogitsLoss</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MarginRankingLoss"><span class="nav-number">7.</span> <span class="nav-text">MarginRankingLoss</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HingeEmbeddingLoss"><span class="nav-number">8.</span> <span class="nav-text">HingeEmbeddingLoss</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#l1%E8%8C%83%E6%95%B0%E6%8D%9F%E5%A4%B1-l1loss"><span class="nav-number">1.</span> <span class="nav-text">L1范数损失 L1Loss</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9D%87%E6%96%B9%E6%8D%9F%E5%A4%B1%E8%AF%AF%E5%B7%AE-mesloss"><span class="nav-number">2.</span> <span class="nav-text">均方损失误差 MESLoss</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%A4%E5%8F%89%E7%86%B5%E6%8D%9F%E5%A4%B1-crossentropyloss"><span class="nav-number">3.</span> <span class="nav-text">交叉熵损失 CrossEntropyLoss</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#kl%E6%95%A3%E5%BA%A6%E6%8D%9F%E5%A4%B1-kldivloss"><span class="nav-number">4.</span> <span class="nav-text">KL散度损失 KLDivLoss</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BA%A4%E5%8F%89%E7%86%B5%E6%8D%9F%E5%A4%B1-bceloss"><span class="nav-number">5.</span> <span class="nav-text">二进制交叉熵损失 BCELoss</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bcewithlogitsloss"><span class="nav-number">6.</span> <span class="nav-text">BCEWithLogitsLoss</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#marginrankingloss"><span class="nav-number">7.</span> <span class="nav-text">MarginRankingLoss</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hingeembeddingloss"><span class="nav-number">8.</span> <span class="nav-text">HingeEmbeddingLoss</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -346,37 +346,36 @@
     <div class="post-body" itemprop="articleBody">
         <p>我们所说的优化，即优化网络权值使得损失函数值变小。但是，损失函数值变小是否能代表模型的分类/回归精度变高呢？那么多种损失函数，应该如何选择呢？</p>
 <a id="more"></a>
-
-
-
-<h4 id="L1范数损失-L1Loss"><a href="#L1范数损失-L1Loss" class="headerlink" title="L1范数损失  L1Loss"></a>L1范数损失  L1Loss</h4><p>功能： 计算 output 和 target 之差的绝对值，可选返回同维度的tensor或者是一个标量。</p>
+<h4 id="l1范数损失-l1loss">L1范数损失 L1Loss</h4>
+<p>功能： 计算 output 和 target 之差的绝对值，可选返回同维度的tensor或者是一个标量。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.L1Loss(reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
 <p>参数：</p>
 <blockquote>
 <p>reduction-三个值，none: 不使用约简；mean:返回loss和的平均值；sum:返回loss的和。默认：mean。</p>
 </blockquote>
-<h4 id="均方损失误差-MESLoss"><a href="#均方损失误差-MESLoss" class="headerlink" title="均方损失误差 MESLoss"></a>均方损失误差 MESLoss</h4><p>功能： 计算 output 和 target 之差的平方，可选返回同维度的tensor或者是一个标量。</p>
+<h4 id="均方损失误差-mesloss">均方损失误差 MESLoss</h4>
+<p>功能： 计算 output 和 target 之差的平方，可选返回同维度的tensor或者是一个标量。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.MSELoss(reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
 <p>参数：</p>
 <blockquote>
 <p>reduction-三个值，none: 不使用约简；mean:返回loss和的平均值；sum:返回loss的和。默认：mean。</p>
 </blockquote>
-<h4 id="交叉熵损失-CrossEntropyLoss"><a href="#交叉熵损失-CrossEntropyLoss" class="headerlink" title="交叉熵损失 CrossEntropyLoss"></a>交叉熵损失 CrossEntropyLoss</h4><p>功能： 将输入经过 softmax 激活函数之后，再计算其与 target 的交叉熵损失。即该方法将 nn.LogSoftmax() 和 nn.NLLLoss() 进行了结合。严格意义上的交叉熵损失函数应该是 nn.NLLLoss()。</p>
+<h4 id="交叉熵损失-crossentropyloss">交叉熵损失 CrossEntropyLoss</h4>
+<p>功能： 将输入经过 softmax 激活函数之后，再计算其与 target 的交叉熵损失。即该方法将 nn.LogSoftmax() 和 nn.NLLLoss() 进行了结合。严格意义上的交叉熵损失函数应该是 nn.NLLLoss()。</p>
 <p>当训练有 C 个类别的分类问题时很有效，可选参数<code>weight</code>必须是一个1维<code>Tensor</code>，权重将被分配给各个类别。对于不平衡的训练集非常有效。</p>
-<p>在多分类任务中，经常采用 softmax 激活函数+交叉熵损失函数。因为交叉熵描述了两个<strong>概率分布</strong>的差异，然而神经网络输出的是向量，并不是概率分布的形式。所以需要 softmax 激活函数将一个向量进行“归一化”成概率分布的形式，再采用交叉熵损失函数计算 loss.<br>$$<br>loss(x,class)=weight[class]\left(-x[class]+log \left(\sum_{j}^{}exp(x[    j])\right)\right)<br>$$</p>
+<p>在多分类任务中，经常采用 softmax 激活函数+交叉熵损失函数。因为交叉熵描述了两个<strong>概率分布</strong>的差异，然而神经网络输出的是向量，并不是概率分布的形式。所以需要 softmax 激活函数将一个向量进行“归一化”成概率分布的形式，再采用交叉熵损失函数计算 loss. <span class="math display">\[
+loss(x,class)=weight[class]\left(-x[class]+log \left(\sum_{j}^{}exp(x[  j])\right)\right)
+\]</span></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.CrossEntropyLoss(weight=<span class="literal">None</span>,ignore_index=<span class="number">-100</span>, reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
 <p>参数：</p>
 <blockquote>
 <p>weight (Tensor, optional) – 自定义的每个类别的权重. 必须是一个长度为 C 的 Tensor</p>
 <p>ignore_index (int, optional) – 设置一个目标值, 该目标值会被忽略, 从而不会影响到 输入的梯度。</p>
 <p>reduction-三个值，none: 不使用约简；mean:返回loss和的平均值；sum:返回loss的和。默认：mean。</p>
 </blockquote>
-<h4 id="KL散度损失-KLDivLoss"><a href="#KL散度损失-KLDivLoss" class="headerlink" title="KL散度损失 KLDivLoss"></a>KL散度损失 KLDivLoss</h4><p>功能：计算 input 和 target 之间的 KL 散度。KL散度可用于衡量不同的连续分布之间的距离，在连续的输出分布的空间上(离散采样)上进行直接回归时<strong>很有效</strong>。</p>
+<h4 id="kl散度损失-kldivloss">KL散度损失 KLDivLoss</h4>
+<p>功能：计算 input 和 target 之间的 KL 散度。KL散度可用于衡量不同的连续分布之间的距离，在连续的输出分布的空间上(离散采样)上进行直接回归时<strong>很有效</strong>。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.KLDivLoss(reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
 <p>参数：</p>
 <blockquote>
 <p>reduction-三个值，none: 不使用约简；mean:返回loss和的平均值；sum:返回loss的和。默认：mean。</p>
@@ -387,37 +386,37 @@
 <p><strong>信息熵 = 交叉熵 - 相对熵</strong> 从信息论角度观察三者，其关系为信息熵 = 交叉熵 - 相对熵。在机器学习中，当训练数据固定，最小化相对熵 D(p||q) 等价于最小化交叉熵 H(p,q) 。</p>
 </blockquote>
 <p>使用注意事项： 要想获得真正的KL散度，需要如下操作：</p>
-<ol>
-<li><p>reduce = True ；size_average=False</p>
-</li>
-<li><p>计算得到的 loss 要对 batch 进行求平均</p>
-</li>
+<ol type="1">
+<li><p>reduce = True ；size_average=False</p></li>
+<li><p>计算得到的 loss 要对 batch 进行求平均</p></li>
 </ol>
-<h4 id="二进制交叉熵损失-BCELoss"><a href="#二进制交叉熵损失-BCELoss" class="headerlink" title="二进制交叉熵损失 BCELoss"></a>二进制交叉熵损失 BCELoss</h4><p>功能： 二分类任务时的交叉熵计算函数。此函数可以认为是nn.CrossEntropyLoss函数的特例。其分类限定为二分类，y必须是{0,1}。还需要注意的是，input应该为概率分布的形式，这样才符合交叉熵的应用。所以在BCELoss之前，input一般为sigmoid激活层的输出。该损失函数在自编码器中常用。</p>
+<h4 id="二进制交叉熵损失-bceloss">二进制交叉熵损失 BCELoss</h4>
+<p>功能： 二分类任务时的交叉熵计算函数。此函数可以认为是nn.CrossEntropyLoss函数的特例。其分类限定为二分类，y必须是{0,1}。还需要注意的是，input应该为概率分布的形式，这样才符合交叉熵的应用。所以在BCELoss之前，input一般为sigmoid激活层的输出。该损失函数在自编码器中常用。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.BCELoss(weight=<span class="literal">None</span>, reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
 <p>参数：</p>
 <blockquote>
 <p>weight (Tensor, optional) – 自定义的每个 batch 元素的 loss 的权重. 必须是一个长度为 “nbatch” 的 的 Tensor</p>
 </blockquote>
-<h4 id="BCEWithLogitsLoss"><a href="#BCEWithLogitsLoss" class="headerlink" title="BCEWithLogitsLoss"></a>BCEWithLogitsLoss</h4><p>功能： 将Sigmoid与BCELoss结合，类似于CrossEntropyLoss(将nn.LogSoftmax()和 nn.NLLLoss()进行结合）。即input会经过Sigmoid激活函数，将input变成概率分布的形式。 计算公式：    </p>
+<h4 id="bcewithlogitsloss">BCEWithLogitsLoss</h4>
+<p>功能： 将Sigmoid与BCELoss结合，类似于CrossEntropyLoss(将nn.LogSoftmax()和 nn.NLLLoss()进行结合）。即input会经过Sigmoid激活函数，将input变成概率分布的形式。 计算公式：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.BCEWithLogitsLoss(weight=<span class="literal">None</span>, reduction=<span class="string">&#x27;mean&#x27;</span>, pos_weight=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
-
 <p>参数：</p>
 <blockquote>
 <p>weight (Tensor, optional) – 自定义的每个 batch 元素的 loss 的权重. 必须是一个长度 为 “nbatch” 的 Tensor</p>
 </blockquote>
-<h4 id="MarginRankingLoss"><a href="#MarginRankingLoss" class="headerlink" title="MarginRankingLoss"></a>MarginRankingLoss</h4><p>功能： 计算两个向量之间的相似度，当两个向量之间的距离大于margin，则loss为正，小于margin，loss为0。</p>
+<h4 id="marginrankingloss">MarginRankingLoss</h4>
+<p>功能： 计算两个向量之间的相似度，当两个向量之间的距离大于margin，则loss为正，小于margin，loss为0。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.MarginRankingLoss(margin=<span class="number">0.0</span>, reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>对于 mini-batch (小批量) 中每个实例的损失函数如下：<br>$$<br>loss(x,y)=max(0,-y*(x1-x2)+margin)<br>$$<br>参数：</p>
+<p>对于 mini-batch (小批量) 中每个实例的损失函数如下： <span class="math display">\[
+loss(x,y)=max(0,-y*(x1-x2)+margin)
+\]</span> 参数：</p>
 <blockquote>
 <p>margin：默认值是0</p>
 </blockquote>
-<h4 id="HingeEmbeddingLoss"><a href="#HingeEmbeddingLoss" class="headerlink" title="HingeEmbeddingLoss"></a>HingeEmbeddingLoss</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.HingeEmbeddingLoss(margin=<span class="number">1.0</span>,  reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
+<h4 id="hingeembeddingloss">HingeEmbeddingLoss</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.HingeEmbeddingLoss(margin=<span class="number">1.0</span>,  reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <p>功能： 未知。主要用于衡量两个输入是否相似。 used for learning nonlinear embeddings or semi-supervised 。</p>
-<p>转载自：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/61379965">https://zhuanlan.zhihu.com/p/61379965</a></p>
+<p>转载自：https://zhuanlan.zhihu.com/p/61379965</p>
 
     </div>
 

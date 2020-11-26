@@ -227,7 +227,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E5%9F%BA%E5%87%BD%E6%95%B0%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">线性基函数模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD%E2%80%A6"><span class="nav-number">2.</span> <span class="nav-text">未完待续…..</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E5%9F%BA%E5%87%BD%E6%95%B0%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">线性基函数模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD....."><span class="nav-number">2.</span> <span class="nav-text">未完待续.....</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -347,12 +347,23 @@
         <p><strong>摘要：</strong>最近再看<a target="_blank" rel="noopener" href="https://www.zhihu.com/people/xpqiu">邱锡鹏</a>老师的《神经网络与深度学习》，学习过程中难免遇到问题。谨以此文作为记录，希望自己能坚持下去吧。</p>
 <p><strong>关键词：</strong>线性回归，基函数</p>
 <a id="more"></a>
+<h4 id="线性基函数模型">线性基函数模型</h4>
+<p>最简单的回归线性模型是输入变量的线性组合： <span class="math display">\[
+y(x,w) = w_0 + w_1x_1+ ... + w_Dx_D \tag{3.1}
+\]</span> 其中 <span class="math display">\[
+x = (x_1,...,x_D)^T
+\]</span> 这通常被叫做简单的线性回归。这个模型的关键属性是它是一个参数<span class="math inline">\(w_0,...,w_D\)</span>的一个线性函数，同时，它也是输入变量<span class="math inline">\(x_i\)</span>的一个线性函数，这给模型带来了<strong>极大的局限性</strong>。因此，我们将输入变量确定了的非线性函数进行线性组合来拓模型的类别： <span class="math display">\[
+y(x,w) = w_0 + \sum\limits_{j=1}^{M-1}w_j\phi_j(x) \tag{3.2}
+\]</span> 其中<span class="math inline">\(\phi_j(x)\)</span>被称为基函数。通过把下标<span class="math inline">\(j\)</span>的最大值记作<span class="math inline">\(M-1\)</span>，使得这个模型的参数总数为<span class="math inline">\(M\)</span>.</p>
+<p>参数<span class="math inline">\(w_0\)</span>使得数据中可以存在任意的固定偏移，通常被称为偏置参数。这里请不要和统计观念下的偏置搞混淆。通常，定义一个额外的占位基函数是很方便的，以便把函数简化为： <span class="math display">\[
+y(x,w) = \sum\limits_{j=0}^{M-1}w_j\phi_j(x) = w^T\phi(x) \tag{3.3}
+\]</span> 其中<span class="math inline">\(w = (w_0,...,w_{M-1})^T , \phi = (\phi_0,...,\phi_{M-1})^T\)</span>。在很多模型识别的应用中，会在原始数据上应用固定形式的预处理或特征抽取。如果原始变量组成向量<span class="math inline">\(x\)</span>，那么特征可以表示为基函数<span class="math inline">\(\{\phi_j(x)\}\)</span>的项。</p>
+<p>通过使用非线性的基函数，我们允许函数<span class="math inline">\(y(x,w)\)</span>是关于输入向量<span class="math inline">\(x\)</span>的非线性函数。由于式(3.2)是关于<span class="math inline">\(w\)</span>的线性函数，所以他被称为<font size="3" color="red">线性模型。</font>这种参数的线性性质极大地简化了这类模型的分析。不过，这也造成了一定的局限性。</p>
+<p><font size="3" color="red">多项式拟合</font>也被称作多项式基函数是这类模型的一个特例，他有单个输入变量<span class="math inline">\(x\)</span>，基函数是<span class="math inline">\(x\)</span>的幂函数的形式，即<span class="math inline">\(\phi_j(x) = x^j\)</span>。多项式基函数的局限性是他们是输入变量的<strong>全局函数</strong>，所以一个区间内改变会影响所有区域。解决的办法是把输入空间切分成若干个区域，然后对于每个区域用不同的多项式函数拟合，这样的函数被称为<strong>样条函数</strong>。还有很多其他基函数的选择，如： <span class="math display">\[
+\phi_j(x) = exp\left\{-\frac{(x-\mu_j)^2}{2s^2}\right\} \tag{3.4}
+\]</span> 其中，<span class="math inline">\(\mu_j\)</span>控制着基函数在输入空间中的位置，参数<span class="math inline">\(s\)</span>控制着基函数的空间大小。这些通常被称为<font size="3" color="red">高斯基函数</font>。由于这些基函数会有一个调节参数<span class="math inline">\(w_j\)</span>相乘，所以标准化系数是不重要的。</p>
+<h4 id="未完待续.....">未完待续.....</h4>
 
-<h4 id="线性基函数模型"><a href="#线性基函数模型" class="headerlink" title="线性基函数模型"></a>线性基函数模型</h4><p>最简单的回归线性模型是输入变量的线性组合：<br>$$<br>y(x,w) = w_0 + w_1x_1+ … + w_Dx_D \tag{3.1}<br>$$<br>其中<br>$$<br>x = (x_1,…,x_D)^T<br>$$<br>这通常被叫做简单的线性回归。这个模型的关键属性是它是一个参数$w_0,…,w_D$的一个线性函数，同时，它也是输入变量$x_i$的一个线性函数，这给模型带来了<strong>极大的局限性</strong>。因此，我们将输入变量确定了的非线性函数进行线性组合来拓模型的类别：<br>$$<br>y(x,w) = w_0 + \sum\limits_{j=1}^{M-1}w_j\phi_j(x) \tag{3.2}<br>$$<br>其中$\phi_j(x)$被称为基函数。通过把下标$j$的最大值记作$M-1$，使得这个模型的参数总数为$M$.</p>
-<p>参数$w_0$使得数据中可以存在任意的固定偏移，通常被称为偏置参数。这里请不要和统计观念下的偏置搞混淆。通常，定义一个额外的占位基函数是很方便的，以便把函数简化为：<br>$$<br>y(x,w) = \sum\limits_{j=0}^{M-1}w_j\phi_j(x) = w^T\phi(x) \tag{3.3}<br>$$<br>其中$w = (w_0,…,w_{M-1})^T , \phi = (\phi_0,…,\phi_{M-1})^T$。在很多模型识别的应用中，会在原始数据上应用固定形式的预处理或特征抽取。如果原始变量组成向量$x$，那么特征可以表示为基函数${\phi_j(x)}$的项。</p>
-<p>通过使用非线性的基函数，我们允许函数$y(x,w)$是关于输入向量$x$的非线性函数。由于式(3.2)是关于$w$的线性函数，所以他被称为<font size="3" color="red">线性模型。</font>这种参数的线性性质极大地简化了这类模型的分析。不过，这也造成了一定的局限性。</p>
-<p><font size="3" color="red">多项式拟合</font>也被称作多项式基函数是这类模型的一个特例，他有单个输入变量$x$，基函数是$x$的幂函数的形式，即$\phi_j(x) = x^j$。多项式基函数的局限性是他们是输入变量的<strong>全局函数</strong>，所以一个区间内改变会影响所有区域。解决的办法是把输入空间切分成若干个区域，然后对于每个区域用不同的多项式函数拟合，这样的函数被称为<strong>样条函数</strong>。还有很多其他基函数的选择，如：<br>$$<br>\phi_j(x) = exp\left\{-\frac{(x-\mu_j)^2}{2s^2}\right\} \tag{3.4}<br>$$<br>其中，$\mu_j$控制着基函数在输入空间中的位置，参数$s$控制着基函数的空间大小。这些通常被称为<font size="3" color="red">高斯基函数</font>。由于这些基函数会有一个调节参数$w_j$相乘，所以标准化系数是不重要的。</p>
-<h4 id="未完待续…"><a href="#未完待续…" class="headerlink" title="未完待续….."></a>未完待续…..</h4>
     </div>
 
     

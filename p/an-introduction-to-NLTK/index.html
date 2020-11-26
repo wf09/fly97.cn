@@ -238,7 +238,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E4%B8%8EPython"><span class="nav-number">1.</span> <span class="nav-text">第一章 语言处理与Python</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E8%A8%80%E8%AE%A1%E7%AE%97%EF%BC%9A%E6%96%87%E6%9C%AC%E5%92%8C%E8%AF%8D%E6%B1%87"><span class="nav-number">1.1.</span> <span class="nav-text">语言计算：文本和词汇</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85nltk"><span class="nav-number">1.1.1.</span> <span class="nav-text">安装nltk</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2%E6%96%87%E6%9C%AC"><span class="nav-number">1.1.2.</span> <span class="nav-text">搜索文本</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E4%B8%8Epython"><span class="nav-number">1.</span> <span class="nav-text">第一章 语言处理与Python</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E8%A8%80%E8%AE%A1%E7%AE%97%E6%96%87%E6%9C%AC%E5%92%8C%E8%AF%8D%E6%B1%87"><span class="nav-number">1.1.</span> <span class="nav-text">语言计算：文本和词汇</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85nltk"><span class="nav-number">1.1.1.</span> <span class="nav-text">安装nltk</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2%E6%96%87%E6%9C%AC"><span class="nav-number">1.1.2.</span> <span class="nav-text">搜索文本</span></a></li></ol></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -359,57 +359,71 @@
 <p><strong>摘要：</strong>自然语言处理（NLP）是计算机科学领域与人工智能的一个重要方向。他研究实现人与计算机之间用自然语言进行有效的通信的各种领域和方法，涉及所有用计算机对自然语言处理进行的操作。以下例子是基于Python语言和一个名为NLTK的自然语言工具包的开源库实现的。</p>
 <p><strong>关键词：</strong>自然语言处理，NLP，NLTK</p>
 <a id="more"></a>
-
 <p>NLTK创建于2001年，最初是宾夕法尼亚州立大学计算机与信息科学系计算语言学课程的一部分。从那以后，在数十名贡献者的帮助下不断发展壮大，如今，它已被数十所大学的课程所采纳，并作为许多项目研究的基础。</p>
-<h3 id="第一章-语言处理与Python"><a href="#第一章-语言处理与Python" class="headerlink" title="第一章 语言处理与Python"></a>第一章 语言处理与Python</h3><p>提出问题：</p>
-<ol>
+<h3 id="第一章-语言处理与python">第一章 语言处理与Python</h3>
+<p>提出问题：</p>
+<ol type="1">
 <li>通过将技术性较为简单的程序与大规模文本结合起来，我们能实现什么？</li>
 <li>如何自动的提取处关键字和词组，用来总结文本的风格和内容？</li>
 <li>Python编程语言为上述工作提供了哪些工具和技术？</li>
 <li>自然语言处理中有哪些有趣的挑战呢？</li>
 </ol>
-<h4 id="语言计算：文本和词汇"><a href="#语言计算：文本和词汇" class="headerlink" title="语言计算：文本和词汇"></a>语言计算：文本和词汇</h4><h5 id="安装nltk"><a href="#安装nltk" class="headerlink" title="安装nltk"></a>安装nltk</h5><p>使用pip进行安装：</p>
+<h4 id="语言计算文本和词汇">语言计算：文本和词汇</h4>
+<h5 id="安装nltk">安装nltk</h5>
+<p>使用pip进行安装：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install nltk</span><br></pre></td></tr></table></figure>
-
 <p>输入以下命令来安装数据：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> nltk</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>nltk.download()</span><br></pre></td></tr></table></figure>
-
 <p>或者直接点击以下链接进行下载：<a target="_blank" rel="noopener" href="https://github.com/nltk/nltk_data/archive/gh-pages.zip">点击下载</a></p>
 <p>这里使用第二种方法。</p>
 <p>下载完毕以后得到如图所示的压缩文件</p>
-<p><img src="https://ftp.fly97.cn/image/image-20200917210303624.png" alt="image-20200917210303624"></p>
+<figure>
+<img src="https://ftp.fly97.cn/image/image-20200917210303624.png" alt="image-20200917210303624" /><figcaption>image-20200917210303624</figcaption>
+</figure>
 <p>解压并打开文件夹</p>
-<p><img src="https://ftp.fly97.cn/image/image-20200917210405366.png" alt="image-20200917210405366"></p>
+<figure>
+<img src="https://ftp.fly97.cn/image/image-20200917210405366.png" alt="image-20200917210405366" /><figcaption>image-20200917210405366</figcaption>
+</figure>
 <p>打开packages，复制路径，添加<code>NLTK_DATA</code>到环境变量</p>
-<p><img src="https://ftp.fly97.cn/image/image-20200917210518955.png" alt="image-20200917210518955"></p>
+<figure>
+<img src="https://ftp.fly97.cn/image/image-20200917210518955.png" alt="image-20200917210518955" /><figcaption>image-20200917210518955</figcaption>
+</figure>
 <p>测试是否安装成功</p>
-<p><img src="https://ftp.fly97.cn/image/image-20200917210938768.png" alt="image-20200917210938768"></p>
+<figure>
+<img src="https://ftp.fly97.cn/image/image-20200917210938768.png" alt="image-20200917210938768" /><figcaption>image-20200917210938768</figcaption>
+</figure>
 <p>输入以下命令加载一些我们需要的文本：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> nltk.book <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://ftp.fly97.cn/image/image-20200917211222091.png" alt="image-20200917211222091"></p>
+<figure>
+<img src="https://ftp.fly97.cn/image/image-20200917211222091.png" alt="image-20200917211222091" /><figcaption>image-20200917211222091</figcaption>
+</figure>
 <p>无论什么时候想要找到这些文本，只需要在Python提示符后面输入它的名字即可</p>
-<p><img src="https://ftp.fly97.cn/image/image-20200917211343198.png" alt="image-20200917211343198"></p>
-<h5 id="搜索文本"><a href="#搜索文本" class="headerlink" title="搜索文本"></a>搜索文本</h5><p>除了简单地阅读文本之外，还有很多方法可以用来查看文本内容。词语索引视图可以显示指定单词地出现情况，同时可以显示一些上下文。</p>
+<figure>
+<img src="https://ftp.fly97.cn/image/image-20200917211343198.png" alt="image-20200917211343198" /><figcaption>image-20200917211343198</figcaption>
+</figure>
+<h5 id="搜索文本">搜索文本</h5>
+<p>除了简单地阅读文本之外，还有很多方法可以用来查看文本内容。词语索引视图可以显示指定单词地出现情况，同时可以显示一些上下文。</p>
 <p>使用以下方法搜索<code>text1</code>文本中的<code>monstrous</code>单词。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">text1.concordance(<span class="string">&#x27;monstrous&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
 <p>搜索结果</p>
-<p><img src="https://ftp.fly97.cn/image/image-20200917212148198.png" alt="image-20200917212148198"></p>
+<figure>
+<img src="https://ftp.fly97.cn/image/image-20200917212148198.png" alt="image-20200917212148198" /><figcaption>image-20200917212148198</figcaption>
+</figure>
 <p>小试牛刀：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">text2.concordance(<span class="string">&#x27;lived&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://ftp.fly97.cn/image/image-20200917212629370.png" alt="image-20200917212629370"></p>
+<figure>
+<img src="https://ftp.fly97.cn/image/image-20200917212629370.png" alt="image-20200917212629370" /><figcaption>image-20200917212629370</figcaption>
+</figure>
 <p>关键词索引可以让我们看到上下文中的词，例如，可以看到monstrous出现在文章中，如the __ pictures 和 the __ size，<strong>还有那些词出现在相似地上下文</strong>中？可以通过以下函数查看。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">text1.similar(<span class="string">&#x27;monstrous&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://ftp.fly97.cn/image/image-20200917220851114.png"></p>
+<p><img src="https://ftp.fly97.cn/image/image-20200917220851114.png" /></p>
 <p>使用以下函数研究<strong>共用两个或者两个以上的词汇的上下文</strong>，如monstrous 和 very. 使用方括号和圆括号讲这些词括起来，中间用逗号分割。</p>
 <p>【在<strong>text2</strong>找到用法、意义与该单词集合相似的词 】</p>
 <p>【用来识别2个关键词相似的词语。】</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">text2.common_contexts([&quot;monstrous&quot;, &quot;very&quot;])</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://ftp.fly97.cn/image/image-20200917223058920.png" alt="image-20200917223058920"></p>
+<figure>
+<img src="https://ftp.fly97.cn/image/image-20200917223058920.png" alt="image-20200917223058920" /><figcaption>image-20200917223058920</figcaption>
+</figure>
 
     </div>
 

@@ -237,7 +237,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E8%AF%86Numpy"><span class="nav-number">1.</span> <span class="nav-text">初识Numpy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Numpy%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">Numpy数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Numpy%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84"><span class="nav-number">3.</span> <span class="nav-text">Numpy创建数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E5%88%97%E8%A1%A8%E6%88%96%E8%80%85%E5%85%83%E7%BB%84%E8%BD%AC%E5%8C%96"><span class="nav-number">3.1.</span> <span class="nav-text">通过列表或者元组转化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#np-arange-%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84"><span class="nav-number">3.2.</span> <span class="nav-text">np.arange()函数创建数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#np-linspace-%E7%94%9F%E6%88%90%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97"><span class="nav-number">3.3.</span> <span class="nav-text">np.linspace()生成等差数列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#np-concatenate-%E6%95%B0%E7%BB%84%E6%8B%BC%E6%8E%A5"><span class="nav-number">3.4.</span> <span class="nav-text">np.concatenate()数组拼接</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E8%AF%86numpy"><span class="nav-number">1.</span> <span class="nav-text">初识Numpy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#numpy%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">Numpy数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#numpy%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84"><span class="nav-number">3.</span> <span class="nav-text">Numpy创建数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E5%88%97%E8%A1%A8%E6%88%96%E8%80%85%E5%85%83%E7%BB%84%E8%BD%AC%E5%8C%96"><span class="nav-number">3.1.</span> <span class="nav-text">通过列表或者元组转化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#np.arange%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84"><span class="nav-number">3.2.</span> <span class="nav-text">np.arange()函数创建数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#np.linspace%E7%94%9F%E6%88%90%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97"><span class="nav-number">3.3.</span> <span class="nav-text">np.linspace()生成等差数列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#np.concatenate%E6%95%B0%E7%BB%84%E6%8B%BC%E6%8E%A5"><span class="nav-number">3.4.</span> <span class="nav-text">np.concatenate()数组拼接</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -357,158 +357,173 @@
         <p><strong>摘要：</strong>Numpy是一个开源的Python科学计算库，它是Python科学计算库的基础库，许多其他著名的科学计算库如Pandas、Scikit-learn等，都要用的Numpy库的一些功能。</p>
 <p><strong>关键词：</strong>科学计算，Numpy</p>
 <a id="more"></a>
-
 <p>Numpy是Python快速处理大型矩阵的科学计算库，Numpy允许你在Python中做向量矩阵的运算，而且很多底层的函数都是用C语言写的，将获得在普通Python中无法达到的运算速度。</p>
-<p>什么是科学计算？科学计算是一个与定量分析、数学模型构建以及利用计算机分析和解决科学问题相关的相关领域。<br><strong>查看Numpy版本</strong></p>
+<p>什么是科学计算？科学计算是一个与定量分析、数学模型构建以及利用计算机分析和解决科学问题相关的相关领域。 <strong>查看Numpy版本</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import numpy</span><br><span class="line"></span><br><span class="line">print(numpy.__version__)</span><br></pre></td></tr></table></figure>
-
-<p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920154143301.png" alt="image-20200920154143301"></p>
-<h3 id="初识Numpy"><a href="#初识Numpy" class="headerlink" title="初识Numpy"></a>初识Numpy</h3><p><strong>Numpy</strong>的主要对象是同质多维数组，也就是在一个元素(通常是数字)表中，元素的类型都是相同的，其中可以通过正整数的元组来对元素进行索引。</p>
+<figure>
+<img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920154143301.png" alt="image-20200920154143301" /><figcaption>image-20200920154143301</figcaption>
+</figure>
+<h3 id="初识numpy">初识Numpy</h3>
+<p><strong>Numpy</strong>的主要对象是同质多维数组，也就是在一个元素(通常是数字)表中，元素的类型都是相同的，其中可以通过正整数的元组来对元素进行索引。</p>
 <p>在Numpy中，数组的维度被称为轴(axes)，轴的数量被称为秩(rank)。例如在三维空间中一个点的坐标【1，2，1】就是秩为1的数组，因为它只有一个轴，这个轴的长度为3。</p>
 <p><strong>Numpy</strong>的数组类称为<strong>ndarray</strong>，别名为array。<strong>numpy.array</strong>与标准Python库类<strong>array.array</strong>不同。标准库类中只能处理一维数组而且功能相对较少。下面我们来认识下<strong>ndarray</strong>对象的常见属性。</p>
 <table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 88%" />
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>属性</th>
 <th>含义</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>T</td>
 <td>转置，与self.transpose()相同，如果维度小于2，返回self</td>
 </tr>
-<tr>
+<tr class="even">
 <td>size</td>
 <td>数组中元素个数，等于shape元素的乘积</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>itemsize</td>
 <td>一个类型为float64的元素的数组itemsize为8=(64/8)，而一个complex32的数组itersize为4=(32/8). 该属性等价于ndarray.dtype.itemsize</td>
 </tr>
-<tr>
+<tr class="even">
 <td>dtype</td>
 <td>数组元素的数据类型对象。可以用标准Python类型来创建或指定dtype，或者在后面加上Numpy的类型：numpy.int32，numpy.int16，numpy.float64等等</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>ndim</td>
 <td>数组的轴（维度）的数量。在Python中，维度的数量通常被称为rank</td>
 </tr>
-<tr>
+<tr class="even">
 <td>shape</td>
 <td>数组的维度，为一个整数元组。表示每个维度上的大小。对于一个m行n列的矩阵来说，shape就是(n, m)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>data</td>
 <td>该缓冲区中包含了数组的实际元素，通常情况下不需要使用这个属性因为我们会使用<strong>索引</strong>的方式来访问数组中的元素。</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Flat</td>
 <td>返回数组的一维迭代器</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>imag</td>
 <td>返回数组的虚部</td>
 </tr>
-<tr>
+<tr class="even">
 <td>real</td>
 <td>返回数组的实部</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>nbytes</td>
 <td>数组中所有元素的字节长度</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>示例</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = np.random.random(<span class="number">4</span>)</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
-
-<p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920164603559.png" alt="image-20200920164603559"></p>
+<figure>
+<img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920164603559.png" alt="image-20200920164603559" /><figcaption>image-20200920164603559</figcaption>
+</figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(a.shape)</span><br></pre></td></tr></table></figure>
-
-<p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920164658559.png"></p>
+<p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920164658559.png" /></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(type(a))</span><br></pre></td></tr></table></figure>
-
-<p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920165038789.png" alt="image-20200920165038789"></p>
+<figure>
+<img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920165038789.png" alt="image-20200920165038789" /><figcaption>image-20200920165038789</figcaption>
+</figure>
 <p>以上说明，通过np.random.random(4)生成的一个浮点数组，类型为numpy.ndarray，a.shape显示的<strong>长度</strong>为4。</p>
 <p>【这里的数组可以理解为一维数组】</p>
-<h3 id="Numpy数据类型"><a href="#Numpy数据类型" class="headerlink" title="Numpy数据类型"></a>Numpy数据类型</h3><p>对于科学计算来说，Python自带的整型，浮点数和复数类型还远远不够。因此Numpy添加了许多数据类型， 在实际应用中，我们需要不同精度的数据类型，它们占用的内存空间也是不同的，在numpy中，大部分数据类型是以数字结尾的，这个数字表示其在内存中占用的位数。</p>
+<h3 id="numpy数据类型">Numpy数据类型</h3>
+<p>对于科学计算来说，Python自带的整型，浮点数和复数类型还远远不够。因此Numpy添加了许多数据类型， 在实际应用中，我们需要不同精度的数据类型，它们占用的内存空间也是不同的，在numpy中，大部分数据类型是以数字结尾的，这个数字表示其在内存中占用的位数。</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>类型</th>
 <th>描述规则</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>bool</td>
 <td>用一位存储的bool类型</td>
 </tr>
-<tr>
+<tr class="even">
 <td>inti</td>
 <td>由所在平台决定其精度的整数（一般为int32或者int64）</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>int8</td>
 <td>整数，范围为-128至127</td>
 </tr>
-<tr>
+<tr class="even">
 <td>int16</td>
 <td>整数，范围为-32768至32767</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>int32</td>
-<td>整数，范围为-2^31至2^31-1</td>
+<td>整数，范围为-2<sup>31至2</sup>31-1</td>
 </tr>
-<tr>
+<tr class="even">
 <td>int64</td>
-<td>整数，范围为-2^63至2^63</td>
+<td>整数，范围为-2<sup>63至2</sup>63</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>uint8</td>
 <td>无符号整数，范围为0至255</td>
 </tr>
-<tr>
+<tr class="even">
 <td>uint16</td>
 <td>无符号整数，范围为0至65535</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>uint32</td>
 <td>无符号整数，范围为0至2^32-1</td>
 </tr>
-<tr>
+<tr class="even">
 <td>uint64</td>
 <td>无符号整数，范围为0至2^64</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>float16</td>
 <td>半精度浮点数(16位)，其中一位表示正负号，5位表示指数，10位表示尾数</td>
 </tr>
-<tr>
+<tr class="even">
 <td>float32</td>
 <td>单精度浮点数(32位)，其中一位表示正负号，8位表示指数，23位表示尾数</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>float64或float</td>
 <td>双精度浮点数(64位)，其中一位表示正负号，11位表示指数，52位表示位数</td>
 </tr>
-<tr>
+<tr class="even">
 <td>complex64</td>
 <td>复数，分别用两个32位浮点数表示实部和虚部</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>complex128或complex</td>
 <td>复数，分别用两个64位浮点数表示实部和虚部</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>在使用numpy过程中，可以通过dtype来指定数据类型，通常这个参数是可选的。也可以通过astype()来指定。同样，每一种数据类型均有对应的类型转换函数。在Python中，通常不要求内存控制指定。</p>
 <p><strong>Numpy数据类型操作</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指定数据类型</span></span><br><span class="line">print(np.array(<span class="number">5</span>, dtype = int))</span><br><span class="line"></span><br><span class="line">print(np.array(<span class="number">5</span>).astype(float))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 转换数据类型</span></span><br><span class="line">print(float(<span class="number">42</span>))</span><br><span class="line"></span><br><span class="line">print(bool(<span class="number">42</span>))</span><br><span class="line"></span><br><span class="line">print(float(<span class="literal">True</span>))</span><br></pre></td></tr></table></figure>
-
-<p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920182149479.png" alt="image-20200920182149479"></p>
+<figure>
+<img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920182149479.png" alt="image-20200920182149479" /><figcaption>image-20200920182149479</figcaption>
+</figure>
 <p><strong>查看Numpy数据类型</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(set(np.typeDict.values()))</span><br></pre></td></tr></table></figure>
-
-<p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920182353862.png" alt="image-20200920182353862"></p>
-<h3 id="Numpy创建数组"><a href="#Numpy创建数组" class="headerlink" title="Numpy创建数组"></a>Numpy创建数组</h3><h4 id="通过列表或者元组转化"><a href="#通过列表或者元组转化" class="headerlink" title="通过列表或者元组转化"></a>通过列表或者元组转化</h4><p>在Python内建对象中，数组有三种形式：列表（list）、元组（tuple）、字典（dict）。具体形式如下：</p>
+<figure>
+<img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920182353862.png" alt="image-20200920182353862" /><figcaption>image-20200920182353862</figcaption>
+</figure>
+<h3 id="numpy创建数组">Numpy创建数组</h3>
+<h4 id="通过列表或者元组转化">通过列表或者元组转化</h4>
+<p>在Python内建对象中，数组有三种形式：列表（list）、元组（tuple）、字典（dict）。具体形式如下：</p>
 <ul>
 <li>list: [1, 2, 3]</li>
 <li>tuple: (1, 2, 3)</li>
@@ -516,7 +531,6 @@
 </ul>
 <p>使用np.array将<strong>列表或元组</strong>转换成narray数组。其方法为：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">np.array(object, dtype=<span class="literal">None</span>, copy=<span class="literal">True</span>, </span><br><span class="line">         order=<span class="string">&#x27;K&#x27;</span>, subook= <span class="literal">False</span>, ndmin=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-
 <p>相关参数如下：</p>
 <ul>
 <li>object：输入对象列表、元组等。</li>
@@ -527,11 +541,13 @@
 </ul>
 <p><strong>使用np.array创建数组</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = np.array([[<span class="number">1</span>, <span class="number">2</span>],[<span class="number">4</span>, <span class="number">5</span>, <span class="number">7</span>]])</span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;a:&#123;&#125;, type of a:&#123;&#125;&quot;</span>.format(a, type(a)))</span><br></pre></td></tr></table></figure>
-
-<p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920184454753.png" alt="image-20200920184454753"></p>
-<h4 id="np-arange-函数创建数组"><a href="#np-arange-函数创建数组" class="headerlink" title="np.arange()函数创建数组"></a>np.arange()函数创建数组</h4><p>np.arange()的功能是在给定区间内创建<strong>等差数组</strong>。arange类似range函数，接触过Python的人或许对range函数比较熟悉。例如在for循环中，经常用到range。下面通过range来学习arange，主要区别是<strong>返回值类型不同</strong>。</p>
+<figure>
+<img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920184454753.png" alt="image-20200920184454753" /><figcaption>image-20200920184454753</figcaption>
+</figure>
+<h4 id="np.arange函数创建数组">np.arange()函数创建数组</h4>
+<p>np.arange()的功能是在给定区间内创建<strong>等差数组</strong>。arange类似range函数，接触过Python的人或许对range函数比较熟悉。例如在for循环中，经常用到range。下面通过range来学习arange，主要区别是<strong>返回值类型不同</strong>。</p>
 <p>range返回的是list，np.arange返回的是narray数组。</p>
-<ol>
+<ol type="1">
 <li>range函数为 range(start, stop[, step])，根据start和stop指定的范围以及step设定的步长，生成一个序列，函数返回的是一个range object。这里的[start, stop]是一个<strong>前闭后开</strong>区间。</li>
 </ol>
 <ul>
@@ -541,9 +557,10 @@
 </ul>
 <p>案例</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = range(<span class="number">0</span>, <span class="number">5</span>)</span><br><span class="line">b = range(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">a1 = [i <span class="keyword">for</span> i <span class="keyword">in</span> a]</span><br><span class="line">b1 = [i <span class="keyword">for</span> i <span class="keyword">in</span> b]</span><br><span class="line">print(<span class="string">&quot;type of a:&#123;0&#125;, a:&#123;1&#125;, b:&#123;2&#125;,  a1:&#123;3&#125;, b1:&#123;4&#125;&quot;</span>.format(type(a), a, b, a1, b1))</span><br></pre></td></tr></table></figure>
-
-<p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920190839464.png" alt="image-20200920190839464"></p>
-<ol start="2">
+<figure>
+<img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920190839464.png" alt="image-20200920190839464" /><figcaption>image-20200920190839464</figcaption>
+</figure>
+<ol start="2" type="1">
 <li>arange函数为arange(start=None, stop=None, step=None, dtype=None), 根据<strong>start</strong>与<strong>stop</strong>指定的范围以及<strong>step</strong>设定的步长，生成一个<strong>ndarry</strong></li>
 </ol>
 <ul>
@@ -553,32 +570,26 @@
 </ul>
 <p><strong>np.arange()案例</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.arange(<span class="number">12</span>)</span><br><span class="line"></span><br><span class="line">a2 = np.arange(<span class="number">1</span>, <span class="number">2</span>, <span class="number">0.1</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;a:&#123;&#125;,a2:&#123;&#125;&quot;</span>.format(a,a2))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920191959047.png" alt="image-20200920191959047"></p>
-<h4 id="np-linspace-生成等差数列"><a href="#np-linspace-生成等差数列" class="headerlink" title="np.linspace()生成等差数列"></a>np.linspace()生成等差数列</h4><p>np.linspace方法也可以像np.arange方法一样，创建数值有规律的数组。linespace用于在指定区域返回间隔均匀的值，其方法为：</p>
+<figure>
+<img src="C:\Users\wf09\AppData\Roaming\Typora\typora-user-images\image-20200920191959047.png" alt="image-20200920191959047" /><figcaption>image-20200920191959047</figcaption>
+</figure>
+<h4 id="np.linspace生成等差数列">np.linspace()生成等差数列</h4>
+<p>np.linspace方法也可以像np.arange方法一样，创建数值有规律的数组。linespace用于在指定区域返回间隔均匀的值，其方法为：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.linespace(start, stop, num=<span class="number">50</span>, endpoint=<span class="literal">True</span>, restep=<span class="literal">False</span>, dtype=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
-
 <ul>
-<li><p>start：序列的起始值。</p>
-</li>
-<li><p>stop：序列的结束值。</p>
-</li>
-<li><p>num：生成的样本数，默认为50。</p>
-</li>
-<li><p>endpoint：布尔值，若为True，则最后一个样本包含在序列内。</p>
-</li>
-<li><p>restep：布尔值，若为True，返回间距。</p>
-</li>
-<li><p>dtype：数组的类型。</p>
-</li>
+<li><p>start：序列的起始值。</p></li>
+<li><p>stop：序列的结束值。</p></li>
+<li><p>num：生成的样本数，默认为50。</p></li>
+<li><p>endpoint：布尔值，若为True，则最后一个样本包含在序列内。</p></li>
+<li><p>restep：布尔值，若为True，返回间距。</p></li>
+<li><p>dtype：数组的类型。</p></li>
 </ul>
-<h4 id="np-concatenate-数组拼接"><a href="#np-concatenate-数组拼接" class="headerlink" title="np.concatenate()数组拼接"></a>np.concatenate()数组拼接</h4><p>numpy提供了numpy.concatenate()函数，能够一次完成多个数组的拼接。</p>
+<h4 id="np.concatenate数组拼接">np.concatenate()数组拼接</h4>
+<p>numpy提供了numpy.concatenate()函数，能够一次完成多个数组的拼接。</p>
 <p>实例1：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">b = np.array([<span class="number">11</span>,<span class="number">22</span>,<span class="number">33</span>])</span><br><span class="line">c = np.array([<span class="number">44</span>,<span class="number">55</span>,<span class="number">66</span>])</span><br><span class="line">np.concatenate((a,b,c),axis=<span class="number">0</span>)     <span class="comment">#axis=0是默认值</span></span><br><span class="line"><span class="comment"># array([1,2,3,11,22,33,44,55,66]) #对于一维数组拼接，axis的值不影响最后的结果</span></span><br></pre></td></tr></table></figure>
-
 <p>实例2：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]])</span><br><span class="line">b = np.array([[<span class="number">11</span>,<span class="number">21</span>,<span class="number">31</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]])</span><br><span class="line">np.concatenate((a,b),axis=<span class="number">0</span>)</span><br><span class="line"><span class="string">&quot;&quot;&quot;array([[ 1,  2,  3],          #对应列拼接</span></span><br><span class="line"><span class="string">       [ 4,  5,  6],</span></span><br><span class="line"><span class="string">       [11, 21, 31],</span></span><br><span class="line"><span class="string">       [ 7,  8,  9]])</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span>  </span><br><span class="line">np.concatenate((a,b),axis=<span class="number">1</span>)</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">array([[ 1,  2,  3, 11, 21, 31],  #对应行拼接</span></span><br><span class="line"><span class="string">       [ 4,  5,  6,  7,  8,  9]])  </span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
-
 <p>oncatenate()效率更高，适合大规模的数据拼接。</p>
 
     </div>

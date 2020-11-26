@@ -227,7 +227,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#torch-Tensor%E5%92%8Ctorch-tensor%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">torch.Tensor和torch.tensor有什么区别？</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.0.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB1"><span class="nav-number">1.0.2.</span> <span class="nav-text">区别1</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB2"><span class="nav-number">1.1.</span> <span class="nav-text">区别2</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#torch.tensor%E5%92%8Ctorch.tensor%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="nav-number">1.</span> <span class="nav-text">torch.Tensor和torch.tensor有什么区别？</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.0.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB1"><span class="nav-number">1.0.2.</span> <span class="nav-text">区别1</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB2"><span class="nav-number">1.1.</span> <span class="nav-text">区别2</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -353,20 +353,19 @@
     <div class="post-body" itemprop="articleBody">
         <p>不说废话，直接上教程。</p>
 <a id="more"></a>
-
-<h4 id="torch-Tensor和torch-tensor有什么区别？"><a href="#torch-Tensor和torch-tensor有什么区别？" class="headerlink" title="torch.Tensor和torch.tensor有什么区别？"></a>torch.Tensor和torch.tensor有什么区别？</h4><h6 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h6><p>​    在PyTorch 中，torch.Tensor是主要的tensor类，所有的tensor都是torch.Tensor的实例。torch.Tensor是torch.FloatTensor的别名。<br>而torch.tensor是一个函数，返回的是一个tensor，在PyTorch官方文档中，描述如下：</p>
+<h4 id="torch.tensor和torch.tensor有什么区别">torch.Tensor和torch.tensor有什么区别？</h4>
+<h6 id="介绍">介绍</h6>
+<p>​ 在PyTorch 中，torch.Tensor是主要的tensor类，所有的tensor都是torch.Tensor的实例。torch.Tensor是torch.FloatTensor的别名。 而torch.tensor是一个函数，返回的是一个tensor，在PyTorch官方文档中，描述如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">torch.tensor(data, dtype=<span class="literal">None</span>, device=<span class="literal">None</span>, requires_grad=<span class="literal">False</span>) → Tensor</span><br><span class="line">Constructs a tensor <span class="keyword">with</span> data.</span><br></pre></td></tr></table></figure>
-
-<h6 id="区别1"><a href="#区别1" class="headerlink" title="区别1"></a>区别1</h6><p><code>torch.Tensor(data)</code>是将输入的data转化<code>torch.FloatTensor</code></p>
+<h6 id="区别1">区别1</h6>
+<p><code>torch.Tensor(data)</code>是将输入的data转化<code>torch.FloatTensor</code></p>
 <p><code>torch.tensor(data)</code>(当你未指定<code>dype</code>的类型时)是将data转化为<code>torch.FloatTensor、torch.LongTensor、torch.DoubleTensor</code>等类型，转化类型依据于<code>data</code>的类型或者<code>dtype</code>的值</p>
-<h5 id="区别2"><a href="#区别2" class="headerlink" title="区别2"></a>区别2</h5><p>使用如下语句：<code>tensor_without_data = torch.Tensor()</code>可以创建一个空的<code>FloatTensor</code>，而当你使用<code>tensor_without_data = torch.tensor()</code>时候则会报错：</p>
-<hr>
+<h5 id="区别2">区别2</h5>
+<p>使用如下语句：<code>tensor_without_data = torch.Tensor()</code>可以创建一个空的<code>FloatTensor</code>，而当你使用<code>tensor_without_data = torch.tensor()</code>时候则会报错：</p>
+<hr />
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">TypeError Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input<span class="number">-12</span>-ebc3ceaa76d2&gt; <span class="keyword">in</span> &lt;module&gt;()</span><br><span class="line">----&gt; 1 torch.tensor()</span><br><span class="line"></span><br><span class="line">TypeError: tensor() missing <span class="number">1</span> required positional arguments: <span class="string">&quot;data&quot;</span></span><br></pre></td></tr></table></figure>
-
 <p>当你想要创建一个空的<code>tensor</code>时候，可以使用如下的方法：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tensor_without_data = torch.Tensor() <span class="comment"># tensor([])</span></span><br><span class="line">tensor_without_data = torch.tensor(()) <span class="comment"># tensor([])</span></span><br><span class="line">tensor_without_data = torch.empty([]) <span class="comment"># tensor(0.)</span></span><br></pre></td></tr></table></figure>
-
-
 <p>所以<code>torch.Tensor</code>应该说是同时具有<code>torch.tensor</code>和<code>torch.empty</code>的功能，但是使用<code>torch.Tensor</code>可能会使你的代码出错，所以最好还是使用<code>torch.tensor</code>和<code>torch.empty</code>，而不是<code>torch.Tensor</code>。</p>
 
     </div>

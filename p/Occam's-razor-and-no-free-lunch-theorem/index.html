@@ -229,7 +229,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A5%A5%E5%8D%A1%E5%A7%86%E5%89%83%E5%88%80%EF%BC%88Occam%E2%80%99s-razor%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">奥卡姆剃刀（Occam’s razor）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%80%9C%E6%B2%A1%E6%9C%89%E5%85%8D%E8%B4%B9%E7%9A%84%E5%8D%88%E9%A4%90%E2%80%9D%E5%AE%9A%E7%90%86%EF%BC%88no-free-lunch-NFL%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">“没有免费的午餐”定理（no free lunch, NFL）</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A5%A5%E5%8D%A1%E5%A7%86%E5%89%83%E5%88%80occams-razor"><span class="nav-number">1.</span> <span class="nav-text">奥卡姆剃刀（Occam’s razor）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B2%A1%E6%9C%89%E5%85%8D%E8%B4%B9%E7%9A%84%E5%8D%88%E9%A4%90%E5%AE%9A%E7%90%86no-free-lunch-nfl"><span class="nav-number">2.</span> <span class="nav-text">“没有免费的午餐”定理（no free lunch, NFL）</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -350,20 +350,20 @@
 <p><strong>摘要</strong>：“奥卡姆剃刀”和“没有免费的午餐”是机器学习中两个很基本的原则和定理。由于名字有点怪，所以初学者可能在理解上陷入误区。本文试图用简洁易懂的方式解释这两个原则和定理，并告诉大家它们的名字是怎么来的。</p>
 <p><strong>关键字</strong>：机器学习, 奥卡姆剃刀, 没有免费的午餐</p>
 <a id="more"></a>
-
 <p>“奥卡姆剃刀”和“没有免费的午餐”是机器学习中两个很基本的原则和定理，很多书都会提到它们来提升逼格。不过，烦就烦在它们的名字取的有些不好理解，初学者望文生义就容易错误理解。其实，了解了它们名字的由来，这两个原则和定理是很容易想明白的，也不用去纠结如何证明它们，因为它们更接近哲学思想，而不是你会在实际项目中用到的公式。</p>
-<h4 id="奥卡姆剃刀（Occam’s-razor）"><a href="#奥卡姆剃刀（Occam’s-razor）" class="headerlink" title="奥卡姆剃刀（Occam’s razor）"></a>奥卡姆剃刀（Occam’s razor）</h4><p>“奥卡姆剃刀”其实并不是机器学习领域产生的定理，事实上，它是哲学领域的一个思想。这个思想说起来也很简单，7个字，<code>“简单的是最好的”</code>。</p>
+<h4 id="奥卡姆剃刀occams-razor">奥卡姆剃刀（Occam’s razor）</h4>
+<p>“奥卡姆剃刀”其实并不是机器学习领域产生的定理，事实上，它是哲学领域的一个思想。这个思想说起来也很简单，7个字，<code>“简单的是最好的”</code>。</p>
 <p>相信大家不难理解这个哲学思想，比如在数学领域，大多数数学家认为“好的公式应当是简洁明了的”，就是“奥卡姆剃刀”的体现。</p>
 <p>这个思想我能理解，但为什么叫这么奇怪的名字？容易想到，“奥卡姆”是提出这个思想的人的名字；至于为什么叫“剃刀”是因为这个思想的提出，对封建旧思想来说是把锋利的剃刀，狠狠地剃除教会的旧思想。（具体是如何剃除旧思想的就不展开了）</p>
 <p>那这个思想是怎么应用在机器学习领域的呢？用下图就可以概括：</p>
-<img src="https://ftp.fly97.cn/image/overfit.png" style="zoom:80%;" align="center"/>
-
+<p><img src="https://ftp.fly97.cn/image/overfit.png" style="zoom:80%;" align="center"/></p>
 <p>了解机器学习的同学不难看出，上图表示的是过拟合问题，不了解的同学也不必担心，可以把上图想象成用曲线拟合几个点。</p>
 <p>那么问题来了，上图中，哪种拟合方式是比较好的呢？相信大多数人都会选择左小图的拟合方式。机器学习领域也通常认为左小图是比较好的，原因就是“奥卡姆剃刀”的思想，“简单的是最好的”。</p>
 <p>有些敢于挑战权威的同学可能会反驳，“怎么证明图1左小图是更简单的呢？我可以认为右小图更简单”。是的，这个问题周志华的西瓜书中也有提到，其实是没有办法说明哪种更简单。这也是哲学问题的通病，难以联系到实际中，往往会有多种解读。</p>
 <p>不过我们不用去纠结怎样才算“简单”，只要明白这个词是什么意思就可以了。</p>
 <p>可能还会有同学反驳，“我同意左小图是简单的，但万一实际情况中右小图才是更符合结果的拟合方式呢？”。这个想法也是对的，我们无法证明实际情况一定是左小图的拟合方式最好。这也就是下面“没有免费的午餐”定理要说明的。</p>
-<h4 id="“没有免费的午餐”定理（no-free-lunch-NFL）"><a href="#“没有免费的午餐”定理（no-free-lunch-NFL）" class="headerlink" title="“没有免费的午餐”定理（no free lunch, NFL）"></a>“没有免费的午餐”定理（no free lunch, NFL）</h4><p>这个定理的名字乍一看很唬人，也有很多初学者因为这个名字陷入了误区。我们可以先把名字放在一边，先看定理的内容。</p>
+<h4 id="没有免费的午餐定理no-free-lunch-nfl">“没有免费的午餐”定理（no free lunch, NFL）</h4>
+<p>这个定理的名字乍一看很唬人，也有很多初学者因为这个名字陷入了误区。我们可以先把名字放在一边，先看定理的内容。</p>
 <p>这个定理证明起来很复杂，一长串的数学公式，但说明白其实只要一句话，<code>“没有一种机器学习算法是适用于所有情况的”</code>。</p>
 <p>这也符合我们的直觉。举个例子吧，比如上图，假设上图的左小图是机器算法A给出的拟合曲线，上图的右小图是机器算法B给出的拟合曲线。我们就一定能说机器算法A比机器算法B更好吗？或者说左小图的拟合曲线一定比右小图更符合实际情况吗？都不能。“没有免费的午餐”定理证明了对于所有机器学习问题，机器算法A更好与机器算法B更好的概率是一样的。<code>更一般地说，对于所有机器学习问题，任何一种算法（包括瞎猜）的期望效果都是一样的</code>。</p>
 <p>那我们还学个啥？既然任何算法的期望效果和瞎猜一样，我们为什么还要学？</p>
