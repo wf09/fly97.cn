@@ -206,6 +206,108 @@
       </tags>
   </entry>
   <entry>
+    <title>Jetson Xavier 开发实录</title>
+    <url>/p/How-to-use-Jetson-Xavier/</url>
+    <content><![CDATA[<p><strong>摘要：</strong>最近实验室买了两块嵌入式NVIDIA Jetson Xavie NX 开发板，学长拿来让我折腾下，遂有了这篇文章。</p>
+<p><strong>关键词：</strong>Jetson，NVIDIA，CUDA</p>
+<a id="more"></a>
+<h3 id="介绍">介绍</h3>
+<p>官网介绍</p>
+<figure>
+<img src="https://imgcache.fly97.cn/image-20201207190314252.png" alt="image-20201207190314252" /><figcaption>image-20201207190314252</figcaption>
+</figure>
+<figure>
+<img src="https://imgcache.fly97.cn/image-20201207190620860.png" alt="image-20201207190620860" /><figcaption>image-20201207190620860</figcaption>
+</figure>
+<figure>
+<img src="https://imgcache.fly97.cn/image-20201207190744362.png" alt="image-20201207190744362" /><figcaption>image-20201207190744362</figcaption>
+</figure>
+<p>开箱图片</p>
+<p><img src="https://coding-pages-bucket-3497758-8097554-7343-408418-1300660242.cos-website.ap-shanghai.myqcloud.com/image0.jpeg" /></p>
+<p><img src="https://imgcache.fly97.cn/image1.jpeg" /></p>
+<h3 id="制作启动盘">制作启动盘</h3>
+<p>NVIDIA Jetson Xavie NX镜像下载地址：https://developer.nvidia.com/zh-cn/embedded/downloads</p>
+<figure>
+<img src="https://imgcache.fly97.cn/image-20201207193250562.png" alt="image-20201207193250562" /><figcaption>image-20201207193250562</figcaption>
+</figure>
+<p>板子使用的是SD卡作为引导盘和存储盘的，首先要格式化内存卡。使用<strong>SD Card Formatter</strong>格式化内存卡。<a href="https://www.sdcard.org/downloads/formatter/eula_windows/">SD Card Formatter下载地址</a></p>
+<figure>
+<img src="https://imgcache.fly97.cn/image-20201207192830072.png" alt="image-20201207192830072" /><figcaption>image-20201207192830072</figcaption>
+</figure>
+<p>格式化时注意<strong>盘符</strong>，随后点击<strong>Format</strong>.</p>
+<h4 id="烧录镜像到内存卡">烧录镜像到内存卡</h4>
+<p>使用<strong>balenaEtcher</strong>软件烧录镜像。下载地址：https://www.balena.io/etcher/</p>
+<p>选择下载好的<strong>jetson-nx-jp441-sd-card-image</strong>文件，点击Flash.</p>
+<figure>
+<img src="https://imgcache.fly97.cn/image-20201207193150546.png" alt="image-20201207193150546" /><figcaption>image-20201207193150546</figcaption>
+</figure>
+<p>刷写完以后会有一个验证数据的操作，不建议跳过。</p>
+<figure>
+<img src="https://imgcache.fly97.cn/image-20201207193330721.png" alt="image-20201207193330721" /><figcaption>image-20201207193330721</figcaption>
+</figure>
+<p>稍后片刻，等待完成。</p>
+<figure>
+<img src="https://imgcache.fly97.cn/image-20201207194548585.png" alt="image-20201207194548585" /><figcaption>image-20201207194548585</figcaption>
+</figure>
+<h3 id="点亮主机">点亮主机</h3>
+<p>把SD卡插入卡槽，将HDMI线连接到屏幕上，插入鼠标和键盘，启动电源。</p>
+<h3 id="初始配置">初始配置</h3>
+<h4 id="更改apt源">更改apt源</h4>
+<p>感谢<a href="https://mirrors.tuna.tsinghua.edu.cn/">清华大学开源软件镜像</a>对开源软件的大力支持。</p>
+<p>备份原有源文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mv /etc/apt/sources.list /etc/apt/sources.list.bak</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br></pre></td></tr></table></figure>
+<p>将以下内容粘贴到终端</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu-ports&#x2F; bionic main restricted universe multiverse</span><br><span class="line"># deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu-ports&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu-ports&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line"># deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu-ports&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu-ports&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line"># deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu-ports&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu-ports&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line"># deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu-ports&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"># 预发布软件源，不建议启用</span><br><span class="line"># deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu-ports&#x2F; bionic-proposed main restricted universe multiverse</span><br><span class="line"># deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu-ports&#x2F; bionic-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+<p>更新系统</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt upgrade -y</span><br></pre></td></tr></table></figure>
+<h4 id="风扇控制">风扇控制</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> 255 &gt; /sys/devices/pwm-fan/target_pwm</span><br><span class="line"><span class="comment">#范围0-255,风扇默认是不开的</span></span><br></pre></td></tr></table></figure>
+<p>重启以后风扇是不转的，所以需要设置开机运行： 创建<code>/etc/rc.local</code>，并添加如下内容： （注：系统启动的时候会执行<code>/etc/rc.local</code>，如果已存在rc.local，则在<code>exit 0</code>之前加入那3句命令即可）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">sleep 10</span><br><span class="line">sudo /usr/bin/jetson_clocks</span><br><span class="line">sudo sh -c <span class="string">&#x27;echo 255 &gt; /sys/devices/pwm-fan/target_pwm&#x27;</span></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
+<p>添加执行权限： <code>sudo chmod 755 /etc/rc.local</code></p>
+<p>以后重启就会自动开启最大性能并启动风扇了。</p>
+<h4 id="远程桌面">远程桌面</h4>
+<p>开机以后SSH默认是开启的。这里使用Nomachine作为远程桌面软件。Nomachine的专有NX协议在高延迟低带宽的链路上提供了近乎本地速度的响应能力。</p>
+<p><a href="https://fly97.coding.net/p/github-projects/d/nomachine/git/raw/master/nomachine_6.12.3_5_arm64.deb">ARM64客户端下载链接</a></p>
+<p><a href="https://fly97.coding.net/p/github-projects/d/nomachine/git/raw/master/nomachine_6.12.3_7.exe">Windows客户端下载链接</a></p>
+<h4 id="设置分辨率">设置分辨率</h4>
+<p>如果没有显示器连接，默认VNC 连接后的分辨率为640x480 ，将以下内容添加到<code>/etc/X11/xorg.conf</code>文件，将其设置为默认VNC分辨率设置。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Section <span class="string">&quot;Screen&quot;</span></span><br><span class="line">   Identifier    <span class="string">&quot;Default Screen&quot;</span></span><br><span class="line">   Monitor       <span class="string">&quot;Configured Monitor&quot;</span></span><br><span class="line">   Device        <span class="string">&quot;Tegra0&quot;</span></span><br><span class="line">   SubSection <span class="string">&quot;Display&quot;</span></span><br><span class="line">       Depth    24</span><br><span class="line">       Virtual 1024 768 <span class="comment"># Modify the resolution by editing these values</span></span><br><span class="line">   EndSubSection</span><br><span class="line">EndSection</span><br></pre></td></tr></table></figure>
+<h4 id="快捷设置代理">快捷设置代理</h4>
+<p>在<code>/home</code>目录下，把一下内容加入到<code>.bashrc</code>.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">alias</span> proxy=<span class="string">&#x27;export all_proxy=http://127.0.0.1:10809</span></span><br><span class="line"><span class="string">export https_proxy=http://127.0.0.1:10809</span></span><br><span class="line"><span class="string">export socks_proxy=socks5://127.0.0.1:10808&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> unproxy=<span class="string">&#x27;unset all_proxy https_proxy socks_proxy&#x27;</span></span><br></pre></td></tr></table></figure>
+<h4 id="安装jtop">安装Jtop</h4>
+<p>Jtop（一个系统监视实用程序，可在终端上运行，并实时查看和控制 NVIDIA Jetson的状态 ）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install python3-pip</span><br><span class="line">sudo pip3 install jetson-stats </span><br><span class="line">sudo jtop</span><br></pre></td></tr></table></figure>
+<h4 id="查看当前运行功率">查看当前运行功率</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询当前状态</span></span><br><span class="line">sudo nvpmodel --query</span><br><span class="line"><span class="comment">#切换状态</span></span><br><span class="line">sudo nvpmodel -m <span class="comment">#Mode_ID</span></span><br><span class="line"><span class="comment">#查看处理器状态</span></span><br><span class="line">sudo jetson_clocks --show</span><br><span class="line"><span class="comment">#如果jetson_clocks 后没有参数，则直接开启static MAX 模式</span></span><br><span class="line">sudo jetson=_clocks</span><br></pre></td></tr></table></figure>
+<h4 id="安装pytorch">安装pytorch</h4>
+<p><a href="https://forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-7-0-now-available/72048">下载地址</a></p>
+<p>根据自己的Python环境下载whl文件.</p>
+<h4 id="cuda">CUDA</h4>
+<p>官网最新镜像文件自带cuda 版本为10.2，OpenCV4</p>
+<p>将以下命令写入<code>~/.bashrc</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> CUDA_HOME=/usr/<span class="built_in">local</span>/cuda-10.2</span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=/usr/<span class="built_in">local</span>/cuda-10.2/lib64:<span class="variable">$LD_LIBRARY_PATH</span></span><br><span class="line"><span class="built_in">export</span> PATH=/usr/<span class="built_in">local</span>/cuda-10.2/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+<p>退出后保存</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+<p>检查</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvcc -V</span><br></pre></td></tr></table></figure>
+<p>返回的文字如下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nvcc: NVIDIA (R) Cuda compiler driver</span><br><span class="line">Copyright (c) 2005-2019 NVIDIA Corporation</span><br><span class="line">Built on Wed_Oct_23_21:14:42_PDT_2019</span><br><span class="line">Cuda compilation tools, release 10.2, V10.2.89</span><br></pre></td></tr></table></figure>
+<h4 id="opencv">OpenCV</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pkg-config opencv4 --modversion</span><br></pre></td></tr></table></figure>
+<p>返回的文字如下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">4.1.1</span><br></pre></td></tr></table></figure>
+<h4 id="cudnn">cuDNN</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/src/cudnn_samples_v8/mnistCUDNN</span><br><span class="line">sudo make</span><br><span class="line">sudo chmod a+x mnistCUDNN</span><br><span class="line">./mnistCUDNN</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>Jetson</tag>
+        <tag>NVIDIA</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Jupyter NoteBook的快捷键使用指南</title>
     <url>/p/jupyter-notebook-keyboard-shortcut/</url>
     <content><![CDATA[<p><strong>概述：</strong>Jupyter Notebook是基于网页的用于交互计算的应用程序。其可被应用于全过程计算：开发、文档编写、运行代码和展示结果。</p>
@@ -693,79 +795,6 @@
 ]]></content>
       <tags>
         <tag>自然语言处理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Pandas学习小记(一)</title>
-    <url>/p/Pandas-learning-notes-01/</url>
-    <content><![CDATA[<p>Pandas是什么？</p>
-<a id="more"></a>
-<p>Pandas是一个强大的分析结构化数据的工具集；它的使用基础是Numpy（提供高性能的矩阵运算）；用于数据挖掘和数据分析，同时也提供数据清洗功能。</p>
-<h3 id="安装pandas">安装Pandas</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install Pandas -i http://mirrors.aliyun.com/pypi/simple/</span><br></pre></td></tr></table></figure>
-<h3 id="pandas简介">Pandas简介</h3>
-<p>Pandas 适用于处理以下类型的数据：</p>
-<ul>
-<li>与 SQL 或 Excel 表类似的，含异构列的表格数据;</li>
-<li>有序和无序（非固定频率）的时间序列数据;</li>
-<li>带行列标签的矩阵数据，包括同构或异构型数据;</li>
-<li>任意其它形式的观测、统计数据集, 数据转入 Pandas 数据结构时不必事先标记。</li>
-</ul>
-<p>Pandas 的主要数据结构是 <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series">Series</a>（一维数据）与 <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame">DataFrame</a>（二维数据），这两种数据结构足以<strong>处理金融、统计、社会科学、工程</strong>等领域里的大多数典型用例。对于 R 用户，DataFrame 提供了比 R 语言 data.frame 更丰富的功能。Pandas 基于 <a href="https://www.numpy.org/">NumPy</a> 开发，可以与其它第三方科学计算支持库完美集成。</p>
-<p>Pandas 就像一把万能瑞士军刀，下面仅列出了它的部分优势 ：</p>
-<ul>
-<li>处理浮点与非浮点数据里的<strong>缺失数据</strong>，表示为 <code>NaN</code>；</li>
-<li>大小可变：<strong>插入或删除</strong> DataFrame 等多维对象的列；</li>
-<li>自动、显式<strong>数据对齐</strong>：显式地将对象与一组标签对齐，也可以忽略标签，在 Series、DataFrame 计算时自动与数据对齐；</li>
-<li>强大、灵活的<strong>分组</strong>（group by）功能：<strong>拆分-应用-组合</strong>数据集，聚合、转换数据；</li>
-<li>把 Python 和 NumPy 数据结构里不规则、不同索引的数据<strong>轻松</strong>地转换为 DataFrame 对象；</li>
-<li>基于智能标签，对大型数据集进行<strong>切片</strong>、<strong>花式索引</strong>、<strong>子集分解</strong>等操作；</li>
-<li>直观地<strong>合并（merge）</strong>、<strong>连接（join）</strong>数据集；</li>
-<li>灵活地<strong>重塑（reshape）</strong>、<strong>透视（pivot）</strong>数据集；</li>
-<li><strong>轴</strong>支持结构化标签：一个刻度支持多个标签；</li>
-<li>成熟的 IO 工具：读取<strong>文本文件</strong>（CSV 等支持分隔符的文件）、Excel 文件、数据库等来源的数据，利用超快的 <strong>HDF5</strong> 格式保存 / 加载数据；</li>
-<li><strong>时间序列</strong>：支持日期范围生成、频率转换、移动窗口统计、移动窗口线性回归、日期位移等时间序列功能。</li>
-</ul>
-<p>这些功能主要是为了解决其它编程语言、科研环境的痛点。处理数据一般分为几个阶段：<strong>数据整理与清洗、数据分析与建模、数据可视化与制表</strong>，Pandas 是处理数据的理想工具。</p>
-<p>其它说明：</p>
-<ul>
-<li>Pandas 速度<strong>很快</strong>。Pandas 的很多底层算法都用 <a href="https://cython.org/">Cython</a> 优化过。然而，为了保持通用性，必然要牺牲一些性能，如果专注某一功能，完全可以开发出比 Pandas 更快的专用工具。</li>
-<li>Pandas 是 <a href="https://www.statsmodels.org/stable/index.html">statsmodels</a> 的依赖项，因此，Pandas 也是 Python 中统计计算生态系统的重要组成部分。</li>
-<li>Pandas 已广泛应用于金融领域</li>
-</ul>
-<h3 id="pandas中的数据结构">Pandas中的数据结构</h3>
-<table>
-<thead>
-<tr class="header">
-<th>维数</th>
-<th>名称</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>Series</td>
-<td>带标签的一维同构数组</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>DataFrame</td>
-<td>带标签的，大小可变的，二维异构表格</td>
-</tr>
-</tbody>
-</table>
-<h3 id="为什么有多个数据结构">为什么有多个数据结构？</h3>
-<p>Pandas 数据结构就像是低维数据的容器。比如，DataFrame 是 Series 的容器，Series 则是标量的容器。使用这种方式，可以在容器中以字典的形式插入或删除对象。</p>
-<p>此外，通用 API 函数的默认操作要顾及时间序列与截面数据集的方向。多维数组存储二维或三维数据时，编写函数要注意数据集的方向，这对用户来说是一种负担；如果不考虑 C 或 Fortran 中连续性对性能的影响，一般情况下，不同的轴在程序里其实没有什么区别。Pandas 里，轴的概念主要是为了给数据赋予更直观的语义，即用“更恰当”的方式表示数据集的方向。这样做可以让用户编写数据转换函数时，少费点脑子。</p>
-<p>处理 DataFrame 等表格数据时，<strong>index</strong>（行）或 <strong>columns</strong>（列）比 <strong>axis 0</strong> 和 <strong>axis 1</strong> 更直观。用这种方式迭代 DataFrame 的列，代码更易读易懂：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> col <span class="keyword">in</span> df.columns:</span><br><span class="line">    series = df[col]</span><br><span class="line">    <span class="comment"># do something with series</span></span><br></pre></td></tr></table></figure>
-<h2 id="大小可变与数据复制"><a href="https://www.pypandas.cn/docs/getting_started/overview.html#大小可变与数据复制">#</a>大小可变与数据复制</h2>
-<p>Pandas 所有数据结构的值都是可变的，但数据结构的大小并非都是可变的，比如，Series 的长度不可改变，但 DataFrame 里就可以插入列。</p>
-<p>Pandas 里，绝大多数方法都不改变原始的输入数据，而是复制数据，生成新的对象。 一般来说，原始输入数据<strong>不变</strong>更稳妥。</p>
-]]></content>
-      <tags>
-        <tag>PandasPandas</tag>
       </tags>
   </entry>
   <entry>
@@ -2063,6 +2092,21 @@
       </tags>
   </entry>
   <entry>
+    <title>使用CLion开发Qt4</title>
+    <url>/p/How-To-Use-CLion-to-Develop-Qt4/</url>
+    <content><![CDATA[<p><strong>摘要：</strong>Qt 是一个1991年由Qt Company开发的跨平台C++图形用户界面应用程序开发框架。它既可以开发GUI程序，也可用于开发非GUI程序，比如控制台工具和服务器。近期课程考核需要用到Qt，于是便有了这一篇文章。</p>
+<p><strong>关键词：</strong>Qt，CLion，Mingw</p>
+<a id="more"></a>
+<h4 id="准备工作">准备工作</h4>
+<ol type="1">
+<li>QT4.8.6安装包</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用PyTorch进行MNIST识别</title>
     <url>/p/Use-PyTorch-for-MNIST-recognition/</url>
     <content><![CDATA[<p>使用PyTorch进行MNIST识别</p>
@@ -3346,7 +3390,25 @@ y(x,w) = \sum\limits_{j=0}^{M-1}w_j\phi_j(x) = w^T\phi(x) \tag{3.3}
 <p><font size="3" color="red">多项式拟合</font>也被称作多项式基函数是这类模型的一个特例，他有单个输入变量<span class="math inline">\(x\)</span>，基函数是<span class="math inline">\(x\)</span>的幂函数的形式，即<span class="math inline">\(\phi_j(x) = x^j\)</span>。多项式基函数的局限性是他们是输入变量的<strong>全局函数</strong>，所以一个区间内改变会影响所有区域。解决的办法是把输入空间切分成若干个区域，然后对于每个区域用不同的多项式函数拟合，这样的函数被称为<strong>样条函数</strong>。还有很多其他基函数的选择，如： <span class="math display">\[
 \phi_j(x) = exp\left\{-\frac{(x-\mu_j)^2}{2s^2}\right\} \tag{3.4}
 \]</span> 其中，<span class="math inline">\(\mu_j\)</span>控制着基函数在输入空间中的位置，参数<span class="math inline">\(s\)</span>控制着基函数的空间大小。这些通常被称为<font size="3" color="red">高斯基函数</font>。由于这些基函数会有一个调节参数<span class="math inline">\(w_j\)</span>相乘，所以标准化系数是不重要的。</p>
-<h4 id="未完待续.....">未完待续.....</h4>
+<h4 id="代码部分">代码部分</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">multinomial_basis</span>(<span class="params">x, feature_num=<span class="number">10</span></span>):</span></span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;多项式基函数&#x27;&#x27;&#x27;</span></span><br><span class="line">    x = np.expand_dims(x, axis=<span class="number">1</span>) <span class="comment"># shape(N, 1)</span></span><br><span class="line">    <span class="comment">#==========</span></span><br><span class="line">    feat = [x]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, feature_num+<span class="number">1</span>):</span><br><span class="line">        feat.append(x**i)</span><br><span class="line">    ret = np.concatenate(feat, axis = <span class="number">1</span>)</span><br><span class="line">    <span class="comment">#==========</span></span><br><span class="line">    <span class="keyword">return</span> ret</span><br></pre></td></tr></table></figure>
+<p>输入<span class="math inline">\(x\)</span>是<code>numpy</code>的一维数组，使用 <code>np.expand_dims()</code> 函数将其扩展成大小为<code>(N，1)</code>向量。随后将矩阵包装到一个<code>list</code>里。然后将<span class="math inline">\(X^i\)</span>加入到<code>list</code>最后，循环10次，最后的得到的矩阵<strong>ret</strong>如下： <span class="math display">\[
+\begin{pmatrix} x^1 &amp; x^2 &amp; x^3 &amp; ... &amp;x^{10}  \\ \end{pmatrix}
+\]</span></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gaussian_basis</span>(<span class="params">x, feature_num=<span class="number">10</span></span>):</span></span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;高斯基函数&#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="comment">#==========</span></span><br><span class="line">    centers = np.linspace(<span class="number">0</span>, <span class="number">25</span>, feature_num)</span><br><span class="line">    width = <span class="number">1.0</span> * (centers[<span class="number">1</span>] - centers[<span class="number">0</span>])</span><br><span class="line">    x = np.expand_dims(x, axis = <span class="number">1</span>) <span class="comment"># shape(N, 1)</span></span><br><span class="line">    x = np.concatenate([x]*feature_num, axis=<span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line">    out = (x-centers)/width</span><br><span class="line">    ret = np.exp(<span class="number">-0.5</span> * out ** <span class="number">2</span>)</span><br><span class="line">    <span class="comment">#==========</span></span><br><span class="line">    <span class="keyword">return</span> ret</span><br></pre></td></tr></table></figure>
+<p>首先确定高斯基函数的中心：在粗略估计了数据集的范围之后，在该范围内等分出若干点，点的数量由<code>feature_num</code>确定。等分的宽度记作<code>width</code>，然后将输入扩展成<code>(N，1)</code>向量，<code>[x]*feature_num</code>将扩展后的<code>(N，1)</code>向量先包装到一个<code>list</code>里，随后复制<code>feature_num</code>次。<code>np.concatenate()</code>将复制的若干个<code>list</code>按列堆叠起来，得到的<span class="math inline">\(x\)</span>的矩阵如下： <span class="math display">\[
+\begin{pmatrix} x &amp; x &amp; x &amp; ... &amp;x  \\ \end{pmatrix}
+\]</span> <code>centers</code>是一维数组，<code>x</code>是二维的矩阵。两个维度不同的numpy对象在做加减运算时，自动执行<font size="3" color="red">广播规则</font>。</p>
+<h5 id="python中的广播规则">python中的广播规则</h5>
+<p>举个例子：</p>
+<p>假设<code>x</code>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">array([[0, 0, 0, 0, 0],</span><br><span class="line">        [1, 1, 1, 1, 1],</span><br><span class="line">        [2, 2, 2, 2, 2],</span><br><span class="line">        [3, 3, 3, 3, 3],</span><br><span class="line">        [4, 4, 4, 4, 4]]</span><br></pre></td></tr></table></figure>
+<p><code>centers</code>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">array([ 0.  ,  6.25, 12.5 , 18.75, 25.  ])</span><br></pre></td></tr></table></figure>
+<p>在做<code>x-centers</code>运算时，首先要将<code>centers</code><strong>按行拓展</strong>到和<code>x</code>一样的维度，拓展后的<code>centers</code>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">array([[ 0.  ,  6.25, 12.5 , 18.75, 25.  ],</span><br><span class="line">       [ 0.  ,  6.25, 12.5 , 18.75, 25.  ],</span><br><span class="line">       [ 0.  ,  6.25, 12.5 , 18.75, 25.  ],</span><br><span class="line">       [ 0.  ,  6.25, 12.5 , 18.75, 25.  ]]))</span><br></pre></td></tr></table></figure>
+<p>扩展后的两个矩阵大小相等，这样就可以做加减法了。</p>
+<p>最后，<code>out</code>等于<code>(x-centers)/width</code>，最后带入公式<span class="math inline">\((3.4)\)</span>，求得高斯基函数的输出。</p>
 ]]></content>
       <tags>
         <tag>机器学习</tag>
@@ -3530,6 +3592,149 @@ y(x,w) = \sum\limits_{j=0}^{M-1}w_j\phi_j(x) = w^T\phi(x) \tag{3.3}
 ]]></content>
       <tags>
         <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Pandas学习小记(一)</title>
+    <url>/p/Pandas-learning-notes-01/</url>
+    <content><![CDATA[<p>Pandas是什么？</p>
+<a id="more"></a>
+<p>Pandas是一个强大的分析结构化数据的工具集；它的使用基础是Numpy（提供高性能的矩阵运算）；用于数据挖掘和数据分析，同时也提供数据清洗功能。</p>
+<h3 id="安装pandas">安装Pandas</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install Pandas -i http://mirrors.aliyun.com/pypi/simple/</span><br></pre></td></tr></table></figure>
+<h3 id="pandas简介">Pandas简介</h3>
+<p>Pandas 适用于处理以下类型的数据：</p>
+<ul>
+<li>与 SQL 或 Excel 表类似的，含异构列的表格数据;</li>
+<li>有序和无序（非固定频率）的时间序列数据;</li>
+<li>带行列标签的矩阵数据，包括同构或异构型数据;</li>
+<li>任意其它形式的观测、统计数据集, 数据转入 Pandas 数据结构时不必事先标记。</li>
+</ul>
+<p>Pandas 的主要数据结构是 <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series">Series</a>（一维数据）与 <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame">DataFrame</a>（二维数据），这两种数据结构足以<strong>处理金融、统计、社会科学、工程</strong>等领域里的大多数典型用例。对于 R 用户，DataFrame 提供了比 R 语言 data.frame 更丰富的功能。Pandas 基于 <a href="https://www.numpy.org/">NumPy</a> 开发，可以与其它第三方科学计算支持库完美集成。</p>
+<p>Pandas 就像一把万能瑞士军刀，下面仅列出了它的部分优势 ：</p>
+<ul>
+<li>处理浮点与非浮点数据里的<strong>缺失数据</strong>，表示为 <code>NaN</code>；</li>
+<li>大小可变：<strong>插入或删除</strong> DataFrame 等多维对象的列；</li>
+<li>自动、显式<strong>数据对齐</strong>：显式地将对象与一组标签对齐，也可以忽略标签，在 Series、DataFrame 计算时自动与数据对齐；</li>
+<li>强大、灵活的<strong>分组</strong>（group by）功能：<strong>拆分-应用-组合</strong>数据集，聚合、转换数据；</li>
+<li>把 Python 和 NumPy 数据结构里不规则、不同索引的数据<strong>轻松</strong>地转换为 DataFrame 对象；</li>
+<li>基于智能标签，对大型数据集进行<strong>切片</strong>、<strong>花式索引</strong>、<strong>子集分解</strong>等操作；</li>
+<li>直观地<strong>合并（merge）</strong>、<strong>连接（join）</strong>数据集；</li>
+<li>灵活地<strong>重塑（reshape）</strong>、<strong>透视（pivot）</strong>数据集；</li>
+<li><strong>轴</strong>支持结构化标签：一个刻度支持多个标签；</li>
+<li>成熟的 IO 工具：读取<strong>文本文件</strong>（CSV 等支持分隔符的文件）、Excel 文件、数据库等来源的数据，利用超快的 <strong>HDF5</strong> 格式保存 / 加载数据；</li>
+<li><strong>时间序列</strong>：支持日期范围生成、频率转换、移动窗口统计、移动窗口线性回归、日期位移等时间序列功能。</li>
+</ul>
+<p>这些功能主要是为了解决其它编程语言、科研环境的痛点。处理数据一般分为几个阶段：<strong>数据整理与清洗、数据分析与建模、数据可视化与制表</strong>，Pandas 是处理数据的理想工具。</p>
+<p>其它说明：</p>
+<ul>
+<li>Pandas 速度<strong>很快</strong>。Pandas 的很多底层算法都用 <a href="https://cython.org/">Cython</a> 优化过。然而，为了保持通用性，必然要牺牲一些性能，如果专注某一功能，完全可以开发出比 Pandas 更快的专用工具。</li>
+<li>Pandas 是 <a href="https://www.statsmodels.org/stable/index.html">statsmodels</a> 的依赖项，因此，Pandas 也是 Python 中统计计算生态系统的重要组成部分。</li>
+<li>Pandas 已广泛应用于金融领域</li>
+</ul>
+<h3 id="pandas中的数据结构">Pandas中的数据结构</h3>
+<table>
+<thead>
+<tr class="header">
+<th>维数</th>
+<th>名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Series</td>
+<td>带标签的一维同构数组</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>DataFrame</td>
+<td>带标签的，大小可变的，二维异构表格</td>
+</tr>
+</tbody>
+</table>
+<h3 id="为什么有多个数据结构">为什么有多个数据结构？</h3>
+<p>Pandas 数据结构就像是低维数据的容器。比如，DataFrame 是 Series 的容器，Series 则是标量的容器。使用这种方式，可以在容器中以字典的形式插入或删除对象。</p>
+<p>此外，通用 API 函数的默认操作要顾及时间序列与截面数据集的方向。多维数组存储二维或三维数据时，编写函数要注意数据集的方向，这对用户来说是一种负担；如果不考虑 C 或 Fortran 中连续性对性能的影响，一般情况下，不同的轴在程序里其实没有什么区别。Pandas 里，轴的概念主要是为了给数据赋予更直观的语义，即用“更恰当”的方式表示数据集的方向。这样做可以让用户编写数据转换函数时，少费点脑子。</p>
+<p>处理 DataFrame 等表格数据时，<strong>index</strong>（行）或 <strong>columns</strong>（列）比 <strong>axis 0</strong> 和 <strong>axis 1</strong> 更直观。用这种方式迭代 DataFrame 的列，代码更易读易懂：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> col <span class="keyword">in</span> df.columns:</span><br><span class="line">    series = df[col]</span><br><span class="line">    <span class="comment"># do something with series</span></span><br></pre></td></tr></table></figure>
+<h3 id="大小可变与数据复制"><a href="https://www.pypandas.cn/docs/getting_started/overview.html#大小可变与数据复制">大小可变与数据复制</a></h3>
+<p>Pandas 所有数据结构的值都是可变的，但数据结构的大小并非都是可变的，比如，Series 的长度不可改变，但 DataFrame 里就可以插入列。</p>
+<p>Pandas 里，绝大多数方法都不改变原始的输入数据，而是复制数据，生成新的对象。 一般来说，原始输入数据<strong>不变</strong>更稳妥。</p>
+<h3 id="十分钟入门pandas"><a href="https://www.pypandas.cn/docs/getting_started/10min.html#%E5%8D%81%E5%88%86%E9%92%9F%E5%85%A5%E9%97%A8-pandas">十分钟入门Pandas</a></h3>
+<p>导入：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
+<h4 id="生成对象">生成对象</h4>
+<p>使用值列表生成Series</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">3</span>]: s = pd.Series([<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, np.nan, <span class="number">6</span>, <span class="number">8</span>])</span><br><span class="line"></span><br><span class="line">In [<span class="number">4</span>]: s</span><br><span class="line">Out[<span class="number">4</span>]: </span><br><span class="line"><span class="number">0</span>    <span class="number">1.0</span></span><br><span class="line"><span class="number">1</span>    <span class="number">3.0</span></span><br><span class="line"><span class="number">2</span>    <span class="number">5.0</span></span><br><span class="line"><span class="number">3</span>    NaN</span><br><span class="line"><span class="number">4</span>    <span class="number">6.0</span></span><br><span class="line"><span class="number">5</span>    <span class="number">8.0</span></span><br><span class="line">dtype: float64</span><br></pre></td></tr></table></figure>
+<p>用含日期时间索引与标签的Numpy数组生成DataFrame</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">5</span>]: dates = pd.date_range(<span class="string">&#x27;20130101&#x27;</span>, periods=<span class="number">6</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">6</span>]: dates</span><br><span class="line">Out[<span class="number">6</span>]: </span><br><span class="line">DatetimeIndex([<span class="string">&#x27;2013-01-01&#x27;</span>, <span class="string">&#x27;2013-01-02&#x27;</span>, <span class="string">&#x27;2013-01-03&#x27;</span>, <span class="string">&#x27;2013-01-04&#x27;</span>,</span><br><span class="line">               <span class="string">&#x27;2013-01-05&#x27;</span>, <span class="string">&#x27;2013-01-06&#x27;</span>],</span><br><span class="line">              dtype=<span class="string">&#x27;datetime64[ns]&#x27;</span>, freq=<span class="string">&#x27;D&#x27;</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">7</span>]: df = pd.DataFrame(np.random.randn(<span class="number">6</span>, <span class="number">4</span>), index=dates, columns=list(<span class="string">&#x27;ABCD&#x27;</span>))</span><br><span class="line"></span><br><span class="line">In [<span class="number">8</span>]: df</span><br><span class="line">Out[<span class="number">8</span>]: </span><br><span class="line">                   A         B         C         D</span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-01</span>  <span class="number">0.469112</span> <span class="number">-0.282863</span> <span class="number">-1.509059</span> <span class="number">-1.135632</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-02</span>  <span class="number">1.212112</span> <span class="number">-0.173215</span>  <span class="number">0.119209</span> <span class="number">-1.044236</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-03</span> <span class="number">-0.861849</span> <span class="number">-2.104569</span> <span class="number">-0.494929</span>  <span class="number">1.071804</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-04</span>  <span class="number">0.721555</span> <span class="number">-0.706771</span> <span class="number">-1.039575</span>  <span class="number">0.271860</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-05</span> <span class="number">-0.424972</span>  <span class="number">0.567020</span>  <span class="number">0.276232</span> <span class="number">-1.087401</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-06</span> <span class="number">-0.673690</span>  <span class="number">0.113648</span> <span class="number">-1.478427</span>  <span class="number">0.524988</span></span><br></pre></td></tr></table></figure>
+<p>用Series字典对象生成DataFrame</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">In [9]: df2 &#x3D; pd.DataFrame(&#123;&#39;A&#39;: 1.,</span><br><span class="line">   ...:                     &#39;B&#39;: pd.Timestamp(&#39;20130102&#39;),</span><br><span class="line">   ...:                     &#39;C&#39;: pd.Series(1, index&#x3D;list(range(4)), dtype&#x3D;&#39;float32&#39;),</span><br><span class="line">   ...:                     &#39;D&#39;: np.array([3] * 4, dtype&#x3D;&#39;int32&#39;),</span><br><span class="line">   ...:                     &#39;E&#39;: pd.Categorical([&quot;test&quot;, &quot;train&quot;, &quot;test&quot;, &quot;train&quot;]),</span><br><span class="line">   ...:                     &#39;F&#39;: &#39;foo&#39;&#125;)</span><br><span class="line">   ...: </span><br><span class="line"></span><br><span class="line">In [10]: df2</span><br><span class="line">Out[10]: </span><br><span class="line">     A          B    C  D      E    F</span><br><span class="line">0  1.0 2013-01-02  1.0  3   test  foo</span><br><span class="line">1  1.0 2013-01-02  1.0  3  train  foo</span><br><span class="line">2  1.0 2013-01-02  1.0  3   test  foo</span><br><span class="line">3  1.0 2013-01-02  1.0  3  train  foo</span><br></pre></td></tr></table></figure>
+<p>DataFrame的列有不同的数据类型</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">11</span>]: df2.dtypes</span><br><span class="line">Out[<span class="number">11</span>]: </span><br><span class="line">A           float64</span><br><span class="line">B    datetime64[ns]</span><br><span class="line">C           float32</span><br><span class="line">D             int32</span><br><span class="line">E          category</span><br><span class="line">F            object</span><br><span class="line">dtype: object</span><br></pre></td></tr></table></figure>
+<p>IPython支持 tab 键自动补全列名与公共属性。下面是部分可自动补全的属性：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">12</span>]: df2.&lt;TAB&gt;  <span class="comment"># noqa: E225, E999</span></span><br><span class="line">df2.A                  df2.bool</span><br><span class="line">df2.abs                df2.boxplot</span><br><span class="line">df2.add                df2.C</span><br><span class="line">df2.add_prefix         df2.clip</span><br><span class="line">df2.add_suffix         df2.clip_lower</span><br><span class="line">df2.align              df2.clip_upper</span><br><span class="line">df2.all                df2.columns</span><br><span class="line">df2.any                df2.combine</span><br><span class="line">df2.append             df2.combine_first</span><br><span class="line">df2.apply              df2.compound</span><br><span class="line">df2.applymap           df2.consolidate</span><br><span class="line">df2.D</span><br></pre></td></tr></table></figure>
+<p>列 A、B、C、D 和 E 都可以自动补全；为简洁起见，此处只显示了部分属性。</p>
+<h4 id="查看数据">查看数据</h4>
+<p>下列代码说明了如何查看DataFrame头部和尾部的数据：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">13</span>]: df.head()</span><br><span class="line">Out[<span class="number">13</span>]: </span><br><span class="line">                   A         B         C         D</span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-01</span>  <span class="number">0.469112</span> <span class="number">-0.282863</span> <span class="number">-1.509059</span> <span class="number">-1.135632</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-02</span>  <span class="number">1.212112</span> <span class="number">-0.173215</span>  <span class="number">0.119209</span> <span class="number">-1.044236</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-03</span> <span class="number">-0.861849</span> <span class="number">-2.104569</span> <span class="number">-0.494929</span>  <span class="number">1.071804</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-04</span>  <span class="number">0.721555</span> <span class="number">-0.706771</span> <span class="number">-1.039575</span>  <span class="number">0.271860</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-05</span> <span class="number">-0.424972</span>  <span class="number">0.567020</span>  <span class="number">0.276232</span> <span class="number">-1.087401</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">14</span>]: df.tail(<span class="number">3</span>) <span class="comment">#后三行	</span></span><br><span class="line">Out[<span class="number">14</span>]: </span><br><span class="line">                   A         B         C         D</span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-04</span>  <span class="number">0.721555</span> <span class="number">-0.706771</span> <span class="number">-1.039575</span>  <span class="number">0.271860</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-05</span> <span class="number">-0.424972</span>  <span class="number">0.567020</span>  <span class="number">0.276232</span> <span class="number">-1.087401</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-06</span> <span class="number">-0.673690</span>  <span class="number">0.113648</span> <span class="number">-1.478427</span>  <span class="number">0.524988</span></span><br></pre></td></tr></table></figure>
+<p>显示索引与列名：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">15</span>]: df.index</span><br><span class="line">Out[<span class="number">15</span>]: </span><br><span class="line">DatetimeIndex([<span class="string">&#x27;2013-01-01&#x27;</span>, <span class="string">&#x27;2013-01-02&#x27;</span>, <span class="string">&#x27;2013-01-03&#x27;</span>, <span class="string">&#x27;2013-01-04&#x27;</span>,</span><br><span class="line">               <span class="string">&#x27;2013-01-05&#x27;</span>, <span class="string">&#x27;2013-01-06&#x27;</span>],</span><br><span class="line">              dtype=<span class="string">&#x27;datetime64[ns]&#x27;</span>, freq=<span class="string">&#x27;D&#x27;</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">16</span>]: df.columns</span><br><span class="line">Out[<span class="number">16</span>]: Index([<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>, <span class="string">&#x27;D&#x27;</span>], dtype=<span class="string">&#x27;object&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_numpy.html#pandas.DataFrame.to_numpy">DataFrame.to_numpy()</a> 输出底层数据的 NumPy 对象。注意，<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame">DataFrame</a> 的列由多种数据类型组成时，该操作耗费系统资源较大，这也是 Pandas 和 NumPy 的本质区别：<strong>NumPy 数组只有一种数据类型，DataFrame 每列的数据类型各不相同</strong>。调用 <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_numpy.html#pandas.DataFrame.to_numpy">DataFrame.to_numpy()</a> 时，Pandas 查找支持 DataFrame 里所有数据类型的 NumPy 数据类型。还有一种数据类型是 <code>object</code>，可以把 DataFrame 列里的值强制转换为 Python 对象。</p>
+<p>下面的 <code>df</code> 这个 <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame">DataFrame</a> 里的值都是浮点数，<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_numpy.html#pandas.DataFrame.to_numpy">DataFrame.to_numpy()</a> 的操作会很快，而且不复制数据。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">17</span>]: df.to_numpy()</span><br><span class="line">Out[<span class="number">17</span>]: </span><br><span class="line">array([[ <span class="number">0.4691</span>, <span class="number">-0.2829</span>, <span class="number">-1.5091</span>, <span class="number">-1.1356</span>],</span><br><span class="line">       [ <span class="number">1.2121</span>, <span class="number">-0.1732</span>,  <span class="number">0.1192</span>, <span class="number">-1.0442</span>],</span><br><span class="line">       [<span class="number">-0.8618</span>, <span class="number">-2.1046</span>, <span class="number">-0.4949</span>,  <span class="number">1.0718</span>],</span><br><span class="line">       [ <span class="number">0.7216</span>, <span class="number">-0.7068</span>, <span class="number">-1.0396</span>,  <span class="number">0.2719</span>],</span><br><span class="line">       [<span class="number">-0.425</span> ,  <span class="number">0.567</span> ,  <span class="number">0.2762</span>, <span class="number">-1.0874</span>],</span><br><span class="line">       [<span class="number">-0.6737</span>,  <span class="number">0.1136</span>, <span class="number">-1.4784</span>,  <span class="number">0.525</span> ]])</span><br></pre></td></tr></table></figure>
+<p><code>df2</code> 这个 <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame">DataFrame</a> 包含了多种类型，<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_numpy.html#pandas.DataFrame.to_numpy">DataFrame.to_numpy()</a> 操作就会耗费较多资源。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">18</span>]: df2.to_numpy()</span><br><span class="line">Out[<span class="number">18</span>]: </span><br><span class="line">array([[<span class="number">1.0</span>, Timestamp(<span class="string">&#x27;2013-01-02 00:00:00&#x27;</span>), <span class="number">1.0</span>, <span class="number">3</span>, <span class="string">&#x27;test&#x27;</span>, <span class="string">&#x27;foo&#x27;</span>],</span><br><span class="line">       [<span class="number">1.0</span>, Timestamp(<span class="string">&#x27;2013-01-02 00:00:00&#x27;</span>), <span class="number">1.0</span>, <span class="number">3</span>, <span class="string">&#x27;train&#x27;</span>, <span class="string">&#x27;foo&#x27;</span>],</span><br><span class="line">       [<span class="number">1.0</span>, Timestamp(<span class="string">&#x27;2013-01-02 00:00:00&#x27;</span>), <span class="number">1.0</span>, <span class="number">3</span>, <span class="string">&#x27;test&#x27;</span>, <span class="string">&#x27;foo&#x27;</span>],</span><br><span class="line">       [<span class="number">1.0</span>, Timestamp(<span class="string">&#x27;2013-01-02 00:00:00&#x27;</span>), <span class="number">1.0</span>, <span class="number">3</span>, <span class="string">&#x27;train&#x27;</span>, <span class="string">&#x27;foo&#x27;</span>]], dtype=object)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>提醒：<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_numpy.html#pandas.DataFrame.to_numpy">DataFrame.to_numpy()</a> 的输出不包含行索引和列标签。</p>
+</blockquote>
+<p><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html#pandas.DataFrame.describe">describe()</a> 可以快速查看数据的统计摘要：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">19</span>]: df.describe()</span><br><span class="line">Out[<span class="number">19</span>]: </span><br><span class="line">              A         B         C         D</span><br><span class="line">count  <span class="number">6.000000</span>  <span class="number">6.000000</span>  <span class="number">6.000000</span>  <span class="number">6.000000</span></span><br><span class="line">mean   <span class="number">0.073711</span> <span class="number">-0.431125</span> <span class="number">-0.687758</span> <span class="number">-0.233103</span></span><br><span class="line">std    <span class="number">0.843157</span>  <span class="number">0.922818</span>  <span class="number">0.779887</span>  <span class="number">0.973118</span></span><br><span class="line">min   <span class="number">-0.861849</span> <span class="number">-2.104569</span> <span class="number">-1.509059</span> <span class="number">-1.135632</span></span><br><span class="line"><span class="number">25</span>%   <span class="number">-0.611510</span> <span class="number">-0.600794</span> <span class="number">-1.368714</span> <span class="number">-1.076610</span></span><br><span class="line"><span class="number">50</span>%    <span class="number">0.022070</span> <span class="number">-0.228039</span> <span class="number">-0.767252</span> <span class="number">-0.386188</span></span><br><span class="line"><span class="number">75</span>%    <span class="number">0.658444</span>  <span class="number">0.041933</span> <span class="number">-0.034326</span>  <span class="number">0.461706</span></span><br><span class="line">max    <span class="number">1.212112</span>  <span class="number">0.567020</span>  <span class="number">0.276232</span>  <span class="number">1.071804</span></span><br></pre></td></tr></table></figure>
+<p>转置数据：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">20</span>]: df.T</span><br><span class="line">Out[<span class="number">20</span>]: </span><br><span class="line">   <span class="number">2013</span><span class="number">-01</span><span class="number">-01</span>  <span class="number">2013</span><span class="number">-01</span><span class="number">-02</span>  <span class="number">2013</span><span class="number">-01</span><span class="number">-03</span>  <span class="number">2013</span><span class="number">-01</span><span class="number">-04</span>  <span class="number">2013</span><span class="number">-01</span><span class="number">-05</span>  <span class="number">2013</span><span class="number">-01</span><span class="number">-06</span></span><br><span class="line">A    <span class="number">0.469112</span>    <span class="number">1.212112</span>   <span class="number">-0.861849</span>    <span class="number">0.721555</span>   <span class="number">-0.424972</span>   <span class="number">-0.673690</span></span><br><span class="line">B   <span class="number">-0.282863</span>   <span class="number">-0.173215</span>   <span class="number">-2.104569</span>   <span class="number">-0.706771</span>    <span class="number">0.567020</span>    <span class="number">0.113648</span></span><br><span class="line">C   <span class="number">-1.509059</span>    <span class="number">0.119209</span>   <span class="number">-0.494929</span>   <span class="number">-1.039575</span>    <span class="number">0.276232</span>   <span class="number">-1.478427</span></span><br><span class="line">D   <span class="number">-1.135632</span>   <span class="number">-1.044236</span>    <span class="number">1.071804</span>    <span class="number">0.271860</span>   <span class="number">-1.087401</span>    <span class="number">0.524988</span></span><br></pre></td></tr></table></figure>
+<p><strong>按轴排序：</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">21</span>]: df.sort_index(axis=<span class="number">1</span>, ascending=<span class="literal">False</span>)</span><br><span class="line">Out[<span class="number">21</span>]: </span><br><span class="line">                   D         C         B         A</span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-01</span> <span class="number">-1.135632</span> <span class="number">-1.509059</span> <span class="number">-0.282863</span>  <span class="number">0.469112</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-02</span> <span class="number">-1.044236</span>  <span class="number">0.119209</span> <span class="number">-0.173215</span>  <span class="number">1.212112</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-03</span>  <span class="number">1.071804</span> <span class="number">-0.494929</span> <span class="number">-2.104569</span> <span class="number">-0.861849</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-04</span>  <span class="number">0.271860</span> <span class="number">-1.039575</span> <span class="number">-0.706771</span>  <span class="number">0.721555</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-05</span> <span class="number">-1.087401</span>  <span class="number">0.276232</span>  <span class="number">0.567020</span> <span class="number">-0.424972</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-06</span>  <span class="number">0.524988</span> <span class="number">-1.478427</span>  <span class="number">0.113648</span> <span class="number">-0.673690</span></span><br></pre></td></tr></table></figure>
+<p>按值排序：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">22</span>]: df.sort_values(by=<span class="string">&#x27;B&#x27;</span>)</span><br><span class="line">Out[<span class="number">22</span>]: </span><br><span class="line">                   A         B         C         D</span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-03</span> <span class="number">-0.861849</span> <span class="number">-2.104569</span> <span class="number">-0.494929</span>  <span class="number">1.071804</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-04</span>  <span class="number">0.721555</span> <span class="number">-0.706771</span> <span class="number">-1.039575</span>  <span class="number">0.271860</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-01</span>  <span class="number">0.469112</span> <span class="number">-0.282863</span> <span class="number">-1.509059</span> <span class="number">-1.135632</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-02</span>  <span class="number">1.212112</span> <span class="number">-0.173215</span>  <span class="number">0.119209</span> <span class="number">-1.044236</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-06</span> <span class="number">-0.673690</span>  <span class="number">0.113648</span> <span class="number">-1.478427</span>  <span class="number">0.524988</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-05</span> <span class="number">-0.424972</span>  <span class="number">0.567020</span>  <span class="number">0.276232</span> <span class="number">-1.087401</span></span><br></pre></td></tr></table></figure>
+<h4 id="选择">选择</h4>
+<p>获取数据</p>
+<p>选择单列，产生<code>Series</code>，与<code>df.A</code>等效：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">23</span>]: df[<span class="string">&#x27;A&#x27;</span>]</span><br><span class="line">Out[<span class="number">23</span>]: </span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-01</span>    <span class="number">0.469112</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-02</span>    <span class="number">1.212112</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-03</span>   <span class="number">-0.861849</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-04</span>    <span class="number">0.721555</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-05</span>   <span class="number">-0.424972</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-06</span>   <span class="number">-0.673690</span></span><br><span class="line">Freq: D, Name: A, dtype: float64</span><br></pre></td></tr></table></figure>
+<p>用[]切片行：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">24</span>]: df[<span class="number">0</span>:<span class="number">3</span>]</span><br><span class="line">Out[<span class="number">24</span>]: </span><br><span class="line">                   A         B         C         D</span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-01</span>  <span class="number">0.469112</span> <span class="number">-0.282863</span> <span class="number">-1.509059</span> <span class="number">-1.135632</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-02</span>  <span class="number">1.212112</span> <span class="number">-0.173215</span>  <span class="number">0.119209</span> <span class="number">-1.044236</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-03</span> <span class="number">-0.861849</span> <span class="number">-2.104569</span> <span class="number">-0.494929</span>  <span class="number">1.071804</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">25</span>]: df[<span class="string">&#x27;20130102&#x27;</span>:<span class="string">&#x27;20130104&#x27;</span>]</span><br><span class="line">Out[<span class="number">25</span>]: </span><br><span class="line">                   A         B         C         D</span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-02</span>  <span class="number">1.212112</span> <span class="number">-0.173215</span>  <span class="number">0.119209</span> <span class="number">-1.044236</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-03</span> <span class="number">-0.861849</span> <span class="number">-2.104569</span> <span class="number">-0.494929</span>  <span class="number">1.071804</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-04</span>  <span class="number">0.721555</span> <span class="number">-0.706771</span> <span class="number">-1.039575</span>  <span class="number">0.271860</span></span><br></pre></td></tr></table></figure>
+<h4 id="按标签选择">按标签选择</h4>
+<p>用标签提取一行数据：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">26</span>]: df.loc[dates[<span class="number">0</span>]]</span><br><span class="line">Out[<span class="number">26</span>]: </span><br><span class="line">A    <span class="number">0.469112</span></span><br><span class="line">B   <span class="number">-0.282863</span></span><br><span class="line">C   <span class="number">-1.509059</span></span><br><span class="line">D   <span class="number">-1.135632</span></span><br><span class="line">Name: <span class="number">2013</span><span class="number">-01</span><span class="number">-01</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>, dtype: float64</span><br></pre></td></tr></table></figure>
+<p>用标签选择多列数据：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">27</span>]: df.loc[:, [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>]]</span><br><span class="line">Out[<span class="number">27</span>]: </span><br><span class="line">                   A         B</span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-01</span>  <span class="number">0.469112</span> <span class="number">-0.282863</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-02</span>  <span class="number">1.212112</span> <span class="number">-0.173215</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-03</span> <span class="number">-0.861849</span> <span class="number">-2.104569</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-04</span>  <span class="number">0.721555</span> <span class="number">-0.706771</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-05</span> <span class="number">-0.424972</span>  <span class="number">0.567020</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-06</span> <span class="number">-0.673690</span>  <span class="number">0.113648</span></span><br></pre></td></tr></table></figure>
+<p>用标签切片，包含行与列结束点：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">28</span>]: df.loc[<span class="string">&#x27;20130102&#x27;</span>:<span class="string">&#x27;20130104&#x27;</span>, [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>]]</span><br><span class="line">Out[<span class="number">28</span>]: </span><br><span class="line">                   A         B</span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-02</span>  <span class="number">1.212112</span> <span class="number">-0.173215</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-03</span> <span class="number">-0.861849</span> <span class="number">-2.104569</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-04</span>  <span class="number">0.721555</span> <span class="number">-0.706771</span></span><br></pre></td></tr></table></figure>
+<p>返回对象降维：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">29</span>]: df.loc[<span class="string">&#x27;20130102&#x27;</span>, [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>]]</span><br><span class="line">Out[<span class="number">29</span>]: </span><br><span class="line">A    <span class="number">1.212112</span></span><br><span class="line">B   <span class="number">-0.173215</span></span><br><span class="line">Name: <span class="number">2013</span><span class="number">-01</span><span class="number">-02</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>, dtype: float64</span><br></pre></td></tr></table></figure>
+<p>提取标量：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">30</span>]: df.loc[dates[<span class="number">0</span>], <span class="string">&#x27;A&#x27;</span>]</span><br><span class="line">Out[<span class="number">30</span>]: <span class="number">0.46911229990718628</span></span><br></pre></td></tr></table></figure>
+<p>快速访问标量，与上述方法等效。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">31</span>]: df.at[dates[<span class="number">0</span>], <span class="string">&#x27;A&#x27;</span>]</span><br><span class="line">Out[<span class="number">31</span>]: <span class="number">0.46911229990718628</span></span><br></pre></td></tr></table></figure>
+<h4 id="按位置选择">按位置选择</h4>
+<p>选择第三行的数据</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">32</span>]: df.iloc[<span class="number">3</span>]</span><br><span class="line">Out[<span class="number">32</span>]: </span><br><span class="line">A    <span class="number">0.721555</span></span><br><span class="line">B   <span class="number">-0.706771</span></span><br><span class="line">C   <span class="number">-1.039575</span></span><br><span class="line">D    <span class="number">0.271860</span></span><br><span class="line">Name: <span class="number">2013</span><span class="number">-01</span><span class="number">-04</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>, dtype: float64</span><br></pre></td></tr></table></figure>
+<p>类似于Numpy/Python，用整数切片：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">33</span>]: df.iloc[<span class="number">3</span>:<span class="number">5</span>, <span class="number">0</span>:<span class="number">2</span>]</span><br><span class="line">Out[<span class="number">33</span>]: </span><br><span class="line">                   A         B</span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-04</span>  <span class="number">0.721555</span> <span class="number">-0.706771</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-05</span> <span class="number">-0.424972</span>  <span class="number">0.567020</span></span><br></pre></td></tr></table></figure>
+<p>类似于Numpy/Python，用整数列表按位置切片：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">34</span>]: df.iloc[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>], [<span class="number">0</span>, <span class="number">2</span>]]</span><br><span class="line">Out[<span class="number">34</span>]: </span><br><span class="line">                   A         C</span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-02</span>  <span class="number">1.212112</span>  <span class="number">0.119209</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-03</span> <span class="number">-0.861849</span> <span class="number">-0.494929</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-05</span> <span class="number">-0.424972</span>  <span class="number">0.276232</span></span><br></pre></td></tr></table></figure>
+<p>显式整行切片：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">35</span>]: df.iloc[<span class="number">1</span>:<span class="number">3</span>, :]</span><br><span class="line">Out[<span class="number">35</span>]: </span><br><span class="line">                   A         B         C         D</span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-02</span>  <span class="number">1.212112</span> <span class="number">-0.173215</span>  <span class="number">0.119209</span> <span class="number">-1.044236</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-03</span> <span class="number">-0.861849</span> <span class="number">-2.104569</span> <span class="number">-0.494929</span>  <span class="number">1.071804</span></span><br></pre></td></tr></table></figure>
+<p>显式整列切片：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">36</span>]: df.iloc[:, <span class="number">1</span>:<span class="number">3</span>]</span><br><span class="line">Out[<span class="number">36</span>]: </span><br><span class="line">                   B         C</span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-01</span> <span class="number">-0.282863</span> <span class="number">-1.509059</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-02</span> <span class="number">-0.173215</span>  <span class="number">0.119209</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-03</span> <span class="number">-2.104569</span> <span class="number">-0.494929</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-04</span> <span class="number">-0.706771</span> <span class="number">-1.039575</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-05</span>  <span class="number">0.567020</span>  <span class="number">0.276232</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-06</span>  <span class="number">0.113648</span> <span class="number">-1.478427</span></span><br></pre></td></tr></table></figure>
+<p>显示提取值：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">37</span>]: df.iloc[<span class="number">1</span>, <span class="number">1</span>]</span><br><span class="line">Out[<span class="number">37</span>]: <span class="number">-0.17321464905330858</span></span><br></pre></td></tr></table></figure>
+<p>快速访问标量，与上述方法等效：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">38</span>]: df.iat[<span class="number">1</span>, <span class="number">1</span>]</span><br><span class="line">Out[<span class="number">38</span>]: <span class="number">-0.17321464905330858</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>PandasPandas</tag>
       </tags>
   </entry>
   <entry>
