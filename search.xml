@@ -282,9 +282,26 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install python3-pip</span><br><span class="line">sudo pip3 install jetson-stats </span><br><span class="line">sudo jtop</span><br></pre></td></tr></table></figure>
 <h4 id="查看当前运行功率">查看当前运行功率</h4>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询当前状态</span></span><br><span class="line">sudo nvpmodel --query</span><br><span class="line"><span class="comment">#切换状态</span></span><br><span class="line">sudo nvpmodel -m <span class="comment">#Mode_ID</span></span><br><span class="line"><span class="comment">#查看处理器状态</span></span><br><span class="line">sudo jetson_clocks --show</span><br><span class="line"><span class="comment">#如果jetson_clocks 后没有参数，则直接开启static MAX 模式</span></span><br><span class="line">sudo jetson=_clocks</span><br></pre></td></tr></table></figure>
-<h4 id="安装pytorch">安装pytorch</h4>
+<h4 id="安装pytorch">安装Pytorch</h4>
 <p><a href="https://forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-7-0-now-available/72048">下载地址</a></p>
-<p>根据自己的Python环境下载whl文件.</p>
+<p><a href="https://wf09.coding.net/p/jetson/d/Pytorch/git/raw/master/torch-1.7.0-cp36-cp36m-linux_aarch64.whl">备用地址</a></p>
+<p>根据自己的Python环境下载whl文件.这里是Python 3.6.9，安装的版本是PyTorch v1.7。</p>
+<p>安装命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install python3-pip libopenblas-base libopenmpi-dev </span><br><span class="line">pip3 install Cython</span><br><span class="line">pip3 install numpy torch-1.7.0-cp36-cp36m-linux_aarch64.whl</span><br></pre></td></tr></table></figure>
+<h5 id="安装torchvision">安装torchvision</h5>
+<p>以<strong>v0.8.1</strong>为例.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libjpeg-dev zlib1g-dev libpython3-dev libavcodec-dev libavformat-dev libswscale-dev</span><br><span class="line">git <span class="built_in">clone</span> --branch v0.8.1 https://e.coding.net/wf09/github-projects/torchvision.git   <span class="comment"># see below for version of torchvision to download</span></span><br><span class="line"><span class="built_in">cd</span> torchvision</span><br><span class="line"><span class="built_in">export</span> BUILD_VERSION=v0.8.1  <span class="comment"># where 0.x.0 is the torchvision version  </span></span><br><span class="line">sudo python setup.py install     <span class="comment"># use python3 if installing for Python 3.6</span></span><br><span class="line"><span class="built_in">cd</span> ../  <span class="comment"># attempting to load torchvision from build dir will result in import error</span></span><br><span class="line">pip install <span class="string">&#x27;pillow&lt;7&#x27;</span> <span class="comment"># always needed for Python 2.7, not needed torchvision v0.5.0+ with Python 3.6</span></span><br></pre></td></tr></table></figure>
+<p>对应版本：</p>
+<ul>
+<li>PyTorch v1.0 - torchvision v0.2.2</li>
+<li>PyTorch v1.1 - torchvision v0.3.0</li>
+<li>PyTorch v1.2 - torchvision v0.4.0</li>
+<li>PyTorch v1.3 - torchvision v0.4.2</li>
+<li>PyTorch v1.4 - torchvision v0.5.0</li>
+<li>PyTorch v1.5 - torchvision v0.6.0</li>
+<li>PyTorch v1.6 - torchvision v0.7.0</li>
+<li>PyTorch v1.7 - torchvision v0.8.1</li>
+</ul>
 <h4 id="cuda">CUDA</h4>
 <p>官网最新镜像文件自带cuda 版本为10.2，OpenCV4</p>
 <p>将以下命令写入<code>~/.bashrc</code></p>
@@ -301,6 +318,29 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">4.1.1</span><br></pre></td></tr></table></figure>
 <h4 id="cudnn">cuDNN</h4>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/src/cudnn_samples_v8/mnistCUDNN</span><br><span class="line">sudo make</span><br><span class="line">sudo chmod a+x mnistCUDNN</span><br><span class="line">./mnistCUDNN</span><br></pre></td></tr></table></figure>
+<h4 id="更改桌面">更改桌面</h4>
+<p>默认的桌面环境是Unity，此次更改成更轻量的<code>ubuntu-mate</code>.</p>
+<p>注意：安装过程中请勿卸载现有的桌面登录管理器，以免出现无法登录进系统的尴尬。</p>
+<p>安装更轻量的桌面登录管理器<strong>LightDM</strong>：LightDM是2010年开始的新项目，且被设计为轻量、小巧、快速。相较于GDM-GTK、KDM-Qt、LightDM实际上与界面无关，它仅支持本地图形界面获得最好兼容性。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install lightdm</span><br></pre></td></tr></table></figure>
+<p>安装<code>ubuntu-mate-destop</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install ubuntu-mate-core ubuntu-mate-desktop</span><br></pre></td></tr></table></figure>
+<h5 id="lightdm设置自动登录">lightdm设置自动登录</h5>
+<p>设置<strong>autologin-user</strong>来设置系统启动时自动登录某个帐户。设置<strong>autologin-user-timeout</strong>限制用户在设定秒内如果没有自动登录则不能自动登录。</p>
+<p>编辑以下文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;lightdm&#x2F;lightdm.conf </span><br></pre></td></tr></table></figure>
+<p>设置<strong>autologin-user</strong>来设置系统启动时自动登录某个帐户。设置<strong>autologin-user-timeout</strong>限制用户在设定秒内如果没有自动登录则不能自动登录。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[SeatDefaults]</span><br><span class="line">autologin-user&#x3D;username</span><br><span class="line">autologin-user-timeout&#x3D;delay</span><br></pre></td></tr></table></figure>
+<h5 id="lightdm修改默认会话"><strong>lightdm修改默认会话</strong></h5>
+<p>默认会话设置保存在<strong>/usr/share/lightdm/lightdm.conf.d</strong>会话包中。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[SeatDefaults]</span><br><span class="line">user-session&#x3D;name</span><br></pre></td></tr></table></figure>
+<p>其中name代表<strong>/usr/share/xsessions/*.desktop</strong>中<name>.desktop。</p>
+<p>转载自：https://www.cnblogs.com/EasonJim/p/7128317.html</p>
+<h4 id="sudo无需输入密码">sudo无需输入密码</h4>
+<p>切换到<code>root</code>用户，输入以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">visudo</span><br></pre></td></tr></table></figure>
+<p>在最后一行输入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;用户名&gt; ALL&#x3D;(ALL) NOPASSWD: ALL </span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
         <tag>Jetson</tag>
