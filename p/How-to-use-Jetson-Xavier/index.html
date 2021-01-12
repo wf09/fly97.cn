@@ -32,23 +32,12 @@
 <meta property="og:site_name" content="个人随想">
 <meta property="og:description" content="摘要：最近实验室买了两块嵌入式NVIDIA Jetson Xavie NX 开发板，学长拿来让我折腾下，遂有了这篇文章。 关键词：Jetson，NVIDIA，CUDA">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://imgcache.fly97.cn/image-20201207190314252.png">
-<meta property="og:image" content="https://imgcache.fly97.cn/image-20201207190620860.png">
-<meta property="og:image" content="https://imgcache.fly97.cn/image-20201207190744362.png">
-<meta property="og:image" content="https://coding-pages-bucket-3497758-8097554-7343-408418-1300660242.cos-website.ap-shanghai.myqcloud.com/image0.jpeg">
-<meta property="og:image" content="https://imgcache.fly97.cn/image1.jpeg">
-<meta property="og:image" content="https://imgcache.fly97.cn/image-20201207193250562.png">
-<meta property="og:image" content="https://imgcache.fly97.cn/image-20201207192830072.png">
-<meta property="og:image" content="https://imgcache.fly97.cn/image-20201207193150546.png">
-<meta property="og:image" content="https://imgcache.fly97.cn/image-20201207193330721.png">
-<meta property="og:image" content="https://imgcache.fly97.cn/image-20201207194548585.png">
 <meta property="article:published_time" content="2020-12-07T10:51:00.000Z">
 <meta property="article:modified_time" content="2020-12-07T10:51:00.000Z">
 <meta property="article:author" content="个人随想">
 <meta property="article:tag" content="Jetson">
 <meta property="article:tag" content="NVIDIA">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://imgcache.fly97.cn/image-20201207190314252.png">
 
 
 <link rel="canonical" href="https://www.fly97.cn/p/How-to-use-Jetson-Xavier/">
@@ -260,7 +249,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-count">48</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -360,43 +349,16 @@
 <p><strong>关键词：</strong>Jetson，NVIDIA，CUDA</p>
 <a id="more"></a>
 <h3 id="介绍">介绍</h3>
-<p>官网介绍</p>
-<figure>
-<img src="https://imgcache.fly97.cn/image-20201207190314252.png" alt="image-20201207190314252" /><figcaption>image-20201207190314252</figcaption>
-</figure>
-<figure>
-<img src="https://imgcache.fly97.cn/image-20201207190620860.png" alt="image-20201207190620860" /><figcaption>image-20201207190620860</figcaption>
-</figure>
-<figure>
-<img src="https://imgcache.fly97.cn/image-20201207190744362.png" alt="image-20201207190744362" /><figcaption>image-20201207190744362</figcaption>
-</figure>
-<p>开箱图片</p>
-<p><img src="https://coding-pages-bucket-3497758-8097554-7343-408418-1300660242.cos-website.ap-shanghai.myqcloud.com/image0.jpeg" /></p>
-<p><img src="https://imgcache.fly97.cn/image1.jpeg" /></p>
+<p>略</p>
 <h3 id="制作启动盘">制作启动盘</h3>
 <p>NVIDIA Jetson Xavie NX镜像下载地址：https://developer.nvidia.com/zh-cn/embedded/downloads</p>
-<figure>
-<img src="https://imgcache.fly97.cn/image-20201207193250562.png" alt="image-20201207193250562" /><figcaption>image-20201207193250562</figcaption>
-</figure>
 <p>板子使用的是SD卡作为引导盘和存储盘的，首先要格式化内存卡。使用<strong>SD Card Formatter</strong>格式化内存卡。<a target="_blank" rel="noopener" href="https://www.sdcard.org/downloads/formatter/eula_windows/">SD Card Formatter下载地址</a></p>
-<figure>
-<img src="https://imgcache.fly97.cn/image-20201207192830072.png" alt="image-20201207192830072" /><figcaption>image-20201207192830072</figcaption>
-</figure>
 <p>格式化时注意<strong>盘符</strong>，随后点击<strong>Format</strong>.</p>
 <h4 id="烧录镜像到内存卡">烧录镜像到内存卡</h4>
 <p>使用<strong>balenaEtcher</strong>软件烧录镜像。下载地址：https://www.balena.io/etcher/</p>
 <p>选择下载好的<strong>jetson-nx-jp441-sd-card-image</strong>文件，点击Flash.</p>
-<figure>
-<img src="https://imgcache.fly97.cn/image-20201207193150546.png" alt="image-20201207193150546" /><figcaption>image-20201207193150546</figcaption>
-</figure>
 <p>刷写完以后会有一个验证数据的操作，不建议跳过。</p>
-<figure>
-<img src="https://imgcache.fly97.cn/image-20201207193330721.png" alt="image-20201207193330721" /><figcaption>image-20201207193330721</figcaption>
-</figure>
 <p>稍后片刻，等待完成。</p>
-<figure>
-<img src="https://imgcache.fly97.cn/image-20201207194548585.png" alt="image-20201207194548585" /><figcaption>image-20201207194548585</figcaption>
-</figure>
 <h3 id="点亮主机">点亮主机</h3>
 <p>把SD卡插入卡槽，将HDMI线连接到屏幕上，插入鼠标和键盘，启动电源。</p>
 <h3 id="初始配置">初始配置</h3>
@@ -511,8 +473,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/p/index/" rel="next" title="">
-                   <i class="fa fa-chevron-right"></i>
+                <a href="/p/pve-pci-passthrough/" rel="next" title="Proxmox VE显卡直通">
+                  Proxmox VE显卡直通 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -562,7 +524,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
