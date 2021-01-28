@@ -734,62 +734,6 @@
       </tags>
   </entry>
   <entry>
-    <title>记MT7621平台刷入OpenWRT</title>
-    <url>/p/how-to-config-OpenWRT/</url>
-    <content><![CDATA[<p>什么是OpenWRT？</p>
-<a id="more"></a>
-<hr />
-<h3 id="安装luci相关">安装luci相关</h3>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">opkg install luci luci-base luci-i18n-base-zh-cn</span><br></pre></td></tr></table></figure>
-<h3 id="开启sftp">开启sftp</h3>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">opkg update</span><br><span class="line">opkg install vsftpd openssh-sftp-server</span><br><span class="line">&#x2F;etc&#x2F;init.d&#x2F;vsftpd enable</span><br><span class="line">&#x2F;etc&#x2F;init.d&#x2F;vsftpd start</span><br></pre></td></tr></table></figure>
-<h3 id="opkg-腾讯源">opkg 腾讯源</h3>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;opkg&#x2F;distfeeds.conf</span><br></pre></td></tr></table></figure>
-<p>写入以下文字</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">src&#x2F;gz openwrt_core https:&#x2F;&#x2F;mirrors.cloud.tencent.com&#x2F;openwrt&#x2F;releases&#x2F;19.07.2&#x2F;targets&#x2F;ramips&#x2F;mt7621&#x2F;packages</span><br><span class="line">src&#x2F;gz openwrt_base https:&#x2F;&#x2F;mirrors.cloud.tencent.com&#x2F;openwrt&#x2F;releases&#x2F;19.07.2&#x2F;packages&#x2F;mipsel_24kc&#x2F;base</span><br><span class="line">src&#x2F;gz openwrt_packages  https:&#x2F;&#x2F;mirrors.cloud.tencent.com&#x2F;openwrt&#x2F;releases&#x2F;19.07.2&#x2F;packages&#x2F;mipsel_24kc&#x2F;packages</span><br><span class="line">src&#x2F;gz openwrt_luci https:&#x2F;&#x2F;mirrors.cloud.tencent.com&#x2F;openwrt&#x2F;releases&#x2F;19.07.2&#x2F;packages&#x2F;mipsel_24kc&#x2F;luci</span><br><span class="line">src&#x2F;gz openwrt_routing https:&#x2F;&#x2F;mirrors.cloud.tencent.com&#x2F;openwrt&#x2F;releases&#x2F;19.07.2&#x2F;packages&#x2F;mipsel_24kc&#x2F;routing</span><br><span class="line">src&#x2F;gz openwrt_freifunk https:&#x2F;&#x2F;mirrors.cloud.tencent.com&#x2F;openwrt&#x2F;releases&#x2F;19.07.2&#x2F;packages&#x2F;mipsel_24kc&#x2F;freifunk</span><br><span class="line">src&#x2F;gz openwrt_telephony https:&#x2F;&#x2F;mirrors.cloud.tencent.com&#x2F;openwrt&#x2F;releases&#x2F;19.07.2&#x2F;packages&#x2F;mipsel_24kc&#x2F;telephony</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="luci禁用缓存">luci禁用缓存</h3>
-<p>编辑/etc/config/luci</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">config internal &#39;ccache&#39;</span><br><span class="line">        option enable &#39;0&#39;</span><br></pre></td></tr></table></figure>
-<p>重启即可</p>
-<h3 id="扩容root分区">扩容root分区</h3>
-<p>安装依赖</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">opkg update &amp;&amp; opkg install block-mount kmod-fs-ext4 kmod-usb-storage kmod-usb-ohci kmod-usb-uhci e2fsprogs fdisk</span><br></pre></td></tr></table></figure>
-<p>查看sd卡信息</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">block info</span><br></pre></td></tr></table></figure>
-<p>有类似回显，其中<code>/dev/mmcblk0p1</code>就是sd卡</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;dev&#x2F;mtdblock5: UUID&#x3D;&quot;d1f1302b-91ce24ca-2c74336e-eea51b51&quot; VERSION&#x3D;&quot;4.0&quot; MOUNT&#x3D;&quot;&#x2F;rom&quot; TYPE&#x3D;&quot;squashfs&quot;</span><br><span class="line">&#x2F;dev&#x2F;mtdblock6: MOUNT&#x3D;&quot;&#x2F;overlay&quot; TYPE&#x3D;&quot;jffs2&quot;</span><br><span class="line">&#x2F;dev&#x2F;mmcblk0p1: UUID&#x3D;&quot;746ffc51-1f29-2646-b2cb-fc2c03fe3c1a&quot; LABEL&#x3D;&quot;sdcard&quot; VERSION&#x3D;&quot;1.0&quot; TYPE&#x3D;&quot;ext4&quot;</span><br></pre></td></tr></table></figure>
-<p>格式化内存卡</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">mkfs.ext4 /dev/mmcblk0p1</span><br></pre></td></tr></table></figure>
-<p>将下面的DEVICE换成你的sd卡分区</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">DEVICE=<span class="string">&quot;/dev/mmcblk0p1&quot;</span></span><br><span class="line"><span class="built_in">eval</span> $(block info <span class="string">&quot;<span class="variable">$&#123;DEVICE&#125;</span>&quot;</span> | grep -o -e <span class="string">&quot;UUID=\S*&quot;</span>)</span><br><span class="line">uci -q delete fstab.overlay</span><br><span class="line">uci <span class="built_in">set</span> fstab.overlay=<span class="string">&quot;mount&quot;</span></span><br><span class="line">uci <span class="built_in">set</span> fstab.overlay.uuid=<span class="string">&quot;<span class="variable">$&#123;UUID&#125;</span>&quot;</span></span><br><span class="line">uci <span class="built_in">set</span> fstab.overlay.target=<span class="string">&quot;/overlay&quot;</span></span><br><span class="line">uci commit fstab</span><br></pre></td></tr></table></figure>
-<p>转移数据</p>
-<p>如有报错请先查看否自动挂载了sd卡，挂载sd卡时也可能出现如下报错，实测不影响。</p>
-<p>报错信息：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">root@GL-MT1300:~<span class="comment"># mount /dev/mmcblk0p1 /mnt/</span></span><br><span class="line">NTFS signature is missing.</span><br><span class="line">Failed to mount <span class="string">&#x27;/dev/mmcblk0p1&#x27;</span>: Invalid argument</span><br><span class="line">The device <span class="string">&#x27;/dev/mmcblk0p1&#x27;</span> doesn<span class="string">&#x27;t seem to have a valid NTFS.</span></span><br><span class="line"><span class="string">Maybe the wrong device is used? Or the whole disk instead of a</span></span><br><span class="line"><span class="string">partition (e.g. /dev/sda, not /dev/sda1)? Or the other way around?</span></span><br></pre></td></tr></table></figure>
-<p>执行以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mount &#x2F;dev&#x2F;mmcblk0p1 &#x2F;mnt</span><br><span class="line">cp -f -a &#x2F;overlay&#x2F;. &#x2F;mnt</span><br><span class="line">umount &#x2F;mnt</span><br></pre></td></tr></table></figure>
-<p>然后重启</p>
-<p>扩展分区前</p>
-<figure>
-<img src="https://ftp.fly97.cn/image/image-20210122191844339.png" alt="image-20210122191844339" /><figcaption>image-20210122191844339</figcaption>
-</figure>
-<p>扩展分区后</p>
-<figure>
-<img src="https://ftp.fly97.cn/image/image-20210122191907269.png" alt="image-20210122191907269" /><figcaption>image-20210122191907269</figcaption>
-</figure>
-<h3 id="单独编译openwrt-ipk">单独编译openwrt ipk</h3>
-<p>先执行</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">make menuconfig </span><br></pre></td></tr></table></figure>
-<p>然后选中相关组件</p>
-<p>再执行</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">make package&#x2F;feeds&#x2F;luci&#x2F;luci-base&#x2F;compile -j1 V&#x3D;s</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>MT7621</tag>
-        <tag>OpenWRT</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>NLTK简介</title>
     <url>/p/an-introduction-to-NLTK/</url>
     <content><![CDATA[<p>本文主要介绍了NLTK语言工具包。</p>
@@ -2385,6 +2329,52 @@
       </tags>
   </entry>
   <entry>
+    <title>使用Zerotier搭建内网穿透服务</title>
+    <url>/p/how-to-use-Zerotier/</url>
+    <content><![CDATA[<p>什么是Zerotier？</p>
+<p>ZeroTier将整个世界转变为单个数据中心或云区域。像将所有设备，虚拟机和应用程序都插入同一交换机一样，将它们联网。</p>
+<p>本文主要介绍如何使用Zerotier搭建内网穿透服务。</p>
+<a id="more"></a>
+<p>有两种连接方式，一种是创建自己管理的虚拟局域网，一种是加入别人已经建立的虚拟局域网。这里先说第一种。</p>
+<h4 id="创建账号">创建账号</h4>
+<p>https://www.zerotier.com/，点击<code>Sign up</code>.</p>
+<p><img src="https://ftp.fly97.cn/image/image-20210128181221059.png" /></p>
+<p>根据自己需要，选择注册方式。</p>
+<p><img src="https://ftp.fly97.cn/image/image-20210128181326421.png" /></p>
+<h4 id="创建网络">创建网络</h4>
+<p><img src="https://ftp.fly97.cn/image/image-20210128181610919.png" /></p>
+<p>点击 <code>Create A Network</code>，创建自己管理的虚拟局域网。</p>
+<p><img src="https://ftp.fly97.cn/image/image-20210128181706204.png" /></p>
+<p>创建成功以后会得到<code>Network ID</code>。点击网络ID，进入管理界面。</p>
+<p><img src="https://ftp.fly97.cn/image/image-20210128181808319.png" /></p>
+<p>此时虚拟局域网内还没有设备，需要终端加入该网络。</p>
+<h4 id="加入网络">加入网络</h4>
+<p><img src="https://ftp.fly97.cn/image/image-20210128181920181.png" /></p>
+<p>点击<code>Download</code>，进入下载页面。</p>
+<p><img src="https://ftp.fly97.cn/image/image-20210128181957790.png" /></p>
+<p>根据自己的设备类型选择安装包。这里以Windows为例。</p>
+<p><img src="https://ftp.fly97.cn/image/image-20210128182051328.png" alt="image-20210128182051328" style="zoom:50%;" /></p>
+<p>等待下载完成，然后安装。</p>
+<p><img src="https://ftp.fly97.cn/image/image-20210128182357823.png" alt="image-20210128182357823" style="zoom:50%;" /></p>
+<p>打开以后会默认在任务栏运行。</p>
+<figure>
+<img src="https://ftp.fly97.cn/image/image-20210128182448852.png" alt="image-20210128182448852" /><figcaption>image-20210128182448852</figcaption>
+</figure>
+<p>右键选择<code>Join a network</code>。</p>
+<p><img src="https://ftp.fly97.cn/image/image-20210128182523631.png" alt="image-20210128182523631" style="zoom:50%;" /></p>
+<p>输入先前生成的网络ID，点击<code>Join</code>。其他选择默认设置即可。</p>
+<p><img src="https://ftp.fly97.cn/image/image-20210128182553099.png" alt="image-20210128182553099" style="zoom: 67%;" /></p>
+<p>稍后片刻，返回到管理页面，允许自己的电脑加入该网络，即✔对应的设备。</p>
+<p><img src="https://ftp.fly97.cn/image/image-20210128182844550.png" /></p>
+<p>得到虚拟网络的ip地址，之后再将另一个设备加入，就可以愉快的链接啦。</p>
+<p><img src="https://ftp.fly97.cn/image/image-20210128183032664.png" /></p>
+<h4 id="未完待续....">未完待续....</h4>
+]]></content>
+      <tags>
+        <tag>Zerotier</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用acme.sh快速申请ssl证书</title>
     <url>/p/Use-acme-to-quickly-apply-for-an-ssl-certificate/</url>
     <content><![CDATA[<p><strong>acme.sh</strong> 实现了 <code>acme</code> 协议, 可以从 letsencrypt 生成免费的证书.</p>
@@ -3643,6 +3633,62 @@ y(x,w) = \sum\limits_{j=0}^{M-1}w_j\phi_j(x) = w^T\phi(x) \tag{3.3}
 ]]></content>
       <tags>
         <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记MT7621平台刷入OpenWRT</title>
+    <url>/p/how-to-config-OpenWRT/</url>
+    <content><![CDATA[<p>什么是OpenWRT？</p>
+<a id="more"></a>
+<hr />
+<h3 id="安装luci相关">安装luci相关</h3>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">opkg install luci luci-base luci-i18n-base-zh-cn</span><br></pre></td></tr></table></figure>
+<h3 id="开启sftp">开启sftp</h3>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">opkg update</span><br><span class="line">opkg install vsftpd openssh-sftp-server</span><br><span class="line">&#x2F;etc&#x2F;init.d&#x2F;vsftpd enable</span><br><span class="line">&#x2F;etc&#x2F;init.d&#x2F;vsftpd start</span><br></pre></td></tr></table></figure>
+<h3 id="opkg-腾讯源">opkg 腾讯源</h3>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;opkg&#x2F;distfeeds.conf</span><br></pre></td></tr></table></figure>
+<p>写入以下文字</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">src&#x2F;gz openwrt_core https:&#x2F;&#x2F;mirrors.cloud.tencent.com&#x2F;openwrt&#x2F;releases&#x2F;19.07.2&#x2F;targets&#x2F;ramips&#x2F;mt7621&#x2F;packages</span><br><span class="line">src&#x2F;gz openwrt_base https:&#x2F;&#x2F;mirrors.cloud.tencent.com&#x2F;openwrt&#x2F;releases&#x2F;19.07.2&#x2F;packages&#x2F;mipsel_24kc&#x2F;base</span><br><span class="line">src&#x2F;gz openwrt_packages  https:&#x2F;&#x2F;mirrors.cloud.tencent.com&#x2F;openwrt&#x2F;releases&#x2F;19.07.2&#x2F;packages&#x2F;mipsel_24kc&#x2F;packages</span><br><span class="line">src&#x2F;gz openwrt_luci https:&#x2F;&#x2F;mirrors.cloud.tencent.com&#x2F;openwrt&#x2F;releases&#x2F;19.07.2&#x2F;packages&#x2F;mipsel_24kc&#x2F;luci</span><br><span class="line">src&#x2F;gz openwrt_routing https:&#x2F;&#x2F;mirrors.cloud.tencent.com&#x2F;openwrt&#x2F;releases&#x2F;19.07.2&#x2F;packages&#x2F;mipsel_24kc&#x2F;routing</span><br><span class="line">src&#x2F;gz openwrt_freifunk https:&#x2F;&#x2F;mirrors.cloud.tencent.com&#x2F;openwrt&#x2F;releases&#x2F;19.07.2&#x2F;packages&#x2F;mipsel_24kc&#x2F;freifunk</span><br><span class="line">src&#x2F;gz openwrt_telephony https:&#x2F;&#x2F;mirrors.cloud.tencent.com&#x2F;openwrt&#x2F;releases&#x2F;19.07.2&#x2F;packages&#x2F;mipsel_24kc&#x2F;telephony</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="luci禁用缓存">luci禁用缓存</h3>
+<p>编辑/etc/config/luci</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">config internal &#39;ccache&#39;</span><br><span class="line">        option enable &#39;0&#39;</span><br></pre></td></tr></table></figure>
+<p>重启即可</p>
+<h3 id="扩容root分区">扩容root分区</h3>
+<p>安装依赖</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">opkg update &amp;&amp; opkg install block-mount kmod-fs-ext4 kmod-usb-storage kmod-usb-ohci kmod-usb-uhci e2fsprogs fdisk</span><br></pre></td></tr></table></figure>
+<p>查看sd卡信息</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">block info</span><br></pre></td></tr></table></figure>
+<p>有类似回显，其中<code>/dev/mmcblk0p1</code>就是sd卡</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;dev&#x2F;mtdblock5: UUID&#x3D;&quot;d1f1302b-91ce24ca-2c74336e-eea51b51&quot; VERSION&#x3D;&quot;4.0&quot; MOUNT&#x3D;&quot;&#x2F;rom&quot; TYPE&#x3D;&quot;squashfs&quot;</span><br><span class="line">&#x2F;dev&#x2F;mtdblock6: MOUNT&#x3D;&quot;&#x2F;overlay&quot; TYPE&#x3D;&quot;jffs2&quot;</span><br><span class="line">&#x2F;dev&#x2F;mmcblk0p1: UUID&#x3D;&quot;746ffc51-1f29-2646-b2cb-fc2c03fe3c1a&quot; LABEL&#x3D;&quot;sdcard&quot; VERSION&#x3D;&quot;1.0&quot; TYPE&#x3D;&quot;ext4&quot;</span><br></pre></td></tr></table></figure>
+<p>格式化内存卡</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">mkfs.ext4 /dev/mmcblk0p1</span><br></pre></td></tr></table></figure>
+<p>将下面的DEVICE换成你的sd卡分区</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">DEVICE=<span class="string">&quot;/dev/mmcblk0p1&quot;</span></span><br><span class="line"><span class="built_in">eval</span> $(block info <span class="string">&quot;<span class="variable">$&#123;DEVICE&#125;</span>&quot;</span> | grep -o -e <span class="string">&quot;UUID=\S*&quot;</span>)</span><br><span class="line">uci -q delete fstab.overlay</span><br><span class="line">uci <span class="built_in">set</span> fstab.overlay=<span class="string">&quot;mount&quot;</span></span><br><span class="line">uci <span class="built_in">set</span> fstab.overlay.uuid=<span class="string">&quot;<span class="variable">$&#123;UUID&#125;</span>&quot;</span></span><br><span class="line">uci <span class="built_in">set</span> fstab.overlay.target=<span class="string">&quot;/overlay&quot;</span></span><br><span class="line">uci commit fstab</span><br></pre></td></tr></table></figure>
+<p>转移数据</p>
+<p>如有报错请先查看否自动挂载了sd卡，挂载sd卡时也可能出现如下报错，实测不影响。</p>
+<p>报错信息：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">root@GL-MT1300:~<span class="comment"># mount /dev/mmcblk0p1 /mnt/</span></span><br><span class="line">NTFS signature is missing.</span><br><span class="line">Failed to mount <span class="string">&#x27;/dev/mmcblk0p1&#x27;</span>: Invalid argument</span><br><span class="line">The device <span class="string">&#x27;/dev/mmcblk0p1&#x27;</span> doesn<span class="string">&#x27;t seem to have a valid NTFS.</span></span><br><span class="line"><span class="string">Maybe the wrong device is used? Or the whole disk instead of a</span></span><br><span class="line"><span class="string">partition (e.g. /dev/sda, not /dev/sda1)? Or the other way around?</span></span><br></pre></td></tr></table></figure>
+<p>执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mount &#x2F;dev&#x2F;mmcblk0p1 &#x2F;mnt</span><br><span class="line">cp -f -a &#x2F;overlay&#x2F;. &#x2F;mnt</span><br><span class="line">umount &#x2F;mnt</span><br></pre></td></tr></table></figure>
+<p>然后重启</p>
+<p>扩展分区前</p>
+<figure>
+<img src="https://ftp.fly97.cn/image/image-20210122191844339.png" alt="image-20210122191844339" /><figcaption>image-20210122191844339</figcaption>
+</figure>
+<p>扩展分区后</p>
+<figure>
+<img src="https://ftp.fly97.cn/image/image-20210122191907269.png" alt="image-20210122191907269" /><figcaption>image-20210122191907269</figcaption>
+</figure>
+<h3 id="单独编译openwrt-ipk">单独编译openwrt ipk</h3>
+<p>先执行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">make menuconfig </span><br></pre></td></tr></table></figure>
+<p>然后选中相关组件</p>
+<p>再执行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">make package&#x2F;feeds&#x2F;luci&#x2F;luci-base&#x2F;compile -j1 V&#x3D;s</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>MT7621</tag>
+        <tag>OpenWRT</tag>
       </tags>
   </entry>
   <entry>
