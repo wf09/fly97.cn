@@ -6,7 +6,7 @@
   <link href="https://www.fly97.cn/atom.xml" rel="self"/>
   
   <link href="https://www.fly97.cn/"/>
-  <updated>2021-02-08T12:53:00.000Z</updated>
+  <updated>2021-02-09T10:49:00.000Z</updated>
   <id>https://www.fly97.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>安装Chromium浏览器并解决缺少 Google API 密钥问题</title>
+    <link href="https://www.fly97.cn/p/how-to-install-Chromium-and-solve-the-problem/"/>
+    <id>https://www.fly97.cn/p/how-to-install-Chromium-and-solve-the-problem/</id>
+    <published>2021-02-09T10:49:00.000Z</published>
+    <updated>2021-02-09T10:49:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>Chromium</strong>是<a href="https://zh.wikipedia.org/wiki/Google">Google</a>为发展浏览器<a href="https://zh.wikipedia.org/wiki/Google_Chrome">Google Chrome</a>而开启的免费开源软件项目。Chromium的用户界面极简。Google期望使浏览器“在认知和物理上都让人感觉轻巧，快速”。（英语：feel lightweight (cognitively and physically) and fast.</p><p>本文主要介绍如何下载Chromium浏览器并解决缺少 Google API 密钥问题。</p><p><strong>关键词：Chromium缺少 Google API</strong></p><a id="more"></a><h4 id="下载chromium">下载Chromium</h4><p>官方站点：https://download-chromium.appspot.com/</p><p>分发站点：<a href="https://chromium.woolyss.com/#updater">Download latest stable Chromium binaries (64-bit and 32-bit) (woolyss.com)</a></p><p><img src="C:\Users\0xFF\AppData\Roaming\Typora\typora-user-images\image-20210209185644934.png" /></p><p>解压后放置到任意文件夹。</p><p><img src="C:\Users\0xFF\AppData\Roaming\Typora\typora-user-images\image-20210209185726818.png" /></p><h4 id="关闭缺少-google-api-密钥提示">关闭缺少 Google API 密钥提示</h4><p>首次打开Chromium时，地址栏下方会提示 <strong>缺少 Google API 密钥，因此 Chromium 的部分功能将无法使用</strong>。</p><p>法一：如不需要登录谷歌账户，仅仅想屏蔽上述烦人的提示，可以直接设置<strong>相关环境变量为<code>no</code></strong>，屏蔽提示。</p><p>打开 windows 的 <code>cmd</code> 命令提示符，依次输入以下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setx GOOGLE_API_KEY <span class="string">&quot;no&quot;</span></span><br><span class="line">setx GOOGLE_DEFAULT_CLIENT_ID <span class="string">&quot;no&quot;</span></span><br><span class="line">setx GOOGLE_DEFAULT_CLIENT_SECRET <span class="string">&quot;no&quot;</span></span><br></pre></td></tr></table></figure><p>法二：加入Chromuim-Dev谷歌群组并开启相关API</p><p>搬运自：http://www.chromium.org/developers/how-tos/api-keys</p><ol type="1"><li><p>加入Google Groups <a href="https://groups.google.com/a/chromium.org/forum/?fromgroups#!forum/chromium-dev">chromium-dev@chromium.org</a>，如果介意相关邮件打扰可以选择退订相关邮件。为方便起见，以下API仅限对订加入社群的人可见</p></li><li><p>确保登陆了已经订阅chromium-dev社群的Google账号</p></li><li><p>打开 https://cloud.google.com/console</p></li><li><p>创建或使用现有项目 <img src="C:\Users\0xFF\AppData\Roaming\Typora\typora-user-images\image-20210209191735748.png" /></p></li><li><p>选择 <code>API和服务-&gt;库</code>，搜索下图给出的API，并按需启用相关API</p><p><img src="C:\Users\0xFF\AppData\Roaming\Typora\typora-user-images\image-20210209192007348.png" /></p></li></ol><figure><img src="C:\Users\0xFF\AppData\Roaming\Typora\typora-user-images\image-20210209192125219.png" alt="API库" /><figcaption>API库</figcaption></figure><figure><img src="C:\Users\0xFF\AppData\Roaming\Typora\typora-user-images\image-20210209192213108.png" alt="官方给出的和Chromium有关的API" /><figcaption>官方给出的和Chromium有关的API</figcaption></figure><figure><img src="C:\Users\0xFF\AppData\Roaming\Typora\typora-user-images\image-20210209192315771.png" alt="启用同步API" /><figcaption>启用同步API</figcaption></figure><ol start="5" type="1"><li>返回上级菜单，选择<code>凭据-&gt;创建凭据-&gt;OAuth客户端ID</code>，应用类型选择<code>桌面应用</code>，名称<code>任选</code>。记录得到的客户端ID和客户端密钥。 <img src="C:\Users\0xFF\AppData\Roaming\Typora\typora-user-images\image-20210209193327875.png" alt="创建凭据" /></li></ol><figure><img src="C:\Users\0xFF\AppData\Roaming\Typora\typora-user-images\image-20210209193626065.png" alt="创建OAuth客户端ID-2" /><figcaption>创建OAuth客户端ID-2</figcaption></figure><figure><img src="C:\Users\0xFF\AppData\Roaming\Typora\typora-user-images\image-20210209195045529.png" alt="OAuth客户端已创建" /><figcaption>OAuth客户端已创建</figcaption></figure><ol start="6" type="1"><li>返回上级菜单，选择<code>凭据-&gt;创建凭据-&gt;API密钥</code>，名称<code>任选</code>。</li></ol><figure><img src="C:\Users\0xFF\AppData\Roaming\Typora\typora-user-images\image-20210209195528285.png" alt="image-20210209195528285" /><figcaption>image-20210209195528285</figcaption></figure><h5 id="设置环境变量">设置环境变量</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GOOGLE_API_KEY&#x3D;your_api_key</span><br><span class="line">GOOGLE_DEFAULT_CLIENT_ID&#x3D;your_client_id</span><br><span class="line">GOOGLE_DEFAULT_CLIENT_SECRET&#x3D;your_client_secret</span><br></pre></td></tr></table></figure><p>完.</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong&gt;Chromium&lt;/strong&gt;是&lt;a href=&quot;https://zh.wikipedia.org/wiki/Google&quot;&gt;Google&lt;/a&gt;为发展浏览器&lt;a href=&quot;https://zh.wikipedia.org/wiki/Google_Chrome&quot;&gt;Google Chrome&lt;/a&gt;而开启的免费开源软件项目。Chromium的用户界面极简。Google期望使浏览器“在认知和物理上都让人感觉轻巧，快速”。（英语：feel lightweight (cognitively and physically) and fast.&lt;/p&gt;
+&lt;p&gt;本文主要介绍如何下载Chromium浏览器并解决缺少 Google API 密钥问题。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;关键词：Chromium缺少 Google API&lt;/strong&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Chromium" scheme="https://www.fly97.cn/tags/Chromium/"/>
+    
+  </entry>
   
   <entry>
     <title>selenium常用方法</title>
@@ -394,28 +415,6 @@
     <updated>2020-10-12T12:00:00.000Z</updated>
     
     <content type="html"><![CDATA[<p><strong>摘要：</strong>此系列文章是我从2020年9月21日开始在浙江理工大学读研一时《现代信号分析》课后作业练习题及答案。</p><p><strong>关键词：</strong>研一，现代信号分析</p><a id="more"></a><figure><img src="https://ftp.fly97.cn/image/image-20201012134854422.png" alt="image-20201012134854422" /><figcaption>image-20201012134854422</figcaption></figure><figure><img src="https://ftp.fly97.cn/image/image-20201012135051489.png" alt="image-20201012135051489" /><figcaption>image-20201012135051489</figcaption></figure><figure><img src="https://ftp.fly97.cn/image/image-20201012135105822.png" alt="image-20201012135105822" /><figcaption>image-20201012135105822</figcaption></figure><figure><img src="https://ftp.fly97.cn/image/image-20201012135149144.png" alt="image-20201012135149144" /><figcaption>image-20201012135149144</figcaption></figure><figure><img src="https://ftp.fly97.cn/image/image-20201012140126858.png" alt="image-20201012140126858" /><figcaption>image-20201012140126858</figcaption></figure><figure><img src="https://ftp.fly97.cn/image/image-20201012140338034.png" alt="image-20201012140338034" /><figcaption>image-20201012140338034</figcaption></figure><figure><img src="https://ftp.fly97.cn/image/image-20201012141112290.png" alt="image-20201012141112290" /><figcaption>image-20201012141112290</figcaption></figure>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;strong&gt;摘要：&lt;/strong&gt;此系列文章是我从2020年9月21日开始在浙江理工大学读研一时《现代信号分析》课后作业练习题及答案。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;关键词：&lt;/strong&gt;研一，现代信号分析&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="研一" scheme="https://www.fly97.cn/tags/%E7%A0%94%E4%B8%80/"/>
-    
-    <category term="现代信号分析" scheme="https://www.fly97.cn/tags/%E7%8E%B0%E4%BB%A3%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>现代信号分析第二章作业</title>
-    <link href="https://www.fly97.cn/p/Chapter-01-of-Modern-Signal-Analysis/"/>
-    <id>https://www.fly97.cn/p/Chapter-01-of-Modern-Signal-Analysis/</id>
-    <published>2020-10-11T12:00:00.000Z</published>
-    <updated>2020-10-11T12:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>摘要：</strong>此系列文章是我从2020年9月21日开始在浙江理工大学读研一时《现代信号分析》课后作业练习题及答案。</p><p><strong>关键词：</strong>研一，现代信号分析</p><a id="more"></a><figure><img src="https://ftp.fly97.cn/image/image-20200928193703316.png" alt="image-20200928193703316" /><figcaption>image-20200928193703316</figcaption></figure><figure><img src="https://ftp.fly97.cn/image/image-20201011203228683.png" alt="image-20201011203228683" /><figcaption>image-20201011203228683</figcaption></figure><figure><img src="https://ftp.fly97.cn/image/image-20201011203330808.png" alt="image-20201011203330808" /><figcaption>image-20201011203330808</figcaption></figure><figure><img src="https://ftp.fly97.cn/image/image-20200928193714036.png" alt="image-20200928193714036" /><figcaption>image-20200928193714036</figcaption></figure><figure><img src="https://ftp.fly97.cn/image/image-20201011203626045.png" alt="image-20201011203626045" /><figcaption>image-20201011203626045</figcaption></figure><figure><img src="https://ftp.fly97.cn/image/image-20201011203639917.png" alt="image-20201011203639917" /><figcaption>image-20201011203639917</figcaption></figure><figure><img src="https://ftp.fly97.cn/image/image-20201011203658032.png" alt="image-20201011203658032" /><figcaption>image-20201011203658032</figcaption></figure><figure><img src="https://ftp.fly97.cn/image/image-20201011203716172.png" alt="image-20201011203716172" /><figcaption>image-20201011203716172</figcaption></figure><figure><img src="https://ftp.fly97.cn/image/image-20201011203748238.png" alt="image-20201011203748238" /><figcaption>image-20201011203748238</figcaption></figure><figure><img src="https://ftp.fly97.cn/image/image-20201011203823320.png" alt="image-20201011203823320" /><figcaption>image-20201011203823320</figcaption></figure><figure><img src="https://ftp.fly97.cn/image/image-20201011203917101.png" alt="image-20201011203917101" /><figcaption>image-20201011203917101</figcaption></figure><figure><img src="https://ftp.fly97.cn/image/image-20201011203848593.png" alt="image-20201011203848593" /><figcaption>image-20201011203848593</figcaption></figure><figure><img src="https://ftp.fly97.cn/image/image-20200928193737091.png" alt="image-20200928193737091" /><figcaption>image-20200928193737091</figcaption></figure><figure><img src="https://ftp.fly97.cn/image/image-20201011204004991.png" alt="image-20201011204004991" /><figcaption>image-20201011204004991</figcaption></figure><figure><img src="https://ftp.fly97.cn/image/image-20201011204054961.png" alt="image-20201011204054961" /><figcaption>image-20201011204054961</figcaption></figure><figure><img src="https://ftp.fly97.cn/image/image-20201011204157647.png" alt="image-20201011204157647" /><figcaption>image-20201011204157647</figcaption></figure><figure><img src="https://ftp.fly97.cn/image/image-20200928193754540.png" alt="image-20200928193754540" /><figcaption>image-20200928193754540</figcaption></figure><figure><img src="https://ftp.fly97.cn/image/image-20201011204330872.png" alt="image-20201011204330872" /><figcaption>image-20201011204330872</figcaption></figure><figure><img src="https://ftp.fly97.cn/image/image-20201011204359072.png" alt="image-20201011204359072" /><figcaption>image-20201011204359072</figcaption></figure><figure><img src="https://ftp.fly97.cn/image/image-20201011204438075.png" alt="image-20201011204438075" /><figcaption>image-20201011204438075</figcaption></figure>]]></content>
     
     
     <summary type="html">&lt;p&gt;&lt;strong&gt;摘要：&lt;/strong&gt;此系列文章是我从2020年9月21日开始在浙江理工大学读研一时《现代信号分析》课后作业练习题及答案。&lt;/p&gt;
