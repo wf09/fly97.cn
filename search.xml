@@ -200,6 +200,18 @@
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
 <h4 id="回退到某个commit版本">回退到某个commit版本</h4>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git reset --hard &lt;COMMIT_ID&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="查看本地分支">查看本地分支</h4>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git branch -a</span><br></pre></td></tr></table></figure>
+<h4 id="切换到某个分支">切换到某个分支</h4>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git checkout &lt;本地分支名&gt;</span><br></pre></td></tr></table></figure>
+<p>但是，这时候 git 可能会提示你当前处于一个“detached HEAD" 状态。因为 tag 相当于是一个快照，是不能更改它的代码的。</p>
+<p>如果要在 tag 代码的基础上做修改，你需要一个分支：</p>
+<h4 id="创建并切换到新分支">创建并切换到新分支</h4>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout -b &lt;新分支&gt; &lt;本地分支&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="tag和branch的区别">tag和branch的区别</h4>
+<p>tag就像是一个里程碑一个标志一个点，branch是一个新的征程一条线；</p>
+<p>tag就是一个只读的branch，一般为每一个可发布的里程碑版本打一个tag。</p>
+<p>tag就是给commit的hash校验和取的一个名字，比较直观，方便记忆和使用，和branch不是一个维度，点与线的区别.</p>
 ]]></content>
       <tags>
         <tag>git</tag>
@@ -300,10 +312,45 @@
 <p>返回的文字如下</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">4.1.1</span><br></pre></td></tr></table></figure>
 <h5 id="安装cuda-opencv">安装CUDA OpenCV</h5>
-<p>1、首先移除nx中已经默认的opencv。</p>
+<h6 id="移除原有opencv">移除原有OpenCV</h6>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> purge libopencv*</span><br><span class="line">sudo apt autoremove                  <span class="meta">#此步不建议运行, 有可能产生奇怪的依赖问题</span></span><br><span class="line">sudo apt-<span class="keyword">get</span> update</span><br></pre></td></tr></table></figure>
-<p>2.安装依赖</p>
+<h6 id="安装依赖">安装依赖</h6>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 安装必备库，cmake,git,g++</span><br><span class="line">sudo apt-get install -y build-essential checkinstall cmake pkg-config yasm git gfortran</span><br><span class="line">sudo apt-get install -y libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev</span><br><span class="line">sudo apt-get install -y libjpeg8-dev libjasper-dev libpng12-dev libtiff5-dev libavcodec-dev libavformat-dev libswscale-dev libdc1394-22-dev libxine2-dev libv4l-dev</span><br><span class="line">sudo apt-get install -y libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libgtk2.0-dev libtbb-dev libatlas-base-dev libfaac-dev libmp3lame-dev libtheora-dev libvorbis-dev libxvidcore-dev libopencore-amrnb-dev libopencore-amrwb-dev x264 v4l-utils</span><br><span class="line"># 处理图像所需的包</span><br><span class="line">sudo apt-get install libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev </span><br><span class="line"># 处理视频所需的包</span><br><span class="line">sudo apt-get install libxvidcore-dev libx264-dev ffmpeg</span><br><span class="line"># opencv功能优化</span><br><span class="line">sudo apt-get install libatlas-base-dev gfortran </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h6 id="下载opencv源代码">下载OpenCV源代码</h6>
+<p>下载地址：https://opencv.org/releases/</p>
+<p>此次编译使用的是<code>opencv-4.4.0.zip</code>版本。</p>
+<p>额外的库：https://github.com/opencv/opencv_contrib</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">unzip opencv-4.4.0.zip</span><br><span class="line"><span class="built_in">cd</span> opencv-4.4.0</span><br><span class="line">mkdir build</span><br><span class="line"><span class="built_in">cd</span> build</span><br></pre></td></tr></table></figure>
+<p>执行CMAKE</p>
+<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line">cmake \</span><br><span class="line">-DCMAKE_BUILD_TYPE=Release \</span><br><span class="line">-DCMAKE_INSTALL_PREFIX=/usr/local \</span><br><span class="line">-DOPENCV_ENABLE_NONFREE=1 \</span><br><span class="line">-DBUILD_opencv_python2=1 \</span><br><span class="line">-DBUILD_opencv_python3=1 \</span><br><span class="line">-DWITH_FFMPEG=1 \</span><br><span class="line">-DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-10.2 \</span><br><span class="line">-DCUDA_ARCH_BIN=7.2 \</span><br><span class="line">-DCUDA_ARCH_PTX=7.2 \</span><br><span class="line">-DWITH_CUDA=1 \</span><br><span class="line">-DENABLE_FAST_MATH=1 \</span><br><span class="line">-DCUDA_FAST_MATH=1 \</span><br><span class="line">-DWITH_CUBLAS=1 \</span><br><span class="line">-DOPENCV_GENERATE_PKGCONFIG=1 \</span><br><span class="line">-DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-4.4.0/modules \</span><br><span class="line">..</span><br></pre></td></tr></table></figure>
+<p>注意<strong>：opencv_contrib-4.4.0是放在opencv-4.4.0中，注意文件的路径！！！</strong></p>
+<p><strong>使用cuda，-DWITH_CUDA=1.</strong></p>
+<p>官方文档的cmake的配置情况：</p>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">cmake \</span><br><span class="line">-DCMAKE_BUILD_TYPE=Release \</span><br><span class="line">-DCMAKE_INSTALL_PREFIX=<span class="regexp">/usr \</span></span><br><span class="line"><span class="regexp">-DBUILD_PNG=OFF \</span></span><br><span class="line"><span class="regexp">-DBUILD_TIFF=OFF \</span></span><br><span class="line"><span class="regexp">-DBUILD_TBB=OFF \</span></span><br><span class="line"><span class="regexp">-DBUILD_JPEG=OFF \</span></span><br><span class="line"><span class="regexp">-DBUILD_JASPER=OFF \</span></span><br><span class="line"><span class="regexp">-DBUILD_ZLIB=OFF \</span></span><br><span class="line"><span class="regexp">-DBUILD_EXAMPLES=ON \</span></span><br><span class="line"><span class="regexp">-DBUILD_JAVA=OFF \</span></span><br><span class="line"><span class="regexp">-DBUILD_opencv_python2=ON \</span></span><br><span class="line"><span class="regexp">-DBUILD_opencv_python3=OFF \</span></span><br><span class="line"><span class="regexp">-DENABLE_NEON=ON \</span></span><br><span class="line"><span class="regexp">-DWITH_OPENCL=OFF \</span></span><br><span class="line"><span class="regexp">-DWITH_OPENMP=OFF \</span></span><br><span class="line"><span class="regexp">-DWITH_FFMPEG=ON \</span></span><br><span class="line"><span class="regexp">-DWITH_GSTREAMER=OFF \</span></span><br><span class="line"><span class="regexp">-DWITH_GSTREAMER_0_10=OFF \</span></span><br><span class="line"><span class="regexp">-DWITH_CUDA=ON \</span></span><br><span class="line"><span class="regexp">-DWITH_GTK=ON \</span></span><br><span class="line"><span class="regexp">-DWITH_VTK=OFF \</span></span><br><span class="line"><span class="regexp">-DWITH_TBB=ON \</span></span><br><span class="line"><span class="regexp">-DWITH_1394=OFF \</span></span><br><span class="line"><span class="regexp">-DWITH_OPENEXR=OFF \</span></span><br><span class="line"><span class="regexp">-DCUDA_TOOLKIT_ROOT_DIR=/usr</span><span class="regexp">/local/cuda</span>-<span class="number">8.0</span> \</span><br><span class="line">-DCUDA_ARCH_BIN=<span class="number">6.2</span> \</span><br><span class="line">-DCUDA_ARCH_PTX=<span class="string">&quot;&quot;</span> \</span><br><span class="line">-DINSTALL_C_EXAMPLES=ON \</span><br><span class="line">-DINSTALL_TESTS=OFF \</span><br><span class="line">-DOPENCV_TEST_DATA_PATH=../opencv_extra/testdata \</span><br><span class="line">../opencv</span><br></pre></td></tr></table></figure>
+<p>注意：<strong>请根据自己的的CUDA版本和实际路径修改参数！</strong></p>
+<p>参考链接：<a href="https://docs.opencv.org/4.4.0/d6/d15/tutorial_building_tegra_cuda.html#tutorial_building_tegra_cuda_installing">OpenCV: Building OpenCV for Tegra with CUDA</a></p>
+<h6 id="编译">编译</h6>
+<p>执行以下命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make -j1</span><br></pre></td></tr></table></figure>
+<p>其中1指的线程，初次编译建议使用单线程,，解决一些奇怪问题。</p>
+<h6 id="安装">安装</h6>
+<p>执行以下命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+<h6 id="成功啦">成功啦</h6>
+<p><img src="https://fly97.coding.net/p/images/d/fly97.cn/git/raw/master/20210318/success.png" /></p>
+<h6 id="解决各种出错问题">解决各种出错问题</h6>
+<ol type="1">
+<li><strong>src/grfmt_jpeg2000.cpp.o failed</strong></li>
+</ol>
+<p><img src="https://fly97.coding.net/p/images/d/fly97.cn/git/raw/master/20210318/bug.png" /></p>
+<p>编译时关闭如下tag：<strong>-DBUILD_JASPER=OFF</strong> 即可.</p>
+<ol start="2" type="1">
+<li><p><strong>fatal error: boostdesc_bgm.i: No such file or directory</strong></p>
+<p>可参考：https://github.com/AastaNV/JEP/issues/20</p>
+<p>https://github.com/opencv/opencv_contrib/issues/1301#issuecomment-618262386</p></li>
+</ol>
+<p>将下载好的文件解压到以下文件夹：</p>
+<p><img src="https://fly97.coding.net/p/images/d/fly97.cn/git/raw/master/20210318/issue.png" /></p>
 <h4 id="cudnn">cuDNN</h4>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/src/cudnn_samples_v8/mnistCUDNN</span><br><span class="line">sudo make</span><br><span class="line">sudo chmod a+x mnistCUDNN</span><br><span class="line">./mnistCUDNN</span><br></pre></td></tr></table></figure>
 <h4 id="更改桌面">更改桌面</h4>
