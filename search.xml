@@ -4335,6 +4335,99 @@ y(x,w) = \sum\limits_{j=0}^{M-1}w_j\phi_j(x) = w^T\phi(x) \tag{3.3}
       </tags>
   </entry>
   <entry>
+    <title>零基础入门ROS(一)</title>
+    <url>/p/ros-tutorial-01/</url>
+    <content><![CDATA[<p>最近的小车需要用到ROS，学习的过程做个记录。</p>
+<a id="more"></a>
+<h3 id="ros中的工作空间">ROS中的工作空间</h3>
+<h4 id="工作空间是什么">工作空间是什么</h4>
+<p>工作空间是一个存放工程相关开发文件的文件夹，ROS默认使用的是catkin编译系统。</p>
+<p>典型的工作空间包含以下四个目录空间：</p>
+<ol type="1">
+<li><code>src</code>：代码空间，开发过程中最常用的文件夹。用来存放所有ROS功能包的源码文件。</li>
+<li><code>build</code>：编译空间，用来存储工作空间编译过程中产生缓存信息和中间文件。</li>
+<li><code>devel</code>：开发空间，用来放置编译生成的可执行文件。</li>
+<li><code>install</code>：安装空间，编译成功后，可以使用<code>make install</code>命令将可执行文件安装到该空间中，运行该空间中的环境变量脚本，即可以在终端中运行这些可执行文件。注意：安装空间在工作空间中不是必须的，很多工作空间中没有该文件夹。</li>
+</ol>
+<h4 id="创建工作空间">创建工作空间</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p ~/catkin_ws/src</span><br><span class="line"><span class="built_in">cd</span> ~/catkin_ws/src</span><br><span class="line">catkin_init_workspace</span><br></pre></td></tr></table></figure>
+<h4 id="编译工作空间">编译工作空间</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/catkin_ws</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure>
+<h4 id="设置环境变量">设置环境变量</h4>
+<p>编译完成后<code>devel</code>文件夹下会生成<code>setup.bash</code>形式的环境变量设置脚本，使用<code>source</code>命令运行这些脚本文件，则工作空间的环境变量可以生效。</p>
+<p>注意：每一次编译完成后都要运行一次。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> devel/setup.bash</span><br></pre></td></tr></table></figure>
+<p>运行以下命令查看环境变量是否生效：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$ROS_PACKAGE_PATH</span></span><br></pre></td></tr></table></figure>
+<p>若生效则会显示出当前工作空间的路径。</p>
+<h4 id="创建功能包">创建功能包</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/catkin_ws/src</span><br><span class="line">catkin_create_pkg subsciber rospy std_msgs geometry_msgs</span><br></pre></td></tr></table></figure>
+<p>其中<code>subsciber</code>是包名，剩下的是功能包所需要的依赖。</p>
+<p>创建完成后，需要<strong>编译工作空间</strong>，并且<strong>设置环境变量</strong>。</p>
+<h4 id="查看功能包所在的工作空间">查看功能包所在的工作空间</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rospack find subsciber</span><br></pre></td></tr></table></figure>
+<h3 id="话题和服务">话题和服务</h3>
+<h4 id="话题">话题</h4>
+<p>消息以一种发布/订阅的方式传递。一个节点可以订阅多个话题，一个话题也可以被多个节点订阅。两个节点通信时，启动顺序没有强制要求，且<strong>实时性</strong>较弱，不适用于双向的同步传输。</p>
+<h4 id="服务">服务</h4>
+<p>服务是一种带有应答的通信机制。ROS只允许有一个节点提供指定命名的服务。实时性较强，适用于两个节点之间的同步传输。</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>话题</th>
+<th>服务</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>同步性</td>
+<td>异步</td>
+<td>同步</td>
+</tr>
+<tr class="even">
+<td>通信模型</td>
+<td>发布/订阅</td>
+<td>客户端/服务端</td>
+</tr>
+<tr class="odd">
+<td>底层协议</td>
+<td>ROSTCP/ROSUDP</td>
+<td>ROSTCP/ROSUDP</td>
+</tr>
+<tr class="even">
+<td>反馈机制</td>
+<td>无</td>
+<td>有</td>
+</tr>
+<tr class="odd">
+<td>缓冲区</td>
+<td>有</td>
+<td>无</td>
+</tr>
+<tr class="even">
+<td>实时性</td>
+<td>弱</td>
+<td>强</td>
+</tr>
+<tr class="odd">
+<td>节点关系</td>
+<td>多对多</td>
+<td>一对多（一个server）</td>
+</tr>
+<tr class="even">
+<td>适用场景</td>
+<td>数据传输</td>
+<td>逻辑处理</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+      <tags>
+        <tag>ROS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Pandas学习小记(一)</title>
     <url>/p/Pandas-learning-notes-01/</url>
     <content><![CDATA[<p>Pandas是什么？</p>
