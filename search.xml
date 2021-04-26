@@ -4388,7 +4388,7 @@ y(x,w) = \sum\limits_{j=0}^{M-1}w_j\phi_j(x) = w^T\phi(x) \tag{3.3}
       </tags>
   </entry>
   <entry>
-    <title>零基础入门ROS(一)</title>
+    <title>零基础入门ROS(二)</title>
     <url>/p/ros-tutorial-02/</url>
     <content><![CDATA[<p>最近的小车需要用到ROS，学习的过程做个记录。</p>
 <a id="more"></a>
