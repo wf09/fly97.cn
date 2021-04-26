@@ -4128,13 +4128,13 @@ y(x,w) = \sum\limits_{j=0}^{M-1}w_j\phi_j(x) = w^T\phi(x) \tag{3.3}
     <content><![CDATA[<p>本文主要介绍了如何使用U盘进行重装系统，主要面向电脑小白用户。</p>
 <p><strong>关键字</strong>：重装win10，电脑重装</p>
 <a id="more"></a>
-<p><strong><font color="red">对重装系统过程有疑问的小伙伴可以点击右下角对话窗口联系我！切勿自己胡乱操作以免造成数据损失！</font></strong></p>
+<p><strong><font color="red">对重装系统过程有疑问的小伙伴可以通过站内方式联系我！切勿自己胡乱操作以免造成数据损失！</font></strong></p>
 <p><strong>下载链接有时间和流量限制，不定期开放！若链接过期请自行寻找下载链接！</strong></p>
 <h3 id="准备工作">准备工作</h3>
 <ol type="1">
 <li>大于<strong>8G</strong>的U盘</li>
-<li>微PE，<a href="https://ftp.fly97.cn/file/wepe_64.exe">点击此处下载</a></li>
-<li>Windows 10 1909原版系统镜像，<a href="https://ftp.fly97.cn/file/cn_windows_10_business_editions_version_1909_updated_april_2020_x64_dvd_5d3fcf2e.iso">点击此处下载</a></li>
+<li>微PE，<a href="https://yunpan.fly97.cn/fly97/software/windows/WePE_64_V2.1.exe">点击此处下载</a></li>
+<li>Windows 10 1909原版系统镜像，<a href="https://yunpan.fly97.cn/fly97/mirrors/cn_windows_10_business_editions_version_20h2_x64_dvd_f978664f_4.iso">点击此处下载</a></li>
 </ol>
 <h3 id="制作启动盘">制作启动盘</h3>
 <p>制作系统盘期间需要格式化U盘，如有需要请先备份U盘的文件。</p>
