@@ -4312,7 +4312,7 @@ y(x,w) = \sum\limits_{j=0}^{M-1}w_j\phi_j(x) = w^T\phi(x) \tag{3.3}
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt install apt-transport-https ca-certificates -y</span><br><span class="line">cp /etc/apt/sources.list /etc/apt/sources.list.bak</span><br><span class="line">sed -i <span class="string">&quot;s/cn.archive.ubuntu.com/mirrors.aliyun.com/g&quot;</span> /etc/apt/sources.list</span><br><span class="line">sed -i <span class="string">&quot;s/http/https/g&quot;</span> /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
 <p>其中，安装<code>apt-transport-https</code>并将安装协议更换到<code>https</code>以避免运营商缓存劫持。</p>
 <h3 id="安装ros-melodic">安装ROS Melodic</h3>
-<p>参考 http://wiki.ros.org/cn/melodic/Installation/Ubuntu</p>
+<p>参考 <a href="http://wiki.ros.org/cn/melodic/Installation/Ubuntu">http://wiki.ros.org/cn/melodic/Installation/Ubuntu</a></p>
 <h4 id="设置sources.list">设置sources.list</h4>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo sh -c <span class="string">&#x27;echo &quot;deb https://mirrors.aliyun.com/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span></span><br></pre></td></tr></table></figure>
 <h4 id="设置密钥">设置密钥</h4>
