@@ -1474,9 +1474,7 @@
 <p>运行结果：</p>
 <p><img src="https://yunpan.fly97.cn/fly97/images/20210426/threading04.png" /></p>
 <p>这里在主线程中使用了延迟1秒，来让子线程启动的子线程有机会输出其daemon属性值，如果不设置延迟，还没等到子线程的子线程启动，子线程就结束了，最终导致子线程的子线程无法启动。</p>
-<figure>
-<img src="https://yunpan.fly97.cn/fly97/images/20210426/threading05.png" alt="image-20210402201015896" /><figcaption>image-20210402201015896</figcaption>
-</figure>
+<p><img src="https://yunpan.fly97.cn/fly97/images/20210426/threading05.png" /></p>
 ]]></content>
       <tags>
         <tag>Python</tag>
