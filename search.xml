@@ -1444,7 +1444,7 @@
 <h5 id="简单使用">简单使用</h5>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">say_hello</span>(<span class="params">delay_s, time_loop</span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(time_loop):</span><br><span class="line">        time.sleep(delay_s)</span><br><span class="line">        print(<span class="string">f&quot;The delay is <span class="subst">&#123;delay_s&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">threading.Thread(target=say_hello, args=[<span class="number">2</span>, <span class="number">2</span>]).start()</span><br><span class="line">threading.Thread(target=say_hello, args=[<span class="number">1</span>, <span class="number">1</span>]).start()</span><br></pre></td></tr></table></figure>
 <p>执行结果：</p>
-<p><img src="https://yunpan.fly97.cn/fly97/images/20210426/threading01.png" /></p>
+<p><img src="https://ftp.fly97.cn/images/fly97.cn/20210426/threading01.png" /></p>
 <p>程序运行到12行时，启动子线程1执行say_hello(2, 2)，此时主线程继续向下执行；</p>
 <p>程序运行到13行时，启动子线程2执行say_hello(1, 1)，此次主线程执行完毕，等待子线程执行完毕。</p>
 <p>1秒后子线程2先执行完毕，切换到另一个子线程1继续执行。</p>
@@ -1457,7 +1457,7 @@
 <p>当<code>daemon</code>属性为<code>False</code>时，父线程在运行完毕时，会等待所有子线程退出才结束程序。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">say_hello</span>(<span class="params">delay_s=<span class="number">1</span>, time_loop=<span class="number">3</span></span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(time_loop):</span><br><span class="line">        print(<span class="string">f&quot;i = <span class="subst">&#123;i&#125;</span>, say_hello daemon is <span class="subst">&#123;threading.current_thread().isDaemon()&#125;</span>&quot;</span>)</span><br><span class="line">        time.sleep(delay_s)</span><br><span class="line"></span><br><span class="line">threading.Thread(target=say_hello).start()</span><br><span class="line">print(<span class="string">f&quot;Main thread daemon is <span class="subst">&#123;threading.current_thread().isDaemon()&#125;</span>&quot;</span>)</span><br><span class="line">print(<span class="string">&quot;Main thread daemon Exit.&quot;</span>)</span><br></pre></td></tr></table></figure>
 <p>结果：</p>
-<p><img src="https://yunpan.fly97.cn/fly97/images/20210426/threading02.png" /></p>
+<p><img src="https://ftp.fly97.cn/images/fly97.cn/20210426/threading02.png" /></p>
 <p>通过<code>isDaemon()</code>方法可以返回当前线程的<code>daemon</code>值，主线程默认是<code>False</code>，子线程也是<code>False</code>的原因是创建线程对象时指定了<code>daemon=False</code>.</p>
 <p>主程序在构造线程对象时就立即启动了，然后子线程返回了结果中的第一行内容，然后sleep(1)模拟IO，此时CPU发现子线程阻塞了，马上切换到主线程继续执行，主线程先后打印第二行和第三行，此时主线程的代码已经执行到结尾。</p>
 <p>因为主线程为子线程的<code>daemon</code>值设置为<code>False</code>，这时就又发生了线程切换到子线程，子线程先后执行完第四行和第五行，然后子线程就全部执行完毕，主线程看到子线程退出后，也立即退出，整个程序结束。</p>
@@ -1465,16 +1465,16 @@
 <p>当<code>daemon</code>为<code>True</code>时，父线程在执行完毕后，无论子线程是否正在运行，都会伴随父进程一起退出。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">say_hello</span>(<span class="params">delay_s=<span class="number">1</span>, time_loop=<span class="number">3</span></span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(time_loop):</span><br><span class="line">        print(<span class="string">f&quot;i = <span class="subst">&#123;i&#125;</span>, say_hello daemon is <span class="subst">&#123;threading.current_thread().isDaemon()&#125;</span>&quot;</span>)</span><br><span class="line">        time.sleep(delay_s)</span><br><span class="line"></span><br><span class="line">threading.Thread(target=say_hello, daemon=<span class="literal">True</span>).start()</span><br><span class="line">print(<span class="string">f&quot;Main thread daemon is <span class="subst">&#123;threading.current_thread().isDaemon()&#125;</span>&quot;</span>)</span><br><span class="line">print(<span class="string">&quot;Main thread daemon Exit.&quot;</span>)</span><br></pre></td></tr></table></figure>
 <p>结果：</p>
-<p><img src="https://yunpan.fly97.cn/fly97/images/20210426/threading03.png" /></p>
+<p><img src="https://ftp.fly97.cn/images/fly97.cn/20210426/threading03.png" /></p>
 <p>当daemon设置为True时，即主线程不关心子线程状态，主线程退出，子线程也必须跟着退出。</p>
 <p>运行结果中子线程就执行了一行语句，此时CPU发现子线程阻塞，线程切换到主线程，主线程执行完最后两句，就立即退出，整个程序结束。</p>
 <h6 id="daemonnone">daemon=None</h6>
 <p>daemon属性可以不设置，默认值是None。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">say_grandson_thread</span>():</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        print(<span class="string">f&quot;say_grandson_thread daemon is <span class="subst">&#123;threading.current_thread().isDaemon()&#125;</span>\n&quot;</span>)</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">say_son_thread</span>(<span class="params">time_loop=<span class="number">3</span></span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(time_loop):</span><br><span class="line">        print(<span class="string">f&quot;i = <span class="subst">&#123;i&#125;</span>, say_son_thread daemon is <span class="subst">&#123;threading.current_thread().isDaemon()&#125;</span>\n&quot;</span>)</span><br><span class="line">        threading.Thread(target=say_grandson_thread, daemon=<span class="literal">None</span>).start()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">threading.Thread(target=say_son_thread, daemon=<span class="literal">True</span>).start()</span><br><span class="line">print(<span class="string">f&quot;Main thread daemon is <span class="subst">&#123;threading.current_thread().isDaemon()&#125;</span>&quot;</span>)</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">print(<span class="string">&quot;Main thread daemon Exit.&quot;</span>)</span><br></pre></td></tr></table></figure>
 <p>运行结果：</p>
-<p><img src="https://yunpan.fly97.cn/fly97/images/20210426/threading04.png" /></p>
+<p><img src="https://ftp.fly97.cn/images/fly97.cn/20210426/threading04.png" /></p>
 <p>这里在主线程中使用了延迟1秒，来让子线程启动的子线程有机会输出其daemon属性值，如果不设置延迟，还没等到子线程的子线程启动，子线程就结束了，最终导致子线程的子线程无法启动。</p>
-<p><img src="https://yunpan.fly97.cn/fly97/images/20210426/threading05.png" /></p>
+<p><img src="https://ftp.fly97.cn/images/fly97.cn/20210426/threading05.png" /></p>
 ]]></content>
       <tags>
         <tag>Python</tag>
@@ -4306,6 +4306,7 @@ y(x,w) = \sum\limits_{j=0}^{M-1}w_j\phi_j(x) = w^T\phi(x) \tag{3.3}
     <title>零基础入门ROS(一)</title>
     <url>/p/ros-tutorial-01/</url>
     <content><![CDATA[<p>最近的小车需要用到ROS，学习的过程做个记录。</p>
+<p>此次记录的主要是软件安装过程中遇到的问题。</p>
 <a id="more"></a>
 <h3 id="ubuntu1804-换源">ubuntu1804 换源</h3>
 <p>安装好Ubuntu 1804以后首先换源：</p>
@@ -4315,13 +4316,18 @@ y(x,w) = \sum\limits_{j=0}^{M-1}w_j\phi_j(x) = w^T\phi(x) \tag{3.3}
 <p>参考 <a href="http://wiki.ros.org/cn/melodic/Installation/Ubuntu">http://wiki.ros.org/cn/melodic/Installation/Ubuntu</a></p>
 <h4 id="设置sources.list">设置sources.list</h4>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo sh -c <span class="string">&#x27;echo &quot;deb https://mirrors.aliyun.com/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span></span><br></pre></td></tr></table></figure>
+<h5 id="更新">【更新】</h5>
+<p>国科大ROS源：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo sh -c <span class="string">&#x27;echo &quot;deb https://mirrors.ustc.edu.cn/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>北外ROS源：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo sh -c <span class="string">&#x27;echo &quot;deb https://mirrors.bfsu.edu.cn/ros/ubuntu/ $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span></span><br></pre></td></tr></table></figure>
 <h4 id="设置密钥">设置密钥</h4>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-key adv --keyserver <span class="string">&#x27;hkp://keyserver.ubuntu.com:80&#x27;</span> --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654</span><br></pre></td></tr></table></figure>
 <p>另一种方式</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -sSL <span class="string">&#x27;http://keyserver.ubuntu.com/pks/lookup?op=get&amp;search=0xC1CF6E31E6BADE8868B172B4F42ED6FBAB17C654&#x27;</span> | sudo apt-key add -</span><br></pre></td></tr></table></figure>
 <h4 id="安装">安装</h4>
 <p>桌面完整版：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install ros-melodic-desktop-full -y</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt install ros-melodic-desktop-full -y</span><br></pre></td></tr></table></figure>
 <h3 id="初始化rosdep">初始化rosdep</h3>
 <p>初始化需要使用代理服务器，设置代理服务器后请修改<code>sudo</code>配置文件以传递环境变量。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo rosdep init</span><br><span class="line">rosdep update</span><br></pre></td></tr></table></figure>
@@ -4353,16 +4359,16 @@ y(x,w) = \sum\limits_{j=0}^{M-1}w_j\phi_j(x) = w^T\phi(x) \tag{3.3}
 <figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">2.8</span>)</span><br><span class="line"><span class="keyword">find_package</span>( OpenCV REQUIRED )</span><br><span class="line"><span class="keyword">include_directories</span>( <span class="variable">$&#123;OpenCV_INCLUDE_DIRS&#125;</span> )</span><br><span class="line"><span class="keyword">add_executable</span>( camera_calibration camera_calibration.cpp )</span><br><span class="line"><span class="keyword">target_link_libraries</span>( camera_calibration <span class="variable">$&#123;OpenCV_LIBS&#125;</span> )</span><br></pre></td></tr></table></figure>
 <h5 id="编译">编译</h5>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir build </span><br><span class="line">cd build </span><br><span class="line">cmake ..</span><br><span class="line">make </span><br></pre></td></tr></table></figure>
-<p><img src="https://yunpan.fly97.cn/fly97/images/20210426/calibration01.png" /></p>
+<p><img src="https://ftp.fly97.cn/images/fly97.cn/20210426/calibration01.png" /></p>
 <h5 id="修改参数">修改参数</h5>
 <p>编辑同级目录下的<code>in_VID5.xml</code>文件，根据标定靶的行数和列数来修改参数。这里的使用的标定靶一共有<strong>6</strong>行，每一行有8个内部角点。</p>
-<p><img src="https://yunpan.fly97.cn/fly97/images/20210426/calibration02.png" /></p>
-<p><img src="https://yunpan.fly97.cn/fly97/images/20210426/calibration03.png" /></p>
+<p><img src="https://ftp.fly97.cn/images/fly97.cn/20210426/calibration02.png" /></p>
+<p><img src="https://ftp.fly97.cn/images/fly97.cn/20210426/calibration03.png" /></p>
 <p>其中<code>VID5.xml</code>存放的是标定图片路径，一般图片应不少于3张，图片越多标定效果越好。</p>
-<p><img src="https://yunpan.fly97.cn/fly97/images/20210426/calibration04.png" /></p>
+<p><img src="https://ftp.fly97.cn/images/fly97.cn/20210426/calibration04.png" /></p>
 <h5 id="标定">标定</h5>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mv build&#x2F;camera_calibration .</span><br><span class="line">.&#x2F;camera_calibration .&#x2F;in_VID5.xml</span><br></pre></td></tr></table></figure>
-<p><img src="https://yunpan.fly97.cn/fly97/images/20210426/calibration05.png" /></p>
+<p><img src="https://ftp.fly97.cn/images/fly97.cn/20210426/calibration05.png" /></p>
 <p>生成的out_camera_data.xml就是标定后得到的参数文件。</p>
 <h3 id="使用视频对摄像头进行标定">使用视频对摄像头进行标定</h3>
 <h4 id="编译calibration.cpp">编译calibration.cpp</h4>
@@ -4372,15 +4378,15 @@ y(x,w) = \sum\limits_{j=0}^{M-1}w_j\phi_j(x) = w^T\phi(x) \tag{3.3}
 <figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">2.8</span>)</span><br><span class="line"><span class="keyword">find_package</span>( OpenCV REQUIRED )</span><br><span class="line"><span class="keyword">include_directories</span>( <span class="variable">$&#123;OpenCV_INCLUDE_DIRS&#125;</span> )</span><br><span class="line"><span class="keyword">add_executable</span>( calibration calibration.cpp )</span><br><span class="line"><span class="keyword">target_link_libraries</span>( calibration <span class="variable">$&#123;OpenCV_LIBS&#125;</span> )</span><br></pre></td></tr></table></figure>
 <h5 id="编译-1">编译</h5>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">cmake ..</span><br><span class="line">make </span><br></pre></td></tr></table></figure>
-<p><img src="https://yunpan.fly97.cn/fly97/images/20210426/calibration06.png" /></p>
+<p><img src="https://ftp.fly97.cn/images/fly97.cn/20210426/calibration06.png" /></p>
 <h5 id="标定-1">标定</h5>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chmod +x calibration</span><br><span class="line">.&#x2F;calibration -w&#x3D;8 -h&#x3D;6</span><br></pre></td></tr></table></figure>
 <p>这里的h指的是标定靶一共有<strong>6</strong>行，w指的是每一行有<strong>8</strong>个内部角点。</p>
 <p>按g键开始标定。</p>
-<p><img src="https://yunpan.fly97.cn/fly97/images/20210426/calibration07.png" /></p>
+<p><img src="https://ftp.fly97.cn/images/fly97.cn/20210426/calibration07.png" /></p>
 <p>标定完毕。</p>
-<p><img src="https://yunpan.fly97.cn/fly97/images/20210426/calibration08.png" /></p>
-<p><img src="https://yunpan.fly97.cn/fly97/images/20210426/calibration09.png" /></p>
+<p><img src="https://ftp.fly97.cn/images/fly97.cn/20210426/calibration08.png" /></p>
+<p><img src="https://ftp.fly97.cn/images/fly97.cn/20210426/calibration09.png" /></p>
 ]]></content>
       <tags>
         <tag>ROS</tag>
