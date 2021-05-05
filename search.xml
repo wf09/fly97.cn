@@ -1835,6 +1835,15 @@
       </tags>
   </entry>
   <entry>
+    <title>Python纯虚函数</title>
+    <url>/p/how-to-use-python-abstractmethod/</url>
+    <content><![CDATA[
+]]></content>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ROS系统学习小记(一)</title>
     <url>/p/ROS-system-learning-notes-01/</url>
     <content><![CDATA[<p><strong>概述：</strong>以下是作者与2020年9月23日起在浙江理工大学读研究生一年级时研究ROS实时系统时的笔记。希望能帮到你。</p>
