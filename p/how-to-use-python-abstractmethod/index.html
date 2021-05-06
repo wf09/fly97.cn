@@ -25,15 +25,18 @@
     var CONFIG = {"hostname":"www.fly97.cn","root":"/","scheme":"Mist","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="Python纯虚函数">
+  <meta name="description" content="聊聊Python的装饰器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="理解Python">
 <meta property="og:url" content="https://www.fly97.cn/p/how-to-use-python-abstractmethod/index.html">
 <meta property="og:site_name" content="个人随想">
+<meta property="og:description" content="聊聊Python的装饰器">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-05-05T07:45:00.000Z">
 <meta property="article:modified_time" content="2021-05-05T07:45:00.000Z">
 <meta property="article:author" content="个人随想">
 <meta property="article:tag" content="Python">
+<meta property="article:tag" content="abstractmethod">
 <meta name="twitter:card" content="summary">
 
 
@@ -50,7 +53,7 @@
   };
 </script>
 
-  <title>Python纯虚函数 | 个人随想</title>
+  <title>理解Python | 个人随想</title>
   
 
 
@@ -238,14 +241,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">73</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">58</span>
+        <span class="site-state-item-count">59</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -317,7 +320,7 @@
     
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Python纯虚函数
+          理解Python
         </h1>
 
         <div class="post-meta-container">
@@ -341,7 +344,18 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        
+        <p>聊聊Python的装饰器</p>
+<a id="more"></a>
+<p>谈装饰器之前，首先要明白一件事，Python中的函数和Java，C++不太一样，Python中的函数可以通过普通变量一样当作参数传入另一个参数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span>():</span></span><br><span class="line">	print(<span class="string">&quot;foo&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bar</span>(<span class="params">func</span>):</span></span><br><span class="line">	func()</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">	bar(foo)</span><br></pre></td></tr></table></figure>
+<p>装饰器本质上是一个Pythob函数或者类，它可以让其他函数或类在不需要做任何代码修改的前提下增加额外功能，装饰器的返回值也是一个函数/类对象。他经常用于有切面需求的场景，比如：插入日志，性能测试，事务处理，缓存，权限校验等场景，装饰器是解决这类问题的绝佳设计。有了装饰器，我们就可以抽离出大量与函数功能本身无关的雷同代码到装饰器继续重用。</p>
+<p>一句话，<strong>装饰器就是为已经存在的对象添加额外的功能</strong>。</p>
+<p>一个简单例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span>():</span></span><br><span class="line">	print(<span class="string">&#x27;i am foo&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>现在有一个新需求，希望可以记录下函数的执行日志，于是在函数中添加日志代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span>():</span></span><br><span class="line">	print(<span class="string">&#x27;i am foo&#x27;</span>)</span><br><span class="line">	logging.info(<span class="string">&quot;foo is runing&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>如果函数bar()，bar()也有类似的需求，怎么做？再写一个logging日志在bar函数里？这样就造成了大量雷同代码，为了减少业务量，我们需要重新定义一个新的函数，专门处理日志，日志处理完再执行真正的业务代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">use_logging</span>(<span class="params">func</span>):</span></span><br><span class="line">	logging.warn(<span class="string">&quot;%s is running&quot;</span> % func.__name__)</span><br><span class="line">	func()</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span>():</span></span><br><span class="line">	print(<span class="string">&#x27;i am foo&#x27;</span>)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;main&#x27;</span>:</span><br><span class="line">    use_logging(foo)</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -352,6 +366,7 @@
     <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/abstractmethod/" rel="tag"># abstractmethod</a>
           </div>
 
         
@@ -363,6 +378,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/p/how-to-use-python-abstractmethod/" rel="next" title="Python装饰器abstractmethod">
+                  Python装饰器abstractmethod <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
