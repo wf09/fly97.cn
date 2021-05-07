@@ -25,23 +25,26 @@
     var CONFIG = {"hostname":"www.fly97.cn","root":"/","scheme":"Mist","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="image-20210507140051375">
+  <meta name="description" content="利用Jetson Xavier和传感器模块进行串口通信">
 <meta property="og:type" content="article">
-<meta property="og:title" content="测试文档">
-<meta property="og:url" content="https://www.fly97.cn/p/test01/index.html">
+<meta property="og:title" content="Jetson Xavier nx实现串口通信">
+<meta property="og:url" content="https://www.fly97.cn/p/serial-communication-on-jetson-xavier-nx/index.html">
 <meta property="og:site_name" content="个人随想">
-<meta property="og:description" content="image-20210507140051375">
+<meta property="og:description" content="利用Jetson Xavier和传感器模块进行串口通信">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.fly97.cn/images/image-20210507140051375.png">
-<meta property="article:published_time" content="2021-05-07T02:00:00.000Z">
-<meta property="article:modified_time" content="2021-05-07T02:00:00.000Z">
+<meta property="og:image" content="https://www.fly97.cn/images/jetson_data_sheet.png">
+<meta property="og:image" content="https://www.fly97.cn/images/jetson_xavier_nx.jpg">
+<meta property="og:image" content="https://www.fly97.cn/images/uart_demo.png">
+<meta property="article:published_time" content="2021-05-07T06:09:00.000Z">
+<meta property="article:modified_time" content="2021-05-07T06:09:00.000Z">
 <meta property="article:author" content="个人随想">
-<meta property="article:tag" content="个人随想">
+<meta property="article:tag" content="Jetson">
+<meta property="article:tag" content="CUDA">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.fly97.cn/images/image-20210507140051375.png">
+<meta name="twitter:image" content="https://www.fly97.cn/images/jetson_data_sheet.png">
 
 
-<link rel="canonical" href="https://www.fly97.cn/p/test01/">
+<link rel="canonical" href="https://www.fly97.cn/p/serial-communication-on-jetson-xavier-nx/">
 
 
 <script class="page-configurations">
@@ -54,7 +57,7 @@
   };
 </script>
 
-  <title>测试文档 | 个人随想</title>
+  <title>Jetson Xavier nx实现串口通信 | 个人随想</title>
   
 
 
@@ -217,7 +220,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -229,6 +232,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.</span> <span class="nav-text">硬件连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">相关代码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E7%9B%B8%E5%85%B3%E4%BE%9D%E8%B5%96"><span class="nav-number">2.1.</span> <span class="nav-text">安装相关依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81"><span class="nav-number">2.2.</span> <span class="nav-text">测试代码</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -249,7 +253,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-count">64</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -305,7 +309,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.fly97.cn/p/test01/">
+    <link itemprop="mainEntityOfPage" href="https://www.fly97.cn/p/serial-communication-on-jetson-xavier-nx/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -321,7 +325,7 @@
     
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          测试文档
+          Jetson Xavier nx实现串口通信
         </h1>
 
         <div class="post-meta-container">
@@ -332,7 +336,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2021-05-07 10:00:00" itemprop="dateCreated datePublished" datetime="2021-05-07T10:00:00+08:00">2021-05-07</time>
+      <time title="创建时间：2021-05-07 14:09:00" itemprop="dateCreated datePublished" datetime="2021-05-07T14:09:00+08:00">2021-05-07</time>
     </span>
 
   
@@ -345,9 +349,26 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <figure>
-<img src="/images/image-20210507140051375.png" alt="image-20210507140051375" /><figcaption>image-20210507140051375</figcaption>
-</figure>
+        <p>利用Jetson Xavier和传感器模块进行串口通信</p>
+<a id="more"></a>
+<h3 id="硬件连接">硬件连接</h3>
+<p>默认情况下，Jetson Xavier NX分配I2C和UART引脚，所有其他引脚（电源和接地除外）均分配为GPIO，建议使用下面标有其他功能的引脚。</p>
+<p>这里我们用的是UART1，设备地址<code>/dev/ttyTHS0</code>.</p>
+<p><img src="/images/jetson_data_sheet.png" /></p>
+<p>其中，第8和10引脚就是我们需要的TXD和RXD引脚。</p>
+<p><img src="/images/jetson_xavier_nx.jpg" /></p>
+<p><strong>注意：和电脑连接调试时需要注意，USB转TTL的RXD引脚需和板子的TXD引脚连接，USB转TTL的TXD引脚需和板子的RXD引脚相连。两者的GND引脚也要连起来。</strong></p>
+<h3 id="相关代码">相关代码</h3>
+<h4 id="安装相关依赖">安装相关依赖</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install pyserial</span><br></pre></td></tr></table></figure>
+<h4 id="测试代码">测试代码</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> serial</span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;UART Demonstration Program&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">serial_port = serial.Serial(</span><br><span class="line">    port=<span class="string">&quot;/dev/ttyTHS1&quot;</span>,                                      <span class="comment">#串口设备地址</span></span><br><span class="line">    baudrate=<span class="number">115200</span>,                                          <span class="comment">#信号波特率</span></span><br><span class="line">    bytesize=serial.EIGHTBITS,                                <span class="comment">#数据位</span></span><br><span class="line">    parity=serial.PARITY_NONE,  						    <span class="comment">#是否启用奇偶校验</span></span><br><span class="line">    stopbits=serial.STOPBITS_ONE,                             <span class="comment">#停止位</span></span><br><span class="line">)</span><br><span class="line"><span class="comment"># Wait a second to let the port initialize</span></span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment"># Send a simple header</span></span><br><span class="line">    serial_port.write(<span class="string">&quot;UART Demonstration Program\r\n&quot;</span>.encode())</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">if</span> serial_port.inWaiting() &gt; <span class="number">0</span>:</span><br><span class="line">            data = serial_port.read()</span><br><span class="line">            print(data)</span><br><span class="line">            serial_port.write(data)</span><br><span class="line">            <span class="comment"># if we get a carriage return, add a line feed too</span></span><br><span class="line">            <span class="comment"># \r is a carriage return; \n is a line feed</span></span><br><span class="line">            <span class="comment"># This is to help the tty program on the other end </span></span><br><span class="line">            <span class="comment"># Windows is \r\n for carriage return, line feed</span></span><br><span class="line">            <span class="comment"># Macintosh and Linux use \n</span></span><br><span class="line">            <span class="keyword">if</span> data == <span class="string">&quot;\r&quot;</span>.encode():</span><br><span class="line">                <span class="comment"># For Windows boxen on the other end</span></span><br><span class="line">                serial_port.write(<span class="string">&quot;\n&quot;</span>.encode())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">    print(<span class="string">&quot;Exiting Program&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> exception_error:</span><br><span class="line">    print(<span class="string">&quot;Error occurred. Exiting Program&quot;</span>)</span><br><span class="line">    print(<span class="string">&quot;Error: &quot;</span> + str(exception_error))</span><br><span class="line"></span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    serial_port.close()</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/uart_demo.png" /></p>
+<p>参考资料：</p>
+<p>https://www.jetsonhacks.com/2019/10/10/jetson-nano-uart/</p>
+<p>https://github.com/JetsonHacksNano/UARTDemo</p>
+<p>https://github.com/pyserial/pyserial</p>
+<p>​</p>
 
     </div>
 
@@ -356,19 +377,20 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Jetson/" rel="tag"># Jetson</a>
+              <a href="/tags/CUDA/" rel="tag"># CUDA</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/p/how-to-customize-headers-for-python-requests/" rel="prev" title="Python3 requests如何定制header">
-                  <i class="fa fa-chevron-left"></i> Python3 requests如何定制header
+                <a href="/p/how-to-use-requests-in-python/" rel="prev" title="Python3中decode和encode的区别">
+                  <i class="fa fa-chevron-left"></i> Python3中decode和encode的区别
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/p/how-to-use-re-in-python/" rel="next" title="Python3中的正则表达式">
-                  Python3中的正则表达式 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
