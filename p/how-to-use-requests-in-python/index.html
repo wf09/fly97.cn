@@ -229,7 +229,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#decode%E5%92%8Cencode%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.</span> <span class="nav-text">decode和encode的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#section"><span class="nav-number">2.</span> <span class="nav-text"></span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#decode%E5%92%8Cencode%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.</span> <span class="nav-text">decode和encode的区别</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -351,10 +351,8 @@
 <h3 id="decode和encode的区别">decode和encode的区别</h3>
 <p>字符串编码常用类型：utf-8,gb2312,cp936,gbk等。</p>
 <p>Python3中，取消了unicode类型，代替它的是使用unicode字符的字符串类型(str)，字符串类型(str)成为了基础类型，编码后的类型成为了字节类型(bytes)</p>
-<p>​ decode encode</p>
-<p>bytes--------------&gt;str------------&gt;bytes</p>
+<p>bytes----(decode)----&gt;str-----(encode)-----&gt;bytes</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">u = <span class="string">&#x27;中文&#x27;</span>                 <span class="comment">#指定字符串类型对象u</span></span><br><span class="line">s = u.encode(<span class="string">&#x27;gb2312&#x27;</span>)     <span class="comment">#以gb2312编码对u进行编码, 获得bytes类型对象s</span></span><br><span class="line">u1 = s.decode(<span class="string">&#x27;gb2312&#x27;</span>)    <span class="comment">#以gb2312编码对s进行解码, 获得str类型对象u</span></span><br><span class="line">u2 = s.decode(<span class="string">&#x27;utf-8&#x27;</span>)     <span class="comment">#以utf-8编码对s进行解码, 将无法获得还原原来的字符串内容</span></span><br></pre></td></tr></table></figure>
-<h3 id="section"></h3>
 
     </div>
 
