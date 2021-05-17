@@ -246,7 +246,200 @@
     <url>/p/Git-common-operations/</url>
     <content><![CDATA[<p>不说废话，上教程。</p>
 <a id="more"></a>
-<h4 id="在本地目录下关联远程repository">在本地目录下关联远程repository ：</h4>
+<figure>
+<img src="C:\Users\wf09\Pictures\Saved%20Pictures\bg2015120901.png" alt="bg2015120901" /><figcaption>bg2015120901</figcaption>
+</figure>
+<p>几个专用名称的译名如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Workspace: 工作区</span><br><span class="line">Index &#x2F; Stage: 暂存区</span><br><span class="line">Repository: 仓库区(或本地仓库)</span><br><span class="line">Remote: 远程仓库</span><br></pre></td></tr></table></figure>
+<h3 id="新建代码库">新建代码库</h3>
+<h4 id="在当前目录新建一个git代码库">在当前目录新建一个Git代码库</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<h4 id="新建一个目录并将其初始化为git代码库">新建一个目录，并将其初始化为Git代码库</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git init [project-name]</span><br></pre></td></tr></table></figure>
+<h4 id="下载一个项目和它的整个代码历史">下载一个项目和它的整个代码历史</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> [url]</span><br></pre></td></tr></table></figure>
+<h3 id="配置">配置</h3>
+<p>Git的设置文件为<code>.gitconfig</code>,它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。</p>
+<h4 id="显示当前的git配置">显示当前的git配置</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --list</span><br></pre></td></tr></table></figure>
+<h4 id="编辑git配置文件">编辑Git配置文件</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config -e [--global]</span><br></pre></td></tr></table></figure>
+<h4 id="设置提交的代码时的用户信息">设置提交的代码时的用户信息</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config [--global] user.name <span class="string">&quot;[name]&quot;</span></span><br><span class="line">git config [--global] user.email <span class="string">&quot;[email address]&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="增加删除文件">增加删除文件</h3>
+<h4 id="添加指定文件到暂存区">添加指定文件到暂存区</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add [file1] [file2]</span><br></pre></td></tr></table></figure>
+<h4 id="添加指定目录到暂存区">添加指定目录到暂存区</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add [file1] [file2]</span><br></pre></td></tr></table></figure>
+<h4 id="添加当前目录的所有文件到暂存区">添加当前目录的所有文件到暂存区</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
+<h4 id="添加每个变化前都会要求确认">添加每个变化前，都会要求确认</h4>
+<p>对于同一个文件的多处变化，可以实现多次提交</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add -p</span><br></pre></td></tr></table></figure>
+<h4 id="删除工作区文件并将这次删除放入暂存区">删除工作区文件，并将这次删除放入暂存区</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git rm [file1] [file2]</span><br></pre></td></tr></table></figure>
+<h4 id="从暂存区撤销这次删除的文件工作区文件不改变">从暂存区撤销这次删除的文件，工作区文件不改变</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git restore --staged [file]</span><br></pre></td></tr></table></figure>
+<h4 id="恢复工作区删除的文件">恢复工作区删除的文件</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git restore [file]</span><br></pre></td></tr></table></figure>
+<h4 id="停止追踪指定文件但该文件会保留在工作区">停止追踪指定文件，但该文件会保留在工作区</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git rm --cached [file]</span><br></pre></td></tr></table></figure>
+<h4 id="改名文件并将这个改名放入暂存区">改名文件，并将这个改名放入暂存区</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git mv [file-original] [file-renamed]</span><br></pre></td></tr></table></figure>
+<h3 id="代码提交">代码提交</h3>
+<h4 id="提交暂存区到仓库区">提交暂存区到仓库区</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git commit -m [message]</span><br></pre></td></tr></table></figure>
+<h4 id="提交暂存区的指定文件到仓库区">提交暂存区的指定文件到仓库区</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git commit [file1] [file2] ... -m [message]</span><br></pre></td></tr></table></figure>
+<h4 id="提交工作区自上次commit之后的变化直接到仓库区">提交工作区自上次commit之后的变化，直接到仓库区</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git commit -a</span><br></pre></td></tr></table></figure>
+<h4 id="提交时显示所有diff信息">提交时显示所有diff信息</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git commit -v </span><br></pre></td></tr></table></figure>
+<h4 id="使用一次新的commit替代上一次提交">使用一次新的commit，替代上一次提交</h4>
+<p>如果代码没有任何新变化，则用来改写上一次commit的提交信息</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git commit --amend -m [message]</span><br></pre></td></tr></table></figure>
+<h4 id="重做上一次commit并包括指定文件的新变化">重做上一次commit，并包括指定文件的新变化</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git commit --amend [file1] [file2]</span><br></pre></td></tr></table></figure>
+<h4 id="提交一个空的commit">提交一个空的commit</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git commit --allow-empty -m [message]</span><br></pre></td></tr></table></figure>
+<h3 id="分支">分支</h3>
+<h4 id="列出所有本地分支">列出所有本地分支</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
+<h4 id="列出所有远程分支">列出所有远程分支</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git branch -r</span><br></pre></td></tr></table></figure>
+<h4 id="列出所有本地分支和远程分支">列出所有本地分支和远程分支</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git branch -a</span><br></pre></td></tr></table></figure>
+<h4 id="新建一个分支但依然停留在当前分支">新建一个分支，但依然停留在当前分支</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git checkout -b [branch-name]</span><br></pre></td></tr></table></figure>
+<h4 id="新建一个分支并切换到这个分支">新建一个分支，并切换到这个分支</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git checkout -b [branch]</span><br></pre></td></tr></table></figure>
+<h4 id="新建一个分支指向指定commit">新建一个分支，指向指定commit</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git checkout -b [commit]</span><br></pre></td></tr></table></figure>
+<h4 id="新建一个分支与指定的远程分支建立追踪关系">新建一个分支，与指定的远程分支建立追踪关系</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git branch --track [branch] [remote-branch]</span><br></pre></td></tr></table></figure>
+<h4 id="切换到指定分支并更新工作区">切换到指定分支，并更新工作区</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git checkout [branch-name]</span><br></pre></td></tr></table></figure>
+<h4 id="切换到上一个分支">切换到上一个分支</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git checkout -</span><br></pre></td></tr></table></figure>
+<h4 id="建立追踪关系在现有分支与指定分支之间">建立追踪关系，在现有分支与指定分支之间</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git branch --set-upstream [branch] [remote-branch]</span><br></pre></td></tr></table></figure>
+<h4 id="合并指定分支到当前分支">合并指定分支到当前分支</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git merge [branch]</span><br></pre></td></tr></table></figure>
+<h4 id="选择一个commit合并进当前分支">选择一个commit，合并进当前分支</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git cherry-pick [commit]</span><br></pre></td></tr></table></figure>
+<h4 id="删除分支">删除分支</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git branch -d [branch-name]</span><br></pre></td></tr></table></figure>
+<h4 id="删除远程分支">删除远程分支</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git push origin --delete [branch-name]</span><br><span class="line">git branch -dr [remote/branch]</span><br></pre></td></tr></table></figure>
+<h3 id="标签">标签</h3>
+<h4 id="列出所有tag">列出所有tag</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git tag</span><br></pre></td></tr></table></figure>
+<h4 id="新建一个tag在当前commit">新建一个tag在当前commit</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git tag [tag]</span><br></pre></td></tr></table></figure>
+<h4 id="新建一个tag在指定commit">新建一个tag在指定commit</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git tag [tag] [commit]</span><br></pre></td></tr></table></figure>
+<h4 id="删除本地tag">删除本地tag</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git tag -d [tag]</span><br></pre></td></tr></table></figure>
+<h4 id="删除远程tag">删除远程tag</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git push origin :refs/tags/[tagName]</span><br></pre></td></tr></table></figure>
+<h4 id="查看tag信息">查看tag信息</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git show [tag]</span><br></pre></td></tr></table></figure>
+<h4 id="提交指定tag">提交指定tag</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git push [remote] [tag]</span><br></pre></td></tr></table></figure>
+<h4 id="提交所有tag">提交所有tag</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git push [remote] --tags</span><br></pre></td></tr></table></figure>
+<h4 id="新建一个分支指向某个tag">新建一个分支，指向某个tag</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git checkout -b [branch] [tag]</span><br></pre></td></tr></table></figure>
+<h3 id="查看信息">查看信息</h3>
+<h4 id="显示有变更的文件">显示有变更的文件</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+<h4 id="显示当前分支的版本历史">显示当前分支的版本历史</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+<h4 id="查看日志点线图">查看日志点线图</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span> --oneline --graph</span><br></pre></td></tr></table></figure>
+<h4 id="查找某个人的commit">查找某个人的commit</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span> --oneline --author=[username]</span><br></pre></td></tr></table></figure>
+<h4 id="显示commit历史以及每次commit发生变更的文件">显示commit历史，以及每次commit发生变更的文件</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span> --<span class="built_in">stat</span></span><br></pre></td></tr></table></figure>
+<h4 id="查找commit信息中是否含有某些关键字">查找commit信息中是否含有某些关键字</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span> --oneline --grep=[keyword]</span><br></pre></td></tr></table></figure>
+<h4 id="查找某一时间段的commit">查找某一时间段的commit</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span> --oneline --since=<span class="string">&quot;1pm&quot;</span> --until=<span class="string">&quot;4pm&quot;</span> --after=<span class="string">&quot;2021-05&quot;</span></span><br></pre></td></tr></table></figure>
+<h4 id="搜索提交历史根据关键词">搜索提交历史，根据关键词</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span> -S [keyword]</span><br></pre></td></tr></table></figure>
+<h4 id="显示某个commit之后的所有变动其提交说明必须符合搜索条件">显示某个commit之后的所有变动，其"提交说明"必须符合搜索条件</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span> [tag] HEAD --grap feature</span><br></pre></td></tr></table></figure>
+<h4 id="显示某个文件的版本历史包括文件改名">显示某个文件的版本历史，包括文件改名</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span> --follow [file]</span><br><span class="line">git whatchanged [file]</span><br></pre></td></tr></table></figure>
+<h4 id="显示指定文件夹的每一次diff">显示指定文件夹的每一次diff</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span> -p [file]</span><br></pre></td></tr></table></figure>
+<h4 id="显示过去五次提交">显示过去五次提交</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span> -5 --pretty --oneline</span><br></pre></td></tr></table></figure>
+<h4 id="显示所有提交过的用户按提交次数排序">显示所有提交过的用户，按提交次数排序</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git shortlog -sn</span><br></pre></td></tr></table></figure>
+<h4 id="显示指定文件是什么人在什么时间修改过">显示指定文件是什么人在什么时间修改过</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git blame [file]</span><br></pre></td></tr></table></figure>
+<h4 id="显示暂存区和工作区的差异">显示暂存区和工作区的差异</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git diff </span><br></pre></td></tr></table></figure>
+<h4 id="显示暂存区和上一个commit的差异">显示暂存区和上一个commit的差异</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git diff --cached [file]</span><br></pre></td></tr></table></figure>
+<h4 id="显示工作区与当前分支最新commit之间的差异">显示工作区与当前分支最新commit之间的差异</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git diff HEAD</span><br></pre></td></tr></table></figure>
+<h4 id="显示两次提交之间的差异">显示两次提交之间的差异</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git diff [first-branch]...[second-branch]</span><br></pre></td></tr></table></figure>
+<h4 id="显示今天你写了多少行代码">显示今天你写了多少行代码</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git diff --shortstat <span class="string">&quot;@&#123;0 day ago&#125;&quot;</span></span><br></pre></td></tr></table></figure>
+<h4 id="显示某次提交的元数据和内容变化">显示某次提交的元数据和内容变化</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git show [commit]</span><br></pre></td></tr></table></figure>
+<h4 id="显示某次提交发生变化的文件">显示某次提交发生变化的文件</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git show --name-only [commit]</span><br></pre></td></tr></table></figure>
+<h4 id="显示某次提交时某个文件的内容">显示某次提交时，某个文件的内容</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git show [commit]:[filename]</span><br></pre></td></tr></table></figure>
+<h4 id="显示当前分支的最近的几次提交">显示当前分支的最近的几次提交</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reflog</span><br></pre></td></tr></table></figure>
+<h3 id="远程同步">远程同步</h3>
+<h4 id="下载远程仓库的所有变动">下载远程仓库的所有变动</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git fetch [remote]</span><br></pre></td></tr></table></figure>
+<h4 id="显示所有远程仓库">显示所有远程仓库</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+<h4 id="显示某个远程仓库的信息">显示某个远程仓库的信息</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote show [remote]</span><br></pre></td></tr></table></figure>
+<h4 id="增加一个新的远程仓库并命名">增加一个新的远程仓库，并命名</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add [shortname] [url]</span><br></pre></td></tr></table></figure>
+<h4 id="取回远程仓库的变化并于本地分支合并">取回远程仓库的变化，并于本地分支合并</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git pull [remote] [branch]</span><br></pre></td></tr></table></figure>
+<h4 id="上传本地指定分支到远程仓库">上传本地指定分支到远程仓库</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git push [remote] [branch]</span><br></pre></td></tr></table></figure>
+<h4 id="强行推送当前分支到远程仓库即使有冲突">强行推送当前分支到远程仓库，即使有冲突</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git push [remote] --force</span><br></pre></td></tr></table></figure>
+<h4 id="推送所有分支到远程仓库">推送所有分支到远程仓库</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git push [remote] --all</span><br></pre></td></tr></table></figure>
+<h3 id="撤销">撤销</h3>
+<h4 id="恢复暂存区的指定文件到工作区">恢复暂存区的指定文件到工作区</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git checkout [file]</span><br></pre></td></tr></table></figure>
+<h4 id="恢复某个commit的指定文件到暂存区和工作区">恢复某个commit的指定文件到暂存区和工作区</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git checkout [commit] [file]</span><br></pre></td></tr></table></figure>
+<h4 id="恢复暂存区的所有文件到工作区">恢复暂存区的所有文件到工作区</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git checkout .</span><br></pre></td></tr></table></figure>
+<h4 id="重置暂存区的指定文件与上一次commit保持一致但是工作区不变">重置暂存区的指定文件，与上一次commit保持一致，但是工作区不变</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset [file]</span><br></pre></td></tr></table></figure>
+<h4 id="重置暂存区与工作区与上一次commit保持一致">重置暂存区与工作区，与上一次commit保持一致</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --hard</span><br></pre></td></tr></table></figure>
+<h4 id="重置当前分支的head为指定commit同时重置暂存区但工作区保持不变">重置当前分支的HEAD为指定commit，同时重置暂存区，但工作区保持不变</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset [commit]</span><br></pre></td></tr></table></figure>
+<h4 id="重置当前分支的head为指定commit同时重置暂存区和工作区与指定commit一致">重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --hard [commit]</span><br></pre></td></tr></table></figure>
+<h4 id="重置当前分支的head为指定commit但工作区和暂存区保持不变">重置当前分支的HEAD为指定commit，但工作区和暂存区保持不变</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --keep [commit]</span><br></pre></td></tr></table></figure>
+<h4 id="新建一个commit用来撤销指定commit">新建一个commit，用来撤销指定commit</h4>
+<p>后者的所有变化都被前者抵消，并且应用到当前分支</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git revert commit</span><br></pre></td></tr></table></figure>
+<h4 id="暂时将为提交的变化移除稍后再移入">暂时将为提交的变化移除，稍后再移入</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git stash </span><br><span class="line">git stash pop</span><br></pre></td></tr></table></figure>
+<h3 id="其他">其他</h3>
+<h4 id="生成一个可供发布的压缩包">生成一个可供发布的压缩包</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git archive</span><br></pre></td></tr></table></figure>
+<h4 id="在本地目录下关联远程仓库">在本地目录下关联远程仓库</h4>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin git@github.com:git_username/repository_name.git</span><br></pre></td></tr></table></figure>
 <h4 id="取消本地目录下关联的远程库">取消本地目录下关联的远程库：</h4>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote remove origin</span><br></pre></td></tr></table></figure>
@@ -1575,6 +1768,17 @@
 ]]></content>
       <tags>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记一次重装系统</title>
+    <url>/p/an-experience-of-reinstalling-win10/</url>
+    <content><![CDATA[<p>本文主要介绍了如何使用U盘进行重装系统，主要面向电脑小白用户。</p>
+<p><strong>关键字</strong>：重装win10，电脑重装</p>
+<a id="more"></a>
+]]></content>
+      <tags>
+        <tag>教程</tag>
       </tags>
   </entry>
   <entry>
