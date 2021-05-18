@@ -246,9 +246,7 @@
     <url>/p/Git-common-operations/</url>
     <content><![CDATA[<p>不说废话，上教程。</p>
 <a id="more"></a>
-<figure>
-<img src="C:\Users\wf09\Pictures\Saved%20Pictures\bg2015120901.png" alt="bg2015120901" /><figcaption>bg2015120901</figcaption>
-</figure>
+<p><img src="https://ftp.fly97.cn/blog/images/20210518/git.png" /></p>
 <p>几个专用名称的译名如下：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Workspace: 工作区</span><br><span class="line">Index &#x2F; Stage: 暂存区</span><br><span class="line">Repository: 仓库区(或本地仓库)</span><br><span class="line">Remote: 远程仓库</span><br></pre></td></tr></table></figure>
 <h3 id="新建代码库">新建代码库</h3>
@@ -276,6 +274,9 @@
 <h4 id="添加每个变化前都会要求确认">添加每个变化前，都会要求确认</h4>
 <p>对于同一个文件的多处变化，可以实现多次提交</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add -p</span><br></pre></td></tr></table></figure>
+<p>将文件添加到暂存区后，使用<code>git status</code>命令查看。</p>
+<p>若文件出现在<code>Changes to be committed</code>这行下面，说明文件已经被放到暂存区。</p>
+<p>若文件出现在<code>Changes not staged for commit</code>这行下面，说明已跟踪文件内容发生了变化，但还没有放到暂存区。</p>
 <h4 id="删除工作区文件并将这次删除放入暂存区">删除工作区文件，并将这次删除放入暂存区</h4>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git rm [file1] [file2]</span><br></pre></td></tr></table></figure>
 <h4 id="从暂存区撤销这次删除的文件工作区文件不改变">从暂存区撤销这次删除的文件，工作区文件不改变</h4>
@@ -353,6 +354,9 @@
 <h3 id="查看信息">查看信息</h3>
 <h4 id="显示有变更的文件">显示有变更的文件</h4>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+<h4 id="以简洁的方式查看更改">以简洁的方式查看更改</h4>
+<p>新添加的未跟踪文件有？？标记，新添加到暂存区中的文件有A标记，修改过的文件前面有M标记。修改过，暂存后又做了修改的文件前面有MM标记。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git status -S</span><br></pre></td></tr></table></figure>
 <h4 id="显示当前分支的版本历史">显示当前分支的版本历史</h4>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
 <h4 id="查看日志点线图">查看日志点线图</h4>
@@ -380,9 +384,11 @@
 <h4 id="显示指定文件是什么人在什么时间修改过">显示指定文件是什么人在什么时间修改过</h4>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git blame [file]</span><br></pre></td></tr></table></figure>
 <h4 id="显示暂存区和工作区的差异">显示暂存区和工作区的差异</h4>
+<p>此命令比较的是工作目录（workspace）中当前文件和暂存区域（staged）快照之间的差异。也就是修改之后还没有暂存起来的变化内容。</p>
+<p><code>git diff</code>本身只显示<em>尚未暂存的改动</em>，而不是自上次提交以来所做的所有改动，所以有时候一下子暂存了所有更新过的文件，运行<code>git diff</code>后却什么也没有，就是这个原因。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git diff </span><br></pre></td></tr></table></figure>
 <h4 id="显示暂存区和上一个commit的差异">显示暂存区和上一个commit的差异</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git diff --cached [file]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git diff --cached [file]</span><br><span class="line"><span class="comment">#git diff --staged [file]   #用法相同</span></span><br></pre></td></tr></table></figure>
 <h4 id="显示工作区与当前分支最新commit之间的差异">显示工作区与当前分支最新commit之间的差异</h4>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git diff HEAD</span><br></pre></td></tr></table></figure>
 <h4 id="显示两次提交之间的差异">显示两次提交之间的差异</h4>
@@ -459,6 +465,30 @@
 <p>tag就像是一个里程碑一个标志一个点，branch是一个新的征程一条线；</p>
 <p>tag就是一个只读的branch，一般为每一个可发布的里程碑版本打一个tag。</p>
 <p>tag就是给commit的hash校验和取的一个名字，比较直观，方便记忆和使用，和branch不是一个维度，点与线的区别.</p>
+<h4 id="文件的变化周期">文件的变化周期</h4>
+<p><img src="https://ftp.fly97.cn/blog/images/20210518/file_change_stage.png" /></p>
+<h4 id="gitignore-编写">.gitignore 编写</h4>
+<p>规范：</p>
+<ol type="1">
+<li>所有空行或者以#开头的行都会被Git忽略。</li>
+<li>可以应用标准的glob模式匹配，他回递归地应用在整个工作区中。</li>
+<li>匹配模式可以以/开头放在递归。</li>
+<li>匹配模式可以以/开头结尾指定目录。</li>
+<li>要忽略指定模式以外的文件或者目录，可以在模式前面加上<code>!</code>叹号取反。</li>
+</ol>
+<h5 id="glob模式">glob模式</h5>
+<p>glob模式是指shell所使用的简化了的正则表达式。</p>
+<ul>
+<li>星号(*)匹配零个或多个任意字符；</li>
+<li>[abc]匹配任何一个序列在方括号中的字符（要么匹配一个a，要么匹配一个b，要么匹配一个c）；</li>
+<li>问号(?)只匹配一个任意字符；</li>
+<li>在方括号中使用短划线分割两个字符，表示所有在这两个字符范围内的都可以匹配（比如【0-9】表示匹配所有0到9的数字）；</li>
+<li>使用两个星号(**)表示匹配任意中间目录，比如<code>a/**/z</code>可以匹配<code>a/z</code>、<code>a/b/z</code>、或<code>a/b/c/z</code>等。</li>
+</ul>
+<h5 id="gitignore例子">.gitignore例子</h5>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 忽略所有的.a文件</span><br><span class="line">*.a</span><br><span class="line"></span><br><span class="line"># 但跟踪所有的lib.a, 即使你在前面忽略了.a文件</span><br><span class="line">!lib.a</span><br><span class="line"></span><br><span class="line"># 只忽略当前目录的TODO文件，而不忽略subdir&#x2F;TODO</span><br><span class="line">&#x2F;TODO</span><br><span class="line"></span><br><span class="line"># 忽略任何目录下名下为build的文件夹</span><br><span class="line">build&#x2F;</span><br><span class="line"></span><br><span class="line"># 忽略 doc&#x2F;notes.txt, 但不忽略 doc&#x2F;server&#x2F;arch.txt</span><br><span class="line">doc&#x2F;*.txt</span><br><span class="line"></span><br><span class="line"># 忽略 doc&#x2F; 目录以及所有子目录下的 .pdf文件</span><br><span class="line">doc&#x2F;**&#x2F;*.pdf</span><br></pre></td></tr></table></figure>
+<p>具体文件的编写可以参考：https://github.com/github/gitignore</p>
+<p>一个仓库可以只有根目录下有一个.gitignore文件，它递归地应用到整个仓库。子目录下也可以有额外的.gitignore文件，这只作用于它所在的目录。</p>
 ]]></content>
       <tags>
         <tag>git</tag>
