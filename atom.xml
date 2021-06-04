@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>个人随想</title>
+  <title>2021.cyou</title>
   
   
-  <link href="https://www.fly97.cn/atom.xml" rel="self"/>
+  <link href="https://2021.cyou/atom.xml" rel="self"/>
   
-  <link href="https://www.fly97.cn/"/>
+  <link href="https://2021.cyou/"/>
   <updated>2021-05-31T02:08:00.000Z</updated>
-  <id>https://www.fly97.cn/</id>
+  <id>https://2021.cyou/</id>
   
   <author>
-    <name>个人随想</name>
+    <name>fly97</name>
     
   </author>
   
@@ -18,8 +18,8 @@
   
   <entry>
     <title>使用cloudflare wrap为只有ipv4地址的服务器解锁ipv6</title>
-    <link href="https://www.fly97.cn/p/use-wrap-unlock-ipv6/"/>
-    <id>https://www.fly97.cn/p/use-wrap-unlock-ipv6/</id>
+    <link href="https://2021.cyou/p/use-wrap-unlock-ipv6/"/>
+    <id>https://2021.cyou/p/use-wrap-unlock-ipv6/</id>
     <published>2021-05-31T02:08:00.000Z</published>
     <updated>2021-05-31T02:08:00.000Z</updated>
     
@@ -32,16 +32,16 @@
     
     
     
-    <category term="cloudflare" scheme="https://www.fly97.cn/tags/cloudflare/"/>
+    <category term="cloudflare" scheme="https://2021.cyou/tags/cloudflare/"/>
     
-    <category term="wrap" scheme="https://www.fly97.cn/tags/wrap/"/>
+    <category term="wrap" scheme="https://2021.cyou/tags/wrap/"/>
     
   </entry>
   
   <entry>
     <title>screw_system项目文档</title>
-    <link href="https://www.fly97.cn/p/screw_system-project-documentation/"/>
-    <id>https://www.fly97.cn/p/screw_system-project-documentation/</id>
+    <link href="https://2021.cyou/p/screw_system-project-documentation/"/>
+    <id>https://2021.cyou/p/screw_system-project-documentation/</id>
     <published>2021-05-31T02:08:00.000Z</published>
     <updated>2021-05-31T02:08:00.000Z</updated>
     
@@ -53,16 +53,16 @@
     
     
     
-    <category term="Python" scheme="https://www.fly97.cn/tags/Python/"/>
+    <category term="Python" scheme="https://2021.cyou/tags/Python/"/>
     
-    <category term="screw" scheme="https://www.fly97.cn/tags/screw/"/>
+    <category term="screw" scheme="https://2021.cyou/tags/screw/"/>
     
   </entry>
   
   <entry>
     <title>Intel Realsense T265使用教程</title>
-    <link href="https://www.fly97.cn/p/Intel-Realsense-T265-in-ubuntu/"/>
-    <id>https://www.fly97.cn/p/Intel-Realsense-T265-in-ubuntu/</id>
+    <link href="https://2021.cyou/p/Intel-Realsense-T265-in-ubuntu/"/>
+    <id>https://2021.cyou/p/Intel-Realsense-T265-in-ubuntu/</id>
     <published>2021-05-08T06:31:00.000Z</published>
     <updated>2021-05-08T06:31:00.000Z</updated>
     
@@ -75,16 +75,16 @@
     
     
     
-    <category term="T265" scheme="https://www.fly97.cn/tags/T265/"/>
+    <category term="T265" scheme="https://2021.cyou/tags/T265/"/>
     
-    <category term="ROS" scheme="https://www.fly97.cn/tags/ROS/"/>
+    <category term="ROS" scheme="https://2021.cyou/tags/ROS/"/>
     
   </entry>
   
   <entry>
     <title>Jetson Xavier nx实现串口通信</title>
-    <link href="https://www.fly97.cn/p/serial-communication-on-jetson-xavier-nx/"/>
-    <id>https://www.fly97.cn/p/serial-communication-on-jetson-xavier-nx/</id>
+    <link href="https://2021.cyou/p/serial-communication-on-jetson-xavier-nx/"/>
+    <id>https://2021.cyou/p/serial-communication-on-jetson-xavier-nx/</id>
     <published>2021-05-07T06:09:00.000Z</published>
     <updated>2021-05-07T06:09:00.000Z</updated>
     
@@ -96,16 +96,16 @@
     
     
     
-    <category term="Jetson" scheme="https://www.fly97.cn/tags/Jetson/"/>
+    <category term="Jetson" scheme="https://2021.cyou/tags/Jetson/"/>
     
-    <category term="CUDA" scheme="https://www.fly97.cn/tags/CUDA/"/>
+    <category term="CUDA" scheme="https://2021.cyou/tags/CUDA/"/>
     
   </entry>
   
   <entry>
     <title>Python3中decode和encode的区别</title>
-    <link href="https://www.fly97.cn/p/how-to-use-requests-in-python/"/>
-    <id>https://www.fly97.cn/p/how-to-use-requests-in-python/</id>
+    <link href="https://2021.cyou/p/how-to-use-requests-in-python/"/>
+    <id>https://2021.cyou/p/how-to-use-requests-in-python/</id>
     <published>2021-05-07T02:00:00.000Z</published>
     <updated>2021-05-07T02:00:00.000Z</updated>
     
@@ -117,18 +117,18 @@
     
     
     
-    <category term="Python" scheme="https://www.fly97.cn/tags/Python/"/>
+    <category term="Python" scheme="https://2021.cyou/tags/Python/"/>
     
-    <category term="decode" scheme="https://www.fly97.cn/tags/decode/"/>
+    <category term="decode" scheme="https://2021.cyou/tags/decode/"/>
     
-    <category term="encode" scheme="https://www.fly97.cn/tags/encode/"/>
+    <category term="encode" scheme="https://2021.cyou/tags/encode/"/>
     
   </entry>
   
   <entry>
     <title>Python3中的正则表达式</title>
-    <link href="https://www.fly97.cn/p/how-to-use-re-in-python/"/>
-    <id>https://www.fly97.cn/p/how-to-use-re-in-python/</id>
+    <link href="https://2021.cyou/p/how-to-use-re-in-python/"/>
+    <id>https://2021.cyou/p/how-to-use-re-in-python/</id>
     <published>2021-05-07T02:00:00.000Z</published>
     <updated>2021-05-07T02:00:00.000Z</updated>
     
@@ -141,16 +141,16 @@
     
     
     
-    <category term="Python" scheme="https://www.fly97.cn/tags/Python/"/>
+    <category term="Python" scheme="https://2021.cyou/tags/Python/"/>
     
-    <category term="re" scheme="https://www.fly97.cn/tags/re/"/>
+    <category term="re" scheme="https://2021.cyou/tags/re/"/>
     
   </entry>
   
   <entry>
     <title>Python3 requests如何定制header</title>
-    <link href="https://www.fly97.cn/p/how-to-customize-headers-for-python-requests/"/>
-    <id>https://www.fly97.cn/p/how-to-customize-headers-for-python-requests/</id>
+    <link href="https://2021.cyou/p/how-to-customize-headers-for-python-requests/"/>
+    <id>https://2021.cyou/p/how-to-customize-headers-for-python-requests/</id>
     <published>2021-05-06T05:32:00.000Z</published>
     <updated>2021-05-06T05:32:00.000Z</updated>
     
@@ -162,16 +162,16 @@
     
     
     
-    <category term="Python" scheme="https://www.fly97.cn/tags/Python/"/>
+    <category term="Python" scheme="https://2021.cyou/tags/Python/"/>
     
-    <category term="requests" scheme="https://www.fly97.cn/tags/requests/"/>
+    <category term="requests" scheme="https://2021.cyou/tags/requests/"/>
     
   </entry>
   
   <entry>
     <title>Python装饰器abstractmethod</title>
-    <link href="https://www.fly97.cn/p/how-to-use-python-abstractmethod/"/>
-    <id>https://www.fly97.cn/p/how-to-use-python-abstractmethod/</id>
+    <link href="https://2021.cyou/p/how-to-use-python-abstractmethod/"/>
+    <id>https://2021.cyou/p/how-to-use-python-abstractmethod/</id>
     <published>2021-05-05T07:45:00.000Z</published>
     <updated>2021-05-05T07:45:00.000Z</updated>
     
@@ -183,16 +183,16 @@
     
     
     
-    <category term="Python" scheme="https://www.fly97.cn/tags/Python/"/>
+    <category term="Python" scheme="https://2021.cyou/tags/Python/"/>
     
-    <category term="abstractmethod" scheme="https://www.fly97.cn/tags/abstractmethod/"/>
+    <category term="abstractmethod" scheme="https://2021.cyou/tags/abstractmethod/"/>
     
   </entry>
   
   <entry>
     <title>理解Python</title>
-    <link href="https://www.fly97.cn/p/how-to-use-python-abstractmethod/"/>
-    <id>https://www.fly97.cn/p/how-to-use-python-abstractmethod/</id>
+    <link href="https://2021.cyou/p/how-to-use-python-abstractmethod/"/>
+    <id>https://2021.cyou/p/how-to-use-python-abstractmethod/</id>
     <published>2021-05-05T07:45:00.000Z</published>
     <updated>2021-05-05T07:45:00.000Z</updated>
     
@@ -204,16 +204,16 @@
     
     
     
-    <category term="Python" scheme="https://www.fly97.cn/tags/Python/"/>
+    <category term="Python" scheme="https://2021.cyou/tags/Python/"/>
     
-    <category term="abstractmethod" scheme="https://www.fly97.cn/tags/abstractmethod/"/>
+    <category term="abstractmethod" scheme="https://2021.cyou/tags/abstractmethod/"/>
     
   </entry>
   
   <entry>
     <title>Dedian10使用Rclone同步ondrive</title>
-    <link href="https://www.fly97.cn/p/rclone-on-debian/"/>
-    <id>https://www.fly97.cn/p/rclone-on-debian/</id>
+    <link href="https://2021.cyou/p/rclone-on-debian/"/>
+    <id>https://2021.cyou/p/rclone-on-debian/</id>
     <published>2021-05-05T05:48:00.000Z</published>
     <updated>2021-05-05T05:48:00.000Z</updated>
     
@@ -225,16 +225,16 @@
     
     
     
-    <category term="Debian" scheme="https://www.fly97.cn/tags/Debian/"/>
+    <category term="Debian" scheme="https://2021.cyou/tags/Debian/"/>
     
-    <category term="qbittorrent-nox" scheme="https://www.fly97.cn/tags/qbittorrent-nox/"/>
+    <category term="qbittorrent-nox" scheme="https://2021.cyou/tags/qbittorrent-nox/"/>
     
   </entry>
   
   <entry>
     <title>Dedian 10 使用qbittorrent-nox web</title>
-    <link href="https://www.fly97.cn/p/qbittorrent-nox-on-debian/"/>
-    <id>https://www.fly97.cn/p/qbittorrent-nox-on-debian/</id>
+    <link href="https://2021.cyou/p/qbittorrent-nox-on-debian/"/>
+    <id>https://2021.cyou/p/qbittorrent-nox-on-debian/</id>
     <published>2021-05-05T05:48:00.000Z</published>
     <updated>2021-05-05T05:48:00.000Z</updated>
     
@@ -246,16 +246,16 @@
     
     
     
-    <category term="Debian" scheme="https://www.fly97.cn/tags/Debian/"/>
+    <category term="Debian" scheme="https://2021.cyou/tags/Debian/"/>
     
-    <category term="qbittorrent-nox" scheme="https://www.fly97.cn/tags/qbittorrent-nox/"/>
+    <category term="qbittorrent-nox" scheme="https://2021.cyou/tags/qbittorrent-nox/"/>
     
   </entry>
   
   <entry>
     <title>零基础入门ROS(三)</title>
-    <link href="https://www.fly97.cn/p/ros-tutorial-03/"/>
-    <id>https://www.fly97.cn/p/ros-tutorial-03/</id>
+    <link href="https://2021.cyou/p/ros-tutorial-03/"/>
+    <id>https://2021.cyou/p/ros-tutorial-03/</id>
     <published>2021-04-26T11:48:00.000Z</published>
     <updated>2021-04-26T11:48:00.000Z</updated>
     
@@ -268,16 +268,16 @@
     
     
     
-    <category term="ROS" scheme="https://www.fly97.cn/tags/ROS/"/>
+    <category term="ROS" scheme="https://2021.cyou/tags/ROS/"/>
     
-    <category term="camera calibration" scheme="https://www.fly97.cn/tags/camera-calibration/"/>
+    <category term="camera calibration" scheme="https://2021.cyou/tags/camera-calibration/"/>
     
   </entry>
   
   <entry>
     <title>零基础入门ROS(二)</title>
-    <link href="https://www.fly97.cn/p/ros-tutorial-02/"/>
-    <id>https://www.fly97.cn/p/ros-tutorial-02/</id>
+    <link href="https://2021.cyou/p/ros-tutorial-02/"/>
+    <id>https://2021.cyou/p/ros-tutorial-02/</id>
     <published>2021-04-26T11:48:00.000Z</published>
     <updated>2021-04-26T11:48:00.000Z</updated>
     
@@ -289,14 +289,14 @@
     
     
     
-    <category term="ROS" scheme="https://www.fly97.cn/tags/ROS/"/>
+    <category term="ROS" scheme="https://2021.cyou/tags/ROS/"/>
     
   </entry>
   
   <entry>
     <title>零基础入门ROS(一)</title>
-    <link href="https://www.fly97.cn/p/ros-tutorial-01/"/>
-    <id>https://www.fly97.cn/p/ros-tutorial-01/</id>
+    <link href="https://2021.cyou/p/ros-tutorial-01/"/>
+    <id>https://2021.cyou/p/ros-tutorial-01/</id>
     <published>2021-04-25T11:29:00.000Z</published>
     <updated>2021-04-25T11:29:00.000Z</updated>
     
@@ -309,14 +309,14 @@
     
     
     
-    <category term="ROS" scheme="https://www.fly97.cn/tags/ROS/"/>
+    <category term="ROS" scheme="https://2021.cyou/tags/ROS/"/>
     
   </entry>
   
   <entry>
     <title>Python多线程的应用</title>
-    <link href="https://www.fly97.cn/p/how-to-use-python-multithreading/"/>
-    <id>https://www.fly97.cn/p/how-to-use-python-multithreading/</id>
+    <link href="https://2021.cyou/p/how-to-use-python-multithreading/"/>
+    <id>https://2021.cyou/p/how-to-use-python-multithreading/</id>
     <published>2021-04-02T10:45:00.000Z</published>
     <updated>2021-04-02T10:45:00.000Z</updated>
     
@@ -334,14 +334,14 @@
     
     
     
-    <category term="Python" scheme="https://www.fly97.cn/tags/Python/"/>
+    <category term="Python" scheme="https://2021.cyou/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>安装Chromium浏览器并解决缺少 Google API 密钥问题</title>
-    <link href="https://www.fly97.cn/p/how-to-install-Chromium-and-solve-the-problem/"/>
-    <id>https://www.fly97.cn/p/how-to-install-Chromium-and-solve-the-problem/</id>
+    <link href="https://2021.cyou/p/how-to-install-Chromium-and-solve-the-problem/"/>
+    <id>https://2021.cyou/p/how-to-install-Chromium-and-solve-the-problem/</id>
     <published>2021-02-09T10:49:00.000Z</published>
     <updated>2021-02-09T10:49:00.000Z</updated>
     
@@ -355,14 +355,14 @@
     
     
     
-    <category term="Chromium" scheme="https://www.fly97.cn/tags/Chromium/"/>
+    <category term="Chromium" scheme="https://2021.cyou/tags/Chromium/"/>
     
   </entry>
   
   <entry>
     <title>selenium常用方法</title>
-    <link href="https://www.fly97.cn/p/Selenium-positioning-method/"/>
-    <id>https://www.fly97.cn/p/Selenium-positioning-method/</id>
+    <link href="https://2021.cyou/p/Selenium-positioning-method/"/>
+    <id>https://2021.cyou/p/Selenium-positioning-method/</id>
     <published>2021-02-08T12:53:00.000Z</published>
     <updated>2021-02-08T12:53:00.000Z</updated>
     
@@ -375,16 +375,16 @@
     
     
     
-    <category term="Python" scheme="https://www.fly97.cn/tags/Python/"/>
+    <category term="Python" scheme="https://2021.cyou/tags/Python/"/>
     
-    <category term="Selenium" scheme="https://www.fly97.cn/tags/Selenium/"/>
+    <category term="Selenium" scheme="https://2021.cyou/tags/Selenium/"/>
     
   </entry>
   
   <entry>
     <title>crontab定时任务不执行</title>
-    <link href="https://www.fly97.cn/p/crontab-does-not-work/"/>
-    <id>https://www.fly97.cn/p/crontab-does-not-work/</id>
+    <link href="https://2021.cyou/p/crontab-does-not-work/"/>
+    <id>https://2021.cyou/p/crontab-does-not-work/</id>
     <published>2021-02-06T02:41:00.000Z</published>
     <updated>2021-02-06T02:41:00.000Z</updated>
     
@@ -397,14 +397,14 @@
     
     
     
-    <category term="crontab" scheme="https://www.fly97.cn/tags/crontab/"/>
+    <category term="crontab" scheme="https://2021.cyou/tags/crontab/"/>
     
   </entry>
   
   <entry>
     <title>PyQt5教程</title>
-    <link href="https://www.fly97.cn/p/PyQt5-Chinese-tutorial/"/>
-    <id>https://www.fly97.cn/p/PyQt5-Chinese-tutorial/</id>
+    <link href="https://2021.cyou/p/PyQt5-Chinese-tutorial/"/>
+    <id>https://2021.cyou/p/PyQt5-Chinese-tutorial/</id>
     <published>2021-02-02T06:31:00.000Z</published>
     <updated>2021-02-02T06:31:00.000Z</updated>
     
@@ -416,14 +416,14 @@
     
     
     
-    <category term="PyQt5" scheme="https://www.fly97.cn/tags/PyQt5/"/>
+    <category term="PyQt5" scheme="https://2021.cyou/tags/PyQt5/"/>
     
   </entry>
   
   <entry>
     <title>杭州旅游攻略</title>
-    <link href="https://www.fly97.cn/p/Travel-in-Hangzhou/"/>
-    <id>https://www.fly97.cn/p/Travel-in-Hangzhou/</id>
+    <link href="https://2021.cyou/p/Travel-in-Hangzhou/"/>
+    <id>https://2021.cyou/p/Travel-in-Hangzhou/</id>
     <published>2021-01-31T06:31:00.000Z</published>
     <updated>2021-01-31T06:31:00.000Z</updated>
     
@@ -435,9 +435,9 @@
     
     
     
-    <category term="Travel" scheme="https://www.fly97.cn/tags/Travel/"/>
+    <category term="Travel" scheme="https://2021.cyou/tags/Travel/"/>
     
-    <category term="Hangzhou" scheme="https://www.fly97.cn/tags/Hangzhou/"/>
+    <category term="Hangzhou" scheme="https://2021.cyou/tags/Hangzhou/"/>
     
   </entry>
   
